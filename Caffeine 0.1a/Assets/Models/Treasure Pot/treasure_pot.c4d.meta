@@ -1,0 +1,162 @@
+fileFormatVersion: 2
+guid: c8ce1f80bcccd431bbad6cc0752c379a
+timeCreated: 1440102293
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: ChestBase
+    100002: Cloner
+    100004: Disc
+    100006: Latch
+    100008: Latch_0
+    100010: Latch_1
+    100012: Latch_2
+    100014: Latch_3
+    100016: Latch_4
+    100018: Latch_5
+    100020: //RootNode
+    100022: Pot_Top
+    400000: ChestBase
+    400002: Cloner
+    400004: Disc
+    400006: Latch
+    400008: Latch_0
+    400010: Latch_1
+    400012: Latch_2
+    400014: Latch_3
+    400016: Latch_4
+    400018: Latch_5
+    400020: //RootNode
+    400022: Pot_Top
+    2300000: ChestBase
+    2300002: Disc
+    2300004: Latch_0
+    2300006: Latch_1
+    2300008: Latch_2
+    2300010: Latch_3
+    2300012: Latch_4
+    2300014: Latch_5
+    2300016: Pot_Top
+    3300000: ChestBase
+    3300002: Disc
+    3300004: Latch_0
+    3300006: Latch_1
+    3300008: Latch_2
+    3300010: Latch_3
+    3300012: Latch_4
+    3300014: Latch_5
+    3300016: Pot_Top
+    4300000: ChestBase
+    4300002: Latch_0
+    4300004: Latch_1
+    4300006: Latch_2
+    4300008: Latch_3
+    4300010: Latch_4
+    4300012: Latch_5
+    4300014: Disc
+    4300016: Pot_Top
+    7400000: C4D Animation Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: C4D Animation Take
+      takeName: C4D Animation Take
+      firstFrame: 0
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ChestBase
+        weight: 1
+      - path: Cloner
+        weight: 1
+      - path: Cloner/Latch_1
+        weight: 1
+      - path: Cloner/Latch_2
+        weight: 1
+      - path: Cloner/Latch_3
+        weight: 1
+      - path: Cloner/Latch_4
+        weight: 1
+      - path: Cloner/Latch_5
+        weight: 1
+      - path: Pot_Top
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 1
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
