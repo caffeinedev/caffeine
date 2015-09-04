@@ -49,6 +49,7 @@
      <Compile Include="Assets\BirdController.cs" />
      <Compile Include="Assets\Scripts\ActorMovement.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Trigger.cs" />
      <Compile Include="Assets\ShaderForge\Example Assets\Scripts\EditorLabel.cs" />
      <Compile Include="Assets\ShaderForge\Example Assets\Scripts\EnableCameraDepthInForward.cs" />

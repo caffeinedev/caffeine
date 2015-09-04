@@ -9,22 +9,9 @@ public class ActorMovement : MonoBehaviour
 	/**
 	 * Initialize the Actor
 	 */
-	void Init ()
+	void Awake ()
 	{
-
-		//add frictionless physics material
-		if(GetComponent<Collider>().material.name == "Default (Instance)")
-		{
-			PhysicMaterial pMat = new PhysicMaterial();
-			pMat.name = "Frictionless";
-			pMat.frictionCombine = PhysicMaterialCombine.Multiply;
-			pMat.bounceCombine = PhysicMaterialCombine.Multiply;
-			pMat.dynamicFriction = 0f;
-			pMat.staticFriction = 0f;
-			GetComponent<Collider>().material = pMat;
-			Debug.LogWarning("No physics material found for CharacterMotor, a frictionless one has been created and assigned", transform);
-		}
-
+		Debug.Log( "Initializing Actor Movement script" );
 	}
 
 	/**
@@ -33,13 +20,28 @@ public class ActorMovement : MonoBehaviour
 	public void RotateToVelocity (float turnSpeed)
 	{
 		Vector3 dir = new Vector3(GetComponent<Rigidbody>().velocity.x, 0f, GetComponent<Rigidbody>().velocity.z);
+
+		if (dir.magnitude > 0.1)
+		{
+			Quaternion dirQ = Quaternion.LookRotation(dir);
+			Quaternion slerp = Quaternion.Slerp(transform.rotation, dirQ, dir.magnitude * turnSpeed * Time.deltaTime);
+			GetComponent<Rigidbody>().MoveRotation(slerp);
+		}
 	}
+
 
 	/**
 	 * Rotate the actor to face a specific direction
 	 */
 	public void RotateToDirection(Vector3 lookDir, float turnSpeed)
-	{}
+	{
+		Vector3 characterPos = transform.position;
+
+		Vector3 newDir = lookDir - characterPos;
+		Quaternion dirQ = Quaternion.LookRotation(newDir);
+		Quaternion slerp = Quaternion.Slerp(transform.rotation, dirQ, turnSpeed * Time.deltaTime);
+		GetComponent<Rigidbody>().MoveRotation(slerp);
+	}
 
 	/**
 	 * Move the character to a specific location and return true when done.
