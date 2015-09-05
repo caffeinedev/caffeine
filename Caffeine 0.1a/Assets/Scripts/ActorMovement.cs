@@ -4,14 +4,33 @@ using UnityEngine;
 public class ActorMovement : MonoBehaviour
 {
 
-	public Vector3 current_speed;
+	public Vector3 currentSpeed;
+	public float DistanceToTarget;
+
+	private Rigidbody rigidBody;
 
 	/**
 	 * Initialize the Actor
 	 */
 	void Awake ()
 	{
-		Debug.Log( "Initializing Actor Movement script" );
+		rigidBody = GetComponent<Rigidbody>();
+
+		//set up rigidbody constraints
+		rigidBody.interpolation = RigidbodyInterpolation.Interpolate;
+		rigidBody.constraints = RigidbodyConstraints.FreezeRotation;
+		//add frictionless physics material
+		if(GetComponent<Collider>().material.name == "Default (Instance)")
+		{
+			PhysicMaterial pMat = new PhysicMaterial();
+			pMat.name = "Frictionless";
+			pMat.frictionCombine = PhysicMaterialCombine.Multiply;
+			pMat.bounceCombine = PhysicMaterialCombine.Multiply;
+			pMat.dynamicFriction = 0f;
+			pMat.staticFriction = 0f;
+			GetComponent<Collider>().material = pMat;
+			Debug.LogWarning("No physics material found for ActorMovement, a frictionless one has been created and assigned", transform);
+		}
 	}
 
 	/**
@@ -19,13 +38,13 @@ public class ActorMovement : MonoBehaviour
 	 */
 	public void RotateToVelocity (float turnSpeed)
 	{
-		Vector3 dir = new Vector3(GetComponent<Rigidbody>().velocity.x, 0f, GetComponent<Rigidbody>().velocity.z);
+		Vector3 dir = new Vector3(rigidBody.velocity.x, 0f, rigidBody.velocity.z);
 
 		if (dir.magnitude > 0.1)
 		{
 			Quaternion dirQ = Quaternion.LookRotation(dir);
 			Quaternion slerp = Quaternion.Slerp(transform.rotation, dirQ, dir.magnitude * turnSpeed * Time.deltaTime);
-			GetComponent<Rigidbody>().MoveRotation(slerp);
+			rigidBody.MoveRotation(slerp);
 		}
 	}
 
@@ -36,11 +55,13 @@ public class ActorMovement : MonoBehaviour
 	public void RotateToDirection(Vector3 lookDir, float turnSpeed)
 	{
 		Vector3 characterPos = transform.position;
+		characterPos.y = 0;
+		lookDir.y = 0;
 
 		Vector3 newDir = lookDir - characterPos;
 		Quaternion dirQ = Quaternion.LookRotation(newDir);
 		Quaternion slerp = Quaternion.Slerp(transform.rotation, dirQ, turnSpeed * Time.deltaTime);
-		GetComponent<Rigidbody>().MoveRotation(slerp);
+		rigidBody.MoveRotation(slerp);
 	}
 
 	/**
@@ -48,8 +69,30 @@ public class ActorMovement : MonoBehaviour
 	 */
 	public bool MoveTo(Vector3 destination, float acceleration, float stopDistance)
 	{
+		Vector3 relativePos = (destination - transform.position);
+		relativePos.y = 0;
 
-		return true;
+		DistanceToTarget = relativePos.magnitude;
+		if (DistanceToTarget <= stopDistance)
+			return true;
+		else
+			rigidBody.AddForce(relativePos.normalized * acceleration * Time.deltaTime, ForceMode.VelocityChange);
+		return false;
+	}
 
+	/**
+	 * Apply friction to rigidbody, and make sure it doesn't exceed its max speed
+	 */
+	public void ManageSpeed(float deceleration, float maxSpeed)
+	{	
+		currentSpeed = rigidBody.velocity;
+		currentSpeed.y = 0;
+		
+		if (currentSpeed.magnitude > 0)
+		{
+			rigidBody.AddForce ((currentSpeed * -1) * deceleration * Time.deltaTime, ForceMode.VelocityChange);
+			if (rigidBody.velocity.magnitude > maxSpeed)
+				rigidBody.AddForce ((currentSpeed * -1) * deceleration * Time.deltaTime, ForceMode.VelocityChange);
+		}
 	}
 }
