@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(ActorMovement))]
+[RequireComponent(typeof(ActorBody))]
 public class BirdController : MonoBehaviour {
 
 	// Setup
@@ -9,33 +9,46 @@ public class BirdController : MonoBehaviour {
 	public Transform mainCam;
 
 	// Movement
-	public float accel			= 70f;			//acceleration/deceleration in air or on the ground
+	public float accel			= 150f;						//acceleration/deceleration in air or on the ground
+	public float airAccel		= 20f;
 	public float decel			= 7.6f;
+	public float airDecel		= 1.5f;
 	[Range(0f, 5f)]
-	public float rotateSpeed	= 0.7f;			//how fast to rotate
-	public float maxSpeed		= 20;			//maximum speed of movement in X/Z axis
+	public float rotateSpeed = 3f, airRotateSpeed = 1.5f;	//how fast to rotate
+	public float maxSpeed		= 100f;						//maximum speed of movement in X/Z axis
+
+	// Jumping
+	public float jumpForce		= 70f;		// Jump force
+	public float jumpLeniancy	= 0.2f;						// How soon before landing you can press jump and still have it work
 
 	//Privates
-	private ActorMovement actorMovement;
+	private ActorBody actorBody;
 	private Rigidbody rigidBody;
 
+	private bool grounded;
+
 	private Quaternion screenSpace;
-	private Vector3 direction, moveDirection, screenSpaceForward, screenSpaceRight, movingObjSpeed;
+	private Vector3 direction, moveDirection, screenSpaceForward, screenSpaceRight;
+	private float groundedCount, curAccel, curDecel, curRotateSpeed;
+
 
 	/**
 	 * Initialize
 	 */
 	void Awake () {
 		// Assign references
-		anim			= GetComponent<Animator> ();
-		actorMovement	= GetComponent<ActorMovement> ();
-		mainCam			= GameObject.FindGameObjectWithTag("MainCamera").transform;
+		anim		= GetComponent<Animator> ();
+		actorBody	= GetComponent<ActorBody> ();
+		rigidBody	= GetComponent<Rigidbody> ();
+		mainCam		= GameObject.FindGameObjectWithTag("MainCamera").transform;
 	}
 
 	/**
 	 * Update player once per frame
 	 */
 	void Update () {
+		JumpCalculations ();
+
 		float h = Input.GetAxisRaw ("Horizontal");
 		float v = Input.GetAxisRaw ("Vertical");
 
@@ -50,10 +63,8 @@ public class BirdController : MonoBehaviour {
 		else
 			anim.SetBool ("running", true);
 
-		//OLD: transform.Translate(new Vector3(-xPos, 0, -yPos));
-
 		direction = (screenSpaceForward * v) + (screenSpaceRight * h);
-		moveDirection = transform.position + direction;
+		moveDirection = transform.position + (direction*2);
 	}
 
 	/**
@@ -61,11 +72,32 @@ public class BirdController : MonoBehaviour {
 	 */
 	void FixedUpdate ()
 	{
-		actorMovement.MoveTo (moveDirection, accel, 0.7f);
+		actorBody.MoveTo (moveDirection, accel, 0.1f);
 
 		if (rotateSpeed != 0 && direction.magnitude != 0)
-			actorMovement.RotateToDirection (moveDirection , rotateSpeed * 5);
+			actorBody.RotateToDirection (moveDirection , rotateSpeed);
 
-		actorMovement.ManageSpeed (decel, maxSpeed + movingObjSpeed.magnitude);
+		actorBody.ManageSpeed (decel, maxSpeed);
+	}
+
+
+	/**
+	 * Jump calculations
+	 */
+	private void JumpCalculations ()
+	{
+		// TODO: Floor checks, delay checks
+		if ( Input.GetButtonDown("Jump") ) 
+			Jump (jumpForce);
+	}
+
+
+	/**
+	 * JUMP, BIRDY
+	 */
+	public void Jump (float jumpVelocity)
+	{
+	//	Debug.Log ("I SHOULD JUMP NOW");
+		rigidBody.velocity = new Vector3 ( rigidBody.velocity.x, jumpVelocity, rigidBody.velocity.z);
 	}
 }
