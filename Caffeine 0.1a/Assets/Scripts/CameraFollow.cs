@@ -4,7 +4,7 @@ public class CameraFollow : MonoBehaviour
 {
 	public Transform target;									//object camera will focus on and follow
 	public Vector3 positionOffset	= new Vector3(0f, 10, -20);	//how far back should camera be from the lookTarget
-	public Vector3 lookOffset		= new Vector3(0f, 10, 0f);	//where the camera should look relative to the player
+	public Vector3 lookOffset		= new Vector3(0f, 7, 0f);	//where the camera should look relative to the player
 	public bool lockRotation;									//should the camera be fixed at the offset (for example: following behind the player)
 	public float followSpeed		= 6;						//how fast the camera moves to its intended position
 	public float rotateDamping		= 100;						//how fast camera rotates to look at target
@@ -16,8 +16,8 @@ public class CameraFollow : MonoBehaviour
 	 */
 	void Awake()
 	{
-		followTarget = new GameObject().transform;	//create empty gameObject as camera target, this will follow and rotate around the player
-		followTarget.name = "Camera Target";
+		followTarget		= new GameObject().transform; //create empty gameObject as camera target, this will follow and rotate around the player
+		followTarget.name	= "Camera Target";
 
 		if (!target)
 			Debug.LogError("'CameraFollow script' has no target assigned to it", transform);
@@ -39,8 +39,8 @@ public class CameraFollow : MonoBehaviour
 	 */
 	void SmoothLookAt()
 	{
-		Quaternion rotation = Quaternion.LookRotation ((target.position + lookOffset) - transform.position);
-		transform.rotation = Quaternion.Slerp (transform.rotation, rotation, rotateDamping * Time.deltaTime);
+		Quaternion rotation	= Quaternion.LookRotation ((target.position + lookOffset) - transform.position);
+		transform.rotation	= Quaternion.Slerp (transform.rotation, rotation, rotateDamping * Time.deltaTime);
 	}
 	
 	/**
@@ -51,10 +51,10 @@ public class CameraFollow : MonoBehaviour
 		//move the followTarget to correct pos each frame
 		followTarget.position = target.position;
 		followTarget.Translate (positionOffset, Space.Self);
-		if (lockRotation)
-			followTarget.rotation = target.rotation;
+
+		if (lockRotation) followTarget.rotation = target.rotation;
 
 		// Move to position
-		transform.position = Vector3.Lerp (transform.position, followTarget.position, followSpeed * Time.deltaTime);;
+		transform.position = Vector3.Lerp (transform.position, followTarget.position, followSpeed * Time.deltaTime);
 	}
 }
