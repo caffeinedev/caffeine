@@ -186,7 +186,6 @@ public class PlayerController : MonoBehaviour {
 	 */
 	public void Jump (float jumpVelocity)
 	{
-		//	Debug.Log ("I SHOULD JUMP NOW");
 		rigidBody.velocity = new Vector3 ( rigidBody.velocity.x, jumpVelocity, rigidBody.velocity.z);
 	}
 }

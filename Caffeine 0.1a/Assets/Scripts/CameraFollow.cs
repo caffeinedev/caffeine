@@ -5,6 +5,8 @@ public class CameraFollow : MonoBehaviour
 	public Transform target;									//object camera will focus on and follow
 	public Vector3 positionOffset	= new Vector3(0f, 10, -20);	//how far back should camera be from the lookTarget
 	public Vector3 lookOffset		= new Vector3(0f, 7, 0f);	//where the camera should look relative to the player
+	public float height = 10f, distance = 20f;
+	public float inputRotationSpeed	= 100f;
 	public bool lockRotation;									//should the camera be fixed at the offset (for example: following behind the player)
 	public float followSpeed		= 6;						//how fast the camera moves to its intended position
 	public float rotateDamping		= 100;						//how fast camera rotates to look at target
@@ -14,7 +16,7 @@ public class CameraFollow : MonoBehaviour
 	/**
 	 * Set up CameraFollow
 	 */
-	void Awake()
+	void Awake ()
 	{
 		followTarget		= new GameObject().transform; //create empty gameObject as camera target, this will follow and rotate around the player
 		followTarget.name	= "Camera Target";
@@ -26,10 +28,13 @@ public class CameraFollow : MonoBehaviour
 	/**
 	 * Once-per-frame update func
 	 */
-	void Update()
+	void Update ()
 	{
 		if (!target) return;
-		
+
+		float xAxis = Input.GetAxis ("Horizontal") * inputRotationSpeed * Time.deltaTime *10;
+		followTarget.RotateAround (target.position, Vector3.up, xAxis);
+
 		SmoothFollow ();
 		SmoothLookAt ();
 	}
@@ -37,7 +42,7 @@ public class CameraFollow : MonoBehaviour
 	/**
 	 * Rotate smoothly toward the target
 	 */
-	void SmoothLookAt()
+	void SmoothLookAt ()
 	{
 		Quaternion rotation	= Quaternion.LookRotation ((target.position + lookOffset) - transform.position);
 		transform.rotation	= Quaternion.Slerp (transform.rotation, rotation, rotateDamping * Time.deltaTime);
@@ -46,11 +51,13 @@ public class CameraFollow : MonoBehaviour
 	/**
 	 * Move camera smoothly toward its target
 	 */
-	void SmoothFollow()
+	void SmoothFollow ()
 	{
 		//move the followTarget to correct pos each frame
 		followTarget.position = target.position;
 		followTarget.Translate (positionOffset, Space.Self);
+
+	///	followTarget.position = target.position + (transform.forward * distance) + (target.up * height);
 
 		if (lockRotation) followTarget.rotation = target.rotation;
 

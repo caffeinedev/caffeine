@@ -149,7 +149,6 @@ public class BirdController : MonoBehaviour {
 			if ( Input.GetButtonDown("Jump") ) 
 			{
 				Jump (jumpForce);
-				Debug.Log("JUMP");
 			}
 		}
 	}
@@ -191,7 +190,6 @@ public class BirdController : MonoBehaviour {
 	 */
 	public void Jump (float jumpVelocity)
 	{
-		//	Debug.Log ("I SHOULD JUMP NOW");
 		rigidBody.velocity = new Vector3 ( rigidBody.velocity.x, jumpVelocity, rigidBody.velocity.z);
 	}
 }
