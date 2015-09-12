@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 [RequireComponent(typeof(ActorBody))]
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour {
 	
 	// Setup
@@ -9,7 +10,7 @@ public class PlayerController : MonoBehaviour {
 	public Transform cam, groundSensors;
 	
 	// Movement
-	public float accel = 150f, airAccel = 20f;				//acceleration/deceleration in air or on the ground
+	public float accel = 200f, airAccel =30f;				//acceleration/deceleration in air or on the ground
 	public float decel = 7.6f, airDecel = 1.5f;
 	[Range(0f, 5f)]
 	public float rotateSpeed = 3f, airRotateSpeed = 1.5f;	//how fast to rotate
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour {
 	//Privates
 	private ActorBody actorBody;
 	private Rigidbody rigidBody;
+	private Collider collider;
 
 	private bool grounded, onSlope;							// Is the Player grounded?
 	private float groundedTimer;
@@ -63,10 +65,14 @@ public class PlayerController : MonoBehaviour {
 		for (int i=0; i < groundSensors.childCount; i++)
 			sensors[i] = groundSensors.GetChild(i);
 		
+		// Bump up jumpforce
+		jumpForce *= 100;
+
 		// Assign references
 		anim		= GetComponent<Animator> ();
 		actorBody	= GetComponent<ActorBody> ();
 		rigidBody	= GetComponent<Rigidbody> ();
+		collider	= GetComponent<Collider> ();
 		cam			= GameObject.FindGameObjectWithTag("MainCamera").transform;
 	}
 	
@@ -139,13 +145,16 @@ public class PlayerController : MonoBehaviour {
 	 */
 	private void JumpCalculations ()
 	{
-		groundedTimer = (grounded) ? groundedTimer += Time.deltaTime : 0f;
-		
 		// If we're grounded and aren't sliding down a slope
-		if ( grounded && !onSlope )
+		if (grounded && !onSlope)
 		{
-			if ( Input.GetButtonDown("Jump") )
+			groundedTimer += Time.deltaTime;
+			if (Input.GetButtonDown ("Jump"))
 				Jump (jumpForce);
+		}
+		else 
+		{
+			groundedTimer = 0f;
 		}
 	}
 	
@@ -154,13 +163,13 @@ public class PlayerController : MonoBehaviour {
 	 */
 	private bool IsGrounded ()
 	{
-		float distance = GetComponent<Collider>().bounds.extents.y;
+		float distance = collider.bounds.extents.y;
 		
 		// Check if we're grounded
-		foreach (Transform groundSensor in sensors)
+		foreach (Transform sensor in sensors)
 		{
 			RaycastHit hit;
-			if ( Physics.Raycast(groundSensor.position, Vector3.down, out hit, distance + 0.05f) )
+			if ( Physics.Raycast(sensor.position, Vector3.down, out hit, distance + 0.001f) )
 			{
 				if (!hit.transform.GetComponent<Collider> ().isTrigger)
 				{
@@ -186,6 +195,6 @@ public class PlayerController : MonoBehaviour {
 	 */
 	public void Jump (float jumpVelocity)
 	{
-		rigidBody.velocity = new Vector3 ( rigidBody.velocity.x, jumpVelocity, rigidBody.velocity.z);
+		rigidBody.AddRelativeForce (transform.up * jumpVelocity, ForceMode.Impulse);
 	}
 }

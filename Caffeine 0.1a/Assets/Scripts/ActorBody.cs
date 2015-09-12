@@ -29,7 +29,7 @@ public class ActorBody : MonoBehaviour
 			pMat.bounceCombine					= PhysicMaterialCombine.Multiply;
 			pMat.dynamicFriction				= 0f;
 			pMat.staticFriction					= 0f;
-			GetComponent<Collider>().material	= pMat;
+			GetComponent<Collider> ().material	= pMat;
 			Debug.LogWarning("No physics material found for ActorBody, a frictionless one has been created and assigned", transform);
 		}
 	}
@@ -94,9 +94,12 @@ public class ActorBody : MonoBehaviour
 		
 		if (currentSpeed.magnitude > 0)
 		{
-			rigidBody.AddForce ((currentSpeed * -1) * deceleration * Time.deltaTime, ForceMode.VelocityChange);
+			currentSpeed = (currentSpeed * -1) * deceleration * Time.deltaTime;
+
+			rigidBody.AddForce (currentSpeed, ForceMode.VelocityChange);
+
 			if (rigidBody.velocity.magnitude > maxSpeed)
-				rigidBody.AddForce ((currentSpeed * -1) * deceleration * Time.deltaTime, ForceMode.VelocityChange);
+				rigidBody.AddForce (currentSpeed, ForceMode.VelocityChange);
 		}
 	}
 }
