@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
 	public Transform cam, groundSensors;
 	
 	// Movement
-	public float accel = 200f, airAccel =30f;				//acceleration/deceleration in air or on the ground
+	public float accel = 200f, airAccel = 30f;				//acceleration/deceleration in air or on the ground
 	public float decel = 7.6f, airDecel = 1.5f;
 	[Range(0f, 5f)]
 	public float rotateSpeed = 3f, airRotateSpeed = 1.5f;	//how fast to rotate
@@ -99,14 +99,13 @@ public class PlayerController : MonoBehaviour {
 			curRotateSpeed	= rotateSpeed;
 			
 			// animation
-			if (h == 0 && v == 0)
-				anim.SetBool ("running", false);
-			else
-				anim.SetBool ("running", true);
+			anim.SetBool ("running", !(h == 0f && v == 0f));
 		} else {
 			curAccel		= airAccel;
 			curDecel		= airDecel;
 			curRotateSpeed	= airRotateSpeed;
+
+			anim.SetBool ("running", false);
 		}
 		
 		direction = (screenSpaceForward * v) + (screenSpaceRight * h);
