@@ -1,8 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(ActorBody))]
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent (typeof (ActorBody))]
+[RequireComponent (typeof (Rigidbody))]
 public class PlayerController : MonoBehaviour {
 	
 	// Setup
@@ -50,20 +50,20 @@ public class PlayerController : MonoBehaviour {
 		// Create GroundSensors
 		if (!groundSensors)
 		{
-			groundSensors					= new GameObject().transform;
+			groundSensors					= new GameObject ().transform;
 			groundSensors.name				= "GroundSensors";
 			groundSensors.parent			= transform;
 			groundSensors.position			= transform.position;
-			GameObject groundSensor			= new GameObject();
+			GameObject groundSensor			= new GameObject ();
 			groundSensor.name				= "Sensor1";
 			groundSensor.transform.parent	= groundSensors;
 			groundSensor.transform.position	= transform.position;
-			Debug.Log("Created ground sensors", groundSensors);
+			Debug.Log ("Created ground sensors", groundSensors);
 		}
 		// Use these to raycast
 		sensors = new Transform[groundSensors.childCount];
 		for (int i=0; i < groundSensors.childCount; i++)
-			sensors[i] = groundSensors.GetChild(i);
+			sensors[i] = groundSensors.GetChild (i);
 		
 		// Bump up jumpforce
 		jumpForce *= 100;
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour {
 		actorBody	= GetComponent<ActorBody> ();
 		rigidBody	= GetComponent<Rigidbody> ();
 		collider	= GetComponent<Collider> ();
-		cam			= GameObject.FindGameObjectWithTag("MainCamera").transform;
+		cam			= GameObject.FindGameObjectWithTag ("MainCamera").transform;
 	}
 	
 	/**
@@ -168,16 +168,16 @@ public class PlayerController : MonoBehaviour {
 		foreach (Transform sensor in sensors)
 		{
 			RaycastHit hit;
-			if ( Physics.Raycast(sensor.position, Vector3.down, out hit, distance + 0.001f) )
+			if ( Physics.Raycast (sensor.position, Vector3.down, out hit, distance + 0.001f) )
 			{
 				if (!hit.transform.GetComponent<Collider> ().isTrigger)
 				{
-					slope = Vector3.Angle(hit.normal, Vector3.up);
-					onSlope = (slope > slopeLimit) ? true : false;
+					slope	= Vector3.Angle (hit.normal, Vector3.up);
+					onSlope	= (slope > slopeLimit) ? true : false;
 					// Slide down slopes
 					if (onSlope)
 					{
-						Vector3 slide = new Vector3(0f, -slideAmount, 0f);
+						Vector3 slide = new Vector3 (0f, -slideAmount, 0f);
 						rigidBody.AddForce (slide, ForceMode.Force);
 					}
 					

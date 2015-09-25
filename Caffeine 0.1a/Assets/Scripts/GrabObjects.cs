@@ -5,13 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerController))]
 public class GrabObjects : MonoBehaviour
 {
-	public Animator animator;
-	public int armsAnimLayer;
-
 	public GameObject grabBox;						// Player can pick up objects inside this trigger Box
-	public float gap					= 0.5f;		// How high above the player to hold objects
+	public float gap					= 1.75f;	// How high above the player to hold objects
 	public float rotateToObjectSpeed	= 3f;		// How fast to rotate to the grabbable object
-	public float checkRadius			= 0.5f;		// How much space is needed above a players head to pick up
+	public float checkRadius			= 2f;		// How much space is needed above a players head to pick up
 	[Range(0.1f, 1f)]
 	public float weightChange			= 0.3f;		// Percentage weight of the carried object
 
@@ -35,12 +32,12 @@ public class GrabObjects : MonoBehaviour
 	{
 		if (!grabBox)
 		{
-			grabBox = new GameObject ();
-			grabBox.name = "GrabSensor";
+			grabBox										= new GameObject ();
+			grabBox.name								= "GrabSensor";
 			grabBox.AddComponent<BoxCollider> ();
 			grabBox.GetComponent<Collider> ().isTrigger	= true;
 			grabBox.transform.parent					= transform;
-			grabBox.transform.localPosition				= new Vector3(0f,0f,2f);
+			grabBox.transform.localPosition				= new Vector3 (0f, 0f, 1.5f);
 			grabBox.layer								= 2; // Ignore raycasts
 			Debug.Log ("Created 'grabBox' for grab sensing");
 		}
@@ -49,10 +46,6 @@ public class GrabObjects : MonoBehaviour
 		actorBody			= GetComponent<ActorBody> ();
 		rigidBody			= GetComponent<Rigidbody> ();
 		defRotateSpeed		= playerController.rotateSpeed;
-
-		// Set arms animation layer to full override
-		if (animator)
-			animator.SetLayerWeight(armsAnimLayer, 1);
 	}
 
 	/**
@@ -61,34 +54,35 @@ public class GrabObjects : MonoBehaviour
 	void Update()
 	{
 		// Drop the object we're holding if we're holding one
-		if (Input.GetButtonDown("Grab") && heldObj && Time.time > pickupTime + 0.1f) 
+		if (Input.GetButtonDown ("Grab") && heldObj && Time.time > pickupTime + 0.1f) 
 		{
 			if (heldObj.tag == "Pickup")
 				DropPickup();
 		}
-
+		/*
 		if (animator && heldObj)
 		{
 			animator.SetBool("HoldingPickup", (heldObj.tag == "Pickup"));
 			animator.SetBool("HoldingPushable", (heldObj.tag == "Pushable"));
 		}
-
+		*/
 		if (heldObj && heldObj.tag == "Pushable")
 		{
-			actorBody.RotateToDirection(heldObj.transform.position, rotateToObjectSpeed);
+			actorBody.RotateToDirection (heldObj.transform.position, rotateToObjectSpeed);
 			if (Input.GetButtonUp ("Grab")) DropPushable ();
 		}
+
 	}
 
 	/**
-	 * Pick up or grab object
+	 * Pick up or grab object on player's input
 	 */
 	void OnTriggerStay (Collider other)
 	{
 		// If grab is pressed when an object is in the grabbox
-		if (Input.GetButton ("Grab"))
+		if (Input.GetButton ("Grab") && (dropTime + 0.2f < Time.time))
 		{
-			Debug.Log("I should pick up the cube now.");
+		//	Debug.Log ("I should pick up the cube now.");
 
 			// Pick it up
 			if (other.tag == "Pickup" && heldObj == null)
@@ -123,7 +117,7 @@ public class GrabObjects : MonoBehaviour
 		holdPos.y		+= (GetComponent<Collider> ().bounds.extents.y) + (otherMesh.bounds.extents.y) + gap;
 
 		// Pick up obj if there's space above the head
-		if (!Physics.CheckSphere(holdPos, checkRadius, 2))
+		if (!Physics.CheckSphere (holdPos, checkRadius, 2))
 		{
 			heldObj												= other.gameObject;
 			objectDefInterpolation								= heldObj.GetComponent<Rigidbody> ().interpolation; // Store the picked up object's interpolation
@@ -147,11 +141,12 @@ public class GrabObjects : MonoBehaviour
 	 */
 	private void DropPushable ()
 	{
-		heldObj.GetComponent<Rigidbody> ().interpolation = objectDefInterpolation;
+		heldObj.GetComponent<Rigidbody> ().interpolation	= objectDefInterpolation;
 		Destroy (joint);
-		playerController.rotateSpeed = defRotateSpeed;
-		heldObj = null;
-		dropTime = Time.time;
+
+		playerController.rotateSpeed	= defRotateSpeed;
+		heldObj							= null;
+		dropTime						= Time.time;
 	}
 
 	/**
@@ -160,11 +155,13 @@ public class GrabObjects : MonoBehaviour
 	public void DropPickup ()
 	{
 		Destroy (joint);
-		Rigidbody rb = heldObj.GetComponent<Rigidbody> ();
+
+		Rigidbody rb		= heldObj.GetComponent<Rigidbody> ();
 		rb.interpolation	= objectDefInterpolation;
-		rb.mass	/= weightChange;
-		heldObj = null;
-		dropTime = Time.time;
+		rb.mass				/= weightChange;
+
+		heldObj				= null;
+		dropTime			= Time.time;
 	}
 
 	/**
@@ -174,8 +171,9 @@ public class GrabObjects : MonoBehaviour
 	{
 		if (heldObj)
 		{
-			joint = heldObj.AddComponent<FixedJoint> ();
-			joint.connectedBody = rigidBody;
+			joint				= heldObj.AddComponent<FixedJoint> ();
+			joint.connectedBody	= rigidBody;
+			Debug.Log ("Joint Added to Grabbed Object", joint);
 		}
 	}
 }

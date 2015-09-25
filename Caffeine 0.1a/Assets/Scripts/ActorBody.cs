@@ -14,16 +14,16 @@ public class ActorBody : MonoBehaviour
 	 */
 	void Awake ()
 	{
-		rigidBody = GetComponent<Rigidbody>();
+		rigidBody = GetComponent<Rigidbody> ();
 
 		//set up rigidbody constraints
-		rigidBody.interpolation = RigidbodyInterpolation.Interpolate;
-		rigidBody.constraints = RigidbodyConstraints.FreezeRotation;
+		rigidBody.interpolation	= RigidbodyInterpolation.Interpolate;
+		rigidBody.constraints	= RigidbodyConstraints.FreezeRotation;
 
 		//add frictionless physics material
-		if(GetComponent<Collider>().material.name == "Default (Instance)")
+		if(GetComponent<Collider> ().material.name == "Default (Instance)")
 		{
-			PhysicMaterial pMat					= new PhysicMaterial();
+			PhysicMaterial pMat					= new PhysicMaterial ();
 			pMat.name							= "Frictionless";
 			pMat.frictionCombine				= PhysicMaterialCombine.Multiply;
 			pMat.bounceCombine					= PhysicMaterialCombine.Multiply;
@@ -38,7 +38,7 @@ public class ActorBody : MonoBehaviour
 	/**
 	 * Move the character to a specific location and return true when done.
 	 */
-	public bool MoveTo(Vector3 destination, float acceleration, float stopDistance)
+	public bool MoveTo (Vector3 destination, float acceleration, float stopDistance)
 	{
 		Vector3 relativePos = (destination - transform.position);
 	//	relativePos.y = 0;
@@ -47,7 +47,7 @@ public class ActorBody : MonoBehaviour
 		if (DistanceToTarget <= stopDistance)
 			return true;
 		else
-			rigidBody.AddForce(relativePos.normalized * acceleration * Time.deltaTime, ForceMode.VelocityChange);
+			rigidBody.AddForce (relativePos.normalized * acceleration * Time.deltaTime, ForceMode.VelocityChange);
 		return false;
 	}
 
@@ -57,13 +57,13 @@ public class ActorBody : MonoBehaviour
 	 */
 	public void RotateToVelocity (float turnSpeed)
 	{
-		Vector3 dir = new Vector3(rigidBody.velocity.x, 0f, rigidBody.velocity.z);
+		Vector3 dir = new Vector3 (rigidBody.velocity.x, 0f, rigidBody.velocity.z);
 
 		if (dir.magnitude > 0.1)
 		{
-			Quaternion dirQ = Quaternion.LookRotation(dir);
-			Quaternion slerp = Quaternion.Slerp(transform.rotation, dirQ, dir.magnitude * turnSpeed * Time.deltaTime);
-			rigidBody.MoveRotation(slerp);
+			Quaternion dirQ		= Quaternion.LookRotation (dir);
+			Quaternion slerp	= Quaternion.Slerp (transform.rotation, dirQ, dir.magnitude * turnSpeed * Time.deltaTime);
+			rigidBody.MoveRotation (slerp);
 		}
 	}
 
@@ -71,26 +71,26 @@ public class ActorBody : MonoBehaviour
 	/**
 	 * Rotate the actor to face a specific direction
 	 */
-	public void RotateToDirection(Vector3 lookDir, float turnSpeed)
+	public void RotateToDirection (Vector3 lookDir, float turnSpeed)
 	{
-		Vector3 characterPos = transform.position;
-		characterPos.y = 0;
-		lookDir.y = 0;
+		Vector3 characterPos	= transform.position;
+		characterPos.y			= 0;
+		lookDir.y				= 0;
 
-		Vector3 newDir = lookDir - characterPos;
-		Quaternion dirQ = Quaternion.LookRotation(newDir);
-		Quaternion slerp = Quaternion.Slerp(transform.rotation, dirQ, turnSpeed * Time.deltaTime);
-		rigidBody.MoveRotation(slerp);
+		Vector3 newDir			= lookDir - characterPos;
+		Quaternion dirQ			= Quaternion.LookRotation (newDir);
+		Quaternion slerp		= Quaternion.Slerp (transform.rotation, dirQ, turnSpeed * Time.deltaTime);
+		rigidBody.MoveRotation (slerp);
 	}
 
 
 	/**
 	 * Apply friction to rigidbody, and make sure it doesn't exceed its max speed
 	 */
-	public void ManageSpeed(float deceleration, float maxSpeed)
+	public void ManageSpeed (float deceleration, float maxSpeed)
 	{	
-		currentSpeed = rigidBody.velocity;
-		currentSpeed.y = 0;
+		currentSpeed	= rigidBody.velocity;
+		currentSpeed.y	= 0;
 		
 		if (currentSpeed.magnitude > 0)
 		{
