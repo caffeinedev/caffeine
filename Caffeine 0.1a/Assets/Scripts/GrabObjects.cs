@@ -6,7 +6,7 @@ using UnityEngine;
 public class GrabObjects : MonoBehaviour
 {
 	public GameObject grabBox;						// Player can pick up objects inside this trigger Box
-	public float gap					= 1.75f;	// How high above the player to hold objects
+	public float gap					= 2.25f;	// How high above the player to hold objects
 	public float rotateToObjectSpeed	= 3f;		// How fast to rotate to the grabbable object
 	public float checkRadius			= 2f;		// How much space is needed above a players head to pick up
 	[Range(0.1f, 1f)]
@@ -34,7 +34,7 @@ public class GrabObjects : MonoBehaviour
 		{
 			grabBox										= new GameObject ();
 			grabBox.name								= "GrabSensor";
-			grabBox.AddComponent<BoxCollider> ();
+			grabBox.AddComponent<SphereCollider> ();
 			grabBox.GetComponent<Collider> ().isTrigger	= true;
 			grabBox.transform.parent					= transform;
 			grabBox.transform.localPosition				= new Vector3 (0f, 0f, 1.5f);
@@ -82,8 +82,6 @@ public class GrabObjects : MonoBehaviour
 		// If grab is pressed when an object is in the grabbox
 		if (Input.GetButton ("Grab") && (dropTime + 0.2f < Time.time))
 		{
-		//	Debug.Log ("I should pick up the cube now.");
-
 			// Pick it up
 			if (other.tag == "Pickup" && heldObj == null)
 				LiftPickup (other);
@@ -99,9 +97,12 @@ public class GrabObjects : MonoBehaviour
 	 */
 	private void GrabPushable (Collider other)
 	{
-		heldObj												= other.gameObject;
-		objectDefInterpolation								= heldObj.GetComponent<Rigidbody> ().interpolation; // Store the picked up object's interpolation
-		heldObj.GetComponent<Rigidbody> ().interpolation	= RigidbodyInterpolation.Interpolate;
+		heldObj					= other.gameObject;
+		Rigidbody rb			= heldObj.GetComponent<Rigidbody> ();
+
+		objectDefInterpolation	= rb.interpolation; // Store the picked up object's interpolation
+		rb.interpolation		= RigidbodyInterpolation.Interpolate;
+
 		AddJoint ();
 		// Stop player facing movement dir so that they face the grabbed obj
 		playerController.rotateSpeed = 0;
@@ -119,15 +120,19 @@ public class GrabObjects : MonoBehaviour
 		// Pick up obj if there's space above the head
 		if (!Physics.CheckSphere (holdPos, checkRadius, 2))
 		{
-			heldObj												= other.gameObject;
-			objectDefInterpolation								= heldObj.GetComponent<Rigidbody> ().interpolation; // Store the picked up object's interpolation
-			heldObj.GetComponent<Rigidbody> ().interpolation	= RigidbodyInterpolation.Interpolate;
-			heldObj.transform.position							= holdPos;
-			heldObj.transform.rotation							= transform.rotation;
+			heldObj						= other.gameObject;
+			Rigidbody rb				= heldObj.GetComponent<Rigidbody> ();
+
+			objectDefInterpolation		= rb.interpolation; // Store the picked up object's interpolation
+			rb.interpolation			= RigidbodyInterpolation.Interpolate;
+
+			heldObj.transform.position	= holdPos;
+			heldObj.transform.rotation	= transform.rotation;
+
 			AddJoint ();
 
 			// Adjust object mass
-			heldObj.GetComponent<Rigidbody> ().mass *= weightChange;
+			rb.mass *= weightChange;
 			pickupTime = Time.time;
 		}
 		else
@@ -141,7 +146,7 @@ public class GrabObjects : MonoBehaviour
 	 */
 	private void DropPushable ()
 	{
-		heldObj.GetComponent<Rigidbody> ().interpolation	= objectDefInterpolation;
+		heldObj.GetComponent<Rigidbody> ().interpolation = objectDefInterpolation;
 		Destroy (joint);
 
 		playerController.rotateSpeed	= defRotateSpeed;

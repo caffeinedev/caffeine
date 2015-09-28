@@ -174,6 +174,7 @@ public class PlayerController : MonoBehaviour {
 				{
 					slope	= Vector3.Angle (hit.normal, Vector3.up);
 					onSlope	= (slope > slopeLimit) ? true : false;
+
 					// Slide down slopes
 					if (onSlope)
 					{

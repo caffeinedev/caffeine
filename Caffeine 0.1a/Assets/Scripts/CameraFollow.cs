@@ -10,8 +10,10 @@ public class CameraFollow : MonoBehaviour
 	public bool lockRotation;									//should the camera be fixed at the offset (for example: following behind the player)
 	public float followSpeed		= 6;						//how fast the camera moves to its intended position
 	public float rotateDamping		= 100;						//how fast camera rotates to look at target
+	public string[] avoidObstructionTags;
 
 	private Transform followTarget;
+	private bool camIsObstructed;
 
 	/**
 	 * Set up CameraFollow
@@ -47,7 +49,7 @@ public class CameraFollow : MonoBehaviour
 		Quaternion rotation	= Quaternion.LookRotation ((target.position + lookOffset) - transform.position);
 		transform.rotation	= Quaternion.Slerp (transform.rotation, rotation, rotateDamping * Time.deltaTime);
 	}
-	
+
 	/**
 	 * Move camera smoothly toward its target
 	 */
@@ -61,7 +63,18 @@ public class CameraFollow : MonoBehaviour
 
 		if (lockRotation) followTarget.rotation = target.rotation;
 
+		transform.position	= Vector3.Lerp (transform.position, followTarget.position, followSpeed * Time.deltaTime);
+		Vector3 direction	= transform.position - target.position;
+
+		RaycastHit hit;
+		if (Physics.Raycast (target.position, direction, out hit, direction.magnitude + 0.3f))
+		{
+			foreach (string tag in avoidObstructionTags)
+				if (hit.transform.tag == tag)
+					transform.position = hit.point - direction.normalized * 0.3f;
+		}
+
 		// Move to position
-		transform.position = Vector3.Lerp (transform.position, followTarget.position, followSpeed * Time.deltaTime);
+	///	transform.position = Vector3.Lerp (transform.position, followTarget.position, followSpeed * Time.deltaTime);
 	}
 }
