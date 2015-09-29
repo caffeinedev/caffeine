@@ -32,13 +32,13 @@ public class GrabObjects : MonoBehaviour
 	{
 		if (!grabBox)
 		{
-			grabBox										= new GameObject ();
-			grabBox.name								= "GrabSensor";
-			grabBox.AddComponent<SphereCollider> ();
-			grabBox.GetComponent<Collider> ().isTrigger	= true;
-			grabBox.transform.parent					= transform;
-			grabBox.transform.localPosition				= new Vector3 (0f, 0f, 1.5f);
-			grabBox.layer								= 2; // Ignore raycasts
+			grabBox								= new GameObject ();
+			grabBox.name						= "GrabSensor";
+			Collider collider					= grabBox.AddComponent<SphereCollider> ();
+			collider.isTrigger					= true;
+			grabBox.transform.parent			= transform;
+			grabBox.transform.localPosition		= new Vector3 (0f, 0f, 1.5f);
+			grabBox.layer						= 2; // Ignore raycasts
 			Debug.Log ("Created 'grabBox' for grab sensing");
 		}
 

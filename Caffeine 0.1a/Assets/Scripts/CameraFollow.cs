@@ -23,6 +23,8 @@ public class CameraFollow : MonoBehaviour
 		followTarget		= new GameObject().transform; //create empty gameObject as camera target, this will follow and rotate around the player
 		followTarget.name	= "Camera Target";
 
+		inputRotationSpeed *= 10;
+
 		if (!target)
 			Debug.LogError("'CameraFollow script' has no target assigned to it", transform);
 	}
@@ -34,7 +36,7 @@ public class CameraFollow : MonoBehaviour
 	{
 		if (!target) return;
 
-		float xAxis = Input.GetAxis ("Horizontal") * inputRotationSpeed * Time.deltaTime *10;
+		float xAxis = (Input.GetAxis ("Horizontal") + Input.GetAxis ("AltHorizontal")) * inputRotationSpeed * Time.deltaTime;
 		followTarget.RotateAround (target.position, Vector3.up, xAxis);
 
 		SmoothFollow ();

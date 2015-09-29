@@ -59,6 +59,14 @@
      <Compile Include="Assets\Editor\ImageEffects\SunShaftsEditor.cs" />
      <Compile Include="Assets\Editor\ImageEffects\TonemappingEditor.cs" />
      <Compile Include="Assets\Editor\ImageEffects\VignetteAndChromaticAberrationEditor.cs" />
+     <Compile Include="Assets\InventoryMaster\Editor\CraftSystemEditor.cs" />
+     <Compile Include="Assets\InventoryMaster\Editor\EquipmentSystemEditor.cs" />
+     <Compile Include="Assets\InventoryMaster\Editor\HotbarEditor.cs" />
+     <Compile Include="Assets\InventoryMaster\Editor\IM_Manager.cs" />
+     <Compile Include="Assets\InventoryMaster\Editor\InventoryDesignEditor.cs" />
+     <Compile Include="Assets\InventoryMaster\Editor\InventoryEditor.cs" />
+     <Compile Include="Assets\InventoryMaster\Editor\StorageInventoryEditor.cs" />
+     <Compile Include="Assets\InventoryMaster\Editor\TooltipEditor.cs" />
      <None Include="Assets\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
@@ -135,6 +143,7 @@
      <None Include="Assets\ImageEffects\Shaders\Contrast Stretch\Adaptation.shader" />
      <None Include="Assets\ImageEffects\Shaders\NoiseAndGrain.shader" />
      <None Include="Assets\ImageEffects\Shaders\VignettingShader.shader" />
+     <None Include="Assets\InventoryMaster\readme.txt" />
      <None Include="Assets\ImageEffects\Shaders\Tonemapper.shader" />
      <None Include="Assets\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter.shader" />
      <None Include="Assets\ImageEffects\Shaders\_Antialiasing\FXAA2.shader" />

@@ -33,8 +33,8 @@ public class ActorBody : MonoBehaviour
 			Debug.LogWarning("No physics material found for ActorBody, a frictionless one has been created and assigned", transform);
 		}
 	}
-	
-	
+
+
 	/**
 	 * Move the character to a specific location and return true when done.
 	 */
@@ -42,7 +42,7 @@ public class ActorBody : MonoBehaviour
 	{
 		Vector3 relativePos = (destination - transform.position);
 	//	relativePos.y = 0;
-		
+
 		DistanceToTarget = relativePos.magnitude;
 		if (DistanceToTarget <= stopDistance)
 			return true;
@@ -88,10 +88,10 @@ public class ActorBody : MonoBehaviour
 	 * Apply friction to rigidbody, and make sure it doesn't exceed its max speed
 	 */
 	public void ManageSpeed (float deceleration, float maxSpeed)
-	{	
+	{
 		currentSpeed	= rigidBody.velocity;
 		currentSpeed.y	= 0;
-		
+
 		if (currentSpeed.magnitude > 0)
 		{
 			currentSpeed = (currentSpeed * -1) * deceleration * Time.deltaTime;
