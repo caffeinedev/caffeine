@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour {
 			curDecel		= airDecel;
 			curRotateSpeed	= airRotateSpeed;
 
-			anim.SetBool ("running", false);
+			//anim.SetBool ("running", false);
 		}
 		
 		direction = (screenSpaceForward * v) + (screenSpaceRight * h);
