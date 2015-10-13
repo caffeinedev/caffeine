@@ -132,6 +132,7 @@
      <Compile Include="Assets\Scripts\Trigger.cs" />
      <Compile Include="Assets\ShaderForge\Example Assets\Scripts\EditorLabel.cs" />
      <Compile Include="Assets\ShaderForge\Example Assets\Scripts\EnableCameraDepthInForward.cs" />
+     <Compile Include="Assets\TemporaryAnimationHandler.cs" />
      <None Include="Assets\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />

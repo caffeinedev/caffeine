@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
 	// Movement
 	public float accel = 200f, airAccel = 30f;				//acceleration/deceleration in air or on the ground
 	public float decel = 7.6f, airDecel = 1.5f;
-	[Range(0f, 5f)]
+	[Range(0f, 30f)]
 	public float rotateSpeed = 3f, airRotateSpeed = 1.5f;	//how fast to rotate
 	public float maxSpeed		= 100f;						//maximum speed of movement in X/Z axis
 	public float slopeLimit = 40, slideAmount = 35;			//maximum angle of slopes you can walk on, how fast to slide down slopes you can't
