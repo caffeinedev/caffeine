@@ -1,9 +1,10 @@
 fileFormatVersion: 2
 guid: 620c811aa3a114d7d89d0cc32f955dea
-timeCreated: 1444676368
+timeCreated: 1444697551
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: namebox_fancy_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -43,12 +44,22 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 150
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: namebox_fancy_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 50, y: 50, z: 50, w: 50}
   spritePackingTag: 
   userData: 
   assetBundleName: 

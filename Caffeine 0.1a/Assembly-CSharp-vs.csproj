@@ -143,6 +143,7 @@
      <None Include="Assets\ImageEffects\Shaders\ColorCorrectionCurves.shader" />
      <None Include="Assets\ImageEffects\Shaders\ScreenSpaceAmbientObscurance.shader" />
      <None Include="Assets\ImageEffects\Shaders\_Antialiasing\NFAA.shader" />
+     <None Include="Assets\Shaders\Lighting(FresnelAlpha).shader" />
      <None Include="Assets\Shaders\shader_unlit_tex_shadowed.shader" />
      <None Include="Assets\ImageEffects\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
      <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetCustomLighting.shader" />
@@ -221,6 +222,7 @@
      <None Include="Assets\ImageEffects\Shaders\PrepareSunShaftsBlur.shader" />
      <None Include="Assets\ImageEffects\Shaders\_BloomAndFlares\Blend.shader" />
      <None Include="Assets\ImageEffects\Shaders\BlendModesOverlay.shader" />
+     <None Include="Assets\Shaders\default_sparkly.shader" />
      <None Include="Assets\Shaders\shader_milkGloss.shader" />
      <None Include="Assets\ImageEffects\Shaders\SimpleClear.shader" />
      <None Include="Assets\ImageEffects\Shaders\_Antialiasing\FXAA3Console.shader" />
