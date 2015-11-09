@@ -71,6 +71,7 @@
      <None Include="Assets\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
      <None Include="Assets\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
+     <None Include="Assets\Shaders\NormalFloor_NoTex.shader" />
      <None Include="Assets\ImageEffects\Shaders\ShowAlphaChannel.shader" />
      <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetParticleMultiplicative.shader" />
      <None Include="Assets\ImageEffects\Shaders\SunShaftsComposite.shader" />
@@ -87,6 +88,7 @@
      <None Include="Assets\ImageEffects\Shaders\MotionBlur.shader" />
      <None Include="Assets\ImageEffects\Shaders\_BloomAndFlares\MobileBloom.shader" />
      <None Include="Assets\ShaderForge\Readme.txt" />
+     <None Include="Assets\Shaders\default_sparkly_culled.shader" />
      <None Include="Assets\ImageEffects\Shaders\Contrast Stretch\MinMaxReduction.shader" />
      <None Include="Assets\ImageEffects\Shaders\_Antialiasing\SSAA.shader" />
      <None Include="Assets\ImageEffects\Shaders\RadialBlur.shader" />
@@ -115,6 +117,7 @@
      <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetPBR.shader" />
      <None Include="Assets\ShaderForge\Example Assets\Shaders\LightWrapping.shader" />
      <None Include="Assets\ImageEffects\Shaders\CreaseApply.shader" />
+     <None Include="Assets\Shaders\Liquid.shader" />
      <None Include="Assets\ImageEffects\Shaders\ChromaticAberrationShader.shader" />
      <None Include="Assets\ImageEffects\Shaders\GlobalFog.shader" />
      <None Include="Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
@@ -129,6 +132,7 @@
      <None Include="Assets\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
      <None Include="Assets\ImageEffects\Shaders\CameraMotionBlur.shader" />
      <None Include="Assets\ImageEffects\Shaders\_Antialiasing\DLAA.shader" />
+     <None Include="Assets\Shaders\sparkly_normals.shader" />
      <None Include="Assets\ShaderForge\Example Assets\Shaders\TessellationDisplacement.shader" />
      <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetBasic.shader" />
      <None Include="Assets\ImageEffects\Shaders\NoiseAndGrainDX11.shader" />
@@ -158,6 +162,7 @@
      <None Include="Assets\ImageEffects\Shaders\BlendModesOverlay.shader" />
      <None Include="Assets\Shaders\default_sparkly.shader" />
      <None Include="Assets\Shaders\shader_milkGloss.shader" />
+     <None Include="Assets\Shaders\default_particle.shader" />
      <None Include="Assets\ImageEffects\Shaders\SimpleClear.shader" />
      <None Include="Assets\ImageEffects\Shaders\_Antialiasing\FXAA3Console.shader" />
      <None Include="Assets\Shaders\shader_unlit_shadowed.shader" />
@@ -181,7 +186,7 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="ShaderForge">
- <HintPath>/Volumes/Vault/Users/michaelshillingburg/Dropbox/Design/GitHub/caffeine/Caffeine 0.1a/Assets/ShaderForge/Editor/ShaderForge.dll</HintPath>
+ <HintPath>/Volumes/Vault/Users/michaelshillingburg/Dropbox (Personal)/Design/GitHub/caffeine/Caffeine 0.1a/Assets/ShaderForge/Editor/ShaderForge.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>

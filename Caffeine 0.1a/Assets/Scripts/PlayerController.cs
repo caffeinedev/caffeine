@@ -19,14 +19,14 @@ public class PlayerController : MonoBehaviour {
 	
 	// Jumping
 	public float jumpForce		= 70f;						// Jump force
-	public float jumpLeniancy	= 0.2f;						// How soon before landing you can press jump and still have it work
+	public float jumpLeniancy	= 0.05f;						// How soon before landing you can press jump and still have it work
 	
 	//Privates
 	private ActorBody actorBody;
 	private Rigidbody rigidBody;
 	private Collider collider;
 
-	private bool grounded, onSlope;							// Is the Player grounded?
+	public bool grounded, onSlope;							// Is the Player grounded?
 	private float groundedTimer;
 	private Transform[] sensors;
 	
@@ -162,7 +162,7 @@ public class PlayerController : MonoBehaviour {
 	 */
 	private bool IsGrounded ()
 	{
-		float distance = collider.bounds.extents.y;
+		float distance = collider.bounds.extents.y * jumpLeniancy;
 		
 		// Check if we're grounded
 		foreach (Transform sensor in sensors)

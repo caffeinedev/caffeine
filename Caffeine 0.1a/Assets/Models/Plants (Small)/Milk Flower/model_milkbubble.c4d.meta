@@ -201,7 +201,9 @@ ModelImporter:
     4300034: Polygon_10
     4300036: Polygon_12
     4300038: Polygon_14
-    7400000: C4D Animation Take
+    7400000: Pop
+    7400002: Close
+    7400004: Closed
     9500000: //RootNode
     13700000: Polygon_10
     13700002: Polygon_12
@@ -218,6 +220,10 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
@@ -226,16 +232,364 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: C4D Animation Take
+      name: Pop
       takeName: C4D Animation Take
       firstFrame: 0
-      lastFrame: 90
+      lastFrame: 34
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cloner
+        weight: 1
+      - path: Cloner/Null_0
+        weight: 1
+      - path: Cloner/Null_0/Polygon_3_3
+        weight: 1
+      - path: Cloner/Null_0/Polygon_3_3/Polygon_4_3
+        weight: 1
+      - path: Cloner/Null_0/Polygon_3_3/Polygon_4_3/Skin
+        weight: 1
+      - path: Cloner/Null_0/Root
+        weight: 1
+      - path: Cloner/Null_0/Root/Joint
+        weight: 1
+      - path: Cloner/Null_0/Root/Joint/Joint_1
+        weight: 1
+      - path: Cloner/Null_0/Root/Joint/Joint_1/Joint_2
+        weight: 1
+      - path: Cloner/Null_0/Root/Joint/Joint_1/Joint_2/Joint_3
+        weight: 1
+      - path: Cloner/Null_1
+        weight: 1
+      - path: Cloner/Null_1/Polygon_5_3
+        weight: 1
+      - path: Cloner/Null_1/Polygon_5_3/Polygon_6
+        weight: 1
+      - path: Cloner/Null_1/Polygon_5_3/Polygon_6/Skin_2
+        weight: 1
+      - path: Cloner/Null_1/Root_2
+        weight: 1
+      - path: Cloner/Null_1/Root_2/Joint_2_2
+        weight: 1
+      - path: Cloner/Null_1/Root_2/Joint_2_2/Joint_1_2
+        weight: 1
+      - path: Cloner/Null_1/Root_2/Joint_2_2/Joint_1_2/Joint_2_3
+        weight: 1
+      - path: Cloner/Null_1/Root_2/Joint_2_2/Joint_1_2/Joint_2_3/Joint_3_2
+        weight: 1
+      - path: Cloner/Null_2
+        weight: 1
+      - path: Cloner/Null_2/Polygon_7
+        weight: 1
+      - path: Cloner/Null_2/Polygon_7/Polygon_8
+        weight: 1
+      - path: Cloner/Null_2/Polygon_7/Polygon_8/Skin_3
+        weight: 1
+      - path: Cloner/Null_2/Root_3
+        weight: 1
+      - path: Cloner/Null_2/Root_3/Joint_3_3
+        weight: 1
+      - path: Cloner/Null_2/Root_3/Joint_3_3/Joint_1_3
+        weight: 1
+      - path: Cloner/Null_2/Root_3/Joint_3_3/Joint_1_3/Joint_2_4
+        weight: 1
+      - path: Cloner/Null_2/Root_3/Joint_3_3/Joint_1_3/Joint_2_4/Joint_3_4
+        weight: 1
+      - path: Cloner/Null_3
+        weight: 1
+      - path: Cloner/Null_3/Polygon_9
+        weight: 1
+      - path: Cloner/Null_3/Polygon_9/Polygon_10
+        weight: 1
+      - path: Cloner/Null_3/Polygon_9/Polygon_10/Skin_4
+        weight: 1
+      - path: Cloner/Null_3/Root_4
+        weight: 1
+      - path: Cloner/Null_3/Root_4/Joint_4
+        weight: 1
+      - path: Cloner/Null_3/Root_4/Joint_4/Joint_1_4
+        weight: 1
+      - path: Cloner/Null_3/Root_4/Joint_4/Joint_1_4/Joint_2_5
+        weight: 1
+      - path: Cloner/Null_3/Root_4/Joint_4/Joint_1_4/Joint_2_5/Joint_3_5
+        weight: 1
+      - path: Cloner/Null_4
+        weight: 1
+      - path: Cloner/Null_4/Polygon_11
+        weight: 1
+      - path: Cloner/Null_4/Polygon_11/Polygon_12
+        weight: 1
+      - path: Cloner/Null_4/Polygon_11/Polygon_12/Skin_5
+        weight: 1
+      - path: Cloner/Null_4/Root_5
+        weight: 1
+      - path: Cloner/Null_4/Root_5/Joint_5
+        weight: 1
+      - path: Cloner/Null_4/Root_5/Joint_5/Joint_1_5
+        weight: 1
+      - path: Cloner/Null_4/Root_5/Joint_5/Joint_1_5/Joint_2_6
+        weight: 1
+      - path: Cloner/Null_4/Root_5/Joint_5/Joint_1_5/Joint_2_6/Joint_3_6
+        weight: 1
+      - path: Cloner/Null_5
+        weight: 1
+      - path: Cloner/Null_5/Polygon_13
+        weight: 1
+      - path: Cloner/Null_5/Polygon_13/Polygon_14
+        weight: 1
+      - path: Cloner/Null_5/Polygon_13/Polygon_14/Skin_6
+        weight: 1
+      - path: Cloner/Null_5/Root_6
+        weight: 1
+      - path: Cloner/Null_5/Root_6/Joint_6
+        weight: 1
+      - path: Cloner/Null_5/Root_6/Joint_6/Joint_1_6
+        weight: 1
+      - path: Cloner/Null_5/Root_6/Joint_6/Joint_1_6/Joint_2_7
+        weight: 1
+      - path: Cloner/Null_5/Root_6/Joint_6/Joint_1_6/Joint_2_7/Joint_3_7
+        weight: 1
+      - path: Cloner_1
+        weight: 1
+      - path: Cloner_1/Polygon_0_2
+        weight: 1
+      - path: Cloner_1/Polygon_1_2
+        weight: 1
+      - path: Cloner_1/Polygon_2_2
+        weight: 1
+      - path: Cloner_1/Polygon_2_3
+        weight: 1
+      - path: Cloner_1/Polygon_3_2
+        weight: 1
+      - path: Cloner_1/Polygon_4_2
+        weight: 1
+      - path: Cloner_1/Polygon_5_2
+        weight: 1
+      - path: Cloner_2
+        weight: 1
+      - path: Cloner_2/Polygon
+        weight: 1
+      - path: Cloner_2/Polygon_0
+        weight: 1
+      - path: Cloner_2/Polygon_1
+        weight: 1
+      - path: Cloner_2/Polygon_2
+        weight: 1
+      - path: Cloner_2/Polygon_3
+        weight: 1
+      - path: Cloner_2/Polygon_4
+        weight: 1
+      - path: Cloner_2/Polygon_5
+        weight: 1
+      - path: Disc
+        weight: 1
+      - path: Sphere
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Close
+      takeName: C4D Animation Take
+      firstFrame: 34
+      lastFrame: 73
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cloner
+        weight: 1
+      - path: Cloner/Null_0
+        weight: 1
+      - path: Cloner/Null_0/Polygon_3_3
+        weight: 1
+      - path: Cloner/Null_0/Polygon_3_3/Polygon_4_3
+        weight: 1
+      - path: Cloner/Null_0/Polygon_3_3/Polygon_4_3/Skin
+        weight: 1
+      - path: Cloner/Null_0/Root
+        weight: 1
+      - path: Cloner/Null_0/Root/Joint
+        weight: 1
+      - path: Cloner/Null_0/Root/Joint/Joint_1
+        weight: 1
+      - path: Cloner/Null_0/Root/Joint/Joint_1/Joint_2
+        weight: 1
+      - path: Cloner/Null_0/Root/Joint/Joint_1/Joint_2/Joint_3
+        weight: 1
+      - path: Cloner/Null_1
+        weight: 1
+      - path: Cloner/Null_1/Polygon_5_3
+        weight: 1
+      - path: Cloner/Null_1/Polygon_5_3/Polygon_6
+        weight: 1
+      - path: Cloner/Null_1/Polygon_5_3/Polygon_6/Skin_2
+        weight: 1
+      - path: Cloner/Null_1/Root_2
+        weight: 1
+      - path: Cloner/Null_1/Root_2/Joint_2_2
+        weight: 1
+      - path: Cloner/Null_1/Root_2/Joint_2_2/Joint_1_2
+        weight: 1
+      - path: Cloner/Null_1/Root_2/Joint_2_2/Joint_1_2/Joint_2_3
+        weight: 1
+      - path: Cloner/Null_1/Root_2/Joint_2_2/Joint_1_2/Joint_2_3/Joint_3_2
+        weight: 1
+      - path: Cloner/Null_2
+        weight: 1
+      - path: Cloner/Null_2/Polygon_7
+        weight: 1
+      - path: Cloner/Null_2/Polygon_7/Polygon_8
+        weight: 1
+      - path: Cloner/Null_2/Polygon_7/Polygon_8/Skin_3
+        weight: 1
+      - path: Cloner/Null_2/Root_3
+        weight: 1
+      - path: Cloner/Null_2/Root_3/Joint_3_3
+        weight: 1
+      - path: Cloner/Null_2/Root_3/Joint_3_3/Joint_1_3
+        weight: 1
+      - path: Cloner/Null_2/Root_3/Joint_3_3/Joint_1_3/Joint_2_4
+        weight: 1
+      - path: Cloner/Null_2/Root_3/Joint_3_3/Joint_1_3/Joint_2_4/Joint_3_4
+        weight: 1
+      - path: Cloner/Null_3
+        weight: 1
+      - path: Cloner/Null_3/Polygon_9
+        weight: 1
+      - path: Cloner/Null_3/Polygon_9/Polygon_10
+        weight: 1
+      - path: Cloner/Null_3/Polygon_9/Polygon_10/Skin_4
+        weight: 1
+      - path: Cloner/Null_3/Root_4
+        weight: 1
+      - path: Cloner/Null_3/Root_4/Joint_4
+        weight: 1
+      - path: Cloner/Null_3/Root_4/Joint_4/Joint_1_4
+        weight: 1
+      - path: Cloner/Null_3/Root_4/Joint_4/Joint_1_4/Joint_2_5
+        weight: 1
+      - path: Cloner/Null_3/Root_4/Joint_4/Joint_1_4/Joint_2_5/Joint_3_5
+        weight: 1
+      - path: Cloner/Null_4
+        weight: 1
+      - path: Cloner/Null_4/Polygon_11
+        weight: 1
+      - path: Cloner/Null_4/Polygon_11/Polygon_12
+        weight: 1
+      - path: Cloner/Null_4/Polygon_11/Polygon_12/Skin_5
+        weight: 1
+      - path: Cloner/Null_4/Root_5
+        weight: 1
+      - path: Cloner/Null_4/Root_5/Joint_5
+        weight: 1
+      - path: Cloner/Null_4/Root_5/Joint_5/Joint_1_5
+        weight: 1
+      - path: Cloner/Null_4/Root_5/Joint_5/Joint_1_5/Joint_2_6
+        weight: 1
+      - path: Cloner/Null_4/Root_5/Joint_5/Joint_1_5/Joint_2_6/Joint_3_6
+        weight: 1
+      - path: Cloner/Null_5
+        weight: 1
+      - path: Cloner/Null_5/Polygon_13
+        weight: 1
+      - path: Cloner/Null_5/Polygon_13/Polygon_14
+        weight: 1
+      - path: Cloner/Null_5/Polygon_13/Polygon_14/Skin_6
+        weight: 1
+      - path: Cloner/Null_5/Root_6
+        weight: 1
+      - path: Cloner/Null_5/Root_6/Joint_6
+        weight: 1
+      - path: Cloner/Null_5/Root_6/Joint_6/Joint_1_6
+        weight: 1
+      - path: Cloner/Null_5/Root_6/Joint_6/Joint_1_6/Joint_2_7
+        weight: 1
+      - path: Cloner/Null_5/Root_6/Joint_6/Joint_1_6/Joint_2_7/Joint_3_7
+        weight: 1
+      - path: Cloner_1
+        weight: 1
+      - path: Cloner_1/Polygon_0_2
+        weight: 1
+      - path: Cloner_1/Polygon_1_2
+        weight: 1
+      - path: Cloner_1/Polygon_2_2
+        weight: 1
+      - path: Cloner_1/Polygon_2_3
+        weight: 1
+      - path: Cloner_1/Polygon_3_2
+        weight: 1
+      - path: Cloner_1/Polygon_4_2
+        weight: 1
+      - path: Cloner_1/Polygon_5_2
+        weight: 1
+      - path: Cloner_2
+        weight: 1
+      - path: Cloner_2/Polygon
+        weight: 1
+      - path: Cloner_2/Polygon_0
+        weight: 1
+      - path: Cloner_2/Polygon_1
+        weight: 1
+      - path: Cloner_2/Polygon_2
+        weight: 1
+      - path: Cloner_2/Polygon_3
+        weight: 1
+      - path: Cloner_2/Polygon_4
+        weight: 1
+      - path: Cloner_2/Polygon_5
+        weight: 1
+      - path: Disc
+        weight: 1
+      - path: Sphere
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Closed
+      takeName: C4D Animation Take
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

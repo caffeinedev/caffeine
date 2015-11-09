@@ -1,0 +1,190 @@
+fileFormatVersion: 2
+guid: 167770051212a49caaa14a863ca435b1
+timeCreated: 1447038442
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Cube
+    100004: Cube_1
+    100006: Cube_2
+    100008: Cube_2_2
+    100010: Null
+    100012: Polygon
+    100014: Polygon_1
+    400000: //RootNode
+    400002: Cube
+    400004: Cube_1
+    400006: Cube_2
+    400008: Cube_2_2
+    400010: Null
+    400012: Polygon
+    400014: Polygon_1
+    2300000: Cube
+    2300002: Cube_1
+    2300004: Cube_2
+    2300006: Cube_2_2
+    2300008: Polygon
+    2300010: Polygon_1
+    3300000: Cube
+    3300002: Cube_1
+    3300004: Cube_2
+    3300006: Cube_2_2
+    3300008: Polygon
+    3300010: Polygon_1
+    4300000: Cube_1
+    4300002: Cube
+    4300004: Cube_2
+    4300006: Polygon
+    4300008: Polygon_1
+    4300010: Cube_2_2
+    7400000: Open
+    7400002: Closed
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Open
+      takeName: C4D Animation Take
+      firstFrame: 0
+      lastFrame: 57
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cube_2_2
+        weight: 1
+      - path: Null
+        weight: 1
+      - path: Null/Cube
+        weight: 1
+      - path: Null/Cube_1
+        weight: 1
+      - path: Null/Cube_2
+        weight: 1
+      - path: Polygon
+        weight: 1
+      - path: Polygon/Polygon_1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Closed
+      takeName: C4D Animation Take
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cube_2_2
+        weight: 1
+      - path: Null
+        weight: 1
+      - path: Null/Cube
+        weight: 1
+      - path: Null/Cube_1
+        weight: 1
+      - path: Null/Cube_2
+        weight: 1
+      - path: Polygon
+        weight: 1
+      - path: Polygon/Polygon_1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .0140000004
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

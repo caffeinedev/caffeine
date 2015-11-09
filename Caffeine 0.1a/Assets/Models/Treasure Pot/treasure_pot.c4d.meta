@@ -56,7 +56,9 @@ ModelImporter:
     4300012: Latch_5
     4300014: Disc
     4300016: Pot_Top
-    7400000: C4D Animation Take
+    7400000: Open
+    7400002: Closed
+    7400004: Opened
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -67,6 +69,10 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
@@ -75,16 +81,104 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: C4D Animation Take
+      name: Open
       takeName: C4D Animation Take
       firstFrame: 0
-      lastFrame: 90
+      lastFrame: 58
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ChestBase
+        weight: 1
+      - path: Cloner
+        weight: 1
+      - path: Cloner/Latch_1
+        weight: 1
+      - path: Cloner/Latch_2
+        weight: 1
+      - path: Cloner/Latch_3
+        weight: 1
+      - path: Cloner/Latch_4
+        weight: 1
+      - path: Cloner/Latch_5
+        weight: 1
+      - path: Pot_Top
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Closed
+      takeName: C4D Animation Take
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ChestBase
+        weight: 1
+      - path: Cloner
+        weight: 1
+      - path: Cloner/Latch_1
+        weight: 1
+      - path: Cloner/Latch_2
+        weight: 1
+      - path: Cloner/Latch_3
+        weight: 1
+      - path: Cloner/Latch_4
+        weight: 1
+      - path: Cloner/Latch_5
+        weight: 1
+      - path: Pot_Top
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Opened
+      takeName: C4D Animation Take
+      firstFrame: 90
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

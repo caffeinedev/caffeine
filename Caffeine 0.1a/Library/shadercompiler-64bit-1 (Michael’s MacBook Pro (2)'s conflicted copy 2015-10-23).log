@@ -1,0 +1,32 @@
+Base path: /Applications/Unity/Unity.app/Contents
+Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-1952788480
+Cmd: getPlatforms
+Cmd: preprocess
+  insize=9883 outsize=4578 ok=1
+Cmd: preprocess
+  insize=9883 outsize=4578 ok=1
+Cmd: preprocess
+  insize=9890 outsize=4585 ok=1
+Cmd: preprocess
+  insize=9394 outsize=4541 ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=3020 outsize=2461 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=3020 outsize=6 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=2505 outsize=1563 kw=POINT SHADOWS_OFF ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=2505 outsize=6 kw=POINT SHADOWS_OFF ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=2505 outsize=1417 kw=DIRECTIONAL SHADOWS_OFF ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=2505 outsize=6 kw=DIRECTIONAL SHADOWS_OFF ok=1
+Cmd: preprocess
+  insize=9404 outsize=4551 ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=3020 outsize=2946 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=3020 outsize=6 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
+End of pipe
+
+Quitting shader compiler process

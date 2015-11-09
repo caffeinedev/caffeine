@@ -9,19 +9,24 @@ ModelImporter:
     100002: Loft_NURBS
     100004: Loft_NURBS_1
     100006: //RootNode
+    100008: Polygon
     400000: Capsule
     400002: Loft_NURBS
     400004: Loft_NURBS_1
     400006: //RootNode
+    400008: Polygon
     2300000: Capsule
     2300002: Loft_NURBS
     2300004: Loft_NURBS_1
+    2300006: Polygon
     3300000: Capsule
     3300002: Loft_NURBS
     3300004: Loft_NURBS_1
+    3300006: Polygon
     4300000: Capsule
     4300002: Loft_NURBS_1
     4300004: Loft_NURBS
+    4300006: Polygon
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -32,6 +37,10 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
