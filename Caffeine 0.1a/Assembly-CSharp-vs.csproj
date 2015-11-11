@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\BirdController.cs" />
-     <Compile Include="Assets\ChestHandler.cs" />
      <Compile Include="Assets\ImageEffects\Scripts\Antialiasing.cs" />
      <Compile Include="Assets\ImageEffects\Scripts\Bloom.cs" />
      <Compile Include="Assets\ImageEffects\Scripts\BloomAndFlares.cs" />
@@ -129,6 +128,8 @@
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\DialogueSystem.cs" />
      <Compile Include="Assets\Scripts\GrabObjects.cs" />
+     <Compile Include="Assets\Scripts\Interactive\ChestHandler.cs" />
+     <Compile Include="Assets\Scripts\Interactive\SteamBlossom.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Recipe.cs" />
      <Compile Include="Assets\Scripts\Trigger.cs" />

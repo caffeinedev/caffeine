@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour {
 	private Quaternion screenSpace;
 	private Vector3 direction, moveDirection, screenSpaceForward, screenSpaceRight;
 	private float curAccel, curDecel, curRotateSpeed;
+
+	private Vector3 lastGrounded;							// for easy reset when you do something stupid.
 	
 	
 	/**
@@ -90,6 +92,10 @@ public class PlayerController : MonoBehaviour {
 		screenSpace			= Quaternion.Euler (0, cam.eulerAngles.y, 0);
 		screenSpaceForward	= screenSpace * Vector3.forward;
 		screenSpaceRight	= screenSpace * Vector3.right;
+
+		if(Input.GetKeyDown(KeyCode.R)) {
+			transform.position = lastGrounded;
+		}
 		
 		// Air or grounded?
 		if (grounded)
@@ -181,7 +187,7 @@ public class PlayerController : MonoBehaviour {
 						Vector3 slide = new Vector3 (0f, -slideAmount, 0f);
 						rigidBody.AddForce (slide, ForceMode.Force);
 					}
-					
+					lastGrounded = transform.position;
 					// We are indeed grounded.
 					return true;
 				}
