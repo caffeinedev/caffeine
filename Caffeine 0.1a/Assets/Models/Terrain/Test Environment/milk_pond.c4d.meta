@@ -10,11 +10,13 @@ ModelImporter:
     100004: Loft_NURBS_1
     100006: //RootNode
     100008: Polygon
+    100010: Camera
     400000: Capsule
     400002: Loft_NURBS
     400004: Loft_NURBS_1
     400006: //RootNode
     400008: Polygon
+    400010: Camera
     2300000: Capsule
     2300002: Loft_NURBS
     2300004: Loft_NURBS_1

@@ -12,7 +12,7 @@ public class ChestHandler : MonoBehaviour {
 	}
 
 	void Update () {
-		if(Input.GetKeyDown (KeyCode.X) && canOpen) {
+		if(Input.GetButtonDown ("Interact") && canOpen) {
 			anim.SetTrigger("open");
 		}
 	}
