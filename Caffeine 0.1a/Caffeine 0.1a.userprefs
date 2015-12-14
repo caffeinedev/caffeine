@@ -1,13 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Interactive/SteamBlossom.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/InterfaceController.cs">
     <Files>
-      <File FileName="Assets/Scripts/Interactive/SteamBlossom.cs" Line="19" Column="38" />
-      <File FileName="Assets/TemporaryAnimationHandler.cs" Line="26" Column="37" />
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/DialogueSystem.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CameraFollow.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Interactive/ChestHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets/InterfaceController.cs" Line="31" Column="17" />
+      <File FileName="Assets/Scripts/DialogueSystem.cs" Line="141" Column="43" />
+      <File FileName="Assets/Dialogue_NPC.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

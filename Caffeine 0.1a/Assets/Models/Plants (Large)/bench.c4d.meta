@@ -1,0 +1,221 @@
+fileFormatVersion: 2
+guid: 4e7a327bded824bfea062d7e336dde42
+timeCreated: 1450040218
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Bend
+    100004: Bend_2
+    100006: Bend_3
+    100008: Bend_4
+    100010: Bend_5
+    100012: Bend_6
+    100014: Bend_7
+    100016: Bend_8
+    100018: Bend_9
+    100020: Crystal
+    100022: Crystal_1
+    100024: Crystal_2
+    100026: Crystal_3
+    100028: Crystal_4
+    100030: Crystal_5
+    100032: Extrude_NURBS_1
+    100034: Loft_NURBS
+    100036: Loft_NURBS_1
+    100038: Loft_NURBS_1_2
+    100040: Loft_NURBS_1_3
+    100042: Loft_NURBS_1_4
+    100044: Loft_NURBS_2
+    100046: Loft_NURBS_2_2
+    100048: Loft_NURBS_2_3
+    100050: Loft_NURBS_3
+    100052: Loft_NURBS_3_2
+    100054: Loft_NURBS_3_3
+    100056: Loft_NURBS_4
+    100058: Loft_NURBS_4_2
+    100060: Loft_NURBS_4_3
+    100062: Loft_NURBS_5
+    100064: Loft_NURBS_5_2
+    100066: Loft_NURBS_5_3
+    100068: Loft_NURBS_6
+    100070: Loft_NURBS_6_2
+    100072: Polygon
+    100074: Polygon_1
+    100076: Polygon_2
+    100078: Polygon_3
+    100080: Polygon_4
+    100082: Polygon_7
+    400000: //RootNode
+    400002: Bend
+    400004: Bend_2
+    400006: Bend_3
+    400008: Bend_4
+    400010: Bend_5
+    400012: Bend_6
+    400014: Bend_7
+    400016: Bend_8
+    400018: Bend_9
+    400020: Crystal
+    400022: Crystal_1
+    400024: Crystal_2
+    400026: Crystal_3
+    400028: Crystal_4
+    400030: Crystal_5
+    400032: Extrude_NURBS_1
+    400034: Loft_NURBS
+    400036: Loft_NURBS_1
+    400038: Loft_NURBS_1_2
+    400040: Loft_NURBS_1_3
+    400042: Loft_NURBS_1_4
+    400044: Loft_NURBS_2
+    400046: Loft_NURBS_2_2
+    400048: Loft_NURBS_2_3
+    400050: Loft_NURBS_3
+    400052: Loft_NURBS_3_2
+    400054: Loft_NURBS_3_3
+    400056: Loft_NURBS_4
+    400058: Loft_NURBS_4_2
+    400060: Loft_NURBS_4_3
+    400062: Loft_NURBS_5
+    400064: Loft_NURBS_5_2
+    400066: Loft_NURBS_5_3
+    400068: Loft_NURBS_6
+    400070: Loft_NURBS_6_2
+    400072: Polygon
+    400074: Polygon_1
+    400076: Polygon_2
+    400078: Polygon_3
+    400080: Polygon_4
+    400082: Polygon_7
+    2300000: Crystal
+    2300002: Crystal_1
+    2300004: Crystal_2
+    2300006: Crystal_3
+    2300008: Crystal_4
+    2300010: Crystal_5
+    2300012: Extrude_NURBS_1
+    2300014: Loft_NURBS_1_3
+    2300016: Loft_NURBS_1_4
+    2300018: Loft_NURBS_2
+    2300020: Loft_NURBS_2_3
+    2300022: Loft_NURBS_3_2
+    2300024: Loft_NURBS_4_2
+    2300026: Loft_NURBS_5_2
+    2300028: Loft_NURBS_5_3
+    2300030: Loft_NURBS_6_2
+    2300032: Polygon
+    2300034: Polygon_1
+    2300036: Polygon_2
+    2300038: Polygon_3
+    2300040: Polygon_4
+    2300042: Polygon_7
+    3300000: Crystal
+    3300002: Crystal_1
+    3300004: Crystal_2
+    3300006: Crystal_3
+    3300008: Crystal_4
+    3300010: Crystal_5
+    3300012: Extrude_NURBS_1
+    3300014: Loft_NURBS_1_3
+    3300016: Loft_NURBS_1_4
+    3300018: Loft_NURBS_2
+    3300020: Loft_NURBS_2_3
+    3300022: Loft_NURBS_3_2
+    3300024: Loft_NURBS_4_2
+    3300026: Loft_NURBS_5_2
+    3300028: Loft_NURBS_5_3
+    3300030: Loft_NURBS_6_2
+    3300032: Polygon
+    3300034: Polygon_1
+    3300036: Polygon_2
+    3300038: Polygon_3
+    3300040: Polygon_4
+    3300042: Polygon_7
+    4300000: Polygon_4
+    4300002: Polygon_3
+    4300004: Polygon_2
+    4300006: Polygon_1
+    4300008: Polygon
+    4300010: Polygon_7
+    4300012: Loft_NURBS_2
+    4300014: Loft_NURBS_1_3
+    4300016: Loft_NURBS_2_3
+    4300018: Loft_NURBS_3_2
+    4300020: Loft_NURBS_4_2
+    4300022: Loft_NURBS_5_2
+    4300024: Loft_NURBS_6_2
+    4300026: Loft_NURBS_5_3
+    4300028: Loft_NURBS_1_4
+    4300030: Crystal_5
+    4300032: Crystal_4
+    4300034: Crystal_2
+    4300036: Crystal_1
+    4300038: Crystal
+    4300040: Crystal_3
+    4300042: Extrude_NURBS_1
+    7400000: C4D Animation Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
