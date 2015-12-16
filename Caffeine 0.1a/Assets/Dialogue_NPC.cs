@@ -17,6 +17,7 @@ public class Dialogue_NPC : MonoBehaviour {
 	public string[] dialogue5;
 	public string[] dialogue6;
 	public string[] defaultDialogue;
+	public string npcname;
 
 	public string[] actionSequence = new string[7];
 

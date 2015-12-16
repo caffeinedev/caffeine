@@ -49,6 +49,7 @@
      <Compile Include="Assets\Basic_Rotator.cs" />
      <Compile Include="Assets\BirdController.cs" />
      <Compile Include="Assets\CameraFacingBillboard.cs" />
+     <Compile Include="Assets\DandelionPoffer.cs" />
      <Compile Include="Assets\Dialogue_NPC.cs" />
      <Compile Include="Assets\ElevatorOperator.cs" />
      <Compile Include="Assets\ImageEffects\Scripts\Antialiasing.cs" />
@@ -185,6 +186,7 @@
      <None Include="Assets\Text\frisia.txt" />
      <None Include="Assets\ShaderForge\Example Assets\Shaders\VertexAnimation.shader" />
      <None Include="Assets\ImageEffects\Shaders\frag_ao.cginc" />
+     <None Include="Assets\Shaders\WaterADV.shader" />
      <None Include="Assets\Shaders\Particle_Additive_Cull.shader" />
      <None Include="Assets\Shaders\Waterfall.shader" />
      <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetParticleAdditive.shader" />
@@ -259,6 +261,7 @@
      <None Include="Assets\Shaders\Water.shader" />
      <None Include="Assets\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
+     <None Include="Assets\Shaders\FGlowShader.shader" />
      <None Include="Assets\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
      <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetSky.shader" />
  <Reference Include="UnityEngine.UI">

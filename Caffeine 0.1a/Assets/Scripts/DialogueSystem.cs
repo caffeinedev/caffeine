@@ -68,18 +68,7 @@ public class DialogueSystem : MonoBehaviour {
 
 				//do things that apply to all dialogue ready things (i.e. tooltips)
 
-
-				switch (col.gameObject.name) {
-				case "npc_frisia":
-					DialogueEvent (col.gameObject, "Frisia", t_frisia);
-					//StartCoroutine (TypeText ("Frisia", t_frisia.ToArray(), moods.snobby));
-					//BasicEvent(0, 2, t_frisia, "Frisia");
-					break;
-				default:
-
-					break;
-
-				}
+				DialogueEvent (col.gameObject);
 			}
 		}
 
@@ -94,9 +83,10 @@ public class DialogueSystem : MonoBehaviour {
 //		StartCoroutine (TypeText (name, l.GetRange(range[0], range[1]).ToArray(), mood));
 //	}
 
-	void DialogueEvent (GameObject g, string name, List<string> l) {
+	void DialogueEvent (GameObject g) {
 		Dialogue_NPC d = g.GetComponent<Dialogue_NPC>();
 		string[] range = d.GetEvent();
+		string name = d.npcname;
 		moods mood = (moods)d.mood[d.iteration];
 		StartCoroutine (TypeText (name, range, mood));
 	}

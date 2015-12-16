@@ -1,0 +1,143 @@
+fileFormatVersion: 2
+guid: 220fcaf4c87324ef4b0077f7b80e2ff4
+timeCreated: 1450075441
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Disc
+    100002: Extrude_NURBS
+    100004: Extrude_NURBS_2
+    100006: Extrude_NURBS_2_2
+    100008: Extrude_NURBS_2_3
+    100010: Extrude_NURBS_2_4
+    100012: Extrude_NURBS_3
+    100014: //RootNode
+    100016: Null
+    100018: Null_2
+    100020: Null_3
+    100022: Polygon
+    100024: Polygon_1
+    100026: Polygon_1_2
+    100028: Polygon_1_3
+    100030: Sphere
+    100032: Symmetry
+    100034: Symmetry_1
+    100036: Symmetry_2
+    100038: Symmetry_3
+    100040: Symmetry_4
+    100042: Symmetry_5
+    100044: Water
+    100046: Disc_1
+    400000: Disc
+    400002: Extrude_NURBS
+    400004: Extrude_NURBS_2
+    400006: Extrude_NURBS_2_2
+    400008: Extrude_NURBS_2_3
+    400010: Extrude_NURBS_2_4
+    400012: Extrude_NURBS_3
+    400014: //RootNode
+    400016: Null
+    400018: Null_2
+    400020: Null_3
+    400022: Polygon
+    400024: Polygon_1
+    400026: Polygon_1_2
+    400028: Polygon_1_3
+    400030: Sphere
+    400032: Symmetry
+    400034: Symmetry_1
+    400036: Symmetry_2
+    400038: Symmetry_3
+    400040: Symmetry_4
+    400042: Symmetry_5
+    400044: Water
+    400046: Disc_1
+    2300000: Disc
+    2300002: Extrude_NURBS
+    2300004: Extrude_NURBS_2
+    2300006: Polygon
+    2300008: Polygon_1
+    2300010: Sphere
+    2300012: Water
+    2300014: Disc_1
+    3300000: Disc
+    3300002: Extrude_NURBS
+    3300004: Extrude_NURBS_2
+    3300006: Polygon
+    3300008: Polygon_1
+    3300010: Sphere
+    3300012: Water
+    3300014: Disc_1
+    4300000: Water
+    4300002: Sphere
+    4300004: Disc
+    4300006: Polygon_1
+    4300008: Extrude_NURBS_2
+    4300010: Extrude_NURBS
+    4300012: Polygon
+    4300014: Disc_1
+    7400000: C4D Animation Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
