@@ -1,7 +1,7 @@
-// Shader created with Shader Forge Beta 0.30 
-// Shader Forge (c) Joachim Holmer - http://www.acegikmo.com/shaderforge/
+// Shader created with Shader Forge v1.16 
+// Shader Forge (c) Neat Corporation / Joachim Holmer - http://www.acegikmo.com/shaderforge/
 // Note: Manually altering this data may prevent you from opening it in Shader Forge
-/*SF_DATA;ver:0.30;sub:START;pass:START;ps:flbk:,lico:1,lgpr:1,nrmq:1,limd:0,uamb:True,mssp:True,lmpd:False,lprd:False,enco:False,frtr:True,vitr:True,dbil:False,rmgx:True,hqsc:True,hqlp:False,blpr:0,bsrc:0,bdst:0,culm:2,dpts:2,wrdp:True,ufog:True,aust:True,igpj:False,qofs:0,qpre:1,rntp:1,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,ofsf:0,ofsu:0,f2p0:False;n:type:ShaderForge.SFN_Final,id:1,x:32721,y:32690|emission-12-OUT;n:type:ShaderForge.SFN_Color,id:2,x:33621,y:32539,ptlb:node_2,ptin:_node_2,glob:False,c1:1,c2:0.1470588,c3:0.1470588,c4:1;n:type:ShaderForge.SFN_LightAttenuation,id:5,x:33879,y:33036;n:type:ShaderForge.SFN_Blend,id:12,x:33434,y:32732,blmd:1,clmp:True|SRC-2-RGB,DST-19-OUT;n:type:ShaderForge.SFN_Color,id:17,x:33859,y:32797,ptlb:node_17,ptin:_node_17,glob:False,c1:0.4304043,c2:0.3123378,c3:0.8014706,c4:1;n:type:ShaderForge.SFN_Max,id:19,x:33626,y:32922|A-17-RGB,B-5-OUT;proporder:2-17;pass:END;sub:END;*/
+/*SF_DATA;ver:1.16;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,lico:1,lgpr:1,limd:0,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:False,hqlp:False,rprd:False,enco:False,rmgx:True,rpth:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,culm:2,bsrc:0,bdst:1,dpts:2,wrdp:True,dith:0,rfrpo:True,rfrpn:Refraction,ufog:True,aust:True,igpj:False,qofs:0,qpre:1,rntp:1,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,ofsf:0,ofsu:0,f2p0:False;n:type:ShaderForge.SFN_Final,id:1,x:34267,y:32690,varname:node_1,prsc:2|emission-12-OUT;n:type:ShaderForge.SFN_Color,id:2,x:33437,y:32539,ptovrint:False,ptlb:node_2,ptin:_node_2,varname:node_6983,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:1,c2:0.1470588,c3:0.1470588,c4:1;n:type:ShaderForge.SFN_LightAttenuation,id:5,x:33179,y:33036,varname:node_5,prsc:2;n:type:ShaderForge.SFN_Blend,id:12,x:33624,y:32732,varname:node_12,prsc:2,blmd:1,clmp:True|SRC-2-RGB,DST-19-OUT;n:type:ShaderForge.SFN_Color,id:17,x:33199,y:32797,ptovrint:False,ptlb:node_17,ptin:_node_17,varname:node_4223,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0.4304043,c2:0.3123378,c3:0.8014706,c4:1;n:type:ShaderForge.SFN_Max,id:19,x:33432,y:32922,varname:node_19,prsc:2|A-17-RGB,B-5-OUT;proporder:2-17;pass:END;sub:END;*/
 
 Shader "Shader Forge/FlatShad" {
     Properties {
@@ -13,7 +13,7 @@ Shader "Shader Forge/FlatShad" {
             "RenderType"="Opaque"
         }
         Pass {
-            Name "ForwardBase"
+            Name "FORWARD"
             Tags {
                 "LightMode"="ForwardBase"
             }
@@ -26,8 +26,10 @@ Shader "Shader Forge/FlatShad" {
             #define UNITY_PASS_FORWARDBASE
             #include "UnityCG.cginc"
             #include "AutoLight.cginc"
+            #include "Lighting.cginc"
             #pragma multi_compile_fwdbase_fullshadows
-            #pragma exclude_renderers xbox360 ps3 flash d3d11_9x 
+            #pragma multi_compile_fog
+            #pragma exclude_renderers xbox360 ps3 
             #pragma target 3.0
             uniform float4 _node_2;
             uniform float4 _node_17;
@@ -37,26 +39,30 @@ Shader "Shader Forge/FlatShad" {
             struct VertexOutput {
                 float4 pos : SV_POSITION;
                 LIGHTING_COORDS(0,1)
+                UNITY_FOG_COORDS(2)
             };
             VertexOutput vert (VertexInput v) {
-                VertexOutput o;
+                VertexOutput o = (VertexOutput)0;
                 o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+                UNITY_TRANSFER_FOG(o,o.pos);
                 TRANSFER_VERTEX_TO_FRAGMENT(o)
                 return o;
             }
-            fixed4 frag(VertexOutput i) : COLOR {
+            float4 frag(VertexOutput i) : COLOR {
+/////// Vectors:
 ////// Lighting:
                 float attenuation = LIGHT_ATTENUATION(i);
 ////// Emissive:
                 float3 emissive = saturate((_node_2.rgb*max(_node_17.rgb,attenuation)));
                 float3 finalColor = emissive;
-/// Final Color:
-                return fixed4(finalColor,1);
+                fixed4 finalRGBA = fixed4(finalColor,1);
+                UNITY_APPLY_FOG(i.fogCoord, finalRGBA);
+                return finalRGBA;
             }
             ENDCG
         }
         Pass {
-            Name "ForwardAdd"
+            Name "FORWARD_DELTA"
             Tags {
                 "LightMode"="ForwardAdd"
             }
@@ -64,15 +70,16 @@ Shader "Shader Forge/FlatShad" {
             Cull Off
             
             
-            Fog { Color (0,0,0,0) }
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
             #define UNITY_PASS_FORWARDADD
             #include "UnityCG.cginc"
             #include "AutoLight.cginc"
+            #include "Lighting.cginc"
             #pragma multi_compile_fwdadd_fullshadows
-            #pragma exclude_renderers xbox360 ps3 flash d3d11_9x 
+            #pragma multi_compile_fog
+            #pragma exclude_renderers xbox360 ps3 
             #pragma target 3.0
             uniform float4 _node_2;
             uniform float4 _node_17;
@@ -84,16 +91,16 @@ Shader "Shader Forge/FlatShad" {
                 LIGHTING_COORDS(0,1)
             };
             VertexOutput vert (VertexInput v) {
-                VertexOutput o;
+                VertexOutput o = (VertexOutput)0;
                 o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
                 TRANSFER_VERTEX_TO_FRAGMENT(o)
                 return o;
             }
-            fixed4 frag(VertexOutput i) : COLOR {
+            float4 frag(VertexOutput i) : COLOR {
+/////// Vectors:
 ////// Lighting:
                 float attenuation = LIGHT_ATTENUATION(i);
                 float3 finalColor = 0;
-/// Final Color:
                 return fixed4(finalColor * 1,0);
             }
             ENDCG

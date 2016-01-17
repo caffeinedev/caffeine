@@ -59,22 +59,16 @@
      <Compile Include="Assets\Editor\ImageEffects\SunShaftsEditor.cs" />
      <Compile Include="Assets\Editor\ImageEffects\TonemappingEditor.cs" />
      <Compile Include="Assets\Editor\ImageEffects\VignetteAndChromaticAberrationEditor.cs" />
-     <Compile Include="Assets\InventoryMaster\Editor\CraftSystemEditor.cs" />
-     <Compile Include="Assets\InventoryMaster\Editor\EquipmentSystemEditor.cs" />
-     <Compile Include="Assets\InventoryMaster\Editor\HotbarEditor.cs" />
-     <Compile Include="Assets\InventoryMaster\Editor\IM_Manager.cs" />
-     <Compile Include="Assets\InventoryMaster\Editor\InventoryDesignEditor.cs" />
-     <Compile Include="Assets\InventoryMaster\Editor\InventoryEditor.cs" />
-     <Compile Include="Assets\InventoryMaster\Editor\StorageInventoryEditor.cs" />
-     <Compile Include="Assets\InventoryMaster\Editor\TooltipEditor.cs" />
      <None Include="Assets\Text\generic.txt" />
      <None Include="Assets\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
      <None Include="Assets\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
+     <None Include="Assets\Shaders\TransparentWater.shader" />
      <None Include="Assets\Shaders\NormalFloor_NoTex.shader" />
      <None Include="Assets\ImageEffects\Shaders\ShowAlphaChannel.shader" />
      <None Include="Assets\Shaders\normal_fancy.shader" />
+     <None Include="Assets\Shaders\GrassFancy.shader" />
      <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetParticleMultiplicative.shader" />
      <None Include="Assets\Shaders\Sugar.shader" />
      <None Include="Assets\ImageEffects\Shaders\SunShaftsComposite.shader" />
@@ -100,6 +94,7 @@
      <None Include="Assets\ImageEffects\Shaders\RadialBlur.shader" />
      <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetSprite.shader" />
      <None Include="Assets\ImageEffects\Shaders\_DepthOfField\DepthOfFieldDX11.shader" />
+     <None Include="Assets\Shaders\CameraBasedWater 2.shader" />
      <None Include="Assets\ImageEffects\Shaders\ContrastComposite.shader" />
      <None Include="Assets\ImageEffects\Shaders\_Antialiasing\FXAAPreset3.shader" />
      <None Include="Assets\ImageEffects\Shaders\FisheyeShader.shader" />
@@ -113,6 +108,7 @@
      <None Include="Assets\Shaders\Particle_Additive_Cull.shader" />
      <None Include="Assets\Shaders\Waterfall.shader" />
      <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetParticleAdditive.shader" />
+     <None Include="Assets\Shaders\CameraBasedWater.shader" />
      <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetUnlit.shader" />
      <None Include="Assets\ShaderForge\Example Assets\Shaders\Refraction.shader" />
      <None Include="Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
@@ -147,6 +143,7 @@
      <None Include="Assets\ImageEffects\Shaders\_Antialiasing\DLAA.shader" />
      <None Include="Assets\Shaders\sparkly_normals.shader" />
      <None Include="Assets\ShaderForge\Example Assets\Shaders\TessellationDisplacement.shader" />
+     <None Include="Assets\Shaders\ParticlePanner.shader" />
      <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetBasic.shader" />
      <None Include="Assets\ImageEffects\Shaders\NoiseAndGrainDX11.shader" />
      <None Include="Assets\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter2.shader" />
@@ -161,9 +158,9 @@
      <None Include="Assets\ImageEffects\Shaders\Contrast Stretch\Adaptation.shader" />
      <None Include="Assets\ImageEffects\Shaders\NoiseAndGrain.shader" />
      <None Include="Assets\ImageEffects\Shaders\VignettingShader.shader" />
-     <None Include="Assets\InventoryMaster\readme.txt" />
      <None Include="Assets\ImageEffects\Shaders\Tonemapper.shader" />
      <None Include="Assets\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter.shader" />
+     <None Include="Assets\Shaders\AlphaXDistance.shader" />
      <None Include="Assets\ImageEffects\Shaders\_Antialiasing\FXAA2.shader" />
      <None Include="Assets\ShaderForge\Example Assets\Shaders\PixelRotator.shader" />
      <None Include="Assets\ImageEffects\Shaders\ColorCorrection3DLut.shader" />
@@ -180,6 +177,7 @@
      <None Include="Assets\ImageEffects\Shaders\SimpleClear.shader" />
      <None Include="Assets\Shaders\Milk.shader" />
      <None Include="Assets\ImageEffects\Shaders\_Antialiasing\FXAA3Console.shader" />
+     <None Include="Assets\Shaders\custom_lit_alpha.shader" />
      <None Include="Assets\Shaders\shader_unlit_shadowed.shader" />
      <None Include="Assets\Shaders\Water.shader" />
      <None Include="Assets\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />

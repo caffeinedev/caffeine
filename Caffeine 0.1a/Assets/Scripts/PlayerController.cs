@@ -162,7 +162,7 @@ public class PlayerController : MonoBehaviour {
 			groundedTimer = 0f;
 		}
 	}
-	
+
 	/**
 	 * Is the Actor grounded?
 	 */
