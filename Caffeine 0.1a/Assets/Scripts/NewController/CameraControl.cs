@@ -42,7 +42,16 @@ public class CameraControl : MonoBehaviour
 				return;
 
 			float xAxis = Input.GetAxis ("RightStickH") * inputRotationSpeed * Time.deltaTime;
+			float yAxis = Input.GetAxis ("RightStickV") * inputRotationSpeed/2 * Time.deltaTime;
 			followTarget.RotateAround (target.position, Vector3.up, xAxis);
+//			followTarget.RotateAround (target.position, Vector3.right, yAxis);
+
+			positionOffset = new Vector3(positionOffset.x, positionOffset.y + (yAxis * 2), positionOffset.z);
+			if(positionOffset.y < 2.5f) {
+				positionOffset = new Vector3(positionOffset.x, 2.5f, positionOffset.z);
+			} else if(positionOffset.y > 32) {
+				positionOffset = new Vector3(positionOffset.x, 32, positionOffset.z);
+			}
 
 			SmoothFollow ();
 			SmoothLookAt ();

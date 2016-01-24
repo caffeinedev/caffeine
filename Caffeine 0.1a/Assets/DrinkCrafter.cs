@@ -38,7 +38,7 @@ public class DrinkCrafter : MonoBehaviour {
 	void Update () {
 		if (control.grounded) {
 
-			if (Input.GetButtonDown ("Start") && !c.enabled) {
+			if (Input.GetButtonUp ("Start") && !c.enabled) {
 				ResetCrafting ();
 				content.enabled = true;
 				content.Play("CraftingMenuFadein");
@@ -147,6 +147,9 @@ public class DrinkCrafter : MonoBehaviour {
 				control.canMove = true;
 			} else if (c.enabled) {
 				control.canMove = false;
+				if (Input.GetButtonUp ("Start") && buttonsPushed > 0) {
+					StartCoroutine(FinishDrink());
+				}
 			}
 		}
 	}

@@ -12,6 +12,8 @@ ModelImporter:
     100008: Loft_NURBS_1
     100010: UpperWater
     100012: UpperWaterEdge
+    100014: UpperWater_1
+    100016: UpperWaterEdge_1
     400000: //RootNode
     400002: Loft_NURBS_2
     400004: HyperNURBS
@@ -19,23 +21,31 @@ ModelImporter:
     400008: Loft_NURBS_1
     400010: UpperWater
     400012: UpperWaterEdge
+    400014: UpperWater_1
+    400016: UpperWaterEdge_1
     2300000: //RootNode
     2300002: Loft_NURBS_2
     2300004: Loft_NURBS
     2300006: Loft_NURBS_1
     2300008: UpperWater
     2300010: UpperWaterEdge
+    2300012: UpperWater_1
+    2300014: UpperWaterEdge_1
     3300000: //RootNode
     3300002: Loft_NURBS_2
     3300004: Loft_NURBS
     3300006: Loft_NURBS_1
     3300008: UpperWater
     3300010: UpperWaterEdge
+    3300012: UpperWater_1
+    3300014: UpperWaterEdge_1
     4300000: Loft_NURBS_2
     4300002: Loft_NURBS
     4300004: Loft_NURBS_1
     4300006: UpperWaterEdge
     4300008: UpperWater
+    4300010: UpperWater_1
+    4300012: UpperWaterEdge_1
     9500000: //RootNode
   materials:
     importMaterials: 1

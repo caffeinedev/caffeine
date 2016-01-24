@@ -123,6 +123,7 @@
      <None Include="Assets\Shaders\normal_fancy.shader" />
      <None Include="Assets\Shaders\GrassFancy.shader" />
      <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetParticleMultiplicative.shader" />
+     <None Include="Assets\Shaders\SpriteShader.shader" />
      <None Include="Assets\Shaders\Sugar.shader" />
      <None Include="Assets\ImageEffects\Shaders\SunShaftsComposite.shader" />
      <None Include="Assets\ImageEffects\Shaders\ColorCorrectionCurves.shader" />
@@ -213,7 +214,6 @@
      <None Include="Assets\ImageEffects\Shaders\VignettingShader.shader" />
      <None Include="Assets\ImageEffects\Shaders\Tonemapper.shader" />
      <None Include="Assets\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter.shader" />
-     <None Include="Assets\Shaders\AlphaXDistance.shader" />
      <None Include="Assets\ImageEffects\Shaders\_Antialiasing\FXAA2.shader" />
      <None Include="Assets\ShaderForge\Example Assets\Shaders\PixelRotator.shader" />
      <None Include="Assets\ImageEffects\Shaders\ColorCorrection3DLut.shader" />

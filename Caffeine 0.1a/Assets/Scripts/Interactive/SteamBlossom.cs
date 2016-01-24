@@ -5,7 +5,7 @@ public class SteamBlossom : MonoBehaviour {
 
 	Animator anim;
 	public ParticleSystem steam;
-	PlayerController p;
+	SteeperController p;
 	public float launchForce;
 	bool isOpen;
 	AudioSource aud;
@@ -13,7 +13,7 @@ public class SteamBlossom : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		p = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController>();
+		p = GameObject.FindGameObjectWithTag ("Player").GetComponent<SteeperController>();
 		anim = GetComponent<Animator> ();
 		steam = gameObject.GetComponentInChildren<ParticleSystem> ();
 		aud = GetComponent<AudioSource> ();
