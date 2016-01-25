@@ -16,7 +16,6 @@ public class SteeperAnimationController : MonoBehaviour {
 	public float vspeed = -300f;
 	public float hspeed = 200f;
 
-
 	void Awake () {
 		if (tag != "Player") tag = "Player";
 
@@ -35,14 +34,13 @@ public class SteeperAnimationController : MonoBehaviour {
 		*/
 		if (control.canMove) {
 			if (distanceFromGround < 1) {
-				control.grounded = true;
 				anim.SetBool ("grounded", true);
 			} else
 				anim.SetBool ("grounded", false);
 
-			if (distanceFromGround < 5) {
+			if (distanceFromGround < 5)
 				anim.SetBool ("canLand", true);
-			} else
+			else
 				anim.SetBool ("canLand", false);
 
 			float h = Input.GetAxisRaw ("Horizontal");
@@ -78,11 +76,8 @@ public class SteeperAnimationController : MonoBehaviour {
 			if ( Physics.Raycast (transform.position, Vector3.down, out hit) )
 			{
 				if (!hit.transform.GetComponent<Collider> ().isTrigger)
-				{
 					distanceFromGround = hit.distance;
-				}
 			}
-
 		}
 
 }

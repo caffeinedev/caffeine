@@ -40,10 +40,10 @@ public class SteeperController : MonoBehaviour {
 	private float slope;
 	private Quaternion screenSpace;
 	private Vector3 direction, moveDirection, screenSpaceForward, screenSpaceRight;
-	private float curAccel, curDecel, curRotateSpeed;
+	public float curAccel, curDecel, curRotateSpeed;
 
 	private Vector3 lastGrounded;
-
+	
 	private float oldH, oldV;
 
 	// for easy reset when you do something stupid.
@@ -54,11 +54,7 @@ public class SteeperController : MonoBehaviour {
 	 */
 	void Awake ()
 	{
-		if (tag != "Player")
-		{
-			tag = "Player";
-			Debug.LogWarning ("Player GameObject missing 'Player' tag; Tag has been assigned to object", transform);
-		}
+		if (tag != "Player") tag = "Player";
 		
 		// Bump up jumpforce
 		jumpForce *= 100;
@@ -81,12 +77,13 @@ public class SteeperController : MonoBehaviour {
 			JumpCalculations ();
 
 			float h = Input.GetAxisRaw ("Horizontal");
-			float v = -1 * Input.GetAxisRaw ("Vertical");				// FIX THIS AXIS EVENTUALLY
+			float v = -1 * Input.GetAxisRaw ("Vertical");	// FIX THIS AXIS EVENTUALLY
+
 			if (Mathf.Abs (v) < 0.10f && Mathf.Abs (v) > 0.006f) {
-				v = 0f;
+				v = 0f; // Deadzone calc?
 			}
 
-			//get movement axis relative to camera
+			// Get movement axis relative to camera
 			screenSpace			= Quaternion.Euler (0, cam.eulerAngles.y, 0);
 			screenSpaceForward	= screenSpace * Vector3.forward;
 			screenSpaceRight	= screenSpace * Vector3.right;
@@ -106,8 +103,10 @@ public class SteeperController : MonoBehaviour {
 				curRotateSpeed = airRotateSpeed;
 			}
 		
-			direction = (screenSpaceForward * v *10) + (screenSpaceRight * h *10);
-			moveDirection = transform.position + direction;
+			direction = (screenSpaceForward * v) + (screenSpaceRight * h);
+			moveDirection = transform.position + (direction * 10);
+			
+			if (direction.magnitude < 0.6f) curAccel /= 3;	// Slow acceleration for subtle movements and to prevent jitter
 					
 		} else {
 			rigidBody.velocity = Vector3.zero;
