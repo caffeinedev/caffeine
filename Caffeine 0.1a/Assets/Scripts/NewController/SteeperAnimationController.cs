@@ -5,10 +5,6 @@ using System.Collections;
 [RequireComponent (typeof (CapsuleCollider))]
 
 public class SteeperAnimationController : MonoBehaviour {
-
-
-	GameObject sensor;
-
 	Animator anim;
 	Rigidbody r;
 	SteeperController control;
@@ -22,18 +18,15 @@ public class SteeperAnimationController : MonoBehaviour {
 
 
 	void Awake () {
-		if (tag != "Player") {tag = "Player";}
+		if (tag != "Player") tag = "Player";
 
 		// Assign Stuff
-		sensor = transform.FindChild ("Ground Sensor").gameObject;
-		anim = GetComponent<Animator> ();
-		r = GetComponent<Rigidbody> ();
-		control = GetComponent<SteeperController> ();
-
+		anim	= GetComponent<Animator> ();
+		r		= GetComponent<Rigidbody> ();
+		control	= GetComponent<SteeperController> ();
 	}
 
 	void Update () {
-	
 		/*
 		anim.SetBool ("grounded", control.grounded);
 		if (control.onSlope) {
@@ -82,12 +75,12 @@ public class SteeperAnimationController : MonoBehaviour {
 
 	void FixedUpdate () {
 			RaycastHit hit;
-			if ( Physics.Raycast (sensor.transform.position, Vector3.down, out hit) )
+			if ( Physics.Raycast (transform.position, Vector3.down, out hit) )
 			{
-			if (!hit.transform.GetComponent<Collider> ().isTrigger)
-			{
-				distanceFromGround = hit.distance;
-			}
+				if (!hit.transform.GetComponent<Collider> ().isTrigger)
+				{
+					distanceFromGround = hit.distance;
+				}
 			}
 
 		}

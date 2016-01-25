@@ -8,7 +8,7 @@ public class CameraControl : MonoBehaviour
 	public float height = 10f, distance = 20f;
 	public float inputRotationSpeed	= 100f;
 	public bool lockRotation;									//should the camera be fixed at the offset (for example: following behind the player)
-	public float followSpeed		= 6;						//how fast the camera moves to its intended position
+	public float followSpeed		= 20;						//how fast the camera moves to its intended position
 	public float rotateDamping		= 100;						//how fast camera rotates to look at target
 	public string[] avoidObstructionTags;
 
