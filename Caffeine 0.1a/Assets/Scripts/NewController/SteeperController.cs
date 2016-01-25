@@ -3,6 +3,7 @@ using System.Collections;
 
 [RequireComponent (typeof (ActorBody))]
 [RequireComponent (typeof (Rigidbody))]
+
 public class SteeperController : MonoBehaviour {
 	
 	// Setup
@@ -40,7 +41,7 @@ public class SteeperController : MonoBehaviour {
 	private float slope;
 	private Quaternion screenSpace;
 	private Vector3 direction, moveDirection, screenSpaceForward, screenSpaceRight;
-	public float curAccel, curDecel, curRotateSpeed;
+	private float curAccel, curDecel, curRotateSpeed;
 
 	private Vector3 lastGrounded;
 	
@@ -76,6 +77,7 @@ public class SteeperController : MonoBehaviour {
 			
 			JumpCalculations ();
 
+			// Get player input
 			float h = Input.GetAxisRaw ("Horizontal");
 			float v = -1 * Input.GetAxisRaw ("Vertical");	// FIX THIS AXIS EVENTUALLY
 
@@ -105,8 +107,8 @@ public class SteeperController : MonoBehaviour {
 		
 			direction = (screenSpaceForward * v) + (screenSpaceRight * h);
 			moveDirection = transform.position + (direction * 10);
-			
-			if (direction.magnitude < 0.6f) curAccel /= 3;	// Slow acceleration for subtle movements and to prevent jitter
+
+			if (direction.magnitude < 0.5f) curAccel /= 3;	// Slow acceleration for subtle movements and to prevent jitter
 					
 		} else {
 			rigidBody.velocity = Vector3.zero;
@@ -136,7 +138,7 @@ public class SteeperController : MonoBehaviour {
 	 */
 	void OnCollisionStay (Collision other) 
 	{
-		// Stop the player moving if we're on a slight slope
+		// Stop moving if we're on a slight slope
 		if (direction.magnitude == 0 && slope < slopeLimit && rigidBody.velocity.magnitude < 2)
 		{
 			rigidBody.velocity = Vector3.zero;
@@ -176,7 +178,7 @@ public class SteeperController : MonoBehaviour {
 		RaycastHit hit;
 		if ( Physics.Raycast (transform.position, Vector3.down * groundCheckDistance, out hit, distance + 0.001f) )
 		{
-			if (!hit.transform.GetComponent<Collider> ().isTrigger)
+			if (!hit.transform.GetComponent<Collider>().isTrigger)
 			{
 				slope	= Vector3.Angle (hit.normal, Vector3.up);
 				onSlope	= (slope > slopeLimit);
@@ -202,5 +204,6 @@ public class SteeperController : MonoBehaviour {
 	public void Jump (float jumpVelocity)
 	{
 		rigidBody.AddRelativeForce (transform.up * jumpVelocity, ForceMode.Impulse);
+		BroadcastMessage ("OnJumpEvent");
 	}
 }

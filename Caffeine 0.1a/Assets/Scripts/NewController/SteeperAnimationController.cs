@@ -9,6 +9,8 @@ public class SteeperAnimationController : MonoBehaviour {
 	Rigidbody r;
 	SteeperController control;
 
+	private float cldrBoundsY;
+
 	float distanceFromGround;
 
 	public ParticleSystem steam;
@@ -16,7 +18,7 @@ public class SteeperAnimationController : MonoBehaviour {
 	public float vspeed = -300f;
 	public float hspeed = 200f;
 
-	void Awake () {
+	public void Awake () {
 		if (tag != "Player") tag = "Player";
 
 		// Assign Stuff
@@ -25,13 +27,14 @@ public class SteeperAnimationController : MonoBehaviour {
 		control	= GetComponent<SteeperController> ();
 	}
 
-	void Update () {
+	public void Update () {
 		/*
 		anim.SetBool ("grounded", control.grounded);
 		if (control.onSlope) {
 			anim.SetBool ("grounded", true);
 		}
 		*/
+	
 		if (control.canMove) {
 			if (distanceFromGround < 1) {
 				anim.SetBool ("grounded", true);
@@ -54,30 +57,34 @@ public class SteeperAnimationController : MonoBehaviour {
 				anim.SetBool ("running", true);
 				steam.enableEmission = false;
 			}
-
+		}
 			/*
 		if (Input.GetAxisRaw ("Horizontal") > 0) {
 			//transform.Translate(new Vector3 (h * hspeed * Time.deltaTime, 0, v * vspeed * Time.deltaTime));
 			r.AddForce(Vector3.forward * v * vspeed * Time.deltaTime, ForceMode.Force);
 		}
-		*/
+		**  MOVED THIS TO AN EVENT RESPONSE **
 			if (Input.GetButtonDown ("Jump") && control.grounded == true) {
 				anim.SetTrigger ("jump");
 			}
-		}
+		}*/
 
 		if (!control.canMove) {
 			anim.SetBool("running", false);
 		}
 	}
 
-	void FixedUpdate () {
-			RaycastHit hit;
-			if ( Physics.Raycast (transform.position, Vector3.down, out hit) )
-			{
-				if (!hit.transform.GetComponent<Collider> ().isTrigger)
-					distanceFromGround = hit.distance;
-			}
+	public void FixedUpdate () {
+		RaycastHit hit;
+		if ( Physics.Raycast (transform.position, Vector3.down, out hit) )
+		{
+			if (!hit.transform.GetComponent<Collider> ().isTrigger)
+				distanceFromGround = hit.distance;
 		}
+	}
+	
+	public void OnJumpEvent () {
+		anim.SetTrigger ("jump");
+	}
 
 }
