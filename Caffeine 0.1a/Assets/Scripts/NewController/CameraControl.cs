@@ -3,14 +3,18 @@
 public class CameraControl : MonoBehaviour 
 {
 	public Transform target;									// Cam target
-	public Vector3 positionOffset	= new Vector3 (0f, 10, -20);	// Where the cam should be positioned relative to target
-	public Vector3 lookOffset		= new Vector3 (0f, 7, 0f);	// Where the cam should look relative to target
+	
+	[Header ("Viewport Positioning")]
+	public Vector3 positionOffset	= new Vector3 (0f, 20f, -32f);	// Where the cam should be positioned relative to target
+	public Vector3 lookOffset		= new Vector3 (0f, 7f, 0f);	// Where the cam should look relative to target
 	public float maxYOffset	= 32f, minYOffset = 2.5f;
 	public float minDistanceFromTarget = 10f;
 	
+	[Header ("Movement Settings")]
 	public bool lockRotation;								// Keep camera position fixed at offset?
-	public float followSpeed		= 20;					// Camera movement speed
-	public float rotateDamping		= 100;					// Camera rotation speed
+	public float autoRotationSpeed	= 0.8f;
+	public float followSpeed		= 20f;					// Camera movement speed
+	public float rotateDamping		= 100f;					// Camera rotation speed
 	
 	public string[] avoidObstructionTags;
 
@@ -21,12 +25,15 @@ public class CameraControl : MonoBehaviour
 
 	// Privates --------------------------------------------------------
 	private Transform followTarget;
-	private bool camIsObstructed;
-
+	
+	// Player input
 	public bool playerHasControl = false;					// Is player or Camera AI in control
 	private float lastPlayerInputTime;						// Last time the player sent input to the camera
 
+	// State flags
 	public bool crafting;
+	private bool camIsObstructed;
+	
 
 	/**
 	 * Init CameraControl
@@ -47,11 +54,12 @@ public class CameraControl : MonoBehaviour
 	 */
 	public void Update ()
 	{
+		if (!target) {
+			SetTargetToPlayer ();
+			if (!target) return;
+		}
+		
 		if (!crafting) {
-
-			if (!target)
-				return;
-
 			float xAxis = Input.GetAxis ("RightStickH") * inputRotationSpeed * Time.deltaTime;
 			float yAxis = Input.GetAxis ("RightStickV") * inputRotationSpeed/2 * Time.deltaTime;
 			
@@ -61,7 +69,7 @@ public class CameraControl : MonoBehaviour
 				
 				if (!playerHasControl) Debug.Log ("Player has control of camera as of " + lastPlayerInputTime);
 
-				playerHasControl	= true;	// Give control to the player				
+				playerHasControl = true;	// Give control to the player				
 			}
 			else if (playerHasControl && Time.time > lastPlayerInputTime + playerInputCooldownTime )
 			{
@@ -97,13 +105,18 @@ public class CameraControl : MonoBehaviour
 	 */
 	public void FixedUpdate ()
 	{
-		if (playerHasControl) {
-			// Do dat do dat do do do dat do dat
-		} else {
-			// Dat dat dat
+		if (!crafting) {
+			if (playerHasControl) {
+				// Do dat do dat do do do dat do dat
+			} else {
+				// Auto-adjust orbit position at awkward angles
+				float angleToTarget = Vector3.Angle(target.forward, transform.forward);
+				if (angleToTarget > 50f && angleToTarget < 120f)
+					followTarget.rotation = Quaternion.Slerp (followTarget.rotation, target.rotation, Time.deltaTime * autoRotationSpeed);
+			}
+			
+			AvoidObstructions ();
 		}
-		
-		AvoidObstructions ();
 	}
 
 	/**
@@ -124,29 +137,34 @@ public class CameraControl : MonoBehaviour
 		followTarget.position = target.position;
 		followTarget.Translate (positionOffset, Space.Self);
 
-	//	followTarget.position = target.position + (transform.forward * distance) + (target.up * height);
-
 		if (lockRotation) followTarget.rotation = target.rotation;
 
 		transform.position	= Vector3.Lerp (transform.position, followTarget.position, followSpeed * Time.deltaTime);
-
-		// Move to position
-	//	transform.position = Vector3.Lerp (transform.position, followTarget.position, followSpeed * Time.deltaTime);
 	}
 	
 	public void AvoidObstructions ()
 	{
 		Vector3 direction = transform.position - target.position;
 		
-		RaycastHit hit;
-		if (Physics.Raycast (target.position, direction, out hit, direction.magnitude + 1f))
-		{
-			foreach (string tag in avoidObstructionTags)
-				if (hit.transform.tag == tag)
-					transform.position = hit.point - direction.normalized * 0.3f;
+		// Keep the camera from getting behind walls or clipping through objects
+		RaycastHit[] hits = Physics.SphereCastAll (followTarget.position, 1f, -1 * followTarget.forward, 5f);
+		foreach (RaycastHit hit in hits) {
+			Vector3 hitDirection = followTarget.position - hit.point;
+			Debug.DrawLine (transform.position, hit.point); // Draw a line in editor to objects that may obstruct
 		}
 		
-		if (direction.magnitude < minDistanceFromTarget)
-			followTarget.Translate (Vector3.right * direction.magnitude, Space.Self);
+		// Avoid objects obscuring the view of the target
+		RaycastHit obsHit;
+		if (Physics.Raycast (followTarget.position, target.position, out obsHit)) {
+			// Move left/right to avoid obstacle(obsHit)
+		}
+	}
+	
+	/**
+	 * Find the GameObject tagged 'Player' and set it as cam target
+	 */
+ 	public void SetTargetToPlayer ()
+	{
+		target = GameObject.FindGameObjectWithTag ("Player").transform;
 	}
 }
