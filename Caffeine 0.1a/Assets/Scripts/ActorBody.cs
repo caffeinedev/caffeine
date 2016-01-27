@@ -34,6 +34,16 @@ public class ActorBody : MonoBehaviour
 		}
 	}
 	
+	/**
+	 * Move in a direction at given acceleration
+	 */
+	public void MoveInDirection (Vector3 direction, float acceleration)
+	{
+		Debug.DrawLine (transform.position + (Vector3.up * 5f), transform.position + (direction*10));
+				
+		rigidBody.AddForce (direction * acceleration * Time.deltaTime, ForceMode.VelocityChange);
+	}
+	
 	
 	/**
 	 * Move the character to a specific location and return true when done.
@@ -46,12 +56,21 @@ public class ActorBody : MonoBehaviour
 		// If actor movement is jumpy, it may be reaching destination too soon on missed frames
 		Debug.DrawLine(transform.position + (Vector3.up * 5f), destination);
 		
-		distanceToTarget = relativePos.magnitude;
+		distanceToTarget = relativePos.sqrMagnitude;
 		if (distanceToTarget <= stopDistance)
 			return true;
 		else
 			rigidBody.AddForce (relativePos.normalized * acceleration * Time.deltaTime, ForceMode.VelocityChange);
 			return false;
+	}
+	
+	/**
+	 * Rotate the actor to face a specific direction
+	 */
+	public void RotateToDirection (Vector3 direction, float speed)
+	{
+		Quaternion dirQ = Quaternion.LookRotation (direction);
+		rigidBody.MoveRotation (Quaternion.Slerp (transform.rotation, dirQ, direction.sqrMagnitude * speed * Time.deltaTime));
 	}
 	
 	
@@ -63,27 +82,27 @@ public class ActorBody : MonoBehaviour
 		Vector3 dir = rigidBody.velocity;
 		dir.y = 0f;
 
-		if (dir.magnitude > 0.1f)
+		if (dir.sqrMagnitude > 0.1f)
 		{
 			Quaternion dirQ		= Quaternion.LookRotation (dir);
-			Quaternion slerp	= Quaternion.Slerp (transform.rotation, dirQ, dir.magnitude * turnSpeed * Time.deltaTime);
+			Quaternion slerp	= Quaternion.Slerp (transform.rotation, dirQ, dir.sqrMagnitude * turnSpeed * Time.deltaTime);
 			rigidBody.MoveRotation (slerp);
 		}
 	}
 	
 	
 	/**
-	 * Rotate the actor to face a specific direction
+	 * Rotate the actor to face a specific point
 	 */
-	public void RotateToDirection (Vector3 lookDir, float turnSpeed)
+	public void RotateToPoint (Vector3 point, float turnSpeed)
 	{ 
-		Vector3 characterPos = transform.position;
-		characterPos.y = 0f;
-		lookDir.y = 0f;
+		Vector3 actorPos = transform.position;
+		actorPos.y = 0f;
+		point.y = 0f;
 		
-		Vector3 newDir		= lookDir - characterPos;
+		Vector3 newDir		= point - actorPos;
 		Quaternion dirQ		= Quaternion.LookRotation (newDir);
-		Quaternion slerp	= Quaternion.Slerp (transform.rotation, dirQ, newDir.magnitude * turnSpeed * Time.deltaTime);
+		Quaternion slerp	= Quaternion.Slerp (transform.rotation, dirQ, newDir.sqrMagnitude * turnSpeed * Time.deltaTime);
 		rigidBody.MoveRotation (slerp);
 	}
 	
@@ -96,10 +115,10 @@ public class ActorBody : MonoBehaviour
 		currentSpeed	= rigidBody.velocity;
 		currentSpeed.y	= 0;
 
-		if (currentSpeed.magnitude > 0)
+		if (currentSpeed.sqrMagnitude > 0)
 		{
 			rigidBody.AddForce ((currentSpeed * -1) * deceleration * Time.deltaTime, ForceMode.VelocityChange);
-			if (currentSpeed.magnitude > maxSpeed)
+			if (currentSpeed.sqrMagnitude > maxSpeed)
 				rigidBody.AddForce ((currentSpeed * -1) * deceleration * Time.deltaTime, ForceMode.VelocityChange);
 		}
 		

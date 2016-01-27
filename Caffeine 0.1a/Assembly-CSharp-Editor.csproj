@@ -160,6 +160,7 @@
      <None Include="Assets\ImageEffects\Shaders\VignettingShader.shader" />
      <None Include="Assets\ImageEffects\Shaders\Tonemapper.shader" />
      <None Include="Assets\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter.shader" />
+     <None Include="Assets\Shaders\Experiments\NorlicksCoffee.shader" />
      <None Include="Assets\ImageEffects\Shaders\_Antialiasing\FXAA2.shader" />
      <None Include="Assets\ShaderForge\Example Assets\Shaders\PixelRotator.shader" />
      <None Include="Assets\ImageEffects\Shaders\ColorCorrection3DLut.shader" />

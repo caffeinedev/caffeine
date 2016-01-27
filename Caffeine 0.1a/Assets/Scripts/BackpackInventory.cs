@@ -1,6 +1,7 @@
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerController))]
+[RequireComponent (typeof (SteeperController))]
+
 public class BackpackInventory : MonoBehaviour
 {
 	[Range(0f, 1f)]

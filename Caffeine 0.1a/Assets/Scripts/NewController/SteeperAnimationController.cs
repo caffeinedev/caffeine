@@ -21,7 +21,6 @@ public class SteeperAnimationController : MonoBehaviour {
 	public void Awake () {
 		if (tag != "Player") tag = "Player";
 
-		// Assign Stuff
 		anim	= GetComponent<Animator> ();
 		r		= GetComponent<Rigidbody> ();
 		control	= GetComponent<SteeperController> ();
@@ -36,9 +35,9 @@ public class SteeperAnimationController : MonoBehaviour {
 		*/
 	
 		if (control.canMove) {
-			if (distanceFromGround < 1) {
+			if (distanceFromGround < 1)
 				anim.SetBool ("grounded", true);
-			} else
+			else
 				anim.SetBool ("grounded", false);
 
 			if (distanceFromGround < 5)
@@ -46,39 +45,32 @@ public class SteeperAnimationController : MonoBehaviour {
 			else
 				anim.SetBool ("canLand", false);
 
-			float h = Input.GetAxisRaw ("Horizontal");
-			float v = Input.GetAxisRaw ("Vertical");
-
-			anim.SetFloat ("runspeed", Mathf.Abs (v));
-			if (Mathf.Abs (h) < 0.02f && Mathf.Abs (v) < 0.02f) {
+			anim.SetFloat ("runspeed", control.input.sqrMagnitude);
+						
+			if (control.input.sqrMagnitude == 0) {
 				anim.SetBool ("running", false);
 				steam.enableEmission = true;
 			} else {
 				anim.SetBool ("running", true);
 				steam.enableEmission = false;
 			}
+		} else {
+			steam.enableEmission = true;
+			anim.SetBool ("running", false);
 		}
-			/*
-		if (Input.GetAxisRaw ("Horizontal") > 0) {
-			//transform.Translate(new Vector3 (h * hspeed * Time.deltaTime, 0, v * vspeed * Time.deltaTime));
-			r.AddForce(Vector3.forward * v * vspeed * Time.deltaTime, ForceMode.Force);
-		}
-		**  MOVED THIS TO AN EVENT RESPONSE **
-			if (Input.GetButtonDown ("Jump") && control.grounded == true) {
-				anim.SetTrigger ("jump");
-			}
-		}*/
-
+		
+	/*	Handled in SteeperController.cs ********************************
 		if (!control.canMove) {
 			anim.SetBool("running", false);
 		}
+	*******************************************************************/
 	}
 
 	public void FixedUpdate () {
 		RaycastHit hit;
 		if ( Physics.Raycast (transform.position, Vector3.down, out hit) )
 		{
-			if (!hit.transform.GetComponent<Collider> ().isTrigger)
+			if (!hit.transform.GetComponent<Collider>().isTrigger)
 				distanceFromGround = hit.distance;
 		}
 	}
