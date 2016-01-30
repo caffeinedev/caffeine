@@ -5,59 +5,59 @@ using System.Collections;
 [RequireComponent (typeof (Rigidbody))]
 
 public class SteeperController : MonoBehaviour {
-	
+
 	// Setup
 	public Transform cam;
-	public Vector3 input = new Vector3 ();
-	public float deadzone = 0.1f;
-	
+	public Vector3 input	= new Vector3 ();
+	public float deadzone	= 0.1f;
+
 	// Movement
 	[Header ("Movement")]
-	public float accel = 5.5f;
-	public float airAccel = 1f;
+	public float accel		= 5.5f;
+	public float airAccel	= 1f;
 	public float decel = 7.6f, airDecel = 1.5f;
 	[Range (0f,30f)]
 	public float rotateSpeed = 12.5f, airRotateSpeed = 3f;	// How fast to rotate
-	public float maxSpeed = 200f;							// Maximum speed of movement in X/Z axis
-	
+	public float maxSpeed	= 200f;							// Maximum speed of movement in X/Z axis
+
 	// Jumping
 	[Header ("Jumping")]
 	public float jumpForce		= 70f;						// Jump force
-	public float jumpLeniancy	= 0.05f;					// How soon before landing you can press jump and still have it work
-	
+	public float jumpLeniency	= 0.05f;					// How soon before landing you can press jump and still have it work
+
 	// Ground detection
 	[Header ("Ground Detection")]
 	public float groundCheckDistance = 1f;
 	public float slopeLimit = 40, slideAmount = 35;			// Maximum angle of walkable slopes, how fast to slide down unwalkable slopes
-	
+
 	// State bools
 	public bool grounded, onSlope, canMove;
 
-	
+
 	[Header ("Steeper State")]
 	//Privates
 	private ActorBody actorBody;
 	private Rigidbody rigidBody;
 	private Collider collider;
 
-	private float groundedTimer;	
+	private float groundedTimer;
 	private float slope;
 	private Quaternion screenSpace;
 	private Vector3 direction, moveDirection, screenSpaceForward, screenSpaceRight;
 	private float curAccel, curDecel, curRotateSpeed;
 
 	private Vector3 lastGrounded;
-	
+
 	private float oldH, oldV; // for easy reset when you do something stupid.
-	
-	
+
+
 	/**
 	 * Initialize
 	 */
 	void Awake ()
 	{
 		if (tag != "Player") tag = "Player";
-		
+
 		// Bump up params that would normally take big numbers
 		accel		*= 100;
 		airAccel	*= 100;
@@ -69,7 +69,7 @@ public class SteeperController : MonoBehaviour {
 		collider	= GetComponent<Collider> ();
 		cam			= GameObject.FindGameObjectWithTag ("MainCamera").transform;
 	}
-	
+
 	/**
 	 * Update player once per frame
 	 */
@@ -77,13 +77,13 @@ public class SteeperController : MonoBehaviour {
 	{
 		if (canMove)
 		{
-			
+
 			JumpCalculations ();
 
 			// Get player input
 			input.x = Input.GetAxisRaw ("Horizontal");
 			input.z = -1 * Input.GetAxisRaw ("Vertical");	// FIX THIS AXIS EVENTUALLY
-			
+
 			// Keep diagonal speeds consistent and apply deadzone
 			if (input.sqrMagnitude > 1) input.Normalize ();
 			else if (input.sqrMagnitude < deadzone) input = Vector3.zero;
@@ -95,40 +95,36 @@ public class SteeperController : MonoBehaviour {
 		*********************************************************************/
 
 			// Get movement axis relative to camera
-			screenSpace			= Quaternion.Euler (0, cam.eulerAngles.y, 0);
-	//		screenSpaceForward	= screenSpace * Vector3.forward;
-	//		screenSpaceRight	= screenSpace * Vector3.right;
+			screenSpace = Quaternion.Euler (0, cam.eulerAngles.y, 0);
 
 			if (Input.GetKeyDown (KeyCode.R))
 				transform.position = lastGrounded;
-		
+
 			// Air or grounded?
 			if (grounded) {
-				curAccel = accel;
-				curDecel = decel;
-				curRotateSpeed = rotateSpeed;
+				curAccel		= accel;
+				curDecel		= decel;
+				curRotateSpeed	= rotateSpeed;
 			} else {
-				curAccel = airAccel;
-				curDecel = airDecel;
-				curRotateSpeed = airRotateSpeed;
+				curAccel		= airAccel;
+				curDecel		= airDecel;
+				curRotateSpeed	= airRotateSpeed;
 			}
-		
+
 			direction = screenSpace * input;					// Get movement direction relative to screen space
-			
+
 			if (direction.sqrMagnitude < 0.5f) curAccel /= 2;	// Slow acceleration for subtle movements and to prevent jitter
 
-
-			//direction = (screenSpaceForward * v) + (screenSpaceRight * h);
-			//moveDirection = transform.position + (direction * 10);
-
 		} else {
+
 			if (direction.sqrMagnitude != 0) direction = Vector3.zero;
 			if (input.sqrMagnitude != 0) input = Vector3.zero;
 			if (rigidBody.velocity.sqrMagnitude != 0) rigidBody.velocity = Vector3.zero;
+
 		}
 
 	}
-	
+
 	/**
 	 * Apply player movement with physics calculations
 	 */
@@ -136,21 +132,20 @@ public class SteeperController : MonoBehaviour {
 	{
 		if (canMove) {
 			grounded = IsGrounded ();
-		
-		//	actorBody.MoveTo (moveDirection, curAccel, 0.5f);
+
 			actorBody.MoveInDirection (direction, curAccel);
-					
+
 			if (curRotateSpeed != 0 && direction.sqrMagnitude != 0)
 				actorBody.RotateToDirection (direction, curRotateSpeed);
 
 			actorBody.ManageSpeed (curDecel, maxSpeed);
 		}
 	}
-	
+
 	/**
 	 * If we're staying grounded
 	 */
-	void OnCollisionStay (Collision other) 
+	void OnCollisionStay (Collision other)
 	{
 		// Stop moving if we're on a slight slope
 		if (direction.sqrMagnitude == 0 && slope < slopeLimit && rigidBody.velocity.sqrMagnitude < 2)
@@ -158,7 +153,7 @@ public class SteeperController : MonoBehaviour {
 			rigidBody.velocity = Vector3.zero;
 		}
 	}
-	
+
 	/**
 	 * Jump calculations
 	 */
@@ -186,8 +181,8 @@ public class SteeperController : MonoBehaviour {
 	 */
 	private bool IsGrounded ()
 	{
-		float distance = collider.bounds.extents.y * jumpLeniancy;
-		
+		float distance = collider.bounds.extents.y * jumpLeniency;
+
 		// Check if we're grounded
 		RaycastHit hit;
 		if ( Physics.Raycast (transform.position, Vector3.down * groundCheckDistance, out hit, distance + 0.001f) )
@@ -204,14 +199,14 @@ public class SteeperController : MonoBehaviour {
 					rigidBody.AddForce (slide, ForceMode.Force);
 				}
 				lastGrounded = transform.position;
-				
+
 				// We are indeed grounded.
 				return true;
 			}
 		}
 		return false;
 	}
-	
+
 	/**
 	 * JUMP
 	 */

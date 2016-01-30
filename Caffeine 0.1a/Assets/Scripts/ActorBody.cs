@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+
 public class ActorBody : MonoBehaviour
 {
 	
@@ -16,11 +17,11 @@ public class ActorBody : MonoBehaviour
 	{
 		rigidBody = GetComponent<Rigidbody> ();
 		
-		//set up rigidbody constraints
+		// Set up constraints
 		rigidBody.interpolation	= RigidbodyInterpolation.Interpolate;
 		rigidBody.constraints	= RigidbodyConstraints.FreezeRotation;
 		
-		//add frictionless physics material
+		// Add frictionless physics material
 		if (GetComponent<Collider>().material.name == "Default (Instance)")
 		{
 			PhysicMaterial pMat					= new PhysicMaterial();
@@ -39,7 +40,8 @@ public class ActorBody : MonoBehaviour
 	 */
 	public void MoveInDirection (Vector3 direction, float acceleration)
 	{
-		Debug.DrawLine (transform.position + (Vector3.up * 5f), transform.position + (direction*10));
+		Vector3 lineOrigin = transform.position + (Vector3.up * 5f);
+		Debug.DrawLine (lineOrigin + (Vector3.up * 5f), lineOrigin + (direction*10));
 				
 		rigidBody.AddForce (direction * acceleration * Time.deltaTime, ForceMode.VelocityChange);
 	}
@@ -51,7 +53,7 @@ public class ActorBody : MonoBehaviour
 	public bool MoveTo (Vector3 destination, float acceleration, float stopDistance)
 	{
 		Vector3 relativePos = (destination - transform.position);
-		relativePos.y = 0;
+		relativePos.y = 0f;
 		
 		// If actor movement is jumpy, it may be reaching destination too soon on missed frames
 		Debug.DrawLine(transform.position + (Vector3.up * 5f), destination);

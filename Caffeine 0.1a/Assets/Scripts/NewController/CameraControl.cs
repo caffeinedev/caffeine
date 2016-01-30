@@ -11,16 +11,16 @@ public class CameraControl : MonoBehaviour
 	public float minDistanceFromTarget		= 10f;			// The closest the camera can get to the target
 
 	[Header ("Movement Settings")]
-	public bool lockRotation;								// Keep camera position fixed at offset?
+	public bool lockRotation;						// Keep camera position fixed at offset?
 	public float autoRotationSpeed	= 0.8f;
-	public float followSpeed		= 20f;					// Camera movement speed
-	public float rotateDamping		= 100f;					// Camera rotation damping
+	public float followSpeed		= 20f;			// Camera movement speed
+	public float rotateDamping		= 100f;			// Camera rotation damping
 
 	public string[] avoidObstructionTags;
 
 	[Header ("Player Input Settings")]
-	public float inputRotationSpeed	= 100f;					// How fast the camera rotates with player input
-	public float playerInputCooldownTime = 2f;				// How long to keep camera in players control after recieving input
+	public float inputRotationSpeed			= 100f;			// How fast the camera rotates with player input
+	public float playerInputCooldownTime	= 2f;			// How long to keep camera in players control after recieving input
 
 
 	// Privates --------------------------------------------------------
@@ -123,6 +123,7 @@ public class CameraControl : MonoBehaviour
 
 			AvoidObstructions ();
 		}
+		//TODO: Do something to keep the player from crafting through a wall 
 	}
 
 	/**
@@ -155,15 +156,18 @@ public class CameraControl : MonoBehaviour
 	public void AvoidObstructions ()
 	{
 		/*
-		// Keep the camera from getting behind walls or clipping through objects
-		RaycastHit[] hits = Physics.SphereCastAll (followTarget.position, 5f, followTarget.back, 5f);
-		foreach (RaycastHit hit in hits) {
-			Vector3 hitDirection = followTarget.position - hit.point;
-			Debug.DrawLine (transform.position, hit.point); // Draw a line in editor to objects that may obstruct
+		
+		RaycastHit hit;
+		if (Physics.Raycast (followTarget.position, followTarget.position - transform.position, out hit)) {
+			Debug.Log (hit.ToString());
 		}
+		
 		*/
 	}
 
+	/**
+	 * Reset camera positioning
+	 */
 	public void Reset ()
 	{
 		positionOffset = defaultPositionOffset;
