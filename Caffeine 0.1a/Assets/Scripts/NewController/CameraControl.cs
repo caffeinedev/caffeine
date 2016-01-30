@@ -3,6 +3,9 @@
 public class CameraControl : MonoBehaviour
 {
 	public Transform target;									// Cam target
+	
+	[Header ("Dev Stuff")]
+	public bool resetCameraNow = false;
 
 	[Header ("Viewport Positioning")]
 	public Vector3 defaultPositionOffset	= new Vector3 (0f, 20f, -32f);	// Where the cam should be positioned relative to target
@@ -89,6 +92,13 @@ public class CameraControl : MonoBehaviour
 				playerHasControl = false;	// Give control to the Camera AI
 				Debug.Log ("AI has control of camera as of " + Time.time);
 			}
+			
+			// DEV CAMERA RESET ----------------------------------------
+			if (resetCameraNow) {
+				Reset ();
+				resetCameraNow = false;
+			}
+			// ---------------------------------------------------------
 
 			SmoothFollow ();
 			SmoothLookAt ();

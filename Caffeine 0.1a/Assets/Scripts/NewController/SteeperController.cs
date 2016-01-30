@@ -35,7 +35,7 @@ public class SteeperController : MonoBehaviour {
 
 
 	[Header ("Steeper State")]
-	//Privates
+	//Privates	
 	private ActorBody actorBody;
 	private Rigidbody rigidBody;
 	private Collider collider;
