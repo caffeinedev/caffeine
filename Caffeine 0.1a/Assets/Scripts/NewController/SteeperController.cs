@@ -31,7 +31,7 @@ public class SteeperController : MonoBehaviour {
 	public float slopeLimit = 40, slideAmount = 35;			// Maximum angle of walkable slopes, how fast to slide down unwalkable slopes
 
 	// State bools
-	public bool grounded, onSlope, canMove;
+	public bool grounded, onSlope, canMove, disableJump;
 
 
 	[Header ("Steeper State")]
@@ -212,7 +212,9 @@ public class SteeperController : MonoBehaviour {
 	 */
 	public void Jump (float jumpVelocity)
 	{
-		rigidBody.AddRelativeForce (transform.up * jumpVelocity, ForceMode.Impulse);
-		BroadcastMessage ("OnJumpEvent");
+		if (!disableJump) {
+			rigidBody.AddRelativeForce (transform.up * jumpVelocity, ForceMode.Impulse);
+			BroadcastMessage ("OnJumpEvent");
+		}
 	}
 }

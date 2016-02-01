@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Dialogue_NPC : MonoBehaviour {
 
 	Animator anim;
-
+	public string npcname;
 	public int[] range;
 	public int iteration = 0;
 	public int[] mood = new int[7];
@@ -17,7 +17,6 @@ public class Dialogue_NPC : MonoBehaviour {
 	public string[] dialogue5;
 	public string[] dialogue6;
 	public string[] defaultDialogue;
-	public string npcname;
 
 	public string[] actionSequence = new string[7];
 

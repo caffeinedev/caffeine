@@ -27,10 +27,10 @@ public class InterfaceController : MonoBehaviour {
 	}
 
 	void OnTriggerStay (Collider col) {
-		if (Input.GetButtonDown("Interact")) {
+		if (Input.GetButtonDown("Jump")) {
 			chatIndicator.Play("buttonindicatoridle");
 		}
-		if (Input.GetButtonDown("Interact")) {
+		if (Input.GetButtonDown("Jump")) {
 			xIndicator.Play("buttonindicatoridle");
 		}
 	}

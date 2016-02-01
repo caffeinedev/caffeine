@@ -1,0 +1,859 @@
+fileFormatVersion: 2
+guid: e41d255ceb2934f3da29217f5ff92e92
+timeCreated: 1454300078
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: anim_back_low
+    100002: anim_back_mid
+    100004: anim_chest
+    100006: anim_COG
+    100008: anim_global
+    100010: anim_head
+    100012: anim_L_collarbone
+    100014: anim_L_foot
+    100016: anim_L_wrist
+    100018: anim_neck
+    100020: anim_pelvis
+    100022: anim_R_collarbone
+    100024: anim_R_foot
+    100026: anim_R_wrist
+    100028: Background
+    100030: bottom
+    100032: Brow_left
+    100034: Brow_right
+    100036: ButtL
+    100038: Camera
+    100040: Circle
+    100042: Collar
+    100044: collar_end
+    100046: Control_group
+    100048: Cube
+    100050: Cube_1
+    100052: Cube_1_Spline
+    100054: Cube_2
+    100056: Cylinder_1
+    100058: Cylinder_3
+    100060: Expression
+    100062: Expression_1
+    100064: Expression_1_2
+    100066: Expression_2
+    100068: Expression_2_2
+    100070: Expression_2_3
+    100072: Expression_3
+    100074: Expression_3_2
+    100076: Expression_3_3
+    100078: Expression_4
+    100080: Expression_5
+    100082: Expression_6
+    100084: Expression_7
+    100086: Head_nd
+    100088: Head_nd_1
+    100090: Head_nd_2
+    100092: Jntnd_foot
+    100094: Jntnd_foot_2
+    100096: Jntnd_head_2
+    100098: Jntnd_L_finger
+    100100: Jntnd_L_index
+    100102: Jntnd_L_thumb
+    100104: Jntnd_L_wrist
+    100106: Jntnd_L_wrist_Goal
+    100108: Jntnd_leg
+    100110: Jntnd_leg_2
+    100112: Jntnd_leg_Goal
+    100114: Jntnd_leg_Goal_2
+    100116: Jntnd_Pelvis
+    100118: Jntnd_R_finger
+    100120: Jntnd_R_index
+    100122: Jntnd_R_thumb
+    100124: Jntnd_R_wrist
+    100126: Jntnd_R_wrist_Goal
+    100128: Joint
+    100130: Joint_1
+    100132: Joint_1_2
+    100134: Joint_2
+    100136: Joint_3
+    100138: Joint_4
+    100140: Joint_4_2
+    100142: Joint_4_3
+    100144: L_brow
+    100146: mdrv_bucket
+    100148: mdrv_bucket_handle
+    100150: mdrv_butt_L
+    100152: mdrv_chest
+    100154: mdrv_COG
+    100156: mdrv_collar
+    100158: mdrv_collar_R
+    100160: mdrv_fing_base
+    100162: mdrv_fing_base_2
+    100164: mdrv_fing_mid
+    100166: mdrv_fing_mid_2
+    100168: mdrv_head
+    100170: mdrv_index_base
+    100172: mdrv_index_base_2
+    100174: mdrv_index_mid
+    100176: mdrv_index_mid_2
+    100178: mdrv_knucks
+    100180: mdrv_knucks_2
+    100182: mdrv_L_ankle
+    100184: mdrv_l_brow
+    100186: mdrv_L_collar
+    100188: mdrv_low_back
+    100190: mdrv_neck
+    100192: mdrv_pelvis
+    100194: mdrv_R_ankle_1
+    100196: mdrv_r_brow
+    100198: mdrv_thumb_base
+    100200: mdrv_thumb_base_2
+    100202: mdrv_thumb_end
+    100204: mdrv_thumb_end_2
+    100206: mdrv_thumb_mid
+    100208: mdrv_thumb_mid_2
+    100210: mdrv_titty_city
+    100212: mdrv_wrist
+    100214: mdrv_wrist_2
+    100216: mid_hair
+    100218: Null
+    100220: Polygon
+    100222: Polygon_2
+    100224: //RootNode
+    100226: R_brow
+    100228: Rectangle
+    100230: RetopoGroup1_3
+    100232: RetopoGroup1_3_2
+    100234: RetopoGroup1_3_3
+    100236: RetopoGroup1_3_4
+    100238: Root01
+    100240: Root_L_fingers
+    100242: Root_L_Foot
+    100244: Root_L_Shoulder
+    100246: Root_L_Thighs
+    100248: Root_L_Wrist
+    100250: Root_Pelvis
+    100252: Root_R_fingers
+    100254: Root_R_Foot
+    100256: Root_R_Shoulder
+    100258: Root_R_Thighs
+    100260: Root_R_Wrist
+    100262: Skin
+    100264: Skin_10
+    100266: Skin_11
+    100268: Skin_2
+    100270: Skin_3
+    100272: Skin_4
+    100274: Skin_5
+    100276: Skin_6
+    100278: Skin_7
+    100280: Skin_8
+    100282: Skin_9
+    100284: Skin_chest
+    100286: Skin_head
+    100288: Skin_L_ankle
+    100290: Skin_L_Bicep
+    100292: Skin_L_Collar
+    100294: Skin_L_finger_base
+    100296: Skin_L_finger_mid
+    100298: Skin_L_fingers
+    100300: Skin_L_foot
+    100302: Skin_L_forearm
+    100304: Skin_L_index_base
+    100306: Skin_L_index_mid
+    100308: Skin_L_knuckle
+    100310: Skin_L_shin
+    100312: Skin_L_thigh
+    100314: Skin_L_Thumb
+    100316: Skin_L_thumb_end
+    100318: Skin_L_thumb_mid
+    100320: Skin_L_wrist
+    100322: Skin_low_back
+    100324: Skin_mid_back
+    100326: Skin_neck
+    100328: Skin_pelvis
+    100330: Skin_R_ankle
+    100332: Skin_R_Bicep
+    100334: Skin_R_Collar
+    100336: Skin_R_finger_base
+    100338: Skin_R_finger_mid
+    100340: Skin_R_fingers
+    100342: Skin_R_foot
+    100344: Skin_R_forearm
+    100346: Skin_R_index_base
+    100348: Skin_R_index_mid
+    100350: Skin_R_knuckle
+    100352: Skin_R_shin
+    100354: Skin_R_thigh
+    100356: Skin_R_Thumb
+    100358: Skin_R_thumb_end
+    100360: Skin_R_thumb_mid
+    100362: Skin_R_wrist
+    100364: Skin_root
+    100366: titty
+    100368: top_hair
+    400000: anim_back_low
+    400002: anim_back_mid
+    400004: anim_chest
+    400006: anim_COG
+    400008: anim_global
+    400010: anim_head
+    400012: anim_L_collarbone
+    400014: anim_L_foot
+    400016: anim_L_wrist
+    400018: anim_neck
+    400020: anim_pelvis
+    400022: anim_R_collarbone
+    400024: anim_R_foot
+    400026: anim_R_wrist
+    400028: Background
+    400030: bottom
+    400032: Brow_left
+    400034: Brow_right
+    400036: ButtL
+    400038: Camera
+    400040: Circle
+    400042: Collar
+    400044: collar_end
+    400046: Control_group
+    400048: Cube
+    400050: Cube_1
+    400052: Cube_1_Spline
+    400054: Cube_2
+    400056: Cylinder_1
+    400058: Cylinder_3
+    400060: Expression
+    400062: Expression_1
+    400064: Expression_1_2
+    400066: Expression_2
+    400068: Expression_2_2
+    400070: Expression_2_3
+    400072: Expression_3
+    400074: Expression_3_2
+    400076: Expression_3_3
+    400078: Expression_4
+    400080: Expression_5
+    400082: Expression_6
+    400084: Expression_7
+    400086: Head_nd
+    400088: Head_nd_1
+    400090: Head_nd_2
+    400092: Jntnd_foot
+    400094: Jntnd_foot_2
+    400096: Jntnd_head_2
+    400098: Jntnd_L_finger
+    400100: Jntnd_L_index
+    400102: Jntnd_L_thumb
+    400104: Jntnd_L_wrist
+    400106: Jntnd_L_wrist_Goal
+    400108: Jntnd_leg
+    400110: Jntnd_leg_2
+    400112: Jntnd_leg_Goal
+    400114: Jntnd_leg_Goal_2
+    400116: Jntnd_Pelvis
+    400118: Jntnd_R_finger
+    400120: Jntnd_R_index
+    400122: Jntnd_R_thumb
+    400124: Jntnd_R_wrist
+    400126: Jntnd_R_wrist_Goal
+    400128: Joint
+    400130: Joint_1
+    400132: Joint_1_2
+    400134: Joint_2
+    400136: Joint_3
+    400138: Joint_4
+    400140: Joint_4_2
+    400142: Joint_4_3
+    400144: L_brow
+    400146: mdrv_bucket
+    400148: mdrv_bucket_handle
+    400150: mdrv_butt_L
+    400152: mdrv_chest
+    400154: mdrv_COG
+    400156: mdrv_collar
+    400158: mdrv_collar_R
+    400160: mdrv_fing_base
+    400162: mdrv_fing_base_2
+    400164: mdrv_fing_mid
+    400166: mdrv_fing_mid_2
+    400168: mdrv_head
+    400170: mdrv_index_base
+    400172: mdrv_index_base_2
+    400174: mdrv_index_mid
+    400176: mdrv_index_mid_2
+    400178: mdrv_knucks
+    400180: mdrv_knucks_2
+    400182: mdrv_L_ankle
+    400184: mdrv_l_brow
+    400186: mdrv_L_collar
+    400188: mdrv_low_back
+    400190: mdrv_neck
+    400192: mdrv_pelvis
+    400194: mdrv_R_ankle_1
+    400196: mdrv_r_brow
+    400198: mdrv_thumb_base
+    400200: mdrv_thumb_base_2
+    400202: mdrv_thumb_end
+    400204: mdrv_thumb_end_2
+    400206: mdrv_thumb_mid
+    400208: mdrv_thumb_mid_2
+    400210: mdrv_titty_city
+    400212: mdrv_wrist
+    400214: mdrv_wrist_2
+    400216: mid_hair
+    400218: Null
+    400220: Polygon
+    400222: Polygon_2
+    400224: //RootNode
+    400226: R_brow
+    400228: Rectangle
+    400230: RetopoGroup1_3
+    400232: RetopoGroup1_3_2
+    400234: RetopoGroup1_3_3
+    400236: RetopoGroup1_3_4
+    400238: Root01
+    400240: Root_L_fingers
+    400242: Root_L_Foot
+    400244: Root_L_Shoulder
+    400246: Root_L_Thighs
+    400248: Root_L_Wrist
+    400250: Root_Pelvis
+    400252: Root_R_fingers
+    400254: Root_R_Foot
+    400256: Root_R_Shoulder
+    400258: Root_R_Thighs
+    400260: Root_R_Wrist
+    400262: Skin
+    400264: Skin_10
+    400266: Skin_11
+    400268: Skin_2
+    400270: Skin_3
+    400272: Skin_4
+    400274: Skin_5
+    400276: Skin_6
+    400278: Skin_7
+    400280: Skin_8
+    400282: Skin_9
+    400284: Skin_chest
+    400286: Skin_head
+    400288: Skin_L_ankle
+    400290: Skin_L_Bicep
+    400292: Skin_L_Collar
+    400294: Skin_L_finger_base
+    400296: Skin_L_finger_mid
+    400298: Skin_L_fingers
+    400300: Skin_L_foot
+    400302: Skin_L_forearm
+    400304: Skin_L_index_base
+    400306: Skin_L_index_mid
+    400308: Skin_L_knuckle
+    400310: Skin_L_shin
+    400312: Skin_L_thigh
+    400314: Skin_L_Thumb
+    400316: Skin_L_thumb_end
+    400318: Skin_L_thumb_mid
+    400320: Skin_L_wrist
+    400322: Skin_low_back
+    400324: Skin_mid_back
+    400326: Skin_neck
+    400328: Skin_pelvis
+    400330: Skin_R_ankle
+    400332: Skin_R_Bicep
+    400334: Skin_R_Collar
+    400336: Skin_R_finger_base
+    400338: Skin_R_finger_mid
+    400340: Skin_R_fingers
+    400342: Skin_R_foot
+    400344: Skin_R_forearm
+    400346: Skin_R_index_base
+    400348: Skin_R_index_mid
+    400350: Skin_R_knuckle
+    400352: Skin_R_shin
+    400354: Skin_R_thigh
+    400356: Skin_R_Thumb
+    400358: Skin_R_thumb_end
+    400360: Skin_R_thumb_mid
+    400362: Skin_R_wrist
+    400364: Skin_root
+    400366: titty
+    400368: top_hair
+    4300000: Cube_1
+    4300002: Cube
+    4300004: Cylinder_3
+    4300006: RetopoGroup1_3
+    4300008: Cube_2
+    4300010: Cylinder_1
+    4300012: RetopoGroup1_3_2
+    4300014: Polygon
+    4300016: Polygon_2
+    4300018: RetopoGroup1_3_3
+    4300020: RetopoGroup1_3_4
+    7400000: Idle 1
+    9500000: //RootNode
+    13700000: Cube
+    13700002: Cube_1
+    13700004: Cube_2
+    13700006: Cylinder_1
+    13700008: Cylinder_3
+    13700010: Polygon
+    13700012: Polygon_2
+    13700014: RetopoGroup1_3
+    13700016: RetopoGroup1_3_2
+    13700018: RetopoGroup1_3_3
+    13700020: RetopoGroup1_3_4
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle 1
+      takeName: C4D Animation Take
+      firstFrame: 0
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: anim_global
+        weight: 1
+      - path: anim_global/Rectangle
+        weight: 1
+      - path: anim_global/Rectangle/Control_group
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_L_collarbone
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_L_collarbone/mdrv_L_collar
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_L_wrist
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_L_wrist/Jntnd_L_wrist_Goal
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_L_wrist/mdrv_wrist_2
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_L_wrist/mdrv_wrist_2/mdrv_knucks_2
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_L_wrist/mdrv_wrist_2/mdrv_knucks_2/mdrv_fing_base_2
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_L_wrist/mdrv_wrist_2/mdrv_knucks_2/mdrv_fing_base_2/mdrv_fing_mid_2
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_L_wrist/mdrv_wrist_2/mdrv_knucks_2/mdrv_index_base_2
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_L_wrist/mdrv_wrist_2/mdrv_knucks_2/mdrv_index_base_2/mdrv_index_mid_2
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_L_wrist/mdrv_wrist_2/mdrv_thumb_base_2
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_L_wrist/mdrv_wrist_2/mdrv_thumb_base_2/mdrv_thumb_mid_2
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_L_wrist/mdrv_wrist_2/mdrv_thumb_base_2/mdrv_thumb_mid_2/mdrv_thumb_end_2
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_neck
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_neck/anim_head
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_neck/anim_head/L_brow
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_neck/anim_head/L_brow/mdrv_l_brow
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_neck/anim_head/mdrv_head
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_neck/anim_head/mid_hair
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_neck/anim_head/R_brow
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_neck/anim_head/R_brow/mdrv_r_brow
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_neck/anim_head/top_hair
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_neck/Cube_1_Spline
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_neck/Cube_1_Spline/mdrv_collar
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_neck/mdrv_neck
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_R_collarbone
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_R_collarbone/mdrv_collar_R
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_R_wrist
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_R_wrist/Jntnd_R_wrist_Goal
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_R_wrist/mdrv_wrist
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_R_wrist/mdrv_wrist/mdrv_knucks
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_R_wrist/mdrv_wrist/mdrv_knucks/mdrv_fing_base
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_R_wrist/mdrv_wrist/mdrv_knucks/mdrv_fing_base/mdrv_fing_mid
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_R_wrist/mdrv_wrist/mdrv_knucks/mdrv_index_base
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_R_wrist/mdrv_wrist/mdrv_knucks/mdrv_index_base/mdrv_index_mid
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_R_wrist/mdrv_wrist/mdrv_thumb_base
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_R_wrist/mdrv_wrist/mdrv_thumb_base/mdrv_thumb_mid
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/anim_R_wrist/mdrv_wrist/mdrv_thumb_base/mdrv_thumb_mid/mdrv_thumb_end
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/mdrv_chest
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/titty
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/anim_back_mid/anim_chest/titty/mdrv_titty_city
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_back_low/mdrv_low_back
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_pelvis
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_pelvis/Circle
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_pelvis/Circle/ButtL
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_pelvis/Circle/ButtL/mdrv_butt_L
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_pelvis/Circle/mdrv_bucket_handle
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_pelvis/Circle/mdrv_bucket_handle/mdrv_bucket
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_pelvis/Circle/Null
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/anim_pelvis/mdrv_pelvis
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_COG/mdrv_COG
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_L_foot
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_L_foot/Jntnd_leg_Goal
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_L_foot/mdrv_L_ankle
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_R_foot
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_R_foot/Jntnd_leg_Goal_2
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/anim_R_foot/mdrv_R_ankle_1
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/Expression_1_2
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/Expression_2_3
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/Expression_3_2
+        weight: 1
+      - path: anim_global/Rectangle/Control_group/Expression_3_3
+        weight: 1
+      - path: anim_global/Rectangle/Expression_2_2
+        weight: 1
+      - path: anim_global/Rectangle/Root01
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Jntnd_Pelvis
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Jntnd_Pelvis/Root_L_Thighs
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Jntnd_Pelvis/Root_L_Thighs/Skin_L_thigh
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Jntnd_Pelvis/Root_L_Thighs/Skin_L_thigh/Skin_L_shin
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Jntnd_Pelvis/Root_L_Thighs/Skin_L_thigh/Skin_L_shin/Jntnd_leg_2
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Jntnd_Pelvis/Root_L_Thighs/Skin_L_thigh/Skin_L_shin/Jntnd_leg_2/Root_L_Foot
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Jntnd_Pelvis/Root_L_Thighs/Skin_L_thigh/Skin_L_shin/Jntnd_leg_2/Root_L_Foot/Skin_L_ankle
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Jntnd_Pelvis/Root_L_Thighs/Skin_L_thigh/Skin_L_shin/Jntnd_leg_2/Root_L_Foot/Skin_L_ankle/Skin_L_foot
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Jntnd_Pelvis/Root_L_Thighs/Skin_L_thigh/Skin_L_shin/Jntnd_leg_2/Root_L_Foot/Skin_L_ankle/Skin_L_foot/Jntnd_foot_2
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Jntnd_Pelvis/Root_R_Thighs
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Jntnd_Pelvis/Root_R_Thighs/Skin_R_thigh
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Jntnd_Pelvis/Root_R_Thighs/Skin_R_thigh/Skin_R_shin
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Jntnd_Pelvis/Root_R_Thighs/Skin_R_thigh/Skin_R_shin/Jntnd_leg
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Jntnd_Pelvis/Root_R_Thighs/Skin_R_thigh/Skin_R_shin/Jntnd_leg/Root_R_Foot
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Jntnd_Pelvis/Root_R_Thighs/Skin_R_thigh/Skin_R_shin/Jntnd_leg/Root_R_Foot/Skin_R_ankle
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Jntnd_Pelvis/Root_R_Thighs/Skin_R_thigh/Skin_R_shin/Jntnd_leg/Root_R_Foot/Skin_R_ankle/Skin_R_foot
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Jntnd_Pelvis/Root_R_Thighs/Skin_R_thigh/Skin_R_shin/Jntnd_leg/Root_R_Foot/Skin_R_ankle/Skin_R_foot/Jntnd_foot
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Joint_1
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Joint_1/Joint_1_2
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Joint_1/Joint_1_2/Joint_4
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Joint_1/Joint_1_2/Joint_4/Joint
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Joint_1/Joint_2
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Joint_1/Joint_2/Joint_4_2
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Root_Pelvis/Skin_pelvis/Joint_1/Joint_2/Joint_4_2/Joint_3
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Joint_4_3
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Joint_4_3/bottom
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_L_Shoulder
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_L_Shoulder/Skin_L_Collar
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_L_Shoulder/Skin_L_Collar/Skin_L_Bicep
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_L_Shoulder/Skin_L_Collar/Skin_L_Bicep/Skin_L_forearm
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_L_Shoulder/Skin_L_Collar/Skin_L_Bicep/Skin_L_forearm/Jntnd_L_wrist
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_L_Shoulder/Skin_L_Collar/Skin_L_Bicep/Skin_L_forearm/Jntnd_L_wrist/Root_L_Wrist
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_L_Shoulder/Skin_L_Collar/Skin_L_Bicep/Skin_L_forearm/Jntnd_L_wrist/Root_L_Wrist/Skin_L_wrist
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_L_Shoulder/Skin_L_Collar/Skin_L_Bicep/Skin_L_forearm/Jntnd_L_wrist/Root_L_Wrist/Skin_L_wrist/Skin_L_knuckle
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_L_Shoulder/Skin_L_Collar/Skin_L_Bicep/Skin_L_forearm/Jntnd_L_wrist/Root_L_Wrist/Skin_L_wrist/Skin_L_knuckle/Root_L_fingers
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_L_Shoulder/Skin_L_Collar/Skin_L_Bicep/Skin_L_forearm/Jntnd_L_wrist/Root_L_Wrist/Skin_L_wrist/Skin_L_knuckle/Root_L_fingers/Skin_L_fingers
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_L_Shoulder/Skin_L_Collar/Skin_L_Bicep/Skin_L_forearm/Jntnd_L_wrist/Root_L_Wrist/Skin_L_wrist/Skin_L_knuckle/Root_L_fingers/Skin_L_fingers/Skin_L_finger_base
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_L_Shoulder/Skin_L_Collar/Skin_L_Bicep/Skin_L_forearm/Jntnd_L_wrist/Root_L_Wrist/Skin_L_wrist/Skin_L_knuckle/Root_L_fingers/Skin_L_fingers/Skin_L_finger_base/Skin_L_finger_mid
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_L_Shoulder/Skin_L_Collar/Skin_L_Bicep/Skin_L_forearm/Jntnd_L_wrist/Root_L_Wrist/Skin_L_wrist/Skin_L_knuckle/Root_L_fingers/Skin_L_fingers/Skin_L_finger_base/Skin_L_finger_mid/Jntnd_L_finger
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_L_Shoulder/Skin_L_Collar/Skin_L_Bicep/Skin_L_forearm/Jntnd_L_wrist/Root_L_Wrist/Skin_L_wrist/Skin_L_knuckle/Root_L_fingers/Skin_L_fingers/Skin_L_index_base
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_L_Shoulder/Skin_L_Collar/Skin_L_Bicep/Skin_L_forearm/Jntnd_L_wrist/Root_L_Wrist/Skin_L_wrist/Skin_L_knuckle/Root_L_fingers/Skin_L_fingers/Skin_L_index_base/Skin_L_index_mid
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_L_Shoulder/Skin_L_Collar/Skin_L_Bicep/Skin_L_forearm/Jntnd_L_wrist/Root_L_Wrist/Skin_L_wrist/Skin_L_knuckle/Root_L_fingers/Skin_L_fingers/Skin_L_index_base/Skin_L_index_mid/Jntnd_L_index
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_L_Shoulder/Skin_L_Collar/Skin_L_Bicep/Skin_L_forearm/Jntnd_L_wrist/Root_L_Wrist/Skin_L_wrist/Skin_L_Thumb
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_L_Shoulder/Skin_L_Collar/Skin_L_Bicep/Skin_L_forearm/Jntnd_L_wrist/Root_L_Wrist/Skin_L_wrist/Skin_L_Thumb/Skin_L_thumb_mid
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_L_Shoulder/Skin_L_Collar/Skin_L_Bicep/Skin_L_forearm/Jntnd_L_wrist/Root_L_Wrist/Skin_L_wrist/Skin_L_Thumb/Skin_L_thumb_mid/Skin_L_thumb_end
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_L_Shoulder/Skin_L_Collar/Skin_L_Bicep/Skin_L_forearm/Jntnd_L_wrist/Root_L_Wrist/Skin_L_wrist/Skin_L_Thumb/Skin_L_thumb_mid/Skin_L_thumb_end/Jntnd_L_thumb
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_R_Shoulder
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_R_Shoulder/Skin_R_Collar
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_R_Shoulder/Skin_R_Collar/Skin_R_Bicep
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_R_Shoulder/Skin_R_Collar/Skin_R_Bicep/Skin_R_forearm
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_R_Shoulder/Skin_R_Collar/Skin_R_Bicep/Skin_R_forearm/Jntnd_R_wrist
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_R_Shoulder/Skin_R_Collar/Skin_R_Bicep/Skin_R_forearm/Jntnd_R_wrist/Root_R_Wrist
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_R_Shoulder/Skin_R_Collar/Skin_R_Bicep/Skin_R_forearm/Jntnd_R_wrist/Root_R_Wrist/Skin_R_wrist
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_R_Shoulder/Skin_R_Collar/Skin_R_Bicep/Skin_R_forearm/Jntnd_R_wrist/Root_R_Wrist/Skin_R_wrist/Skin_R_knuckle
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_R_Shoulder/Skin_R_Collar/Skin_R_Bicep/Skin_R_forearm/Jntnd_R_wrist/Root_R_Wrist/Skin_R_wrist/Skin_R_knuckle/Root_R_fingers
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_R_Shoulder/Skin_R_Collar/Skin_R_Bicep/Skin_R_forearm/Jntnd_R_wrist/Root_R_Wrist/Skin_R_wrist/Skin_R_knuckle/Root_R_fingers/Skin_R_fingers
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_R_Shoulder/Skin_R_Collar/Skin_R_Bicep/Skin_R_forearm/Jntnd_R_wrist/Root_R_Wrist/Skin_R_wrist/Skin_R_knuckle/Root_R_fingers/Skin_R_fingers/Skin_R_finger_base
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_R_Shoulder/Skin_R_Collar/Skin_R_Bicep/Skin_R_forearm/Jntnd_R_wrist/Root_R_Wrist/Skin_R_wrist/Skin_R_knuckle/Root_R_fingers/Skin_R_fingers/Skin_R_finger_base/Skin_R_finger_mid
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_R_Shoulder/Skin_R_Collar/Skin_R_Bicep/Skin_R_forearm/Jntnd_R_wrist/Root_R_Wrist/Skin_R_wrist/Skin_R_knuckle/Root_R_fingers/Skin_R_fingers/Skin_R_finger_base/Skin_R_finger_mid/Jntnd_R_finger
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_R_Shoulder/Skin_R_Collar/Skin_R_Bicep/Skin_R_forearm/Jntnd_R_wrist/Root_R_Wrist/Skin_R_wrist/Skin_R_knuckle/Root_R_fingers/Skin_R_fingers/Skin_R_index_base
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_R_Shoulder/Skin_R_Collar/Skin_R_Bicep/Skin_R_forearm/Jntnd_R_wrist/Root_R_Wrist/Skin_R_wrist/Skin_R_knuckle/Root_R_fingers/Skin_R_fingers/Skin_R_index_base/Skin_R_index_mid
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_R_Shoulder/Skin_R_Collar/Skin_R_Bicep/Skin_R_forearm/Jntnd_R_wrist/Root_R_Wrist/Skin_R_wrist/Skin_R_knuckle/Root_R_fingers/Skin_R_fingers/Skin_R_index_base/Skin_R_index_mid/Jntnd_R_index
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_R_Shoulder/Skin_R_Collar/Skin_R_Bicep/Skin_R_forearm/Jntnd_R_wrist/Root_R_Wrist/Skin_R_wrist/Skin_R_Thumb
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_R_Shoulder/Skin_R_Collar/Skin_R_Bicep/Skin_R_forearm/Jntnd_R_wrist/Root_R_Wrist/Skin_R_wrist/Skin_R_Thumb/Skin_R_thumb_mid
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_R_Shoulder/Skin_R_Collar/Skin_R_Bicep/Skin_R_forearm/Jntnd_R_wrist/Root_R_Wrist/Skin_R_wrist/Skin_R_Thumb/Skin_R_thumb_mid/Skin_R_thumb_end
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Root_R_Shoulder/Skin_R_Collar/Skin_R_Bicep/Skin_R_forearm/Jntnd_R_wrist/Root_R_Wrist/Skin_R_wrist/Skin_R_Thumb/Skin_R_thumb_mid/Skin_R_thumb_end/Jntnd_R_thumb
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Skin_neck
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Skin_neck/Collar
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Skin_neck/Collar/collar_end
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Skin_neck/Skin_head
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Skin_neck/Skin_head/Brow_left
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Skin_neck/Skin_head/Brow_right
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Skin_neck/Skin_head/Head_nd
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Skin_neck/Skin_head/Head_nd/Head_nd_1
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Skin_neck/Skin_head/Head_nd/Head_nd_1/Head_nd_2
+        weight: 1
+      - path: anim_global/Rectangle/Root01/Skin_root/Skin_low_back/Skin_mid_back/Skin_chest/Skin_neck/Skin_head/Jntnd_head_2
+        weight: 1
+      - path: Background
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Cube/Skin_2
+        weight: 1
+      - path: Cube_1
+        weight: 1
+      - path: Cube_1/Skin
+        weight: 1
+      - path: Cube_2
+        weight: 1
+      - path: Cube_2/Skin_5
+        weight: 1
+      - path: Cylinder_1
+        weight: 1
+      - path: Cylinder_1/Skin_6
+        weight: 1
+      - path: Cylinder_3
+        weight: 1
+      - path: Cylinder_3/Skin_3
+        weight: 1
+      - path: Expression
+        weight: 1
+      - path: Expression_1
+        weight: 1
+      - path: Expression_2
+        weight: 1
+      - path: Expression_3
+        weight: 1
+      - path: Expression_4
+        weight: 1
+      - path: Expression_5
+        weight: 1
+      - path: Expression_6
+        weight: 1
+      - path: Expression_7
+        weight: 1
+      - path: Polygon
+        weight: 1
+      - path: Polygon/Skin_8
+        weight: 1
+      - path: Polygon_2
+        weight: 1
+      - path: Polygon_2/Skin_9
+        weight: 1
+      - path: RetopoGroup1_3
+        weight: 1
+      - path: RetopoGroup1_3/Skin_4
+        weight: 1
+      - path: RetopoGroup1_3_2
+        weight: 1
+      - path: RetopoGroup1_3_2/Skin_7
+        weight: 1
+      - path: RetopoGroup1_3_3
+        weight: 1
+      - path: RetopoGroup1_3_3/Skin_10
+        weight: 1
+      - path: RetopoGroup1_3_4
+        weight: 1
+      - path: RetopoGroup1_3_4/Skin_11
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .0399999991
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

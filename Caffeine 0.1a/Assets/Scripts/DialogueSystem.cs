@@ -12,6 +12,8 @@ public class DialogueSystem : MonoBehaviour {
 	public Image nameBg;
 	public Image indicatorBg;
 
+	public SteeperController control;
+
 	public Color[] mood;
 
 	public List<TextAsset> library = new List<TextAsset>();
@@ -50,29 +52,33 @@ public class DialogueSystem : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		dialogueCanvas = GameObject.Find ("Dialogue Canvas").GetComponent<Canvas>();
+		control = GetComponent<SteeperController> ();
 		aud = GetComponent<AudioSource> ();
 		ParseDialogue ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		nameBg.rectTransform.sizeDelta = new Vector2((nameText.text.Length * 21) + 35, 64.96f);
+		nameBg.rectTransform.sizeDelta = new Vector2((nameText.text.Length * 21) + 45, 64.96f);
 
 	}
-
+	
 
 	void OnTriggerStay (Collider col) {
-
-		if (Input.GetButtonUp ("Interact") && isTyping == false) {
-			if (col.gameObject.layer == 8) {
-
+		control.disableJump = true;
+		if (Input.GetButtonUp ("Jump") && isTyping == false) {
+			if (col.gameObject.layer == 8 && control.input == Vector3.zero) {
 				//do things that apply to all dialogue ready things (i.e. tooltips)
-
+				control.canMove = false;
 				DialogueEvent (col.gameObject);
 			}
 		}
+	}
 
-
+	void OnTriggerExit (Collider col) {
+		if (col.gameObject.layer == 8) {
+			control.disableJump = false;
+		}
 	}
 
 
@@ -108,6 +114,7 @@ public class DialogueSystem : MonoBehaviour {
 
 	public void EndConversation () {
 		dialogueCanvas.enabled = false;
+		control.canMove = true;
 		mainText.text = "";
 		nameText.text = "";
 	}
@@ -130,7 +137,7 @@ public class DialogueSystem : MonoBehaviour {
 				} else
 					yield return new WaitForSeconds (0.03f);
 			}
-			while (!Input.GetButtonUp("Interact")) 		
+			while (!Input.GetButtonUp("Jump")) 		
 				yield return null;
 		}
 			isTyping = false;

@@ -143,7 +143,7 @@ public class DrinkCrafter : MonoBehaviour {
 				}
 			}
 
-			if (!c.enabled) {
+			if (!c.enabled && cam.crafting) {
 				control.canMove = true;
 			} else if (c.enabled) {
 				control.canMove = false;
