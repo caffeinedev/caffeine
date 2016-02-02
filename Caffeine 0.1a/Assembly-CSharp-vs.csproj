@@ -53,6 +53,7 @@
      <Compile Include="Assets\Dialogue_NPC.cs" />
      <Compile Include="Assets\DrinkCrafter.cs" />
      <Compile Include="Assets\ElevatorOperator.cs" />
+     <Compile Include="Assets\HeadLookController.cs" />
      <Compile Include="Assets\ImageEffects\Scripts\Antialiasing.cs" />
      <Compile Include="Assets\ImageEffects\Scripts\Bloom.cs" />
      <Compile Include="Assets\ImageEffects\Scripts\BloomAndFlares.cs" />
