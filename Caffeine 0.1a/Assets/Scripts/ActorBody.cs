@@ -41,7 +41,7 @@ public class ActorBody : MonoBehaviour
 	public void MoveInDirection (Vector3 direction, float acceleration)
 	{
 		Vector3 lineOrigin = transform.position + (Vector3.up * 5f);
-		Debug.DrawLine (lineOrigin + (Vector3.up * 5f), lineOrigin + (direction*10));
+		Debug.DrawLine (lineOrigin, lineOrigin + (direction*10));
 				
 		rigidBody.AddForce (direction * acceleration * Time.deltaTime, ForceMode.VelocityChange);
 	}

@@ -2,7 +2,7 @@
 
 public class CameraControl : MonoBehaviour
 {
-	public Transform target;									// Cam target
+	public Transform target;								// Cam target
 	
 	[Header ("Dev Stuff")]
 	public bool resetCameraNow = false;
@@ -14,12 +14,13 @@ public class CameraControl : MonoBehaviour
 	public float minDistanceFromTarget		= 10f;			// The closest the camera can get to the target
 
 	[Header ("Movement Settings")]
-	public bool lockRotation;						// Keep camera position fixed at offset?
+	public bool lockRotation;								// Keep camera position fixed at offset?
 	public float autoRotationSpeed	= 0.8f;
-	public float followSpeed		= 20f;			// Camera movement speed
-	public float rotateDamping		= 100f;			// Camera rotation damping
+	public float followSpeed		= 20f;					// Camera movement speed
+	public float rotateDamping		= 100f;					// Camera rotation damping
 
 	public string[] avoidObstructionTags;
+	public float obstructionCheckDistance = 1.5f;
 
 	[Header ("Player Input Settings")]
 	public float inputRotationSpeed			= 100f;			// How fast the camera rotates with player input
@@ -159,20 +160,18 @@ public class CameraControl : MonoBehaviour
 		transform.position	= Vector3.Lerp (transform.position, followTarget.position, followSpeed * Time.deltaTime);
 	}
 	
-
 	/**
 	 * Avoid view obstructions
 	 */
 	public void AvoidObstructions ()
 	{
-		/*
-		
+		Vector3 dir = target.position - transform.position;
+
 		RaycastHit hit;
-		if (Physics.Raycast (followTarget.position, followTarget.position - transform.position, out hit)) {
-			Debug.Log (hit.ToString());
+		if (Physics.Raycast (transform.position, dir.normalized, out hit)) {
+			// Avoid the obstruction
+			Debug.DrawLine (transform.position, hit.point);
 		}
-		
-		*/
 	}
 
 	/**
@@ -180,8 +179,9 @@ public class CameraControl : MonoBehaviour
 	 */
 	public void Reset ()
 	{
-		positionOffset = defaultPositionOffset;
-		lookOffset = defaultLookOffset;
+		positionOffset			= defaultPositionOffset;
+		lookOffset				= defaultLookOffset;
+		followTarget.rotation	= target.rotation;
 	}
 
 	/**
