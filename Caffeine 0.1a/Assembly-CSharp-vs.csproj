@@ -102,6 +102,7 @@
      <Compile Include="Assets\Scripts\DialogueSystem.cs" />
      <Compile Include="Assets\Scripts\GrabObjects.cs" />
      <Compile Include="Assets\Scripts\Interactive\ChestHandler.cs" />
+     <Compile Include="Assets\Scripts\Interactive\InteractiveObject.cs" />
      <Compile Include="Assets\Scripts\Interactive\SteamBlossom.cs" />
      <Compile Include="Assets\Scripts\NewController\CameraControl.cs" />
      <Compile Include="Assets\Scripts\NewController\SteeperAnimationController.cs" />
@@ -125,6 +126,7 @@
      <None Include="Assets\Shaders\GrassFancy.shader" />
      <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetParticleMultiplicative.shader" />
      <None Include="Assets\Shaders\SpriteShader.shader" />
+     <None Include="Assets\Shaders\Grass_Notex.shader" />
      <None Include="Assets\Shaders\Sugar.shader" />
      <None Include="Assets\ImageEffects\Shaders\SunShaftsComposite.shader" />
      <None Include="Assets\ImageEffects\Shaders\ColorCorrectionCurves.shader" />
@@ -239,6 +241,7 @@
      <None Include="Assets\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\Shaders\FGlowShader.shader" />
      <None Include="Assets\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
+     <None Include="Assets\Shaders\Ice.shader" />
      <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetSky.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
