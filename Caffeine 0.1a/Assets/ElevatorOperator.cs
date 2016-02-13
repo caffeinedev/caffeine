@@ -24,6 +24,7 @@ public class ElevatorOperator : MonoBehaviour {
 	Vector3 floor2;
 	Vector3 currentFloor;
 
+	#region Unity Functions
 
 	/**
 	 * Initialization
@@ -37,17 +38,17 @@ public class ElevatorOperator : MonoBehaviour {
 		lastFloorPos	= new Vector3 (transform.position.x, floorYPos.Last (), transform.position.z);
 		 
 		*/
-		
+
 		currentFloor = gameObject.transform.position;
 		floor2 = new Vector3 (gameObject.transform.position.x, 62.25373f, gameObject.transform.position.z);
 	}
-	
+
 	/**
 	 * Called every frame
 	 */
 	public void Update ()
 	{
-		
+
 	/*	
 		
 		Debug.DrawLine (firstFloorPos, lastFloorPos);
@@ -56,13 +57,13 @@ public class ElevatorOperator : MonoBehaviour {
 			isAtDestination = ChangeFloors (currentFloor);
 
 	*/
-	
+
 		if(Input.GetKey(KeyCode.O)) {
 			Vector3 goTo = Vector3.Lerp (gameObject.transform.position, floor2, Time.deltaTime * 0.5f);
 			gameObject.transform.position = goTo;
 		}
 	}
-	
+
 	/**
 	 * Add actors to passengers list
 	 *
@@ -73,7 +74,7 @@ public class ElevatorOperator : MonoBehaviour {
 				passengers.Add (c.transform);
 		}
 	}
-	
+
 	/**
 	 * Remove actors from passengers list
 	 *
@@ -84,7 +85,10 @@ public class ElevatorOperator : MonoBehaviour {
 				passengers.Remove (c.transform);
 		}
 	}
-	
+
+	#endregion
+	#region Actions
+
 	/**
 	 * Move to the requested floor
 	 *
@@ -109,6 +113,8 @@ public class ElevatorOperator : MonoBehaviour {
 		
 		return false;
 	}
+
 */
+	#endregion
 
 }

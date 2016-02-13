@@ -3,7 +3,7 @@
 public class CameraControl : MonoBehaviour
 {
 	public Transform target;								// Cam target
-	
+
 	[Header ("Dev Stuff")]
 	public bool resetCameraNow = false;
 
@@ -19,8 +19,10 @@ public class CameraControl : MonoBehaviour
 	public float followSpeed		= 20f;					// Camera movement speed
 	public float rotateDamping		= 100f;					// Camera rotation damping
 
+	[Header ("Collision and Obstruction")]
 	public string[] avoidObstructionTags;
-	public float obstructionCheckDistance = 1.5f;
+	public string[] avoidCollisionTags;
+	public float collisionCheckDistance = 3f;
 
 	[Header ("Player Input Settings")]
 	public float inputRotationSpeed			= 100f;			// How fast the camera rotates with player input
@@ -30,7 +32,6 @@ public class CameraControl : MonoBehaviour
 	// Privates --------------------------------------------------------
 	private Transform followTarget;
 	private Vector3 positionOffset = new Vector3 (0f, 20f, -32f), lookOffset = new Vector3 (0f, 7f, 0f);
-	private Vector3 obstacleSensorSize = new Vector3 (2f, 2f, 0f);
 	private GameObject backpack;
 
 	// Player input
@@ -38,18 +39,22 @@ public class CameraControl : MonoBehaviour
 	private float lastPlayerInputTime;						// Last time the player sent input to the camera
 
 	// State flags
+	private bool avoidingCollision;
+	
 	public bool crafting;
+
+
+	#region Unity Functions
 
 	/**
 	 * Init CameraControl
 	 */
 	public void Awake ()
 	{
-		followTarget		= new GameObject().transform; // Create empty gameObject as cam target
-		followTarget.name	= "Camera Target";
+		followTarget = new GameObject("_camPosTarget").transform; // Create empty gameObject as cam pos target
 
 		inputRotationSpeed *= 10;
-		
+
 		positionOffset		= defaultPositionOffset;
 		lookOffset			= defaultLookOffset;
 
@@ -68,6 +73,7 @@ public class CameraControl : MonoBehaviour
 		}
 
 		if (!crafting) {
+
 			float xAxis = Input.GetAxis ("RightStickH");
 			float yAxis = Input.GetAxis ("RightStickV");
 
@@ -93,7 +99,7 @@ public class CameraControl : MonoBehaviour
 				playerHasControl = false;	// Give control to the Camera AI
 				Debug.Log ("AI has control of camera as of " + Time.time);
 			}
-			
+
 			// DEV CAMERA RESET ----------------------------------------
 			if (resetCameraNow) {
 				Reset ();
@@ -109,10 +115,10 @@ public class CameraControl : MonoBehaviour
 		if (crafting) {
 			if (!backpack)
 				backpack = GameObject.Find("BackPack Focus");
-			
+
 			if (transform.position != backpack.transform.position)
 				transform.position = Vector3.Lerp (transform.position, backpack.transform.position, followSpeed * Time.deltaTime);
-			
+
 			transform.rotation	= Quaternion.Slerp (transform.rotation, backpack.transform.rotation, rotateDamping * Time.deltaTime);
 		}
 	}
@@ -132,10 +138,14 @@ public class CameraControl : MonoBehaviour
 					followTarget.rotation = Quaternion.Slerp (followTarget.rotation, target.rotation, Time.deltaTime * autoRotationSpeed);
 			}
 
+			AvoidCollisions ();
 			AvoidObstructions ();
 		}
 		//TODO: Do something to keep the player from crafting through a wall 
 	}
+
+	#endregion
+	#region Positioning
 
 	/**
 	 * Rotate smoothly toward the target
@@ -153,17 +163,37 @@ public class CameraControl : MonoBehaviour
 	{
 		// Move the followTarget to correct position each frame
 		followTarget.position = target.position;
+		
+		if (positionOffset.z != defaultPositionOffset.z)
+			positionOffset.z += defaultPositionOffset.z - positionOffset.z * Time.deltaTime;
+		
 		followTarget.Translate (positionOffset, Space.Self);
 
-		if (lockRotation) followTarget.rotation = target.rotation;
+		if (lockRotation)
+			followTarget.rotation = target.rotation;
 
 		transform.position	= Vector3.Lerp (transform.position, followTarget.position, followSpeed * Time.deltaTime);
 	}
-	
+
+	#endregion
+	#region Obstruction Avoidance
+
+	/**
+	 * Avoid colliding with or clipping through the environment or static objects
+	 */
+	private void AvoidCollisions ()
+	{		
+		Vector3 dir = transform.position - followTarget.position;
+
+		RaycastHit hit;
+		if (Physics.SphereCast (transform.position, 1f, dir.normalized, out hit, collisionCheckDistance + dir.sqrMagnitude))
+			transform.position = hit.point;
+	}
+
 	/**
 	 * Avoid view obstructions
 	 */
-	public void AvoidObstructions ()
+	private void AvoidObstructions ()
 	{
 		Vector3 dir = target.position - transform.position;
 
@@ -174,6 +204,9 @@ public class CameraControl : MonoBehaviour
 		}
 	}
 
+	#endregion
+	#region Helper Functions
+	
 	/**
 	 * Reset camera positioning
 	 */
@@ -191,4 +224,6 @@ public class CameraControl : MonoBehaviour
 	{
 		target = GameObject.FindGameObjectWithTag ("Player").transform;
 	}
+	
+	#endregion
 }

@@ -10,6 +10,8 @@ public class ActorBody : MonoBehaviour
 	
 	private Rigidbody rigidBody;
 	
+	#region Unity Functions
+	
 	/**
 	 * Initialize the Actor
 	 */
@@ -34,6 +36,10 @@ public class ActorBody : MonoBehaviour
 			Debug.LogWarning("No physics mtl found for ActorBody, a frictionless one has been created and assigned", transform);
 		}
 	}
+	
+	#endregion
+	#region Movement
+	
 	
 	/**
 	 * Move in a direction at given acceleration
@@ -66,13 +72,16 @@ public class ActorBody : MonoBehaviour
 			return false;
 	}
 	
+	#endregion
+	#region Rotation
+
 	/**
 	 * Rotate the actor to face a specific direction
 	 */
 	public void RotateToDirection (Vector3 direction, float speed)
 	{
 		Quaternion dirQ = Quaternion.LookRotation (direction);
-		rigidBody.MoveRotation (Quaternion.Slerp (transform.rotation, dirQ, direction.sqrMagnitude * speed * Time.deltaTime));
+		rigidBody.MoveRotation (Quaternion.Slerp (transform.rotation, dirQ, speed * Time.deltaTime));
 	}
 	
 	
@@ -108,6 +117,8 @@ public class ActorBody : MonoBehaviour
 		rigidBody.MoveRotation (slerp);
 	}
 	
+	#endregion
+	#region Helper Functions
 	
 	/**
 	 * Apply friction to rigidbody, and make sure it doesn't exceed its max speed
@@ -125,4 +136,6 @@ public class ActorBody : MonoBehaviour
 		}
 		
 	}
+	
+	#endregion
 }
