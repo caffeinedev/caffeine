@@ -27,8 +27,6 @@ public class DialogueSystem : MonoBehaviour {
 	List<string> t_frisia = new List<string>();
 
 
-
-
 	//public TextAsset[] library;
 
 	enum npcs
@@ -51,34 +49,36 @@ public class DialogueSystem : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		dialogueCanvas = GameObject.Find ("Dialogue Canvas").GetComponent<Canvas>();
-		control = GetComponent<SteeperController> ();
-		aud = GetComponent<AudioSource> ();
+		dialogueCanvas	= GameObject.Find ("Dialogue Canvas").GetComponent<Canvas>();
+		control			= GetComponent<SteeperController> ();
+		aud				= GetComponent<AudioSource> ();
 		ParseDialogue ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		nameBg.rectTransform.sizeDelta = new Vector2((nameText.text.Length * 21) + 45, 64.96f);
-
 	}
 	
 
-	void OnTriggerStay (Collider col) {
-		control.disableJump = true;
-		if (Input.GetButtonUp ("Jump") && isTyping == false) {
-			if (col.gameObject.layer == 8 && control.input == Vector3.zero) {
-				//do things that apply to all dialogue ready things (i.e. tooltips)
-				control.canMove = false;
-				DialogueEvent (col.gameObject);
+	void OnTriggerStay (Collider col)
+	{
+		if (col.gameObject.layer == 8) { // No idea if this helps anything, but it should
+			control.disableJump = true;
+			if (Input.GetButtonUp ("Jump") && !isTyping) {
+				if (col.gameObject.layer == 8 && control.input == Vector3.zero) {
+					//do things that apply to all dialogue ready things (i.e. tooltips)
+					control.canMove = false;
+					DialogueEvent (col.gameObject);
+				}
 			}
 		}
 	}
 
-	void OnTriggerExit (Collider col) {
-		if (col.gameObject.layer == 8) {
+	void OnTriggerExit (Collider col)
+	{
+		if (col.gameObject.layer == 8)
 			control.disableJump = false;
-		}
 	}
 
 

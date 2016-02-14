@@ -4,8 +4,8 @@ using System.Collections;
 [RequireComponent (typeof (ActorBody))]
 [RequireComponent (typeof (Rigidbody))]
 
-public class SteeperController : MonoBehaviour {
-
+public class SteeperController : MonoBehaviour
+{
 	// Setup
 	public Transform cam;
 	public Vector3 input	= new Vector3 ();
@@ -50,6 +50,7 @@ public class SteeperController : MonoBehaviour {
 
 	private float oldH, oldV; // for easy reset when you do something stupid.
 
+	#region Unity Functions
 
 	/**
 	 * Initialize
@@ -84,15 +85,11 @@ public class SteeperController : MonoBehaviour {
 			input.x = Input.GetAxisRaw ("Horizontal");
 			input.z = -1 * Input.GetAxisRaw ("Vertical");	// FIX THIS AXIS EVENTUALLY
 
+			float inputMag = input.sqrMagnitude; // To keep from calculating magnitude multiple times
+			
 			// Keep diagonal speeds consistent and apply deadzone
-			if (input.sqrMagnitude > 1) input.Normalize ();
-			else if (input.sqrMagnitude < deadzone) input = Vector3.zero;
-
-		/*	Should be redundant now (assuming it's for deadzone) *************
-		*	if (Mathf.Abs (input.z) < 0.10f && Mathf.Abs (input.z) > 0.006f) {
-		*		input.z = 0f; // Deadzone calc?
-		*	}
-		*********************************************************************/
+			if (inputMag > 1) input.Normalize ();
+			else if (inputMag < deadzone) input = Vector3.zero;
 
 			// Get movement axis relative to camera
 			screenSpace = Quaternion.Euler (0, cam.eulerAngles.y, 0);
@@ -112,8 +109,12 @@ public class SteeperController : MonoBehaviour {
 			}
 
 			direction = screenSpace * input;					// Get movement direction relative to screen space
+			float dirMag = direction.sqrMagnitude;
 
-			if (direction.sqrMagnitude < 0.5f) curAccel /= 2;	// Slow acceleration for subtle movements and to prevent jitter
+			if (dirMag < 0.6f)
+				curAccel /= 2;	// Slow acceleration for subtle movements and to prevent jitter
+			else if (dirMag < 0.3f)
+				curAccel /= 3; // For fine movements
 
 		} else {
 
@@ -153,6 +154,9 @@ public class SteeperController : MonoBehaviour {
 			rigidBody.velocity = Vector3.zero;
 		}
 	}
+	
+	#endregion
+	#region Calculations
 
 	/**
 	 * Jump calculations
@@ -207,6 +211,9 @@ public class SteeperController : MonoBehaviour {
 		return false;
 	}
 
+	#endregion
+	#region Actions
+	
 	/**
 	 * JUMP
 	 */
@@ -217,4 +224,6 @@ public class SteeperController : MonoBehaviour {
 			BroadcastMessage ("OnJumpEvent");
 		}
 	}
+	
+	#endregion
 }

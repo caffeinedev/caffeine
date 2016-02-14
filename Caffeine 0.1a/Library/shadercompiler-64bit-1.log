@@ -1,49 +1,5 @@
 Base path: /Applications/Unity/Unity.app/Contents
-Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-1980874752
+Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-2078991104
 Cmd: getPlatforms
 Cmd: preprocess
-  insize=7154 outsize=4253 ok=1
-Cmd: preprocess
-  insize=7154 outsize=4253 ok=1
-Cmd: preprocess
-  insize=7135 outsize=4234 ok=1
-Cmd: preprocess
-  insize=7135 outsize=4234 ok=1
-Cmd: preprocess
-  insize=7277 outsize=4483 ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=3130 outsize=2582 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=3130 outsize=6 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
-Cmd: preprocess
-  insize=7321 outsize=4527 ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=3130 outsize=2582 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=3130 outsize=6 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
-Cmd: preprocess
-  insize=7664 outsize=4817 ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=3182 outsize=2634 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=3182 outsize=6 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
-Cmd: preprocess
-  insize=7678 outsize=4831 ok=1
-Cmd: preprocess
-  insize=7813 outsize=4957 ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=3192 outsize=2650 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=3192 outsize=6 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
-Cmd: preprocess
-  insize=7968 outsize=5055 ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=3249 outsize=2704 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=3249 outsize=6 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
-Cmd: preprocess
   insize=9014 outsize=5383 ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=3969 outsize=3807 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=3969 outsize=6 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1

@@ -6,7 +6,6 @@ using System.Collections;
 
 public class SteeperAnimationController : MonoBehaviour {
 	Animator anim;
-	Rigidbody r;
 	SteeperController control;
 
 	private float cldrBoundsY;
@@ -22,7 +21,6 @@ public class SteeperAnimationController : MonoBehaviour {
 		if (tag != "Player") tag = "Player";
 
 		anim	= GetComponent<Animator> ();
-		r		= GetComponent<Rigidbody> ();
 		control	= GetComponent<SteeperController> ();
 	}
 

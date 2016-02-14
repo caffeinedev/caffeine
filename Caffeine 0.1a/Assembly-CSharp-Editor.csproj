@@ -204,7 +204,7 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="ShaderForge">
- <HintPath>/Users/michaelshillingburg/Dropbox (Personal)/Design/GitHub/caffeine/Caffeine 0.1a/Assets/ShaderForge/Editor/ShaderForge.dll</HintPath>
+ <HintPath>/Volumes/Vault/Users/michaelshillingburg/Dropbox (Personal)/design/GitHub/caffeine/Caffeine 0.1a/Assets/ShaderForge/Editor/ShaderForge.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
