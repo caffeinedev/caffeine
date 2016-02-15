@@ -11,7 +11,7 @@ public class CameraControl : MonoBehaviour
 	public Vector3 defaultPositionOffset	= new Vector3 (0f, 20f, -32f);	// Where the cam should be positioned relative to target
 	public Vector3 defaultLookOffset		= new Vector3 (0f, 7f, 0f);		// Where the cam should look relative to target
 	public float maxYOffset	= 32f, minYOffset = 2.5f;
-	public float minDistanceFromTarget		= 10f;			// The closest the camera can get to the target
+	public float minDistanceFromTarget		= -10f;			// The closest the camera can get to the target
 
 	[Header ("Movement Settings")]
 	public bool lockRotation;								// Keep camera position fixed at offset?
@@ -20,8 +20,6 @@ public class CameraControl : MonoBehaviour
 	public float rotateDamping		= 100f;					// Camera rotation damping
 
 	[Header ("Collision and Obstruction")]
-	public string[] avoidObstructionTags;
-	public string[] avoidCollisionTags;
 	public float collisionCheckDistance = 3f;
 
 	[Header ("Player Input Settings")]
@@ -35,11 +33,11 @@ public class CameraControl : MonoBehaviour
 	private GameObject backpack;
 
 	// Player input
-	public bool playerHasControl = false;					// Is player or Camera AI in control
+	public bool playerHasControl;							// Is player or Camera AI in control
 	private float lastPlayerInputTime;						// Last time the player sent input to the camera
 
 	// State flags
-	private bool avoidingCollision;
+	private bool avoidingObstruction;
 	
 	public bool crafting;
 
@@ -105,7 +103,7 @@ public class CameraControl : MonoBehaviour
 				Reset ();
 				resetCameraNow = false;
 			}
-			// ---------------------------------------------------------
+			//----------------------------------------------------------
 
 			SmoothFollow ();
 			SmoothLookAt ();
@@ -131,7 +129,7 @@ public class CameraControl : MonoBehaviour
 		if (!crafting) {
 			if (playerHasControl) {
 				// Do dat do dat do do do dat do dat
-			} else {
+			} else if (!avoidingObstruction) {
 				// Auto-adjust orbit position at awkward angles
 				float angleToTarget = Vector3.Angle(target.forward, transform.forward);
 				if (angleToTarget > 50f && angleToTarget < 120f)
@@ -145,6 +143,7 @@ public class CameraControl : MonoBehaviour
 	}
 
 	#endregion
+
 	#region Positioning
 
 	/**
@@ -163,11 +162,14 @@ public class CameraControl : MonoBehaviour
 	{
 		// Move the followTarget to correct position each frame
 		followTarget.position = target.position;
-		
-		if (positionOffset.z != defaultPositionOffset.z)
-			positionOffset.z += defaultPositionOffset.z - positionOffset.z * Time.deltaTime;
-		
+
 		followTarget.Translate (positionOffset, Space.Self);
+
+		if (positionOffset.z > minDistanceFromTarget) {
+			positionOffset.z = minDistanceFromTarget;
+		} else if (positionOffset.z > defaultPositionOffset.z) {
+			positionOffset.z -= positionOffset.z + defaultPositionOffset.z * 0.5f * Time.deltaTime;
+		}
 
 		if (lockRotation)
 			followTarget.rotation = target.rotation;
@@ -176,6 +178,7 @@ public class CameraControl : MonoBehaviour
 	}
 
 	#endregion
+
 	#region Obstruction Avoidance
 
 	/**
@@ -183,11 +186,12 @@ public class CameraControl : MonoBehaviour
 	 */
 	private void AvoidCollisions ()
 	{		
-		Vector3 dir = transform.position - followTarget.position;
+		Vector3 dir = followTarget.position - transform.position;
 
 		RaycastHit hit;
-		if (Physics.SphereCast (transform.position, 1f, dir.normalized, out hit, collisionCheckDistance + dir.sqrMagnitude))
-			transform.position = hit.point;
+		if (Physics.SphereCast (transform.position, 1f, dir.normalized, out hit, collisionCheckDistance + dir.sqrMagnitude)) {
+	//		positionOffset.z = -(target.position - hit.point).sqrMagnitude;
+		}
 	}
 
 	/**
@@ -196,15 +200,44 @@ public class CameraControl : MonoBehaviour
 	private void AvoidObstructions ()
 	{
 		Vector3 dir = target.position - transform.position;
-
+		
 		RaycastHit hit;
-		if (Physics.Raycast (transform.position, dir.normalized, out hit)) {
-			// Avoid the obstruction
-			Debug.DrawLine (transform.position, hit.point);
+		
+		// Make sure we don't make the camera dance by checking for near-obstructions
+		if (Physics.SphereCast (transform.position, 2f, dir.normalized, out hit, dir.sqrMagnitude))
+		{
+			if (hit.transform.tag != "Player" && hit.transform.tag != "chat") {
+				avoidingObstruction = true;
+			} else {
+				avoidingObstruction = false;
+				return;
+			}
+		}
+		
+		// Check for blatant obstructions
+		if (Physics.Raycast (transform.position, dir.normalized, out hit, dir.sqrMagnitude))
+		{
+			if (hit.transform.tag != "Player")
+			{
+				Debug.DrawLine (transform.position, hit.point);
+
+				RaycastHit viewPath;
+				if (!Physics.Raycast (target.position, -1 * target.forward, out viewPath, 2f))
+				{
+					// If we have a clear path of view directly behind steeper, move there
+					followTarget.rotation = Quaternion.Slerp (followTarget.rotation, target.rotation, Time.deltaTime * autoRotationSpeed);
+				}
+				else
+				{
+					Debug.DrawLine (target.position, hit.point);
+					followTarget.rotation = Quaternion.Slerp (followTarget.rotation, Quaternion.Inverse (target.rotation), Time.deltaTime * autoRotationSpeed);
+				}
+			}
 		}
 	}
 
 	#endregion
+
 	#region Helper Functions
 	
 	/**
