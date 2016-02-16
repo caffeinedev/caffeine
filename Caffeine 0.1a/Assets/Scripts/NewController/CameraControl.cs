@@ -10,7 +10,7 @@ public class CameraControl : MonoBehaviour
 	[Header ("Viewport Positioning")]
 	public Vector3 defaultPositionOffset	= new Vector3 (0f, 20f, -32f);	// Where the cam should be positioned relative to target
 	public Vector3 defaultLookOffset		= new Vector3 (0f, 7f, 0f);		// Where the cam should look relative to target
-	public float maxYOffset	= 32f, minYOffset = 2.5f;
+	public float maxYOffset	= 32f, minYOffset = 2.5f, yOffsetCooldownTime = 1.5f;
 	public float minDistanceFromTarget		= -10f;			// The closest the camera can get to the target
 
 	[Header ("Movement Settings")]
@@ -33,8 +33,8 @@ public class CameraControl : MonoBehaviour
 	private GameObject backpack;
 
 	// Player input
-	public bool playerHasControl;							// Is player or Camera AI in control
-	private float lastPlayerInputTime;						// Last time the player sent input to the camera
+	public bool playerHasControl;								// Is player or Camera AI in control
+	private float lastPlayerInputTime, yOffsetCooldownTimer;	// Last time the player sent input to the camera
 
 	// State flags
 	private bool avoidingObstruction;
@@ -70,7 +70,8 @@ public class CameraControl : MonoBehaviour
 			if (!target) return;
 		}
 
-		if (!crafting) {
+		if (!crafting)
+		{
 
 			float xAxis = Input.GetAxis ("RightStickH");
 			float yAxis = Input.GetAxis ("RightStickV");
@@ -82,14 +83,23 @@ public class CameraControl : MonoBehaviour
 				if (!playerHasControl) Debug.Log ("Player has control of camera as of " + lastPlayerInputTime);
 
 				positionOffset.y += (yAxis * inputRotationSpeed * Time.deltaTime);
-				followTarget.RotateAround (target.position, Vector3.up, xAxis * inputRotationSpeed * Time.deltaTime);
+				followTarget.RotateAround (target.position, Vector3.up, xAxis * inputRotationSpeed * Time.deltaTime);				
+	
+				if (positionOffset.y != defaultPositionOffset.y) {
+					yOffsetCooldownTimer += Time.deltaTime;
 
-				// Constrain Y position offset
-				if (positionOffset.y < minYOffset)
-					positionOffset.y = minYOffset;
-				else if (positionOffset.y > maxYOffset)
-					positionOffset.y = maxYOffset;
-
+					// Constrain Y position offset
+					if (positionOffset.y < minYOffset)
+						positionOffset.y = minYOffset;
+					else if (positionOffset.y > maxYOffset)
+						positionOffset.y = maxYOffset;
+						
+					if (yOffsetCooldownTimer >= yOffsetCooldownTime)
+						positionOffset.y = Mathf.Lerp (positionOffset.y, defaultPositionOffset.y, Time.deltaTime);
+				} else {
+					yOffsetCooldownTimer = 0f;
+				}
+								
 				playerHasControl = true;	// Give control to the player
 			}
 			else if (playerHasControl && Time.time > lastPlayerInputTime + playerInputCooldownTime )
@@ -109,8 +119,8 @@ public class CameraControl : MonoBehaviour
 			SmoothLookAt ();
 
 		}
-
-		if (crafting) {
+		else
+		{
 			if (!backpack)
 				backpack = GameObject.Find("BackPack Focus");
 
@@ -136,8 +146,8 @@ public class CameraControl : MonoBehaviour
 					followTarget.rotation = Quaternion.Slerp (followTarget.rotation, target.rotation, Time.deltaTime * autoRotationSpeed);
 			}
 
-			AvoidCollisions ();
 			AvoidObstructions ();
+			AvoidCollisions ();
 		}
 		//TODO: Do something to keep the player from crafting through a wall 
 	}
@@ -185,12 +195,15 @@ public class CameraControl : MonoBehaviour
 	 * Avoid colliding with or clipping through the environment or static objects
 	 */
 	private void AvoidCollisions ()
-	{		
-		Vector3 dir = followTarget.position - transform.position;
+	{
+		Vector3 dir = transform.position - target.position;
+		float dist = dir.magnitude;
 
 		RaycastHit hit;
-		if (Physics.SphereCast (transform.position, 1f, dir.normalized, out hit, collisionCheckDistance + dir.sqrMagnitude)) {
-	//		positionOffset.z = -(target.position - hit.point).sqrMagnitude;
+		if (Physics.Raycast (target.position, dir, out hit, dist + 0.5f))
+		{
+			if (hit.transform.tag == "Environment")
+				transform.position = hit.point - dir.normalized * 0.5f;
 		}
 	}
 
@@ -200,11 +213,12 @@ public class CameraControl : MonoBehaviour
 	private void AvoidObstructions ()
 	{
 		Vector3 dir = target.position - transform.position;
-		
+		float dist = dir.magnitude;
+
 		RaycastHit hit;
-		
+
 		// Make sure we don't make the camera dance by checking for near-obstructions
-		if (Physics.SphereCast (transform.position, 2f, dir.normalized, out hit, dir.sqrMagnitude))
+		if (Physics.SphereCast (transform.position, 2.5f, dir, out hit, dist))
 		{
 			if (hit.transform.tag != "Player" && hit.transform.tag != "chat") {
 				avoidingObstruction = true;
@@ -213,24 +227,25 @@ public class CameraControl : MonoBehaviour
 				return;
 			}
 		}
-		
+
+		Debug.DrawRay (transform.position, dir, Color.green);
+
 		// Check for blatant obstructions
-		if (Physics.Raycast (transform.position, dir.normalized, out hit, dir.sqrMagnitude))
+		if (Physics.Raycast (transform.position, dir, out hit, dist))
 		{
-			if (hit.transform.tag != "Player")
+			if (hit.transform.tag != "Player" && hit.transform.tag != "chat")
 			{
-				Debug.DrawLine (transform.position, hit.point);
+				Debug.DrawRay (transform.position, dir, Color.red);
 
 				RaycastHit viewPath;
-				if (!Physics.Raycast (target.position, -1 * target.forward, out viewPath, 2f))
+				if (!Physics.Raycast (target.position,  Vector3.Reflect (dir, Vector3.up), out viewPath, dist))
 				{
 					// If we have a clear path of view directly behind steeper, move there
-					followTarget.rotation = Quaternion.Slerp (followTarget.rotation, target.rotation, Time.deltaTime * autoRotationSpeed);
+					followTarget.rotation = Quaternion.Slerp (followTarget.rotation, target.rotation, Time.deltaTime * autoRotationSpeed * 0.5f);
 				}
 				else
 				{
-					Debug.DrawLine (target.position, hit.point);
-					followTarget.rotation = Quaternion.Slerp (followTarget.rotation, Quaternion.Inverse (target.rotation), Time.deltaTime * autoRotationSpeed);
+					followTarget.rotation = Quaternion.Slerp (followTarget.rotation, Quaternion.Inverse (target.rotation), Time.deltaTime * autoRotationSpeed * 0.5f);
 				}
 			}
 		}

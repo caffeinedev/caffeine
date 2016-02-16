@@ -47,7 +47,7 @@ public class ActorBody : MonoBehaviour
 	public void MoveInDirection (Vector3 direction, float acceleration)
 	{
 		Vector3 lineOrigin = transform.position + (Vector3.up * 5f);
-		Debug.DrawLine (lineOrigin, lineOrigin + (direction*10));
+		Debug.DrawLine (lineOrigin, lineOrigin + (direction*10), Color.grey);
 				
 		rigidBody.AddForce (direction * acceleration * Time.deltaTime, ForceMode.VelocityChange);
 	}
@@ -62,9 +62,9 @@ public class ActorBody : MonoBehaviour
 		relativePos.y = 0f;
 		
 		// If actor movement is jumpy, it may be reaching destination too soon on missed frames
-		Debug.DrawLine(transform.position + (Vector3.up * 5f), destination);
+		Debug.DrawLine(transform.position + (Vector3.up * 5f), destination, Color.grey);
 		
-		distanceToTarget = relativePos.sqrMagnitude;
+		distanceToTarget = relativePos.magnitude;
 		if (distanceToTarget <= stopDistance)
 			return true;
 		else
