@@ -63,13 +63,18 @@ public class DialogueSystem : MonoBehaviour {
 
 	void OnTriggerStay (Collider col)
 	{
-		if (col.gameObject.layer == 8) { // No idea if this helps anything, but it should
+		if (col.gameObject.layer == 8) { // fallback layercheck for if we separate human dialogue from system dialogue
 			control.disableJump = true;
 			if (Input.GetButtonUp ("Jump") && !isTyping) {
 				if (col.gameObject.layer == 8 && control.input == Vector3.zero) {
 					//do things that apply to all dialogue ready things (i.e. tooltips)
 					control.canMove = false;
+					if(!control.carryingDrink) {
 					DialogueEvent (col.gameObject);
+					} else if (control.carryingDrink) {
+						Debug.Log ("Steeper is carrying something. Change this later to a DrinkEvent function.");
+					}
+
 				}
 			}
 		}

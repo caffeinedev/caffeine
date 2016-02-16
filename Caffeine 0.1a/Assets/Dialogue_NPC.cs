@@ -11,23 +11,23 @@ public class Dialogue_NPC : MonoBehaviour {
 	public int[] mood = new int[7];
 
 	public string[] dialogue1;
+	public string action1 = "Talk";  //Coroutine to fire.
 	public string[] dialogue2;
+	public string action2 = "Talk";
 	public string[] dialogue3;
+	public string action3 = "Talk";
 	public string[] dialogue4;
+	public string action4 = "Talk";
 	public string[] dialogue5;
 	public string[] dialogue6;
 	public string[] defaultDialogue;
-
-	public string[] actionSequence = new string[7];
+	
 
 	public AudioClip[] speechSounds = new AudioClip[3];
 
 
 	void Start () {
-
 		anim = GetComponent<Animator>();
-
-
 	}
 
 	public string[] GetEvent () {
@@ -38,7 +38,7 @@ public class Dialogue_NPC : MonoBehaviour {
 				return defaultDialogue;
 			} else {
 				iteration++;
-				anim.SetTrigger(actionSequence[0]);
+				BroadcastMessage(action1);
 				return dialogue1;
 			}
 		case 1:
@@ -47,7 +47,7 @@ public class Dialogue_NPC : MonoBehaviour {
 				return defaultDialogue;
 			} else {
 				iteration++;
-				anim.SetTrigger(actionSequence[1]);
+				BroadcastMessage(action2);
 				return dialogue2;
 			}
 		case 2:
@@ -56,7 +56,7 @@ public class Dialogue_NPC : MonoBehaviour {
 				return defaultDialogue;
 			} else {
 				iteration++;
-				anim.SetTrigger(actionSequence[2]);
+				BroadcastMessage(action3);
 				return dialogue3;
 			}
 		case 3:
@@ -65,6 +65,7 @@ public class Dialogue_NPC : MonoBehaviour {
 				return defaultDialogue;
 			} else {
 				iteration++;
+				BroadcastMessage(action4);
 				return dialogue4;
 			}
 		case 4:
@@ -73,6 +74,7 @@ public class Dialogue_NPC : MonoBehaviour {
 				return defaultDialogue;
 			} else {
 				iteration++;
+				BroadcastMessage(action2);
 				return dialogue5;
 			}
 		case 5:
@@ -81,15 +83,15 @@ public class Dialogue_NPC : MonoBehaviour {
 				return defaultDialogue;
 			} else {
 				iteration++;
+				BroadcastMessage(action2);
 				return dialogue6;
 			}
 		default:
 			iteration = 6;
 			return defaultDialogue;
+
 		}
 	}
-	
-
 
 }
 

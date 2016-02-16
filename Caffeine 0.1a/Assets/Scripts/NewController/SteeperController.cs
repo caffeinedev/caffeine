@@ -31,7 +31,7 @@ public class SteeperController : MonoBehaviour
 	public float slopeLimit = 40, slideAmount = 35;			// Maximum angle of walkable slopes, how fast to slide down unwalkable slopes
 
 	// State bools
-	public bool grounded, onSlope, canMove, disableJump;
+	public bool grounded, onSlope, canMove, disableJump, carryingDrink;
 
 
 	[Header ("Steeper State")]
