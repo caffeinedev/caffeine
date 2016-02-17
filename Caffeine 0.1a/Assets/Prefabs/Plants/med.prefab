@@ -42,6 +42,7 @@ GameObject:
   - 4: {fileID: 413936}
   - 33: {fileID: 3382990}
   - 23: {fileID: 2393722}
+  - 136: {fileID: 13610026}
   m_Layer: 0
   m_Name: Disc_12
   m_TagString: Untagged
@@ -126,8 +127,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139092}
   m_LocalRotation: {x: 0, y: .425216466, z: 0, w: .905091703}
-  m_LocalPosition: {x: 122.772552, y: -104.671684, z: -211.958359}
-  m_LocalScale: {x: 1.35344827, y: 1.35344839, z: 1.35344827}
+  m_LocalPosition: {x: -138.809998, y: -69.5, z: 183.470001}
+  m_LocalScale: {x: 1.6647414, y: 1.66474152, z: 1.6647414}
   m_Children:
   - {fileID: 410678}
   - {fileID: 483774}
@@ -271,6 +272,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 162900}
   m_Mesh: {fileID: 4300012, guid: fef51a5f17c244e6c8b445bf79ff7a9b, type: 3}
+--- !u!136 &13610026
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178258}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 5.64816666
+  m_Height: 36.991909
+  m_Direction: 1
+  m_Center: {x: 1.328825, y: 18.4959583, z: .139024019}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

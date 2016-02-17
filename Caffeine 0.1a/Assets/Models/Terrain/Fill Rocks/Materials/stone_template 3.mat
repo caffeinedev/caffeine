@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: cutetree_pink
-  m_Shader: {fileID: 4800000, guid: 1ed82d5eab60548ef91f32e2d0bd242c, type: 3}
-  m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 1
+  m_Name: stone_template 3
+  m_Shader: {fileID: 4800000, guid: abf02a129f0fd4ee8b8ebc6cf35b2364, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
   m_CustomRenderQueue: 2000
   stringTagMap: {}
   m_SavedProperties:
@@ -54,7 +54,7 @@ Material:
         first:
           name: _EmissionMap
         second:
-          m_Texture: {fileID: 2800000, guid: cacbf4072f2cc411788b5626eda1f2ce, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -80,30 +80,9 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _node_2681
-        second:
-          m_Texture: {fileID: 2800000, guid: cacbf4072f2cc411788b5626eda1f2ce, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _node_20
         second:
-          m_Texture: {fileID: 2800000, guid: cacbf4072f2cc411788b5626eda1f2ce, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _node_7612
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _node_5234
-        second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: c8da805ca01df43308c40f072f77cafe, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -130,7 +109,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: .344000012
+        second: .5
       data:
         first:
           name: _BumpScale
@@ -155,36 +134,16 @@ Material:
         first:
           name: _Metallic
         second: 0
-      data:
-        first:
-          name: _node_8129
-        second: 3.06999993
     m_Colors:
       data:
         first:
           name: _EmissionColor
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
           name: _Color
         second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
-          name: _Tint
-        second: {r: .477941185, g: .477941185, b: .477941185, a: 1}
-      data:
-        first:
-          name: _node_1904
-        second: {r: .998985827, g: .926470578, b: 1, a: 1}
-      data:
-        first:
-          name: _GlossColor
-        second: {r: .345588207, g: .123199023, b: .00254109222, a: 1}
-      data:
-        first:
           name: _node_17
-        second: {r: .931541562, g: .801470578, b: 1, a: 1}
-      data:
-        first:
-          name: _node_2
-        second: {r: 1, g: .1470588, b: .1470588, a: 1}
+        second: {r: .815922916, g: .757352948, b: 1, a: 1}

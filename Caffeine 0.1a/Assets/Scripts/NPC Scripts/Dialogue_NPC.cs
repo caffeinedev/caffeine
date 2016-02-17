@@ -3,10 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Dialogue_NPC : MonoBehaviour {
-
-	Animator anim;
+	
 	public string npcname;
-	public int[] range;
 	public int iteration = 0;
 	public int[] mood = new int[7];
 
@@ -21,19 +19,16 @@ public class Dialogue_NPC : MonoBehaviour {
 	public string[] dialogue5;
 	public string[] dialogue6;
 	public string[] defaultDialogue;
-	
-
-	public AudioClip[] speechSounds = new AudioClip[3];
 
 
 	void Start () {
-		anim = GetComponent<Animator>();
 	}
 
 	public string[] GetEvent () {
 		switch (iteration) {
 		case 0:
 			if(dialogue1 == null || dialogue1.Length == 0) {
+				BroadcastMessage(action1);
 				iteration = 6;
 				return defaultDialogue;
 			} else {
@@ -88,6 +83,7 @@ public class Dialogue_NPC : MonoBehaviour {
 			}
 		default:
 			iteration = 6;
+			BroadcastMessage(action1);
 			return defaultDialogue;
 
 		}
