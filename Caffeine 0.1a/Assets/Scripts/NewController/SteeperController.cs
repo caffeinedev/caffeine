@@ -95,7 +95,7 @@ public class SteeperController : MonoBehaviour
 			screenSpace = Quaternion.Euler (0, cam.eulerAngles.y, 0);
 
 			if (Input.GetKeyDown (KeyCode.R))
-				transform.position = lastGrounded;
+				transform.position = lastGrounded; //Debug reset to last grounded position
 
 			// Air or grounded?
 			if (grounded) {

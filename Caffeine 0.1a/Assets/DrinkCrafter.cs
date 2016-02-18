@@ -11,7 +11,7 @@ public class DrinkCrafter : MonoBehaviour {
 
 	int buttonsPushed = 0;
 	string butt1, butt2, butt3;
-	bool sequenceComplete;
+	bool sequenceComplete, drinkSuccessful;
 
 	public Sprite transparent, abutton, bbutton, xbutton, ybutton;
 	public Image slot1, slot2, slot3;
@@ -19,12 +19,16 @@ public class DrinkCrafter : MonoBehaviour {
 	public Image recipeIndicator;
 	public Text recipeText;
 
-	public Animator background, content;
+	public GameObject basicCoffee;
+	public Transform drinkAnchor;
+
+	public Animator background, content, anim;
 
 	SteeperController control;
 
 	public AudioClip blip_a, blip_b, blip_x, blip_y, success;
 	AudioSource aud;
+
 
 	// Use this for initialization
 	void Start () {
@@ -32,13 +36,14 @@ public class DrinkCrafter : MonoBehaviour {
 		cam = Camera.main.gameObject.GetComponent<CameraControl> ();
 		aud = GetComponent<AudioSource> ();
 		control = GameObject.Find ("STEEPER").GetComponent<SteeperController> ();
+		anim = control.gameObject.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (control.grounded) {
 
-			if (Input.GetButtonUp ("Start") && !c.enabled) {
+			if (Input.GetButtonUp ("Start") && !c.enabled && !control.carryingDrink) {
 				ResetCrafting ();
 				content.enabled = true;
 				content.Play("CraftingMenuFadein");
@@ -139,7 +144,9 @@ public class DrinkCrafter : MonoBehaviour {
 				}
 
 				if(Input.GetButtonDown("Jump")) {
+					if(recipeText.text != "That's not a drink.") {
 					StartCoroutine(FinishDrink());
+					}
 				}
 			}
 
@@ -152,6 +159,17 @@ public class DrinkCrafter : MonoBehaviour {
 				}
 			}
 		}
+
+		if(Input.GetButtonDown("Square") && control.carryingDrink) {
+			control.carryingDrink = false;
+			if(drinkAnchor.childCount != 0) {
+			Drink d = control.GetComponentInChildren<Drink> ();
+			d.Throw (control.gameObject.transform.forward + new Vector3(0, 0.8f, 0));
+			}
+			anim.SetTrigger("throw");
+			anim.SetBool("carrying", false);
+		}
+
 	}
 
 
@@ -160,12 +178,21 @@ public class DrinkCrafter : MonoBehaviour {
 		content.enabled = false;
 		sequenceComplete = true;
 		yield return new WaitForSeconds (0.15f);
-		aud.PlayOneShot (success);
+		if (recipeText.text == "That's not a drink.") {
+			aud.PlayOneShot(blip_a);
+			drinkSuccessful = false;
+			yield return new WaitForSeconds(1.0f);
+			ResetCrafting();
+		} else {
+			aud.PlayOneShot (success);
+			drinkSuccessful = true;
+		}
 	}
 
 	void ResetCrafting () {
 		buttonsPushed = 0;
 		sequenceComplete = false;
+		drinkSuccessful = false;
 		recipeText.text = "Enter a Recipe";
 		recipeText.color = Color.white;
 		recipeIndicator.color = new Color32(30, 43, 58, 255);
@@ -221,11 +248,29 @@ public class DrinkCrafter : MonoBehaviour {
 
 	IEnumerator FinishDrink () {
 		content.enabled = true;
+		control.carryingDrink = true;
 		content.Play ("CraftingMenuFadeOut 1");
 		background.Play ("BackgroundFadeOut");
 		cam.crafting = false;
+		if (drinkSuccessful) {
+			drinkSuccessful = false;
+			anim.SetTrigger("pickup");
+			anim.SetBool("carrying", true);
+		//	yield return new WaitForSeconds(0.2f);
+			switch (recipeText.text) {
+			default:
+				GameObject drink = GameObject.Instantiate(basicCoffee) as GameObject;
+				drink.name = "Basic Coffee";
+				drink.transform.position = drinkAnchor.position;
+				drink.transform.rotation = drinkAnchor.rotation;
+				drink.transform.parent = drinkAnchor;
+				break;
+			}
+		}
 		yield return new WaitForSeconds (0.4f);
 		c.enabled = false;
+		control.canMove = true;
+
 	}
 
 
