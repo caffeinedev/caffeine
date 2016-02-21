@@ -68,9 +68,9 @@ public class DialogueSystem : MonoBehaviour {
 			if (Input.GetButtonUp ("Jump") && !isTyping) {
 				if (col.gameObject.layer == 8 && control.input == Vector3.zero) {
 					//do things that apply to all dialogue ready things (i.e. tooltips)
-					control.canMove = false;
 					if(!control.carryingDrink) {
-					DialogueEvent (col.gameObject);
+						control.canMove = false;
+						DialogueEvent (col.gameObject);
 					} else if (control.carryingDrink) {
 						Debug.Log ("Steeper is carrying something. Change this later to a DrinkEvent function.");
 					}

@@ -74,7 +74,7 @@ public class SteeperAnimationController : MonoBehaviour {
 	}
 	
 	public void OnJumpEvent () {
-		anim.SetTrigger ("jump");
+		anim.Play ("Jump");
 	}
 
 }
