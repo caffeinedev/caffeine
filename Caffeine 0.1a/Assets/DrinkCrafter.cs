@@ -15,7 +15,7 @@ public class DrinkCrafter : MonoBehaviour
 	public Image slot1, slot2, slot3;
 	public Image recipeIndicator;
 	public Text recipeText;
-	public GameObject basicCoffee, icedCoffee;
+	public GameObject basicCoffee, icedCoffee, espresso;
 	public Transform drinkAnchor;
 	public Animator background, content, anim;
 	SteeperController control;
@@ -186,7 +186,7 @@ public class DrinkCrafter : MonoBehaviour
 			recipeText.color = new Color32 (30, 43, 58, 255);
 			recipeIndicator.color = new Color32 (122, 244, 66, 255);
 			break;
-		case "ABB":
+		case "ABA":
 			recipeText.text = "Espresso";
 			recipeText.color = new Color32 (30, 43, 58, 255);
 			recipeIndicator.color = new Color32 (122, 244, 66, 255);
@@ -201,7 +201,7 @@ public class DrinkCrafter : MonoBehaviour
 			recipeText.color = new Color32 (30, 43, 58, 255);
 			recipeIndicator.color = new Color32 (122, 244, 66, 255);
 			break;
-		case "ABA":
+		case "ABB":
 			recipeText.text = "Americano";
 			recipeText.color = new Color32 (30, 43, 58, 255);
 			recipeIndicator.color = new Color32 (122, 244, 66, 255);
@@ -242,6 +242,13 @@ public class DrinkCrafter : MonoBehaviour
 				icedDrink.transform.position = drinkAnchor.position;
 				icedDrink.transform.rotation = drinkAnchor.rotation;
 				icedDrink.transform.parent = drinkAnchor;
+				break;
+			case "Espresso":
+				GameObject espressoDrink = GameObject.Instantiate (espresso) as GameObject;
+				espressoDrink.name = "Espresso";
+				espressoDrink.transform.position = drinkAnchor.position;
+				espressoDrink.transform.rotation = drinkAnchor.rotation;
+				espressoDrink.transform.parent = drinkAnchor;
 				break;
 			default:
 				GameObject basicDrink = GameObject.Instantiate (basicCoffee) as GameObject;

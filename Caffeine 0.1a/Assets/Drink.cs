@@ -8,6 +8,8 @@ public class Drink : MonoBehaviour {
 	public GameObject waterSpawn;
 	public GameObject groundSpawn;
 
+	public GameObject coffeeBurst;
+
 	public void Throw (Vector3 dir) {
 		StartCoroutine ("ThrowDrink", dir);
 	}
@@ -58,15 +60,14 @@ public class Drink : MonoBehaviour {
 
 	void OnCollisionEnter (Collision col) {
 		if (col.gameObject.tag == "Environment") {
-			KillDrink();
+			GameObject burst = GameObject.Instantiate (coffeeBurst) as GameObject;
+			burst.transform.position = col.contacts[0].point;
 			GameObject p = GameObject.Instantiate (groundSpawn) as GameObject;
-			RaycastHit hit;
-			if (Physics.Raycast(transform.position, Vector3.down, out hit))
-			{
-				p.transform.position = new Vector3 (hit.point.x, col.contacts[0].point.y, hit.point.z);
-				Quaternion hitangle = Quaternion.FromToRotation (Vector3.up, col.contacts[0].normal);
-				p.transform.rotation = hitangle;
-			}
+			p.transform.position = col.contacts[0].point;
+			print (p.transform.position);
+			Quaternion hitangle = Quaternion.FromToRotation (Vector3.up, col.contacts[0].normal);
+			p.transform.rotation = hitangle;
+			KillDrink();
 		}
 	}
 }
