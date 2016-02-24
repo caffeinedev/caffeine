@@ -415,7 +415,7 @@ MonoBehaviour:
   drinkType: Coffee
   throwForce: 300
   waterSpawn: {fileID: 179778, guid: 2a156603e62244bddbf73046a5e86b82, type: 2}
-  groundSpawn: {fileID: 195490, guid: 5b72b2586b98b434d98398d27ddc55fa, type: 2}
+  groundSpawn: {fileID: 110670, guid: 8bd3d9029a0d64b0fad6c9909d027000, type: 2}
   coffeeBurst: {fileID: 186198, guid: 915d987d308e64e65b85e90efea45cfc, type: 2}
 --- !u!137 &13748798
 SkinnedMeshRenderer:
@@ -471,6 +471,10 @@ Prefab:
       propertyPath: coffeeBurst
       value: 
       objectReference: {fileID: 186198, guid: 915d987d308e64e65b85e90efea45cfc, type: 2}
+    - target: {fileID: 0}
+      propertyPath: groundSpawn
+      value: 
+      objectReference: {fileID: 110670, guid: 8bd3d9029a0d64b0fad6c9909d027000, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 141820}

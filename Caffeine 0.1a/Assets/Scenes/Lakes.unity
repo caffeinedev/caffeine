@@ -563,7 +563,7 @@ Transform:
   - {fileID: 1614826778}
   - {fileID: 597196695}
   m_Father: {fileID: 0}
-  m_RootOrder: 101
+  m_RootOrder: 99
 --- !u!1 &34538213
 GameObject:
   m_ObjectHideFlags: 0
@@ -2313,7 +2313,7 @@ Transform:
   - {fileID: 1655104339}
   - {fileID: 866052982}
   m_Father: {fileID: 0}
-  m_RootOrder: 102
+  m_RootOrder: 100
 --- !u!95 &110344608
 Animator:
   serializedVersion: 3
@@ -4796,7 +4796,9 @@ MonoBehaviour:
   dialogue4: []
   action4: Talk
   dialogue5: []
+  action5: Talk
   dialogue6: []
+  action6: Talk
   defaultDialogue:
   - Whooooooaaaaaaaaaaaa!!!!!!
   - I can't believe how cool your backpack is!
@@ -5955,7 +5957,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400068, guid: faed0dec9a1ab40bca4f12ab45a58419, type: 3}
       propertyPath: m_RootOrder
-      value: 101
+      value: 102
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: faed0dec9a1ab40bca4f12ab45a58419, type: 3}
       propertyPath: m_Controller
@@ -7976,7 +7978,7 @@ Transform:
   m_LocalScale: {x: 22.2462616, y: 22.2462463, z: 22.2462463}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 103
+  m_RootOrder: 102
 --- !u!1 &830903749
 GameObject:
   m_ObjectHideFlags: 0
@@ -8561,7 +8563,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400090, guid: 272ddbb2a3e9346858ebe87a88ab5c46, type: 3}
       propertyPath: m_RootOrder
-      value: 98
+      value: 99
       objectReference: {fileID: 0}
     - target: {fileID: 400090, guid: 272ddbb2a3e9346858ebe87a88ab5c46, type: 3}
       propertyPath: m_LocalScale.x
@@ -8766,79 +8768,6 @@ Transform:
   - {fileID: 1364535717}
   m_Father: {fileID: 1691786785}
   m_RootOrder: 0
---- !u!1 &934496898
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 934496902}
-  - 33: {fileID: 934496901}
-  - 64: {fileID: 934496900}
-  - 23: {fileID: 934496899}
-  m_Layer: 0
-  m_Name: Quad (2)
-  m_TagString: Water
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!23 &934496899
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 934496898}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!64 &934496900
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 934496898}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!33 &934496901
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 934496898}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &934496902
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 934496898}
-  m_LocalRotation: {x: .697562873, y: .12849693, z: -.12935476, w: .692937195}
-  m_LocalPosition: {x: 432.700012, y: -40.0999985, z: -7.69999981}
-  m_LocalScale: {x: 188.538651, y: 203.619324, z: 169.05426}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 108
 --- !u!1 &939503552
 GameObject:
   m_ObjectHideFlags: 0
@@ -9403,7 +9332,9 @@ MonoBehaviour:
   dialogue4: []
   action4: Talk
   dialogue5: []
+  action5: Talk
   dialogue6: []
+  action6: Talk
   defaultDialogue:
   - YOU ARE SMALL FRY
 --- !u!65 &1020127788
@@ -9474,7 +9405,9 @@ MonoBehaviour:
   dialogue4: []
   action4: Talk
   dialogue5: []
+  action5: Talk
   dialogue6: []
+  action6: Talk
   defaultDialogue: []
 --- !u!1001 &1020778663
 Prefab:
@@ -9652,7 +9585,9 @@ MonoBehaviour:
   dialogue4: []
   action4: Talk
   dialogue5: []
+  action5: Talk
   dialogue6: []
+  action6: Talk
   defaultDialogue:
   - Some people say you should never work with friends. Is that why you're by yourself,
     bud?
@@ -9845,7 +9780,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 104
+  m_RootOrder: 103
 --- !u!1 &1070038209
 GameObject:
   m_ObjectHideFlags: 0
@@ -13922,7 +13857,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9b92592ce398e47dca15186dd8ac7d91, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9c44665ec51614e6dbd830ef0cc42a27, type: 3}
   m_PlayOnAwake: 1
   m_Volume: .540000021
   m_Pitch: 1
@@ -15006,7 +14941,7 @@ Transform:
   m_LocalScale: {x: 27.1295872, y: 27.1295681, z: 27.1295681}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 107
+  m_RootOrder: 106
 --- !u!1001 &1632580639
 Prefab:
   m_ObjectHideFlags: 0
@@ -15044,7 +14979,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: da0a1d8ccdc98491183dabf9b10d39d2, type: 3}
       propertyPath: m_RootOrder
-      value: 96
+      value: 97
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: da0a1d8ccdc98491183dabf9b10d39d2, type: 3}
       propertyPath: m_LocalScale.x
@@ -15740,7 +15675,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a37bb331960a34f22aec48f5d0115515, type: 3}
       propertyPath: m_RootOrder
-      value: 97
+      value: 98
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a37bb331960a34f22aec48f5d0115515, type: 3}
       propertyPath: m_LocalScale.x
@@ -15994,7 +15929,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cd3ce82d1414447bbb877e681b8cd4a4, type: 3}
       propertyPath: m_RootOrder
-      value: 98
+      value: 96
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cd3ce82d1414447bbb877e681b8cd4a4, type: 3}
       propertyPath: m_LocalScale.x
@@ -17074,7 +17009,7 @@ Transform:
   - {fileID: 760590541}
   - {fileID: 765151134}
   m_Father: {fileID: 0}
-  m_RootOrder: 105
+  m_RootOrder: 104
 --- !u!1 &1838085887
 GameObject:
   m_ObjectHideFlags: 0
@@ -17984,56 +17919,6 @@ Transform:
   - {fileID: 278783177}
   m_Father: {fileID: 140587386}
   m_RootOrder: 3
---- !u!1001 &1973279647
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 469846, guid: 915d987d308e64e65b85e90efea45cfc, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 301.762573
-      objectReference: {fileID: 0}
-    - target: {fileID: 469846, guid: 915d987d308e64e65b85e90efea45cfc, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -35.0568199
-      objectReference: {fileID: 0}
-    - target: {fileID: 469846, guid: 915d987d308e64e65b85e90efea45cfc, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -53.8515816
-      objectReference: {fileID: 0}
-    - target: {fileID: 469846, guid: 915d987d308e64e65b85e90efea45cfc, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 469846, guid: 915d987d308e64e65b85e90efea45cfc, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 469846, guid: 915d987d308e64e65b85e90efea45cfc, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 469846, guid: 915d987d308e64e65b85e90efea45cfc, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 469846, guid: 915d987d308e64e65b85e90efea45cfc, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 186198, guid: 915d987d308e64e65b85e90efea45cfc, type: 2}
-      propertyPath: m_Name
-      value: Coffee Burst
-      objectReference: {fileID: 0}
-    - target: {fileID: 19815050, guid: 915d987d308e64e65b85e90efea45cfc, type: 2}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 915d987d308e64e65b85e90efea45cfc, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1980939970
 GameObject:
   m_ObjectHideFlags: 0
@@ -18872,7 +18757,7 @@ Transform:
   m_LocalScale: {x: 34.9185448, y: 2.90317631, z: 30.7818279}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 99
+  m_RootOrder: 76
 --- !u!65 &2079123699
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19331,7 +19216,7 @@ Transform:
   m_Children:
   - {fileID: 1170081256}
   m_Father: {fileID: 0}
-  m_RootOrder: 106
+  m_RootOrder: 105
 --- !u!1 &2121969898
 GameObject:
   m_ObjectHideFlags: 0

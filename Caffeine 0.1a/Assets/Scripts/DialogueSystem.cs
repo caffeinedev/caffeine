@@ -23,10 +23,6 @@ public class DialogueSystem : MonoBehaviour {
 	bool isTyping = false;
 
 
-	List<string> t_system = new List<string>();
-	List<string> t_frisia = new List<string>();
-
-
 	//public TextAsset[] library;
 
 	enum npcs
@@ -52,7 +48,6 @@ public class DialogueSystem : MonoBehaviour {
 		dialogueCanvas	= GameObject.Find ("Dialogue Canvas").GetComponent<Canvas>();
 		control			= GetComponent<SteeperController> ();
 		aud				= GetComponent<AudioSource> ();
-		ParseDialogue ();
 	}
 	
 	// Update is called once per frame
@@ -100,14 +95,6 @@ public class DialogueSystem : MonoBehaviour {
 		string name = d.npcname;
 		moods mood = (moods)d.mood[d.iteration];
 		StartCoroutine (TypeText (name, range, mood));
-	}
-
-	void ParseDialogue () {
-		string[] systemlines = library[(int)npcs.system].text.Split( '\n' );
-		t_system.AddRange (systemlines);
-		string[] frisialines = library[(int)npcs.frisia].text.Split( '\n' );
-		t_frisia.AddRange (frisialines);
-
 	}
 
 

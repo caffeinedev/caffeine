@@ -17,7 +17,9 @@ public class Dialogue_NPC : MonoBehaviour {
 	public string[] dialogue4;
 	public string action4 = "Talk";
 	public string[] dialogue5;
+	public string action5 = "Talk";
 	public string[] dialogue6;
+	public string action6 = "Talk";
 	public string[] defaultDialogue;
 
 
@@ -28,12 +30,12 @@ public class Dialogue_NPC : MonoBehaviour {
 		switch (iteration) {
 		case 0:
 			if(dialogue1 == null || dialogue1.Length == 0) {
-				BroadcastMessage(action1);
+				//BroadcastMessage(action1);
 				iteration = 6;
 				return defaultDialogue;
 			} else {
 				iteration++;
-				BroadcastMessage(action1);
+				//BroadcastMessage(action1);
 				return dialogue1;
 			}
 		case 1:
@@ -42,7 +44,7 @@ public class Dialogue_NPC : MonoBehaviour {
 				return defaultDialogue;
 			} else {
 				iteration++;
-				BroadcastMessage(action2);
+				//BroadcastMessage(action2);
 				return dialogue2;
 			}
 		case 2:
@@ -51,7 +53,7 @@ public class Dialogue_NPC : MonoBehaviour {
 				return defaultDialogue;
 			} else {
 				iteration++;
-				BroadcastMessage(action3);
+				//BroadcastMessage(action3);
 				return dialogue3;
 			}
 		case 3:
@@ -60,7 +62,7 @@ public class Dialogue_NPC : MonoBehaviour {
 				return defaultDialogue;
 			} else {
 				iteration++;
-				BroadcastMessage(action4);
+				//BroadcastMessage(action4);
 				return dialogue4;
 			}
 		case 4:
@@ -69,7 +71,7 @@ public class Dialogue_NPC : MonoBehaviour {
 				return defaultDialogue;
 			} else {
 				iteration++;
-				BroadcastMessage(action2);
+				//BroadcastMessage(action5);
 				return dialogue5;
 			}
 		case 5:
@@ -78,12 +80,12 @@ public class Dialogue_NPC : MonoBehaviour {
 				return defaultDialogue;
 			} else {
 				iteration++;
-				BroadcastMessage(action2);
+				//BroadcastMessage(action6);
 				return dialogue6;
 			}
 		default:
 			iteration = 6;
-			BroadcastMessage(action1);
+			//BroadcastMessage(action1);
 			return defaultDialogue;
 
 		}

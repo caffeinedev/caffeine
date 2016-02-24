@@ -139,7 +139,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   decay: .100000001
   targetScale: 0
-  shrinkSpeed: .00100000005
+  shrinkSpeed: .00999999978
+  snowman: {fileID: 175122, guid: fd0a88772838b4aaaa70a1943c8dfc10, type: 2}
 --- !u!135 &13543622
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1245,6 +1246,14 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: shrinkSpeed
+      value: .00999999978
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: snowman
+      value: 
+      objectReference: {fileID: 175122, guid: fd0a88772838b4aaaa70a1943c8dfc10, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 181388}
