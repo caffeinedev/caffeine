@@ -34,7 +34,6 @@ public class SteeperController : MonoBehaviour
 	public bool grounded, onSlope, canMove, disableJump, carryingDrink;
 
 
-	[Header ("Steeper State")]
 	//Privates	
 	private ActorBody actorBody;
 	private Rigidbody rigidBody;
@@ -44,6 +43,7 @@ public class SteeperController : MonoBehaviour
 	private float slope;
 	private Quaternion screenSpace;
 	private Vector3 direction, moveDirection, screenSpaceForward, screenSpaceRight;
+	private float dirMag;
 	private float curAccel, curDecel, curRotateSpeed;
 
 	private Vector3 lastGrounded;
@@ -108,8 +108,8 @@ public class SteeperController : MonoBehaviour
 				curRotateSpeed	= airRotateSpeed;
 			}
 
-			direction = screenSpace * input;					// Get movement direction relative to screen space
-			float dirMag = direction.sqrMagnitude;
+			direction = screenSpace * input;	// Get movement direction relative to screen space
+			dirMag = direction.sqrMagnitude;	// Cache accurate direction magnitude
 
 			if (dirMag < 0.6f)
 				curAccel /= 2;	// Slow acceleration for subtle movements and to prevent jitter
@@ -118,7 +118,7 @@ public class SteeperController : MonoBehaviour
 
 		} else {
 
-			if (direction.sqrMagnitude != 0) direction = Vector3.zero;
+			if (dirMag != 0) direction = Vector3.zero;
 			if (input.sqrMagnitude != 0) input = Vector3.zero;
 			if (rigidBody.velocity.sqrMagnitude != 0) rigidBody.velocity = Vector3.zero;
 
@@ -136,7 +136,7 @@ public class SteeperController : MonoBehaviour
 
 			actorBody.MoveInDirection (direction, curAccel);
 
-			if (curRotateSpeed != 0 && direction.sqrMagnitude != 0)
+			if (curRotateSpeed != 0 && dirMag != 0)
 				actorBody.RotateToDirection (direction, curRotateSpeed);
 
 			actorBody.ManageSpeed (curDecel, maxSpeed);
@@ -149,7 +149,7 @@ public class SteeperController : MonoBehaviour
 	void OnCollisionStay (Collision other)
 	{
 		// Stop moving if we're on a slight slope
-		if (direction.sqrMagnitude == 0 && slope < slopeLimit && rigidBody.velocity.sqrMagnitude < 2)
+		if (dirMag == 0 && slope < slopeLimit && rigidBody.velocity.magnitude < 5)
 		{
 			rigidBody.velocity = Vector3.zero;
 		}
@@ -189,7 +189,7 @@ public class SteeperController : MonoBehaviour
 
 		// Check if we're grounded
 		RaycastHit hit;
-		if ( Physics.Raycast (transform.position, Vector3.down * groundCheckDistance, out hit, distance + 0.001f) )
+		if ( Physics.Raycast (transform.position, Vector3.down, out hit, distance + groundCheckDistance) )
 		{
 			if (!hit.transform.GetComponent<Collider>().isTrigger)
 			{

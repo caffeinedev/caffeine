@@ -17,6 +17,9 @@ public class SteeperAnimationController : MonoBehaviour {
 	public float vspeed = -300f;
 	public float hspeed = 200f;
 
+	/**
+	 * Initialization
+	 */
 	public void Awake () {
 		if (tag != "Player") tag = "Player";
 
@@ -24,14 +27,10 @@ public class SteeperAnimationController : MonoBehaviour {
 		control	= GetComponent<SteeperController> ();
 	}
 
+	/**
+	 * Per-frame update function
+	 */
 	public void Update () {
-		/*
-		anim.SetBool ("grounded", control.grounded);
-		if (control.onSlope) {
-			anim.SetBool ("grounded", true);
-		}
-		*/
-	
 		if (control.canMove) {
 			if (distanceFromGround < 1)
 				anim.SetBool ("grounded", true);
@@ -64,6 +63,9 @@ public class SteeperAnimationController : MonoBehaviour {
 	*******************************************************************/
 	}
 
+	/**
+	 * Physics update function
+	 */
 	public void FixedUpdate () {
 		RaycastHit hit;
 		if ( Physics.Raycast (transform.position, Vector3.down, out hit) )
@@ -73,6 +75,9 @@ public class SteeperAnimationController : MonoBehaviour {
 		}
 	}
 	
+	/**
+	 * Play the jump animation on the jump event
+	 */
 	public void OnJumpEvent () {
 		anim.Play ("Jump");
 	}

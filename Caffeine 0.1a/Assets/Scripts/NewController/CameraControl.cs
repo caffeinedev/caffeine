@@ -11,7 +11,7 @@ public class CameraControl : MonoBehaviour
 	public Vector3 defaultPositionOffset	= new Vector3 (0f, 20f, -32f);	// Where the cam should be positioned relative to target
 	public Vector3 defaultLookOffset		= new Vector3 (0f, 7f, 0f);		// Where the cam should look relative to target
 
-	public float maxYOffset	= 32f, minYOffset = 2.5f, yOffsetCooldownTime = 1.5f;
+	public float maxYOffset	= 32f, minYOffset = 2.5f, yOffsetCooldownTime = 4f;
 	public float minDistanceFromTarget		= -10f;			// The closest the camera can get to the target
 
 	[Header ("Movement Settings")]
@@ -78,34 +78,21 @@ public class CameraControl : MonoBehaviour
 
 		if (!crafting)
 		{
-
 			float xAxis = Input.GetAxis ("RightStickH");
 			float yAxis = Input.GetAxis ("RightStickV");
 
-			if (xAxis != 0 || yAxis != 0)
+			// Handle player view control
+			if (xAxis != 0f || yAxis != 0f)
 			{
 				lastPlayerInputTime	= Time.time;
 
 				if (!playerHasControl) Debug.Log ("Player has control of camera as of " + lastPlayerInputTime);
 
+				if (yAxis != 0f) yOffsetCooldownTimer = 0f;
+
 				positionOffset.y += (yAxis * inputRotationSpeed * Time.deltaTime);
 				followTarget.RotateAround (target.position, Vector3.up, xAxis * inputRotationSpeed * Time.deltaTime);				
-	
-				if (positionOffset.y != defaultPositionOffset.y) {
-					yOffsetCooldownTimer += Time.deltaTime;
 
-					// Constrain Y position offset
-					if (positionOffset.y < minYOffset)
-						positionOffset.y = minYOffset;
-					else if (positionOffset.y > maxYOffset)
-						positionOffset.y = maxYOffset;
-						
-					if (yOffsetCooldownTimer >= yOffsetCooldownTime)
-						positionOffset.y = Mathf.Lerp (positionOffset.y, defaultPositionOffset.y, Time.deltaTime);
-				} else {
-					yOffsetCooldownTimer = 0f;
-				}
-								
 				playerHasControl = true;	// Give control to the player
 			}
 			else if (playerHasControl && Time.time > lastPlayerInputTime + playerInputCooldownTime )
@@ -113,7 +100,28 @@ public class CameraControl : MonoBehaviour
 				playerHasControl = false;	// Give control to the Camera AI
 				Debug.Log ("AI has control of camera as of " + Time.time);
 			}
+			
+			// Reset Y position offset after the cooldown time and constrain position
+			if (positionOffset.y != defaultPositionOffset.y)
+			{
+				yOffsetCooldownTimer += Time.deltaTime;
 
+				// Constrain Y position offset
+				if (positionOffset.y < minYOffset)
+					positionOffset.y = minYOffset;
+				else if (positionOffset.y > maxYOffset)
+					positionOffset.y = maxYOffset;
+			
+				if (yOffsetCooldownTimer > yOffsetCooldownTime)
+					positionOffset.y = Mathf.Lerp (positionOffset.y, defaultPositionOffset.y, Time.deltaTime);
+			}
+			
+			if (Mathf.Abs (positionOffset.y - defaultPositionOffset.y) < 1f)
+			{
+				yOffsetCooldownTimer = 0f;
+				positionOffset.y = defaultPositionOffset.y;
+			}
+			
 			// DEV CAMERA RESET ----------------------------------------
 			if (resetCameraNow) {
 				Reset ();
@@ -123,7 +131,6 @@ public class CameraControl : MonoBehaviour
 
 			SmoothFollow ();
 			SmoothLookAt ();
-
 		}
 		else
 		{
@@ -133,7 +140,7 @@ public class CameraControl : MonoBehaviour
 			if (transform.position != backpack.transform.position)
 				transform.position = Vector3.Lerp (transform.position, backpack.transform.position, followSpeed * Time.deltaTime);
 
-			transform.rotation	= Quaternion.Slerp (transform.rotation, backpack.transform.rotation, rotateDamping * Time.deltaTime);
+			transform.rotation = Quaternion.Slerp (transform.rotation, backpack.transform.rotation, rotateDamping * Time.deltaTime);
 		}
 	}
 
@@ -143,9 +150,12 @@ public class CameraControl : MonoBehaviour
 	public void FixedUpdate ()
 	{
 		if (!crafting) {
-			if (playerHasControl) {
+			if (playerHasControl)
+			{
 				// Do dat do dat do do do dat do dat
-			} else {
+			}
+			else
+			{
 				// Auto-adjust orbit position at awkward angles
 				float angleToTarget = Vector3.Angle(target.forward, transform.forward);
 				if (angleToTarget > 50f && angleToTarget < 120f)
@@ -178,9 +188,6 @@ public class CameraControl : MonoBehaviour
 		// Move the followTarget to correct position each frame
 		followTarget.position = target.position;
 		
-		if (positionOffset.z != defaultPositionOffset.z)
-			positionOffset.z += defaultPositionOffset.z - positionOffset.z * Time.deltaTime;
-		
 		followTarget.Translate (positionOffset, Space.Self);
 
 		if (lockRotation)
@@ -198,14 +205,40 @@ public class CameraControl : MonoBehaviour
 	private void AvoidCollisions ()
 
 	{
-		Vector3 dir = transform.position - target.position;
-		float dist = dir.magnitude;
+		// DO NOT CHANGE THE NUMBERS USED IN THIS FUNCTION ***************
+		Vector3 posTgt = target.position + Vector3.up + transform.forward;
+		Vector3 dir = transform.position - posTgt;
 
 		RaycastHit hit;
-		if (Physics.Raycast (target.position, dir, out hit, dist + 0.5f))
+		if (Physics.SphereCast (posTgt, 3f, dir, out hit, -defaultPositionOffset.z + 4f))
 		{
-			if (hit.transform.tag == "Environment")
-				transform.position = hit.point - dir.normalized * 0.5f;
+			Debug.DrawRay (posTgt, dir, Color.yellow);
+			
+			// Avoid registering bumps in the ground as collisions
+			if (hit.point.y > posTgt.y + 2f)
+			{
+				if (hit.transform.tag == "Environment")
+				{
+					avoidingCollision = true;
+				
+					positionOffset.z = -hit.distance + 5.5f;
+			
+					// Constrain distance to target
+					if (positionOffset.z < defaultPositionOffset.z)
+						positionOffset.z = defaultPositionOffset.z;
+					else if (positionOffset.z > -1f)
+						positionOffset.z = -1f;
+				}
+				else
+				{
+					avoidingCollision = false;
+				}
+			}
+		}
+		else
+		{
+			positionOffset.z = defaultPositionOffset.z;
+			avoidingCollision = false;
 		}
 	}
 
@@ -214,14 +247,14 @@ public class CameraControl : MonoBehaviour
 	 */
 	private void AvoidObstructions ()
 	{
-		Vector3 dir = target.position - transform.position;
+		Vector3 dir = target.position - transform.position + Vector3.up;
 
 		float dist = dir.magnitude;
 
 		RaycastHit hit;
 
 		// Make sure we don't make the camera dance by checking for near-obstructions
-		if (Physics.SphereCast (transform.position, 2.5f, dir, out hit, dist))
+		if (Physics.SphereCast (transform.position, 2f, dir, out hit, dist))
 		{
 			if (hit.transform.tag != "Player" && hit.transform.tag != "chat") {
 				avoidingObstruction = true;
