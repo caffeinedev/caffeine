@@ -206,25 +206,26 @@ public class CameraControl : MonoBehaviour
 
 	{
 		// DO NOT CHANGE THE NUMBERS USED IN THIS FUNCTION ***************
-		Vector3 posTgt = target.position + Vector3.up + transform.forward;
+		float distMod = 2f;
+		Vector3 posTgt = target.position + (Vector3.up * 4f) + transform.forward;
 		Vector3 dir = transform.position - posTgt;
 
 		RaycastHit hit;
-		if (Physics.SphereCast (posTgt, 3f, dir, out hit, -defaultPositionOffset.z + 4f))
+		if (Physics.SphereCast (posTgt, 1f, dir, out hit, -defaultPositionOffset.z + distMod))
 		{
 			Debug.DrawRay (posTgt, dir, Color.yellow);
 			
 			// Avoid registering bumps in the ground as collisions
-			if (hit.point.y > posTgt.y + 2f)
+			if (hit.point.y > target.position.y)
 			{
 				if (hit.transform.tag == "Environment")
 				{
 					avoidingCollision = true;
 				
-					positionOffset.z = -hit.distance + 5.5f;
+					positionOffset.z = -hit.distance + (distMod*2);
 			
 					// Constrain distance to target
-					if (positionOffset.z < defaultPositionOffset.z)
+					if (positionOffset.z < defaultPositionOffset.z) 
 						positionOffset.z = defaultPositionOffset.z;
 					else if (positionOffset.z > -1f)
 						positionOffset.z = -1f;
