@@ -3,69 +3,69 @@
 public class CameraControl : MonoBehaviour
 {
 	public Transform target;								// Cam target
-
+	
 	[Header ("Dev Stuff")]
 	public bool resetCameraNow = false;
-
+	
 	[Header ("Viewport Positioning")]
 	public Vector3 defaultPositionOffset	= new Vector3 (0f, 20f, -32f);	// Where the cam should be positioned relative to target
 	public Vector3 defaultLookOffset		= new Vector3 (0f, 7f, 0f);		// Where the cam should look relative to target
-
+	
 	public float maxYOffset	= 32f, minYOffset = 2.5f, yOffsetCooldownTime = 4f;
 	public float minDistanceFromTarget		= -10f;			// The closest the camera can get to the target
-
+	
 	[Header ("Movement Settings")]
 	public bool lockRotation;								// Keep camera position fixed at offset?
 	public float autoRotationSpeed	= 0.8f;
 	public float followSpeed		= 20f;					// Camera movement speed
 	public float rotateDamping		= 100f;					// Camera rotation damping
-
+	
 	[Header ("Collision and Obstruction")]
 	public string[] avoidObstructionTags;
 	public string[] avoidCollisionTags;
 	public float collisionCheckDistance = 3f;
-
+	
 	[Header ("Player Input Settings")]
 	public float inputRotationSpeed			= 100f;			// How fast the camera rotates with player input
 	public float playerInputCooldownTime	= 2f;			// How long to keep camera in players control after recieving input
-
-
+	
+	
 	// Privates --------------------------------------------------------
 	private Transform followTarget;
 	private Vector3 positionOffset = new Vector3 (0f, 20f, -32f), lookOffset = new Vector3 (0f, 7f, 0f);
 	private GameObject backpack;
-
+	
 	// Player input
-
+	
 	public bool playerHasControl;								// Is player or Camera AI in control
 	private float lastPlayerInputTime, yOffsetCooldownTimer;	// Last time the player sent input to the camera
-
-
+	
+	
 	// State flags
 	private bool avoidingCollision;
 	private bool avoidingObstruction;
 	
 	public bool crafting;
-
-
+	
+	
 	#region Unity Functions
-
+	
 	/**
 	 * Init CameraControl
 	 */
 	public void Awake ()
 	{
 		followTarget = new GameObject("_camPosTarget").transform; // Create empty gameObject as cam pos target
-
+		
 		inputRotationSpeed *= 10;
-
+		
 		positionOffset		= defaultPositionOffset;
 		lookOffset			= defaultLookOffset;
-
+		
 		if (!target)
 			Debug.LogError("'CameraControl' script has no target assigned to it", transform);
 	}
-
+	
 	/**
 	 * Once-per-frame update
 	 */
@@ -75,24 +75,24 @@ public class CameraControl : MonoBehaviour
 			SetTargetToPlayer ();
 			if (!target) return;
 		}
-
+		
 		if (!crafting)
 		{
 			float xAxis = Input.GetAxis ("RightStickH");
 			float yAxis = Input.GetAxis ("RightStickV");
-
+			
 			// Handle player view control
 			if (xAxis != 0f || yAxis != 0f)
 			{
 				lastPlayerInputTime	= Time.time;
-
+				
 				if (!playerHasControl) Debug.Log ("Player has control of camera as of " + lastPlayerInputTime);
-
+				
 				if (yAxis != 0f) yOffsetCooldownTimer = 0f;
-
+				
 				positionOffset.y += (yAxis * inputRotationSpeed * Time.deltaTime);
 				followTarget.RotateAround (target.position, Vector3.up, xAxis * inputRotationSpeed * Time.deltaTime);				
-
+				
 				playerHasControl = true;	// Give control to the player
 			}
 			else if (playerHasControl && Time.time > lastPlayerInputTime + playerInputCooldownTime )
@@ -105,13 +105,13 @@ public class CameraControl : MonoBehaviour
 			if (positionOffset.y != defaultPositionOffset.y)
 			{
 				yOffsetCooldownTimer += Time.deltaTime;
-
+				
 				// Constrain Y position offset
 				if (positionOffset.y < minYOffset)
 					positionOffset.y = minYOffset;
 				else if (positionOffset.y > maxYOffset)
 					positionOffset.y = maxYOffset;
-			
+				
 				if (yOffsetCooldownTimer > yOffsetCooldownTime)
 					positionOffset.y = Mathf.Lerp (positionOffset.y, defaultPositionOffset.y, Time.deltaTime);
 			}
@@ -128,7 +128,7 @@ public class CameraControl : MonoBehaviour
 				resetCameraNow = false;
 			}
 			// ---------------------------------------------------------
-
+			
 			SmoothFollow ();
 			SmoothLookAt ();
 		}
@@ -136,14 +136,14 @@ public class CameraControl : MonoBehaviour
 		{
 			if (!backpack)
 				backpack = GameObject.Find("BackPack Focus");
-
+			
 			if (transform.position != backpack.transform.position)
 				transform.position = Vector3.Lerp (transform.position, backpack.transform.position, followSpeed * Time.deltaTime);
-
+			
 			transform.rotation = Quaternion.Slerp (transform.rotation, backpack.transform.rotation, rotateDamping * Time.deltaTime);
 		}
 	}
-
+	
 	/**
 	 * Called every physics update
 	 */
@@ -161,16 +161,16 @@ public class CameraControl : MonoBehaviour
 				if (angleToTarget > 50f && angleToTarget < 120f)
 					followTarget.rotation = Quaternion.Slerp (followTarget.rotation, target.rotation, Time.deltaTime * autoRotationSpeed);
 			}
-
+			
 			AvoidObstructions ();
 			AvoidCollisions ();
 		}
 		//TODO: Do something to keep the player from crafting through a wall 
 	}
-
+	
 	#endregion
 	#region Positioning
-
+	
 	/**
 	 * Rotate smoothly toward the target
 	 */
@@ -179,7 +179,7 @@ public class CameraControl : MonoBehaviour
 		Quaternion rotation	= Quaternion.LookRotation ((target.position + lookOffset) - transform.position);
 		transform.rotation	= Quaternion.Slerp (transform.rotation, rotation, rotateDamping * Time.deltaTime);
 	}
-
+	
 	/**
 	 * Move camera smoothly toward its target
 	 */
@@ -189,27 +189,27 @@ public class CameraControl : MonoBehaviour
 		followTarget.position = target.position;
 		
 		followTarget.Translate (positionOffset, Space.Self);
-
+		
 		if (lockRotation)
 			followTarget.rotation = target.rotation;
-
+		
 		transform.position	= Vector3.Lerp (transform.position, followTarget.position, followSpeed * Time.deltaTime);
 	}
-
+	
 	#endregion
 	#region Obstruction Avoidance
-
+	
 	/**
 	 * Avoid colliding with or clipping through the environment or static objects
 	 */
 	private void AvoidCollisions ()
-
+		
 	{
 		// DO NOT CHANGE THE NUMBERS USED IN THIS FUNCTION ***************
 		float distMod = 2f;
 		Vector3 posTgt = target.position + (Vector3.up * 4f) + transform.forward;
 		Vector3 dir = transform.position - posTgt;
-
+		
 		RaycastHit hit;
 		if (Physics.SphereCast (posTgt, 1f, dir, out hit, -defaultPositionOffset.z + distMod))
 		{
@@ -221,9 +221,9 @@ public class CameraControl : MonoBehaviour
 				if (hit.transform.tag == "Environment")
 				{
 					avoidingCollision = true;
-				
+					
 					positionOffset.z = -hit.distance + (distMod*2);
-			
+					
 					// Constrain distance to target
 					if (positionOffset.z < defaultPositionOffset.z) 
 						positionOffset.z = defaultPositionOffset.z;
@@ -242,18 +242,18 @@ public class CameraControl : MonoBehaviour
 			avoidingCollision = false;
 		}
 	}
-
+	
 	/**
 	 * Avoid view obstructions
 	 */
 	private void AvoidObstructions ()
 	{
 		Vector3 dir = target.position - transform.position + Vector3.up;
-
+		
 		float dist = dir.magnitude;
-
+		
 		RaycastHit hit;
-
+		
 		// Make sure we don't make the camera dance by checking for near-obstructions
 		if (Physics.SphereCast (transform.position, 2f, dir, out hit, dist))
 		{
@@ -264,16 +264,16 @@ public class CameraControl : MonoBehaviour
 				return;
 			}
 		}
-
+		
 		Debug.DrawRay (transform.position, dir, Color.green);
-
+		
 		// Check for blatant obstructions
 		if (Physics.Raycast (transform.position, dir, out hit, dist))
 		{
 			if (hit.transform.tag != "Player" && hit.transform.tag != "chat")
 			{
 				Debug.DrawRay (transform.position, dir, Color.red);
-
+				
 				RaycastHit viewPath;
 				if (!Physics.Raycast (target.position,  Vector3.Reflect (dir, Vector3.up), out viewPath, dist))
 				{
@@ -287,7 +287,7 @@ public class CameraControl : MonoBehaviour
 			}
 		}
 	}
-
+	
 	#endregion
 	#region Helper Functions
 	
@@ -300,11 +300,11 @@ public class CameraControl : MonoBehaviour
 		lookOffset				= defaultLookOffset;
 		followTarget.rotation	= target.rotation;
 	}
-
+	
 	/**
 	 * Find the GameObject tagged 'Player' and set it as cam target
 	 */
- 	public void SetTargetToPlayer ()
+	public void SetTargetToPlayer ()
 	{
 		target = GameObject.FindGameObjectWithTag ("Player").transform;
 	}
