@@ -43,7 +43,7 @@ public class SteeperAnimationController : MonoBehaviour {
 				anim.SetBool ("canLand", false);
 
 			anim.SetFloat ("runspeed", control.input.sqrMagnitude);
-						
+
 			if (control.input.sqrMagnitude == 0) {
 				anim.SetBool ("running", false);
 				steam.enableEmission = true;
@@ -55,7 +55,7 @@ public class SteeperAnimationController : MonoBehaviour {
 			steam.enableEmission = true;
 			anim.SetBool ("running", false);
 		}
-		
+
 	/*	Handled in SteeperController.cs ********************************
 		if (!control.canMove) {
 			anim.SetBool("running", false);
@@ -74,7 +74,7 @@ public class SteeperAnimationController : MonoBehaviour {
 				distanceFromGround = hit.distance;
 		}
 	}
-	
+
 	/**
 	 * Play the jump animation on the jump event
 	 */
