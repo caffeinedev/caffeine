@@ -11,3 +11,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Throne.unity
   - enabled: 1
     path: Assets/Scenes/Lakes.unity
+  - enabled: 1
+    path: Assets/Scenes/FloatingRocks.unity

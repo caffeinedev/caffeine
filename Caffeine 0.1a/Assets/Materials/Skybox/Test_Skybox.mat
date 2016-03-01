@@ -82,42 +82,42 @@ Material:
         first:
           name: _FrontTex
         second:
-          m_Texture: {fileID: 2800000, guid: 2e59b82faacc4485d899a1eac3ea9211, type: 3}
+          m_Texture: {fileID: 2800000, guid: fa2ded4e716f84020a26bce81496fd26, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BackTex
         second:
-          m_Texture: {fileID: 2800000, guid: 2e59b82faacc4485d899a1eac3ea9211, type: 3}
+          m_Texture: {fileID: 2800000, guid: 2f5a97b3f546a4cbba3ab53e2832edf3, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _LeftTex
         second:
-          m_Texture: {fileID: 2800000, guid: 2e59b82faacc4485d899a1eac3ea9211, type: 3}
+          m_Texture: {fileID: 2800000, guid: 2f5a97b3f546a4cbba3ab53e2832edf3, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _RightTex
         second:
-          m_Texture: {fileID: 2800000, guid: 2e59b82faacc4485d899a1eac3ea9211, type: 3}
+          m_Texture: {fileID: 2800000, guid: fa2ded4e716f84020a26bce81496fd26, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _UpTex
         second:
-          m_Texture: {fileID: 2800000, guid: 8a1643e9c273a492f8be35a4dc45342d, type: 3}
+          m_Texture: {fileID: 2800000, guid: a9d5c48de6a1b4bb6bcdca9ee59e20d1, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _DownTex
         second:
-          m_Texture: {fileID: 2800000, guid: 032d8dbda195249b4a0ee2da951b56bb, type: 3}
+          m_Texture: {fileID: 2800000, guid: d13d4255aacd8477fac08032ceb8dc56, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -189,4 +189,4 @@ Material:
       data:
         first:
           name: _Tint
-        second: {r: .5, g: .5, b: .5, a: .5}
+        second: {r: .416738749, g: .602941155, b: .510482073, a: .5}
