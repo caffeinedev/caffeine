@@ -18,7 +18,7 @@ public class Snowball : MonoBehaviour {
 		r.AddForce (Vector3.up * 20000, ForceMode.Impulse);
 		gameObject.name = "Snowball";
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		r.maxAngularVelocity = 10;
