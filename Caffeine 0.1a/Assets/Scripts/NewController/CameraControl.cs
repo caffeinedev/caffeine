@@ -59,6 +59,8 @@ public class CameraControl : MonoBehaviour
 		positionOffset		= defaultPositionOffset;
 		lookOffset			= defaultLookOffset;
 
+		resetCameraNow = true;
+
 		if (!target)
 			Debug.LogError("'CameraControl' script has no target assigned to it", transform);
 	}

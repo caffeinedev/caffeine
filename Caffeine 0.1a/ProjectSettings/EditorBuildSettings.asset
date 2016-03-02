@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Lakes.unity
   - enabled: 1
     path: Assets/Scenes/FloatingRocks.unity
+  - enabled: 1
+    path: Assets/Scenes/Laboratory.unity
