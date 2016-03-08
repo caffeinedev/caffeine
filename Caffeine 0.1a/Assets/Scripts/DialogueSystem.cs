@@ -18,7 +18,7 @@ public class DialogueSystem : MonoBehaviour {
 
 	public List<TextAsset> library = new List<TextAsset>();
 
-	public List<AudioClip> blips = new List<AudioClip>();
+	public AudioClip[] blips;
 
 	bool isTyping = false;
 
@@ -97,6 +97,10 @@ public class DialogueSystem : MonoBehaviour {
 		StartCoroutine (TypeText (name, range, mood));
 	}
 
+	public void Notify (string[] range) {
+		StartCoroutine(TypeText ("", range, moods.system));
+
+	}
 
 	public void InitConversation (string name, moods moodnum) {
 		dialogueCanvas.enabled = true;
@@ -114,6 +118,10 @@ public class DialogueSystem : MonoBehaviour {
 	IEnumerator TypeText(string name, string[] textArray, moods moodnum){
 		
 		InitConversation (name, moodnum);
+		if (name == "")
+			nameBg.enabled = false;
+		else
+			nameBg.enabled = true;
 		isTyping = true;
 		foreach (string text in textArray) {
 			mainText.text = "";
@@ -123,7 +131,12 @@ public class DialogueSystem : MonoBehaviour {
 
 			for (int i=0; i<text.Length; i++) {
 				mainText.text += text [i];
-				aud.PlayOneShot (blips [0]);
+				if (text[i].ToString() != " "){
+				        	 aud.clip = blips [Random.Range (0, blips.Length)];
+				             aud.pitch = (Random.Range (0.95f, 1.05f));
+				             aud.volume = (Random.Range (0.8f, 1f));
+				             aud.Play ();
+				     }
 				if (text [i].ToString () == "." || text [i].ToString () == "!" || text [i].ToString () == "?" || text [i].ToString () == ",") {
 					yield return new WaitForSeconds (0.3f);
 				} else
@@ -136,68 +149,4 @@ public class DialogueSystem : MonoBehaviour {
 		EndConversation ();
 
 	}
-
-	/*
-	public void BasicEvent (int startRange, int endRange, List<string> dialogueset, string name) {
-		//InitConversation();
-		string[] n_dialogue = dialogueset.GetRange(startRange, endRange - 1).ToArray();
-		
-		List<string> temp = new List<string>();
-		for(int i = startRange; i < endRange; i++) {
-			temp.Add(n_dialogue[i]);
-			Debug.Log(n_dialogue[i]);
-		}
-		//StartCoroutine(SpoolDialogue(temp.ToArray(), moods.happy, name));
-	}
-	/*
-	IEnumerator SpoolDialogue (string[] dialogueFeed, moods moodnum, string name) {
-			InitConversation (name, moodnum);
-			mainText.text = "";
-			TypeText(name, dialogueFeed[0], moodnum);
-			yield return new WaitForSeconds(0.5f);
-			if(dialogueFeed.Length == 1) {
-				EndConversation();
-				isTyping = false;
-				yield break;
-			}
-			mainText.text = "";
-			TypeText(name, dialogueFeed[1], moodnum);
-			yield return new WaitForSeconds(0.5f);
-			if(dialogueFeed.Length == 2) {
-				EndConversation();
-				yield break;
-			}
-			mainText.text = "";
-		TypeText(name, dialogueFeed[2], moodnum);
-			yield return new WaitForSeconds(0.5f);
-			if(dialogueFeed.Length == 3) {
-				EndConversation();
-				yield break;
-			}
-			mainText.text = "";
-		TypeText(name, dialogueFeed[3], moodnum);
-			yield return new WaitForSeconds(0.5f);
-			if(dialogueFeed.Length == 4) {
-				EndConversation();
-				yield break;
-			}
-			mainText.text = "";
-		TypeText(name, dialogueFeed[4], moodnum);
-			yield return new WaitForSeconds(0.5f);
-			if(dialogueFeed.Length == 5) {
-				EndConversation();
-				yield break;
-			}
-			mainText.text = "";
-		TypeText(name, dialogueFeed[5], moodnum);
-			yield return new WaitForSeconds(0.5f);
-			if(dialogueFeed.Length == 6) {
-				EndConversation();
-				yield break;
-			}
-			EndConversation();
-		}
-	}
-
-*/
 }

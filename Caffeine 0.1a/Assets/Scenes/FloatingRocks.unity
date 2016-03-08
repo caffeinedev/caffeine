@@ -5873,6 +5873,10 @@ Prefab:
       propertyPath: m_AABB.m_Extent.z
       value: 81.3003616
       objectReference: {fileID: 0}
+    - target: {fileID: 8275116, guid: 6e41ae750fcab4a3883467f8dcf650bd, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e41ae750fcab4a3883467f8dcf650bd, type: 2}
   m_IsPrefabParent: 0
