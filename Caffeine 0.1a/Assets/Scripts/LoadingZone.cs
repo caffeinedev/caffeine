@@ -21,6 +21,7 @@ public class LoadingZone : MonoBehaviour {
 	public TriggerType triggerType;
 	public TriggerType secondaryTrigger = TriggerType.None;
 	public int levelToLoad;
+	public int spawnPointNumber;
 
 	[Header ("Send Message Settings")]
 	public string message = "TriggerEvent(TriggerType.LoadScene)";
@@ -44,7 +45,7 @@ public class LoadingZone : MonoBehaviour {
 
 	void Start () {
 		gameManager = GameObject.Find ("Game Manager").GetComponent<GameManager> ();
-		uiLabels = gameManager.gameObject.transform.FindChild ("Button Map").GetComponentsInChildren<Text>();
+		uiLabels = gameManager.gameObject.transform.FindChild ("Game Manager (Canvas)").GetComponentsInChildren<Text>();
 		if (steeper == null)
 			steeper = GameObject.FindGameObjectWithTag ("Player");
 			steeperControl = steeper.GetComponent<SteeperController> ();
@@ -82,8 +83,10 @@ public class LoadingZone : MonoBehaviour {
 				}
 				break;
 			case TriggerType.LoadScene:
-				if(Input.GetButtonUp("Jump"))
+				if(Input.GetButtonUp("Jump")) {
+					gameManager.spawnPoint = spawnPointNumber;
 					gameManager.BroadcastMessage ("LoadLevel", levelToLoad, SendMessageOptions.DontRequireReceiver);
+				}
 				break;
 			}
 		}
@@ -121,6 +124,7 @@ public class LoadingZone : MonoBehaviour {
 			GameObject.Destroy(gameObject);
 			break;
 		case TriggerType.LoadSceneAuto:
+			gameManager.spawnPoint = spawnPointNumber;
 			gameManager.SendMessage ("LoadLevel", levelToLoad, SendMessageOptions.DontRequireReceiver);
 			break;
 		case TriggerType.NotifyAuto:

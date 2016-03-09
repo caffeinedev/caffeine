@@ -37,6 +37,7 @@ public class HeadLookController : MonoBehaviour {
 	public bool overrideAnimation = false;
 	
 	void Start () {
+		target = GameObject.FindGameObjectWithTag ("Player").transform;
 		if (rootNode == null) {
 			rootNode = transform;
 		}

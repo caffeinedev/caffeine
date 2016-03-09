@@ -15,3 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/FloatingRocks.unity
   - enabled: 1
     path: Assets/Scenes/Laboratory.unity
+  - enabled: 1
+    path: Assets/Scenes/Hotel_Main.unity
+  - enabled: 1
+    path: Assets/Scenes/Hotel_Garden.unity

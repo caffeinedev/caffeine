@@ -15,33 +15,53 @@ using System.Collections.Generic;       //Allows us to use Lists.
 		Vector3 comingFrom;
 		}
 		
+		public GameObject[] spawnPoints;
+		GameObject steeper;
+		SteeperController control;
+		public int spawnPoint; //to be changed by loading zone scripts, default should be 0
+
 		//Awake is always called before any Start functions
 		void Awake()
 		{
 			//Check if instance already exists
 			if (instance == null)
-				
-				//if not, set instance to this
 				instance = this;
-			
-			//If instance already exists and it's not this:
 			else if (instance != this)
-				
-				//Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
-				Destroy(gameObject);    
+				Destroy(gameObject);
+		
+			if(steeper == null) steeper = GameObject.FindGameObjectWithTag ("Player");
+			if (control == null) control = steeper.GetComponent<SteeperController> ();
 			
 			//Sets this to not be destroyed when reloading scene
 			DontDestroyOnLoad(gameObject);
-			anim = GetComponent<Animator> ();
+			anim = transform.FindChild("Game Manager (Canvas)").GetComponent<Animator> ();
 			aud = GetComponent<AudioSource> ();
 			//Call the InitGame function to initialize the first level 
 			InitGame();
 		}
 		
+		void GetSpawnPoints () {
+			spawnPoints = GameObject.FindGameObjectsWithTag ("spawn");
+		}
+
+		void PositionPlayer () {
+		print (spawnPoints [spawnPoint].transform.position);
+			if (spawnPoints.Length != 0) {
+			steeper.transform.parent.position = spawnPoints [spawnPoint].transform.position;
+			steeper.transform.localPosition = Vector3.zero;
+			Camera.main.transform.localPosition = Vector3.zero;
+			}
+		else
+			steeper.transform.parent.position = Vector3.zero;
+		}
+
 		//Initializes the game for each level.
 		void InitGame()
 		{
+			if(steeper == null) steeper = GameObject.FindGameObjectWithTag ("Player");
 			anim.Play ("Unload");
+			GetSpawnPoints ();
+			PositionPlayer ();
 		}
 
 		public void PlaySound (AudioClip clip) {
@@ -54,8 +74,15 @@ using System.Collections.Generic;       //Allows us to use Lists.
 
 		IEnumerator DelayLoadLevel (int levelToLoad) {
 			anim.Play ("Load");
-			yield return new WaitForSeconds(1.0f);
+			yield return new WaitForSeconds(1f);
 			Application.LoadLevel (levelToLoad);
+			while (Application.isLoadingLevel) {
+				yield return null;
+			}
+			GetSpawnPoints ();
+			PositionPlayer ();
 			anim.Play ("Unload");
+		control.disableJump = false;
+			
 		}
 }

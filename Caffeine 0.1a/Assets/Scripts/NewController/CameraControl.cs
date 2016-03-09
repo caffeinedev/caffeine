@@ -5,29 +5,32 @@ public class CameraControl : MonoBehaviour
 	public Transform target;								// Cam target
 
 	[Header ("Dev Stuff")]
-	public bool resetCameraNow = false;
-
+	public bool
+		resetCameraNow = false;
 	[Header ("Viewport Positioning")]
-	public Vector3 defaultPositionOffset	= new Vector3 (0f, 20f, -32f);	// Where the cam should be positioned relative to target
-	public Vector3 defaultLookOffset		= new Vector3 (0f, 7f, 0f);		// Where the cam should look relative to target
+	public Vector3
+		defaultPositionOffset = new Vector3 (0f, 20f, -32f);	// Where the cam should be positioned relative to target
+	public Vector3 defaultLookOffset = new Vector3 (0f, 7f, 0f);		// Where the cam should look relative to target
 
-	public float maxYOffset	= 32f, minYOffset = 2.5f, yOffsetCooldownTime = 4f;
-	public float minDistanceFromTarget		= -10f;			// The closest the camera can get to the target
+	public float maxYOffset = 32f, minYOffset = 2.5f, yOffsetCooldownTime = 4f;
+	public float minDistanceFromTarget = -10f;			// The closest the camera can get to the target
 
 	[Header ("Movement Settings")]
-	public bool lockRotation;								// Keep camera position fixed at offset?
-	public float autoRotationSpeed	= 0.8f;
-	public float followSpeed		= 20f;					// Camera movement speed
-	public float rotateDamping		= 100f;					// Camera rotation damping
+	public bool
+		lockRotation;								// Keep camera position fixed at offset?
+	public float autoRotationSpeed = 0.8f;
+	public float followSpeed = 20f;					// Camera movement speed
+	public float rotateDamping = 100f;					// Camera rotation damping
 
 	[Header ("Collision and Obstruction")]
-	public string[] avoidObstructionTags;
+	public string[]
+		avoidObstructionTags;
 	public string[] avoidCollisionTags;
 	public float collisionCheckDistance = 3f;
-
 	[Header ("Player Input Settings")]
-	public float inputRotationSpeed			= 100f;			// How fast the camera rotates with player input
-	public float playerInputCooldownTime	= 2f;			// How long to keep camera in players control after recieving input
+	public float
+		inputRotationSpeed = 100f;			// How fast the camera rotates with player input
+	public float playerInputCooldownTime = 2f;			// How long to keep camera in players control after recieving input
 
 
 	// Privates --------------------------------------------------------
@@ -42,7 +45,6 @@ public class CameraControl : MonoBehaviour
 	// State flags
 	private bool avoidingCollision;
 	private bool avoidingObstruction;
-
 	public bool crafting;
 
 	#region Unity Functions
@@ -52,17 +54,18 @@ public class CameraControl : MonoBehaviour
 	 */
 	public void Awake ()
 	{
-		followTarget = new GameObject("_camPosTarget").transform; // Create empty gameObject as cam pos target
+		followTarget = new GameObject ("_camPosTarget").transform; // Create empty gameObject as cam pos target
+		followTarget.transform.parent = GameObject.Find ("Game Manager").transform;
 
 		inputRotationSpeed *= 10;
 
-		positionOffset		= defaultPositionOffset;
-		lookOffset			= defaultLookOffset;
+		positionOffset = defaultPositionOffset;
+		lookOffset = defaultLookOffset;
 
 		resetCameraNow = true;
 
 		if (!target)
-			Debug.LogError("'CameraControl' script has no target assigned to it", transform);
+			Debug.LogError ("'CameraControl' script has no target assigned to it", transform);
 	}
 
 	/**
@@ -70,39 +73,37 @@ public class CameraControl : MonoBehaviour
 	 */
 	public void Update ()
 	{
-		if (!target) {
+		if (!target || !followTarget) {
 			SetTargetToPlayer ();
-			if (!target) return;
+			if (!target)
+				return;
 		}
 
-		if (!crafting)
-		{
+		if (!crafting) {
 			float xAxis = Input.GetAxis ("RightStickH");
 			float yAxis = Input.GetAxis ("RightStickV");
 
 			// Handle player view control
-			if (xAxis != 0f || yAxis != 0f)
-			{
-				lastPlayerInputTime	= Time.time;
+			if (xAxis != 0f || yAxis != 0f) {
+				lastPlayerInputTime = Time.time;
 
-				if (!playerHasControl) Debug.Log ("Player has control of camera as of " + lastPlayerInputTime);
+				if (!playerHasControl)
+					Debug.Log ("Player has control of camera as of " + lastPlayerInputTime);
 
-				if (yAxis != 0f) yOffsetCooldownTimer = 0f;
+				if (yAxis != 0f)
+					yOffsetCooldownTimer = 0f;
 
 				positionOffset.y += (yAxis * inputRotationSpeed * Time.deltaTime);
 				followTarget.RotateAround (target.position, Vector3.up, xAxis * inputRotationSpeed * Time.deltaTime);
 
 				playerHasControl = true;	// Give control to the player
-			}
-			else if (playerHasControl && Time.time > lastPlayerInputTime + playerInputCooldownTime)
-			{
+			} else if (playerHasControl && Time.time > lastPlayerInputTime + playerInputCooldownTime) {
 				playerHasControl = false;	// Give control to the Camera AI
 				Debug.Log ("AI has control of camera as of " + Time.time);
 			}
 
 			// Reset Y position offset after the cooldown time and constrain position
-			if (positionOffset.y != defaultPositionOffset.y)
-			{
+			if (positionOffset.y != defaultPositionOffset.y) {
 				yOffsetCooldownTimer += Time.deltaTime;
 
 				// Constrain Y position offset
@@ -115,8 +116,7 @@ public class CameraControl : MonoBehaviour
 					positionOffset.y = Mathf.Lerp (positionOffset.y, defaultPositionOffset.y, Time.deltaTime);
 			}
 
-			if (Mathf.Abs (positionOffset.y - defaultPositionOffset.y) < 1f)
-			{
+			if (Mathf.Abs (positionOffset.y - defaultPositionOffset.y) < 1f) {
 				yOffsetCooldownTimer = 0f;
 				positionOffset.y = defaultPositionOffset.y;
 			}
@@ -130,11 +130,9 @@ public class CameraControl : MonoBehaviour
 
 			SmoothFollow ();
 			SmoothLookAt ();
-		}
-		else
-		{
+		} else {
 			if (!backpack)
-				backpack = GameObject.Find("BackPack Focus");
+				backpack = GameObject.Find ("BackPack Focus");
 
 			if (transform.position != backpack.transform.position)
 				transform.position = Vector3.Lerp (transform.position, backpack.transform.position, followSpeed * Time.deltaTime);
@@ -149,12 +147,9 @@ public class CameraControl : MonoBehaviour
 	public void FixedUpdate ()
 	{
 		if (!crafting) {
-			if (playerHasControl)
-			{
+			if (playerHasControl) {
 				// Do dat do dat do do do dat do dat
-			}
-			else
-			{
+			} else {
 				// Auto-adjust orbit position at awkward angles
 				float angleToTarget = Vector3.Angle (target.forward, transform.forward);
 				if (angleToTarget > 50f && angleToTarget < 120f)
@@ -175,8 +170,8 @@ public class CameraControl : MonoBehaviour
 	 */
 	public void SmoothLookAt ()
 	{
-		Quaternion rotation	= Quaternion.LookRotation ((target.position + lookOffset) - transform.position);
-		transform.rotation	= Quaternion.Slerp (transform.rotation, rotation, rotateDamping * Time.deltaTime);
+		Quaternion rotation = Quaternion.LookRotation ((target.position + lookOffset) - transform.position);
+		transform.rotation = Quaternion.Slerp (transform.rotation, rotation, rotateDamping * Time.deltaTime);
 	}
 
 	/**
@@ -185,14 +180,15 @@ public class CameraControl : MonoBehaviour
 	public void SmoothFollow ()
 	{
 		// Move the followTarget to correct position each frame
-		followTarget.position = target.position;
+		if (followTarget != null) {
+			followTarget.position = target.position;
+			followTarget.Translate (positionOffset, Space.Self);
 
-		followTarget.Translate (positionOffset, Space.Self);
+			if (lockRotation)
+				followTarget.rotation = target.rotation;
 
-		if (lockRotation)
-			followTarget.rotation = target.rotation;
-
-		transform.position = Vector3.Lerp (transform.position, followTarget.position, (avoidingCollision) ? followSpeed * 5f * Time.deltaTime : followSpeed * Time.deltaTime);
+			transform.position = Vector3.Lerp (transform.position, followTarget.position, (avoidingCollision) ? followSpeed * 5f * Time.deltaTime : followSpeed * Time.deltaTime);
+		}
 	}
 
 	#endregion
@@ -208,16 +204,13 @@ public class CameraControl : MonoBehaviour
 		Vector3 dir = transform.position - posTgt;
 
 		RaycastHit hit;
-	//	if (Physics.Raycast (posTgt, dir, out hit, -defaultPositionOffset.z + 1.5f))
-		if (Physics.SphereCast (posTgt, 1f, dir, out hit, -defaultPositionOffset.z + 3f))
-		{
+		//	if (Physics.Raycast (posTgt, dir, out hit, -defaultPositionOffset.z + 1.5f))
+		if (Physics.SphereCast (posTgt, 1f, dir, out hit, -defaultPositionOffset.z + 3f)) {
 			Debug.DrawRay (posTgt, dir, Color.yellow);
 
 			// Avoid registering bumps in the ground as collisions
-			if (hit.point.y > target.position.y && hit.distance < -defaultPositionOffset.z + 3f)
-			{
-				if (hit.transform.tag == "Environment")
-				{
+			if (hit.point.y > target.position.y && hit.distance < -defaultPositionOffset.z + 3f) {
+				if (hit.transform.tag == "Environment") {
 					avoidingCollision = true;
 
 					positionOffset.z = -hit.distance + 10f;
@@ -230,17 +223,13 @@ public class CameraControl : MonoBehaviour
 						positionOffset.z = -5f;
 						followTarget.rotation = Quaternion.LookRotation (dir, Vector3.up);
 					}
-				}
-				else
-				{
+				} else {
 					avoidingCollision = false;
 				}
 			}
-		}
-		else
-		{
-			positionOffset.z	= defaultPositionOffset.z;
-			avoidingCollision	= false;
+		} else {
+			positionOffset.z = defaultPositionOffset.z;
+			avoidingCollision = false;
 		}
 	}
 
@@ -249,14 +238,13 @@ public class CameraControl : MonoBehaviour
 	 */
 	private void AvoidObstructions ()
 	{
-		Vector3 dir	= target.position - transform.position + Vector3.up;
-		float dist	= dir.magnitude;
+		Vector3 dir = target.position - transform.position + Vector3.up;
+		float dist = dir.magnitude;
 
 		RaycastHit hit;
 
 		// Make sure we don't make the camera dance by checking for near-obstructions
-		if (Physics.SphereCast (transform.position, 2f, dir, out hit, dist))
-		{
+		if (Physics.SphereCast (transform.position, 2f, dir, out hit, dist)) {
 			if (hit.transform.tag != "Player" && hit.transform.tag != "chat") {
 				avoidingObstruction = true;
 			} else {
@@ -268,20 +256,15 @@ public class CameraControl : MonoBehaviour
 		Debug.DrawRay (transform.position, dir, Color.green);
 
 		// Check for blatant obstructions
-		if (Physics.Raycast (transform.position, dir, out hit, dist))
-		{
-			if (hit.transform.tag != "Player" && hit.transform.tag != "chat")
-			{
+		if (Physics.Raycast (transform.position, dir, out hit, dist)) {
+			if (hit.transform.tag != "Player" && hit.transform.tag != "chat") {
 				Debug.DrawRay (transform.position, dir, Color.red);
 
 				RaycastHit viewPath;
-				if (!Physics.Raycast (target.position,  Vector3.Reflect (dir, Vector3.up), out viewPath, dist))
-				{
+				if (!Physics.Raycast (target.position, Vector3.Reflect (dir, Vector3.up), out viewPath, dist)) {
 					// If we have a clear path of view directly behind steeper, move there
 					followTarget.rotation = Quaternion.Slerp (followTarget.rotation, target.rotation, Time.deltaTime * autoRotationSpeed * 0.5f);
-				}
-				else
-				{
+				} else {
 					followTarget.rotation = Quaternion.Slerp (followTarget.rotation, Quaternion.Inverse (target.rotation), Time.deltaTime * autoRotationSpeed * 0.5f);
 				}
 			}
@@ -296,9 +279,9 @@ public class CameraControl : MonoBehaviour
 	 */
 	public void Reset ()
 	{
-		positionOffset			= defaultPositionOffset;
-		lookOffset				= defaultLookOffset;
-		followTarget.rotation	= target.rotation;
+		positionOffset = defaultPositionOffset;
+		lookOffset = defaultLookOffset;
+		followTarget.rotation = target.rotation;
 	}
 
 	/**
@@ -307,6 +290,7 @@ public class CameraControl : MonoBehaviour
 	public void SetTargetToPlayer ()
 	{
 		target = GameObject.FindGameObjectWithTag ("Player").transform;
+		followTarget.transform.parent = GameObject.Find ("Game Manager").transform;
 	}
 
 	#endregion

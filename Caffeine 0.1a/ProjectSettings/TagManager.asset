@@ -10,6 +10,8 @@ TagManager:
   - Water
   - chat
   - interact
+  - spawn
+  - Structure
   layers:
   - Default
   - TransparentFX

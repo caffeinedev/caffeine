@@ -38,13 +38,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _node_2681
-        second:
-          m_Texture: {fileID: 2800000, guid: 94335f91cfffe4b3b94d796a7e990790, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _ParallaxMap
         second:
           m_Texture: {fileID: 0}
@@ -85,6 +78,13 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_2681
+        second:
+          m_Texture: {fileID: 2800000, guid: 94335f91cfffe4b3b94d796a7e990790, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -98,10 +98,6 @@ Material:
         first:
           name: _Cutoff
         second: .5
-      data:
-        first:
-          name: _node_8129
-        second: 2.31999993
       data:
         first:
           name: _Parallax
@@ -140,6 +136,10 @@ Material:
         second: 0
       data:
         first:
+          name: _node_8129
+        second: 2.31999993
+      data:
+        first:
           name: _Gloss
         second: 1
     m_Colors:
@@ -153,12 +153,12 @@ Material:
         second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
-          name: _node_1904
-        second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
           name: _Tint
         second: {r: .661764741, g: .462262154, b: .466389835, a: 1}
+      data:
+        first:
+          name: _node_1904
+        second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
           name: _GlossColor

@@ -217,15 +217,15 @@ Material:
       data:
         first:
           name: _ShadowColor
-        second: {r: .713235319, g: .857606471, b: 1, a: 1}
+        second: {r: .480752587, g: .671832204, b: .860294104, a: 1}
       data:
         first:
           name: _node_8066
-        second: {r: 0, g: .544827461, b: 1, a: 1}
+        second: {r: .897058845, g: 1, b: .970182538, a: 1}
       data:
         first:
           name: _node_2107
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: .116025105, g: .173010409, b: .213235319, a: 1}
       data:
         first:
           name: _node_9523
