@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ActionAndMovementAudio : MonoBehaviour {
  
-	private string surface = "";
+	public string surface = "";
 	private float currentAnimSpeed;
 	private float fallSpeed;
 	private float length;

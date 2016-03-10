@@ -7,7 +7,7 @@ using System.Collections.Generic;       //Allows us to use Lists.
 		
 		public static GameManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.                             
 		Animator anim;
-		AudioSource aud;
+		public AudioSource aud;
 
 		struct References {
 		int lastLevel;

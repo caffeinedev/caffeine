@@ -609,6 +609,14 @@ Prefab:
       propertyPath: spawnPointNumber
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11441360, guid: 9dc83f1faffab42ceba78ad7a1324d45, type: 2}
+      propertyPath: changeMusic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441360, guid: 9dc83f1faffab42ceba78ad7a1324d45, type: 2}
+      propertyPath: musicClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 04287f9adb02f4da3918ae2f8643c281, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9dc83f1faffab42ceba78ad7a1324d45, type: 2}
   m_IsPrefabParent: 0

@@ -3756,7 +3756,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 27
 --- !u!1001 &1074354085
 Prefab:
   m_ObjectHideFlags: 0
@@ -4353,6 +4353,18 @@ Prefab:
     - target: {fileID: 11441360, guid: 9dc83f1faffab42ceba78ad7a1324d45, type: 2}
       propertyPath: spawnPointNumber
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441360, guid: 9dc83f1faffab42ceba78ad7a1324d45, type: 2}
+      propertyPath: changeMusic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441360, guid: 9dc83f1faffab42ceba78ad7a1324d45, type: 2}
+      propertyPath: musicClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 04287f9adb02f4da3918ae2f8643c281, type: 3}
+    - target: {fileID: 11441360, guid: 9dc83f1faffab42ceba78ad7a1324d45, type: 2}
+      propertyPath: delay
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9dc83f1faffab42ceba78ad7a1324d45, type: 2}

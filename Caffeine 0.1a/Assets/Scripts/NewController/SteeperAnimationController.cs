@@ -13,6 +13,7 @@ public class SteeperAnimationController : MonoBehaviour {
 	float distanceFromGround;
 
 	public ParticleSystem steam;
+	public ParticleSystem[] grass = new ParticleSystem[2];
 
 	public float vspeed = -300f;
 	public float hspeed = 200f;
@@ -66,6 +67,22 @@ public class SteeperAnimationController : MonoBehaviour {
 	/**
 	 * Physics update function
 	 */
+
+	public void EmitFootstepParticle (string foot) {
+		ActionAndMovementAudio a = GetComponent<ActionAndMovementAudio> ();
+		switch (a.surface) {
+		case "Environment":
+				if(foot == "Right") {
+					grass[0].Emit(4); //CHANGE THIS TO SOMETHING FASTER LATER
+				}
+				if(foot == "Left") {
+				grass[1].Emit(4); //CHANGE THIS TO SOMETHING FASTER LATER
+				}
+			break;
+		}
+
+	}
+
 	public void FixedUpdate () {
 		RaycastHit hit;
 		if ( Physics.Raycast (transform.position, Vector3.down, out hit) )
