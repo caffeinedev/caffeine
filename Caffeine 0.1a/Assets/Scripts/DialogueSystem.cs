@@ -13,12 +13,15 @@ public class DialogueSystem : MonoBehaviour {
 	public Image indicatorBg;
 
 	public SteeperController control;
+	GameManager manager;
 
 	public Color[] mood;
 
 	public List<TextAsset> library = new List<TextAsset>();
 
 	public AudioClip[] blips;
+	public AudioClip excited, surprised, worried, shocked;
+	public float textSpeed = 0.03f;
 
 	bool isTyping = false;
 
@@ -48,6 +51,7 @@ public class DialogueSystem : MonoBehaviour {
 		dialogueCanvas	= GameObject.Find ("Dialogue Canvas").GetComponent<Canvas>();
 		control			= GetComponent<SteeperController> ();
 		aud				= GetComponent<AudioSource> ();
+		manager = GameObject.Find ("Game Manager").GetComponent<GameManager>();
 	}
 	
 	// Update is called once per frame
@@ -128,9 +132,9 @@ public class DialogueSystem : MonoBehaviour {
 			nameBg.color = mood [(int)moodnum];
 			indicatorBg.color = mood [(int)moodnum];
 			//string text = textArray[s];
-
+		
 			for (int i=0; i<text.Length; i++) {
-				mainText.text += text [i];
+				/*	mainText.text += text [i];
 				if (text[i].ToString() != " "){
 				        	 aud.clip = blips [Random.Range (0, blips.Length)];
 				             aud.pitch = (Random.Range (0.95f, 1.05f));
@@ -141,12 +145,42 @@ public class DialogueSystem : MonoBehaviour {
 					yield return new WaitForSeconds (0.3f);
 				} else
 					yield return new WaitForSeconds (0.03f);
+
+*/
+				switch (text[i].ToString()) {  //compiled dialogue into switch case for better per-letter event control
+				case " ":
+					mainText.text += text [i];
+
+					break;
+				case ".": case "!": case "?": case ",": case "~":
+					mainText.text += text [i];
+					yield return new WaitForSeconds (9f * textSpeed);
+					break;
+				case "¡":
+					manager.aud.PlayOneShot(shocked);
+					aud.Play();
+					break;
+				case "_":
+					yield return new WaitForSeconds (1f);
+					break;
+				default:
+					mainText.text += text [i];
+					yield return new WaitForSeconds (textSpeed);
+					aud.clip = blips [Random.Range (0, blips.Length)];
+					aud.pitch = (Random.Range (0.95f, 1.05f));
+					aud.volume = (Random.Range (0.8f, 1f));
+					aud.Play ();
+					break;
+				}
+
+
+
 			}
 			while (!Input.GetButtonUp("Jump")) 		
 				yield return null;
 		}
-			isTyping = false;
+		isTyping = false;
 		EndConversation ();
-
 	}
+
 }

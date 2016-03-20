@@ -19,6 +19,7 @@ using System.Collections.Generic;       //Allows us to use Lists.
 		GameObject steeper;
 		SteeperController control;
 		public int spawnPoint; //to be changed by loading zone scripts, default should be 0
+	
 
 		//Awake is always called before any Start functions
 		void Awake()
@@ -50,6 +51,7 @@ using System.Collections.Generic;       //Allows us to use Lists.
 			steeper.transform.parent.position = spawnPoints [spawnPoint].transform.position;
 			steeper.transform.localPosition = Vector3.zero;
 			Camera.main.transform.localPosition = Vector3.zero;
+			steeper.transform.parent.rotation = spawnPoints [spawnPoint].transform.rotation;
 			}
 		else
 			steeper.transform.parent.position = Vector3.zero;
@@ -68,11 +70,15 @@ using System.Collections.Generic;       //Allows us to use Lists.
 			aud.PlayOneShot (clip);
 		}
 
-		public void LoadLevel (int levelToLoad) {
+		public void ResetCamera () {
+			Camera.main.GetComponent<CameraControl> ().resetCameraNow = true;
+		}
+
+		public void LoadLevel (string levelToLoad) {
 			StartCoroutine (DelayLoadLevel (levelToLoad));
 		}
 
-		IEnumerator DelayLoadLevel (int levelToLoad) {
+		IEnumerator DelayLoadLevel (string levelToLoad) {
 			anim.Play ("Load");
 			yield return new WaitForSeconds(1f);
 			Application.LoadLevel (levelToLoad);
@@ -81,8 +87,8 @@ using System.Collections.Generic;       //Allows us to use Lists.
 			}
 			GetSpawnPoints ();
 			PositionPlayer ();
+			ResetCamera ();
 			anim.Play ("Unload");
-		control.disableJump = false;
-			
+			control.disableJump = false;
 		}
 }

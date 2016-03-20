@@ -71,7 +71,7 @@ public class SteeperAnimationController : MonoBehaviour {
 	public void EmitFootstepParticle (string foot) {
 		ActionAndMovementAudio a = GetComponent<ActionAndMovementAudio> ();
 		switch (a.surface) {
-		case "Environment":
+		default:
 				if(foot == "Right") {
 					grass[0].Emit(4); //CHANGE THIS TO SOMETHING FASTER LATER
 				}

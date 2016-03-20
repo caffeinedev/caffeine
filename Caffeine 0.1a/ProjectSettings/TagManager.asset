@@ -12,6 +12,10 @@ TagManager:
   - interact
   - spawn
   - Structure
+  - stone
+  - snow
+  - grass
+  - dirt
   layers:
   - Default
   - TransparentFX

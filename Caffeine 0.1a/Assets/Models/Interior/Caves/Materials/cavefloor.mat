@@ -174,16 +174,16 @@ Material:
         second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
-          name: _ShadowColor
-        second: {r: .267463207, g: .491886467, b: .713235259, a: 1}
-      data:
-        first:
           name: _node_8066
-        second: {r: .0758624077, g: 0, b: 1, a: 1}
+        second: {r: .871442914, g: .864511251, b: .95588237, a: 1}
       data:
         first:
           name: _node_2107
         second: {r: .666734397, g: .220588207, b: 1, a: 1}
+      data:
+        first:
+          name: _ShadowColor
+        second: {r: .617647052, g: .81014204, b: 1, a: 1}
       data:
         first:
           name: _node_9523
@@ -199,4 +199,4 @@ Material:
       data:
         first:
           name: _node_6559
-        second: {r: .117647067, g: .129411772, b: .356862754, a: 1}
+        second: {r: .184904844, g: .22227782, b: .441176474, a: 1}

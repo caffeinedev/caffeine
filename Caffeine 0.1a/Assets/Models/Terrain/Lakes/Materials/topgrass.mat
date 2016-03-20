@@ -227,7 +227,7 @@ Material:
       data:
         first:
           name: _ShadowColor
-        second: {r: .683823526, g: .790669382, b: 1, a: 1}
+        second: {r: .523086071, g: .666856647, b: .948529422, a: 1}
       data:
         first:
           name: _node_8066

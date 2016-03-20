@@ -20,7 +20,7 @@ public class LoadingZone : MonoBehaviour {
 	[Header ("Choose a Response")]
 	public TriggerType triggerType;
 	public TriggerType secondaryTrigger = TriggerType.None;
-	public int levelToLoad;
+	public string levelToLoad;
 	public int spawnPointNumber;
 	public bool changeMusic;
 	public AudioClip musicClip;
@@ -89,6 +89,8 @@ public class LoadingZone : MonoBehaviour {
 				if(Input.GetButtonUp("Jump")) {
 					gameManager.spawnPoint = spawnPointNumber;
 					gameManager.BroadcastMessage ("LoadLevel", levelToLoad, SendMessageOptions.DontRequireReceiver);
+					if(changeMusic)
+						ChangeMusicClip();
 				}
 				break;
 			}
@@ -105,6 +107,7 @@ public class LoadingZone : MonoBehaviour {
 				break;
 			default:
 				ResetUILabels();
+				steeperControl.disableJump = false;
 				break;
 			}
 		}
@@ -118,8 +121,6 @@ public class LoadingZone : MonoBehaviour {
 		case TriggerType.LoadScene:
 			steeperControl.disableJump = true;
 			uiLabels [0].text = "Enter";
-			if(changeMusic)
-				ChangeMusicClip();
 			break;
 		case TriggerType.SendMessageAuto:
 			gameManager.SendMessage(message, SendMessageOptions.DontRequireReceiver);
@@ -158,7 +159,7 @@ public class LoadingZone : MonoBehaviour {
 	void ChangeMusicClip () {
 		gameManager.aud.clip = musicClip;
 		gameManager.aud.PlayDelayed (delay);
-		gameManager.aud.volume = 0.6f;
+		gameManager.aud.volume = 0.5f;
 	}
 
 	#endregion

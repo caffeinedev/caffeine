@@ -38,13 +38,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _node_2681
-        second:
-          m_Texture: {fileID: 2800000, guid: e4dd5055f90e647aab8115a676ef0921, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _ParallaxMap
         second:
           m_Texture: {fileID: 0}
@@ -83,6 +76,13 @@ Material:
           name: _MetallicGlossMap
         second:
           m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_2681
+        second:
+          m_Texture: {fileID: 2800000, guid: e4dd5055f90e647aab8115a676ef0921, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -145,9 +145,9 @@ Material:
         second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
-          name: _node_1904
-        second: {r: .704909205, g: .830114305, b: .904411793, a: 1}
-      data:
-        first:
           name: _Tint
         second: {r: .470588207, g: .470588207, b: .470588207, a: 1}
+      data:
+        first:
+          name: _node_1904
+        second: {r: .462262094, g: .69821775, b: .838235259, a: 1}

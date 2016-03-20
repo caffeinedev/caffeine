@@ -38,13 +38,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _node_2681
-        second:
-          m_Texture: {fileID: 2800000, guid: 2fd56340539e9463ab6343efbb66e315, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _ParallaxMap
         second:
           m_Texture: {fileID: 0}
@@ -94,6 +87,13 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _node_2681
+        second:
+          m_Texture: {fileID: 2800000, guid: 2fd56340539e9463ab6343efbb66e315, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
           name: _node_7612
         second:
           m_Texture: {fileID: 0}
@@ -119,10 +119,6 @@ Material:
         first:
           name: _Cutoff
         second: .5
-      data:
-        first:
-          name: _node_8129
-        second: .970000029
       data:
         first:
           name: _Parallax
@@ -159,6 +155,10 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _node_8129
+        second: .970000029
     m_Colors:
       data:
         first:
@@ -170,20 +170,20 @@ Material:
         second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
-          name: _node_1904
-        second: {r: 1, g: .91911763, b: .960953355, a: 1}
-      data:
-        first:
           name: _Tint
         second: {r: .681643009, g: .463235319, b: 1, a: 1}
       data:
         first:
-          name: _GlossColor
-        second: {r: .122205004, g: .132352948, b: .0272491388, a: 1}
-      data:
-        first:
           name: _node_17
         second: {r: .931541562, g: .801470578, b: 1, a: 1}
+      data:
+        first:
+          name: _node_1904
+        second: {r: .998377323, g: .882352948, b: 1, a: 1}
+      data:
+        first:
+          name: _GlossColor
+        second: {r: .122205004, g: .132352948, b: .0272491388, a: 1}
       data:
         first:
           name: _node_2

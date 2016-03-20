@@ -38,18 +38,20 @@ public class ActionAndMovementAudio : MonoBehaviour {
 		source = GetComponent<AudioSource>();
 		source.playOnAwake = false;
 	}
+	
 
 	void Update ()
 	{
-		RaycastHit material; //creates a new ray and casts it down to call for the tag of the surface below and if there is none, isSurfaced is set to false
-		Ray grounding = new Ray (transform.position, Vector3.down);
-		if(Physics.Raycast (grounding, out material, length)) {
-			isSurfaced = true;
-			surface = material.collider.tag;
+		if (rigidBody.velocity != Vector3.zero) { //we dont really need to do anything unless steeper is moving
+			RaycastHit hit; //creates a new ray and casts it down to call for the tag of the surface below and if there is none, isSurfaced is set to false
+			Ray grounding = new Ray (transform.position, Vector3.down);
+			if (Physics.Raycast (grounding, out hit, length)) {
+				isSurfaced = true;
+				surface = hit.collider.tag;
+			}
+			currentAnimSpeed = animtr.GetFloat ("runspeed");
 		}
-		currentAnimSpeed = animtr.GetFloat ("runspeed");
-		if (rigidBody.velocity.y < 0) 
-		{
+		if (rigidBody.velocity.y < 0) {
 			fallSpeed = (rigidBody.velocity.y * -1f);
 		}
 	}
@@ -60,7 +62,7 @@ public class ActionAndMovementAudio : MonoBehaviour {
 		{
 			if (surface == "Environment") varAudioClip = fsEnvironment;//these assign the appropriate audio clip array to be called according to which surface Steeper is stepping on
 			if (surface == "wetDirt") varAudioClip = fswetDirt;
-			if (surface == "frozenDirt") varAudioClip = fsfrozenDirt;
+			if (surface == "dirt") varAudioClip = fsfrozenDirt;
 			if (surface == "grass") varAudioClip = fsgrass;
 			if (surface == "snow") varAudioClip = fssnow;
 			if (surface == "stone") varAudioClip = fsstone;
@@ -76,7 +78,7 @@ public class ActionAndMovementAudio : MonoBehaviour {
 	{
 		if (surface == "Environment") varAudioClip = ldEnvironment;
 		if (surface == "wetDirt") varAudioClip = ldwetDirt;
-		if (surface == "frozenDirt") varAudioClip = ldfrozenDirt;
+		if (surface == "dirt") varAudioClip = ldfrozenDirt;
 		if (surface == "grass") varAudioClip = ldgrass;
 		if (surface == "snow") varAudioClip = ldsnow;
 		if (surface == "stone") varAudioClip = ldstone;

@@ -13,7 +13,7 @@ GameObject:
   - 95: {fileID: 9510278}
   - 65: {fileID: 6537868}
   - 65: {fileID: 6561242}
-  - 114: {fileID: 11414854}
+  - 114: {fileID: 11417794}
   m_Layer: 8
   m_Name: signpost
   m_TagString: chat
@@ -28,8 +28,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190936}
   m_LocalRotation: {x: 0, y: -.843715668, z: 0, w: .536790371}
-  m_LocalPosition: {x: 329.700012, y: -37.6652451, z: -31.8999996}
-  m_LocalScale: {x: 1.57999992, y: 1.58000016, z: 1.58000016}
+  m_LocalPosition: {x: -7.74124146, y: -.684997559, z: 37.2283859}
+  m_LocalScale: {x: 1.5799998, y: 1.58000016, z: 1.58000016}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -105,7 +105,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11414854
+--- !u!114 &11417794
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -113,36 +113,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 190936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c6d9fbfc64db4c49bf677b0e84e0c49, type: 3}
+  m_Script: {fileID: 11500000, guid: 3593d23583b1d4a0cb3528e5d866a8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcname: Signpost
-  range: 
-  iteration: 0
-  mood: 00000000000000000000000000000000000000000000000003000000
-  dialogue1:
-  - A T T E N T I O N ! ! !
-  - NICE JOB  YOU DID
-  - WHOOOOOOOOOO YEAH
-  dialogue2: []
-  dialogue3: []
-  dialogue4: []
-  dialogue5: []
-  dialogue6: []
-  defaultDialogue:
-  - "\xA213 was deducted from your bank account."
-  actionSequence:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  speechSounds:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  triggerType: 6
+  secondaryTrigger: 8
+  levelToLoad: 0
+  spawnPointNumber: 0
+  changeMusic: 0
+  musicClip: {fileID: 0}
+  delay: 0
+  message: TriggerEvent(TriggerType.LoadScene)
+  notification: []
+  description:
+  - '@This sign says some unruly things about your mother.'
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

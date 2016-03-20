@@ -83,13 +83,13 @@ Material:
           name: _normalmap
         second:
           m_Texture: {fileID: 2800000, guid: fb235e67fc6c240d991837474018c7ac, type: 3}
-          m_Scale: {x: .0299999993, y: .129999995}
+          m_Scale: {x: .00999999978, y: .00999999978}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _texture
         second:
-          m_Texture: {fileID: 2800000, guid: 255745bc5b72047f3a96cfd2e185c90b, type: 3}
+          m_Texture: {fileID: 2800000, guid: e107330f26a474d6daed4213472cb2a0, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -148,7 +148,7 @@ Material:
       data:
         first:
           name: _fresnelintensity
-        second: 100
+        second: 6.19999981
     m_Colors:
       data:
         first:
@@ -161,11 +161,11 @@ Material:
       data:
         first:
           name: _Tint
-        second: {r: .22383219, g: .441176474, b: .369228035, a: 1}
+        second: {r: .313365042, g: .314702898, b: .507352948, a: 1}
       data:
         first:
           name: _GlossColor
-        second: {r: .0832612291, g: .47856766, b: .808823526, a: 1}
+        second: {r: .1547966, g: .0385488681, b: .227941155, a: 1}
       data:
         first:
           name: _shadowcolor
