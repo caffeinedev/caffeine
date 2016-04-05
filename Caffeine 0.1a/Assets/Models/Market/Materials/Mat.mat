@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Mat
+  m_Shader: {fileID: 4800000, guid: b51648623a3c049c6a2bc9e4133a3747, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: 2000
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_2681
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _normalmap
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _Cutoff
+        second: .5
+      data:
+        first:
+          name: _InvFade
+        second: 1
+      data:
+        first:
+          name: _node_8129
+        second: 1.79230797
+      data:
+        first:
+          name: _normalscalingfactor
+        second: .5
+      data:
+        first:
+          name: _fresnelintensity
+        second: .600000024
+    m_Colors:
+      data:
+        first:
+          name: _Color
+        second: {r: .800000012, g: .800000012, b: .800000012, a: .120000005}
+      data:
+        first:
+          name: _Tint
+        second: {r: .292279422, g: .327079087, b: .375, a: 1}
+      data:
+        first:
+          name: _node_17
+        second: {r: .860547662, g: .816176474, b: 1, a: 1}
+      data:
+        first:
+          name: _node_1904
+        second: {r: .860294104, g: .953752458, b: 1, a: 1}
+      data:
+        first:
+          name: _GlossColor
+        second: {r: .299848616, g: .496862024, b: .691176474, a: 1}
+      data:
+        first:
+          name: _TintColor
+        second: {r: .304660469, g: .353387862, b: .360294104, a: .5}
+      data:
+        first:
+          name: _node_2
+        second: {r: .240268171, g: .27185002, b: .323529422, a: 1}
+      data:
+        first:
+          name: _shadowcolor
+        second: {r: .743674278, g: .890552998, b: .963235319, a: 1}

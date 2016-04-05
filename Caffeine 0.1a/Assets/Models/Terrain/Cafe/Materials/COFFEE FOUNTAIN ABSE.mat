@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: COFFEE FOUNTAIN ABSE
-  m_Shader: {fileID: 4800000, guid: 446b289f008f74fe19b1367267165b98, type: 3}
+  m_Shader: {fileID: 4800000, guid: 479d9eb5ba0b34edcb92baf9fb940dd4, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: 2000
@@ -182,3 +182,7 @@ Material:
         first:
           name: _node_5816
         second: {r: .5, g: .710344791, b: 1, a: 1}
+      data:
+        first:
+          name: _node_4625
+        second: {r: .764705896, g: .883164227, b: 1, a: 1}

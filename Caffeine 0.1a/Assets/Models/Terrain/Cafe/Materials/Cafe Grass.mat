@@ -165,4 +165,4 @@ Material:
       data:
         first:
           name: _ShadowColor
-        second: {r: .694096029, g: .829593778, b: .963235319, a: 1}
+        second: {r: .786764741, g: .894117713, b: 1, a: 1}

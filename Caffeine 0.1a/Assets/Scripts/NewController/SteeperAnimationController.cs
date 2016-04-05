@@ -57,11 +57,6 @@ public class SteeperAnimationController : MonoBehaviour {
 			anim.SetBool ("running", false);
 		}
 
-	/*	Handled in SteeperController.cs ********************************
-		if (!control.canMove) {
-			anim.SetBool("running", false);
-		}
-	*******************************************************************/
 	}
 
 	/**

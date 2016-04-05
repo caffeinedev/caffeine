@@ -33,6 +33,12 @@ public class SteeperController : MonoBehaviour
 	// State bools
 	public bool grounded, onSlope, canMove, disableJump, carryingDrink;
 
+	// Swimming
+	public bool swimming;
+	private bool canSwim;
+	public Transform water;
+	public float swimOffset = 0.2f;
+	public Material waterTrail;
 
 	//Privates	
 	private ActorBody actorBody;
@@ -52,6 +58,9 @@ public class SteeperController : MonoBehaviour
 
 	#region Unity Functions
 
+
+	public Vector3 trailoffset;
+
 	/**
 	 * Initialize
 	 */
@@ -68,7 +77,7 @@ public class SteeperController : MonoBehaviour
 		actorBody	= GetComponent<ActorBody> ();
 		rigidBody	= GetComponent<Rigidbody> ();
 		collider	= GetComponent<Collider> ();
-		cam			= GameObject.FindGameObjectWithTag ("MainCamera").transform;
+		cam			= Camera.main.transform;
 	}
 
 	/**
@@ -79,11 +88,12 @@ public class SteeperController : MonoBehaviour
 		if (canMove)
 		{
 
-			JumpCalculations ();
 
 			// Get player input
 			input.x = Input.GetAxisRaw ("Horizontal");
 			input.z = -1 * Input.GetAxisRaw ("Vertical");	// FIX THIS AXIS EVENTUALLY
+
+			JumpCalculations ();
 
 			float inputMag = input.sqrMagnitude; // To keep from calculating magnitude multiple times
 			
@@ -124,6 +134,15 @@ public class SteeperController : MonoBehaviour
 
 		}
 
+		if (swimming && water.position != Vector3.zero) {
+			rigidBody.maxAngularVelocity = accel/10;
+			rigidBody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+			rigidBody.position = new Vector3 (transform.position.x, water.position.y - swimOffset, transform.position.z);
+		} else {
+			rigidBody.constraints = RigidbodyConstraints.FreezeRotation;
+		}
+
+
 	}
 
 	/**
@@ -132,6 +151,7 @@ public class SteeperController : MonoBehaviour
 	void FixedUpdate ()
 	{
 		if (canMove) {
+			if(!swimming)
 			grounded = IsGrounded ();
 
 			actorBody.MoveInDirection (direction, curAccel);
@@ -148,10 +168,41 @@ public class SteeperController : MonoBehaviour
 	 */
 	void OnCollisionStay (Collision other)
 	{
+
 		// Stop moving if we're on a slight slope
 		if (dirMag == 0 && slope < slopeLimit && rigidBody.velocity.magnitude < 5)
 		{
 			rigidBody.velocity = Vector3.zero;
+		}
+	}
+
+	void OnTriggerEnter (Collider col) {
+		if (col.gameObject.tag == "Water") {
+			swimming = true;
+			water = col.transform;
+			MakeSwimTrails ();
+		}
+	}
+
+	void OnTriggerExit (Collider col) {
+		if (col.gameObject.tag == "Water") {
+			swimming = false;
+			water = col.transform;
+			GetComponent<Animator>().ResetTrigger ("swim");
+			DeleteSwimTrails();
+		}
+	}
+
+	void OnTriggerStay (Collider col) {
+		if (col.gameObject.tag == "Water") {
+			if (swimming)
+			if (Input.GetButtonDown ("Jump")) {
+				GetComponent<Animator>().Play ("Jump");
+				swimming = false;
+				rigidBody.constraints = RigidbodyConstraints.FreezeRotation;
+				Jump (jumpForce / 100);
+				DeleteSwimTrails();
+			}
 		}
 	}
 	
@@ -164,7 +215,7 @@ public class SteeperController : MonoBehaviour
 	private void JumpCalculations ()
 	{
 		// If we're grounded and aren't sliding down a slope
-		if (grounded)
+		if (grounded && !swimming)
 		{
 			groundedTimer += Time.deltaTime;
 			if (Input.GetButtonDown ("Jump"))
@@ -175,9 +226,12 @@ public class SteeperController : MonoBehaviour
 			groundedTimer = 0f;
 		}
 
-		if (onSlope)
-			if (Input.GetButtonDown ("Jump"))
-				Jump (jumpForce/2);
+		if (onSlope) {
+			if (Input.GetButtonDown ("Jump")) {
+				Jump (jumpForce / 4);
+				swimming = false;
+			}
+		}
 	}
 
 	/**
@@ -200,7 +254,7 @@ public class SteeperController : MonoBehaviour
 				if (onSlope)
 				{
 					Vector3 slide = new Vector3 (0f, -slideAmount, 0f);
-					rigidBody.AddForce (slide, ForceMode.Force);
+					rigidBody.AddForce (slide, ForceMode.VelocityChange);
 				}
 				lastGrounded = transform.position;
 
@@ -224,6 +278,43 @@ public class SteeperController : MonoBehaviour
 			BroadcastMessage ("OnJumpEvent");
 		}
 	}
-	
+
+	public void UpdateCamera (Transform newCam) {
+		cam = newCam;
+	}
+
+	public void MakeSwimTrails () {
+		GetComponent<Animator>().SetTrigger ("swim"); /*
+		GameObject g = new GameObject ("Water Trail 1");
+		GameObject g2 = new GameObject ("Water Trail 1");
+		TrailRenderer trail = g.AddComponent<TrailRenderer>();
+		TrailRenderer trail2 = g2.AddComponent<TrailRenderer>();
+		g.transform.parent = transform;
+		g.transform.localPosition = new Vector3(51.22f, 102.05f, 0);
+		g2.transform.parent = transform;
+		g2.transform.localPosition = new Vector3(-51.22f, 102.05f, 0);
+		trail.endWidth = 0;
+		trail.startWidth = 0.5f;
+		trail.material = waterTrail;
+		trail.time = 0.3f;
+		trail2.endWidth = 0;
+		trail2.startWidth = 0.5f;
+		trail2.material = waterTrail;
+		trail2.time = 0.3f; */
+	}
+
+
+
+	public IEnumerator DeleteSwimTrails () {
+		TrailRenderer[] t = GetComponentsInChildren<TrailRenderer> ();
+		foreach (TrailRenderer trail in t) {
+			trail.gameObject.transform.parent = null;
+		}
+		yield return new WaitForSeconds (1.0f);
+		foreach (TrailRenderer trail in t) {
+			Destroy(trail);
+		}
+	}
+
 	#endregion
 }

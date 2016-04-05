@@ -9070,7 +9070,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1348452841}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: spawn
   m_TagString: spawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9082,8 +9082,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1348452840}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.6000004, y: .829999983, z: 20.4457779}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
+  m_LocalPosition: {x: 16.6000004, y: .829999983, z: 21.8099995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -11198,7 +11198,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11441360, guid: 9dc83f1faffab42ceba78ad7a1324d45, type: 2}
       propertyPath: levelToLoad
-      value: 3
+      value: Hotel_Main
       objectReference: {fileID: 0}
     - target: {fileID: 2346468, guid: 9dc83f1faffab42ceba78ad7a1324d45, type: 2}
       propertyPath: m_Enabled

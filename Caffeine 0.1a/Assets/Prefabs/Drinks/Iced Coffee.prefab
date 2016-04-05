@@ -114,6 +114,10 @@ Prefab:
       propertyPath: coffeeBurst
       value: 
       objectReference: {fileID: 186198, guid: 915d987d308e64e65b85e90efea45cfc, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f1d113236c28e4ed19fdecf30bb590e7, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 155422}

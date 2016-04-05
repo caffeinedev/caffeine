@@ -119,6 +119,7 @@ public class LoadingZone : MonoBehaviour {
 	public void TriggerEvent (TriggerType t) {
 		switch (t) {
 		case TriggerType.LoadScene:
+			gameManager.spawnPoint = spawnPointNumber;
 			steeperControl.disableJump = true;
 			uiLabels [0].text = "Enter";
 			break;
