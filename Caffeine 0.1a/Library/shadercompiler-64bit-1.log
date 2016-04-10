@@ -2,10 +2,14 @@ Base path: /Applications/Unity/Unity.app/Contents
 Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-2078991104
 Cmd: getPlatforms
 Cmd: compileSnippet
-  api=0 type=0 insize=3969 outsize=4191 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF FOG_EXP ok=1
+  api=0 type=0 insize=959 outsize=407 kw= ok=1
 Cmd: compileSnippet
-  api=0 type=1 insize=3969 outsize=6 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF FOG_EXP ok=1
+  api=0 type=1 insize=959 outsize=6 kw= ok=1
 Cmd: compileSnippet
-  api=0 type=0 insize=2643 outsize=1654 kw=DIRECTIONAL SHADOWS_OFF FOG_EXP ok=1
+  api=0 type=0 insize=959 outsize=793 kw=FOG_EXP ok=1
 Cmd: compileSnippet
-  api=0 type=1 insize=2643 outsize=6 kw=DIRECTIONAL SHADOWS_OFF FOG_EXP ok=1
+  api=0 type=1 insize=959 outsize=6 kw=FOG_EXP ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=1001 outsize=554 kw= ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=1001 outsize=6 kw= ok=1

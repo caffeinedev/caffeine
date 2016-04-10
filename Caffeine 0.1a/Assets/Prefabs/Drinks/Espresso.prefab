@@ -413,7 +413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drinkType: Coffee
-  throwForce: 300
+  throwForce: 200
   waterSpawn: {fileID: 179778, guid: 2a156603e62244bddbf73046a5e86b82, type: 2}
   groundSpawn: {fileID: 110670, guid: 8bd3d9029a0d64b0fad6c9909d027000, type: 2}
   coffeeBurst: {fileID: 186198, guid: 915d987d308e64e65b85e90efea45cfc, type: 2}
@@ -475,6 +475,10 @@ Prefab:
       propertyPath: groundSpawn
       value: 
       objectReference: {fileID: 110670, guid: 8bd3d9029a0d64b0fad6c9909d027000, type: 2}
+    - target: {fileID: 0}
+      propertyPath: throwForce
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 141820}

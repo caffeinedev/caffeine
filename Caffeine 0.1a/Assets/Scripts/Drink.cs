@@ -60,11 +60,12 @@ public class Drink : MonoBehaviour {
 
 	void OnCollisionEnter (Collision col) {
 		if (col.gameObject.tag == "Environment") {
+			if(gameObject.name != "Plain Milk") {
 			GameObject burst = GameObject.Instantiate (coffeeBurst) as GameObject;
 			burst.transform.position = col.contacts[0].point;
+			}
 			GameObject p = GameObject.Instantiate (groundSpawn) as GameObject;
 			p.transform.position = col.contacts[0].point;
-			print (p.transform.position);
 			Quaternion hitangle = Quaternion.FromToRotation (Vector3.up, col.contacts[0].normal);
 			p.transform.rotation = hitangle;
 			KillDrink();

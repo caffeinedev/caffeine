@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: flowers
-  m_Shader: {fileID: 4800000, guid: 1ed82d5eab60548ef91f32e2d0bd242c, type: 3}
+  m_Shader: {fileID: 4800000, guid: 8d94edaffea3d46a387f7a6ef2cf1e29, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: 2000
@@ -145,6 +145,10 @@ Material:
         first:
           name: _node_8129
         second: 7.86000013
+      data:
+        first:
+          name: _node_1316
+        second: .5
     m_Colors:
       data:
         first:
@@ -169,4 +173,4 @@ Material:
       data:
         first:
           name: _node_17
-        second: {r: .897058845, g: .987221122, b: 1, a: 1}
+        second: {r: .948529422, g: .993610561, b: 1, a: 1}
