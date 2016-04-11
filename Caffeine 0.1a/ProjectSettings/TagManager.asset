@@ -16,6 +16,12 @@ TagManager:
   - snow
   - grass
   - dirt
+  - dryDirt
+  - wetDirt
+  - shallowWater
+  - hardwood
+  - carpet
+  - tile
   layers:
   - Default
   - TransparentFX

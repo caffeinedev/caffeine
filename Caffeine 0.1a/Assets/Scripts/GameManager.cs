@@ -8,6 +8,8 @@ using System.Collections.Generic;       //Allows us to use Lists.
 		public static GameManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.                             
 		Animator anim;
 		public AudioSource aud;
+		public AudioClip open;
+		public AudioClip completed;
 
 		struct References {
 		int lastLevel;
@@ -79,7 +81,9 @@ using System.Collections.Generic;       //Allows us to use Lists.
 		}
 
 		IEnumerator DelayLoadLevel (string levelToLoad) {
+
 			anim.Play ("Load");
+			aud.PlayOneShot (open);
 			yield return new WaitForSeconds(1f);
 			Application.LoadLevel (levelToLoad);
 			while (Application.isLoadingLevel) {
@@ -89,6 +93,7 @@ using System.Collections.Generic;       //Allows us to use Lists.
 			PositionPlayer ();
 			ResetCamera ();
 			anim.Play ("Unload");
+			aud.PlayOneShot (completed);
 			control.disableJump = false;
 		}
 }

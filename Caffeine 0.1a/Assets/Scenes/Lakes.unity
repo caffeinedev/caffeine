@@ -180,6 +180,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 418e797fcaa6f4e97b34433fc5152b5a, type: 2}
+    - target: {fileID: 100000, guid: 1db2b4a818570466ab9dda7895d00278, type: 3}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1db2b4a818570466ab9dda7895d00278, type: 3}
   m_IsPrefabParent: 0
@@ -300,6 +304,10 @@ Prefab:
       propertyPath: m_Name
       value: flatrock (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
   m_IsPrefabParent: 0
@@ -357,6 +365,10 @@ Prefab:
     - target: {fileID: 100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
       propertyPath: m_Name
       value: flatrock (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
+      propertyPath: m_TagString
+      value: stone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
@@ -416,6 +428,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .125240877
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7364f9197352d4efdb61f8f49a49a582, type: 3}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7364f9197352d4efdb61f8f49a49a582, type: 3}
   m_IsPrefabParent: 0
@@ -473,6 +489,10 @@ Prefab:
     - target: {fileID: 448568, guid: 9493e070586804fae9b91510f7155e08, type: 2}
       propertyPath: m_LocalScale.z
       value: .0878400058
+      objectReference: {fileID: 0}
+    - target: {fileID: 171934, guid: 9493e070586804fae9b91510f7155e08, type: 2}
+      propertyPath: m_TagString
+      value: stone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9493e070586804fae9b91510f7155e08, type: 2}
@@ -564,6 +584,10 @@ Prefab:
     - target: {fileID: 400000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
       propertyPath: m_LocalScale.z
       value: .103494331
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
+      propertyPath: m_TagString
+      value: stone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
@@ -680,9 +704,10 @@ GameObject:
   - 4: {fileID: 71672243}
   - 33: {fileID: 71672242}
   - 23: {fileID: 71672241}
+  - 64: {fileID: 71672244}
   m_Layer: 0
   m_Name: snowpof_1 (1)
-  m_TagString: Untagged
+  m_TagString: snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -732,6 +757,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4170402}
   m_RootOrder: 2
+--- !u!64 &71672244
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 71672240}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300002, guid: b85cace0c551a4c3fb2177bddcf54f2e, type: 3}
 --- !u!1001 &75342031
 Prefab:
   m_ObjectHideFlags: 0
@@ -911,6 +948,79 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
   m_PrefabInternal: {fileID: 29435295}
+--- !u!1 &111134627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 111134631}
+  - 33: {fileID: 111134630}
+  - 65: {fileID: 111134629}
+  - 23: {fileID: 111134628}
+  m_Layer: 0
+  m_Name: Cube (1)
+  m_TagString: snow
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &111134628
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 111134627}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!65 &111134629
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 111134627}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &111134630
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 111134627}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &111134631
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 111134627}
+  m_LocalRotation: {x: 0, y: -.425779492, z: 0, w: .904826939}
+  m_LocalPosition: {x: 316.899994, y: -37.7000008, z: -106}
+  m_LocalScale: {x: 72.5400009, y: .219999999, z: 144.199997}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
 --- !u!1001 &123307499
 Prefab:
   m_ObjectHideFlags: 0
@@ -1093,6 +1203,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 165429663}
+  - 82: {fileID: 165429664}
   m_Layer: 0
   m_Name: Scenery
   m_TagString: Untagged
@@ -1122,6 +1233,75 @@ Transform:
   - {fileID: 527458302}
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!82 &165429664
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 165429662}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e8fdaa1ab847f4032a69c772f23cd5fd, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: .238999993
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 0
+  MinDistance: 1
+  MaxDistance: 50000
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: .00200000009
+      value: 1
+      inSlope: -.0728753507
+      outSlope: -.0728753507
+      tangentMode: 0
+    - time: 1
+      value: .999126732
+      inSlope: -.0351102762
+      outSlope: -.0351102762
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1001 &181435869
 Prefab:
   m_ObjectHideFlags: 0
@@ -1176,6 +1356,10 @@ Prefab:
     - target: {fileID: 400000, guid: c0729fcf14fdf48e88acd52edb86da0a, type: 3}
       propertyPath: m_LocalScale.z
       value: .199269921
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c0729fcf14fdf48e88acd52edb86da0a, type: 3}
+      propertyPath: m_TagString
+      value: stone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0729fcf14fdf48e88acd52edb86da0a, type: 3}
@@ -1284,6 +1468,10 @@ Prefab:
     - target: {fileID: 481092, guid: 00f30ffdecd28424e99e39f7438d0934, type: 2}
       propertyPath: m_LocalScale.z
       value: .077398248
+      objectReference: {fileID: 0}
+    - target: {fileID: 179830, guid: 00f30ffdecd28424e99e39f7438d0934, type: 2}
+      propertyPath: m_TagString
+      value: stone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00f30ffdecd28424e99e39f7438d0934, type: 2}
@@ -1607,6 +1795,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .174286857
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
   m_IsPrefabParent: 0
@@ -1727,6 +1919,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .097502403
       objectReference: {fileID: 0}
+    - target: {fileID: 171934, guid: 9493e070586804fae9b91510f7155e08, type: 2}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9493e070586804fae9b91510f7155e08, type: 2}
   m_IsPrefabParent: 0
@@ -1818,6 +2014,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 115662c85397445acb4236f073257d2c, type: 2}
+    - target: {fileID: 100000, guid: 1db2b4a818570466ab9dda7895d00278, type: 3}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1db2b4a818570466ab9dda7895d00278, type: 3}
   m_IsPrefabParent: 0
@@ -1945,6 +2145,10 @@ Prefab:
     - target: {fileID: 400000, guid: b0c72566577da46a6889f9fe8621d2ed, type: 3}
       propertyPath: m_LocalScale.z
       value: .269896418
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b0c72566577da46a6889f9fe8621d2ed, type: 3}
+      propertyPath: m_TagString
+      value: stone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0c72566577da46a6889f9fe8621d2ed, type: 3}
@@ -2111,6 +2315,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 115662c85397445acb4236f073257d2c, type: 2}
+    - target: {fileID: 100000, guid: c0729fcf14fdf48e88acd52edb86da0a, type: 3}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0729fcf14fdf48e88acd52edb86da0a, type: 3}
   m_IsPrefabParent: 0
@@ -2449,6 +2657,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 418e797fcaa6f4e97b34433fc5152b5a, type: 2}
+    - target: {fileID: 100000, guid: b0c72566577da46a6889f9fe8621d2ed, type: 3}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0c72566577da46a6889f9fe8621d2ed, type: 3}
   m_IsPrefabParent: 0
@@ -2610,6 +2822,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 418e797fcaa6f4e97b34433fc5152b5a, type: 2}
+    - target: {fileID: 199210, guid: 471e9e6d46bf345b79b42383a4dba2e5, type: 2}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 471e9e6d46bf345b79b42383a4dba2e5, type: 2}
   m_IsPrefabParent: 0
@@ -2623,9 +2839,10 @@ GameObject:
   - 4: {fileID: 542498177}
   - 33: {fileID: 542498179}
   - 23: {fileID: 542498178}
+  - 64: {fileID: 542498180}
   m_Layer: 0
   m_Name: snowpof_2 (1)
-  m_TagString: Untagged
+  m_TagString: snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2674,6 +2891,18 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 542498176}
+  m_Mesh: {fileID: 4300000, guid: b85cace0c551a4c3fb2177bddcf54f2e, type: 3}
+--- !u!64 &542498180
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 542498176}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: b85cace0c551a4c3fb2177bddcf54f2e, type: 3}
 --- !u!1001 &553665452
 Prefab:
@@ -2899,6 +3128,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .177126586
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
   m_IsPrefabParent: 0
@@ -2980,6 +3213,10 @@ Prefab:
     - target: {fileID: 100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
       propertyPath: m_Name
       value: flatrock (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
+      propertyPath: m_TagString
+      value: stone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
@@ -3417,6 +3654,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: .17169489
       objectReference: {fileID: 0}
+    - target: {fileID: 157598, guid: d07b1313cf53c46d599f20c4048069dc, type: 2}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d07b1313cf53c46d599f20c4048069dc, type: 2}
   m_IsPrefabParent: 0
@@ -3532,6 +3773,10 @@ Prefab:
     - target: {fileID: 460638, guid: d07b1313cf53c46d599f20c4048069dc, type: 2}
       propertyPath: m_LocalScale.z
       value: .2875202
+      objectReference: {fileID: 0}
+    - target: {fileID: 157598, guid: d07b1313cf53c46d599f20c4048069dc, type: 2}
+      propertyPath: m_TagString
+      value: stone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d07b1313cf53c46d599f20c4048069dc, type: 2}
@@ -3761,9 +4006,49 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 461
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: b85cace0c551a4c3fb2177bddcf54f2e, type: 3}
+      propertyPath: m_TagString
+      value: snow
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: b85cace0c551a4c3fb2177bddcf54f2e, type: 3}
+      propertyPath: m_TagString
+      value: snow
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b85cace0c551a4c3fb2177bddcf54f2e, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &719198485 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100002, guid: b85cace0c551a4c3fb2177bddcf54f2e, type: 3}
+  m_PrefabInternal: {fileID: 719198484}
+--- !u!1 &719198486 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100004, guid: b85cace0c551a4c3fb2177bddcf54f2e, type: 3}
+  m_PrefabInternal: {fileID: 719198484}
+--- !u!64 &719198487
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 719198485}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300002, guid: b85cace0c551a4c3fb2177bddcf54f2e, type: 3}
+--- !u!64 &719198488
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 719198486}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300000, guid: b85cace0c551a4c3fb2177bddcf54f2e, type: 3}
 --- !u!1 &736212317 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100026, guid: 83269648d2e2146d98bb351adadae844, type: 3}
@@ -3983,6 +4268,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 418e797fcaa6f4e97b34433fc5152b5a, type: 2}
+    - target: {fileID: 100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
   m_IsPrefabParent: 0
@@ -4177,7 +4466,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d38461676b1c34cb6b46b60024485adc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0b0562f5927a5401aacdf1c1783fd301, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -4574,6 +4863,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 418e797fcaa6f4e97b34433fc5152b5a, type: 2}
+    - target: {fileID: 100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
   m_IsPrefabParent: 0
@@ -4713,6 +5006,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 115662c85397445acb4236f073257d2c, type: 2}
+    - target: {fileID: 100000, guid: 7364f9197352d4efdb61f8f49a49a582, type: 3}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7364f9197352d4efdb61f8f49a49a582, type: 3}
   m_IsPrefabParent: 0
@@ -5018,6 +5315,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 115662c85397445acb4236f073257d2c, type: 2}
+    - target: {fileID: 179830, guid: 00f30ffdecd28424e99e39f7438d0934, type: 2}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00f30ffdecd28424e99e39f7438d0934, type: 2}
   m_IsPrefabParent: 0
@@ -5083,6 +5384,10 @@ Prefab:
     - target: {fileID: 458660, guid: 471e9e6d46bf345b79b42383a4dba2e5, type: 2}
       propertyPath: m_LocalScale.z
       value: .0874017403
+      objectReference: {fileID: 0}
+    - target: {fileID: 199210, guid: 471e9e6d46bf345b79b42383a4dba2e5, type: 2}
+      propertyPath: m_TagString
+      value: stone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 471e9e6d46bf345b79b42383a4dba2e5, type: 2}
@@ -5593,6 +5898,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .10760802
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
   m_IsPrefabParent: 0
@@ -5812,6 +6121,79 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!1 &1088910906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1088910910}
+  - 33: {fileID: 1088910909}
+  - 65: {fileID: 1088910908}
+  - 23: {fileID: 1088910907}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: snow
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &1088910907
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1088910906}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!65 &1088910908
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1088910906}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1088910909
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1088910906}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1088910910
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1088910906}
+  m_LocalRotation: {x: 0, y: .145910382, z: 0, w: .989297807}
+  m_LocalPosition: {x: 300.200012, y: -37.7000008, z: -52.0999985}
+  m_LocalScale: {x: 39.7999992, y: .219999999, z: 113.400002}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
 --- !u!1 &1110261574 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: b0c72566577da46a6889f9fe8621d2ed, type: 3}
@@ -5961,6 +6343,10 @@ Prefab:
       propertyPath: m_Name
       value: flatrock (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
   m_IsPrefabParent: 0
@@ -6014,6 +6400,10 @@ Prefab:
     - target: {fileID: 400000, guid: 7364f9197352d4efdb61f8f49a49a582, type: 3}
       propertyPath: m_LocalScale.z
       value: .166135505
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7364f9197352d4efdb61f8f49a49a582, type: 3}
+      propertyPath: m_TagString
+      value: stone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7364f9197352d4efdb61f8f49a49a582, type: 3}
@@ -6390,6 +6780,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .0874017403
       objectReference: {fileID: 0}
+    - target: {fileID: 199210, guid: 471e9e6d46bf345b79b42383a4dba2e5, type: 2}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 471e9e6d46bf345b79b42383a4dba2e5, type: 2}
   m_IsPrefabParent: 0
@@ -6460,6 +6854,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bef6740dc221c41bea9bee643eed504f, type: 2}
+    - target: {fileID: 100000, guid: c0729fcf14fdf48e88acd52edb86da0a, type: 3}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0729fcf14fdf48e88acd52edb86da0a, type: 3}
   m_IsPrefabParent: 0
@@ -6901,6 +7299,79 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 53.8752785, y: 53.8036346, z: 15.5371132}
   m_Center: {x: -3.05049016e-05, y: 26.9018021, z: -2.4000001}
+--- !u!1 &1297400146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1297400150}
+  - 33: {fileID: 1297400149}
+  - 65: {fileID: 1297400148}
+  - 23: {fileID: 1297400147}
+  m_Layer: 0
+  m_Name: Cube (3)
+  m_TagString: snow
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &1297400147
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1297400146}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!65 &1297400148
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1297400146}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1297400149
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1297400146}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1297400150
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1297400146}
+  m_LocalRotation: {x: 0, y: -.159881383, z: 0, w: .987136245}
+  m_LocalPosition: {x: 328.5, y: -37.7000008, z: -99.5999985}
+  m_LocalScale: {x: 53.2000008, y: .219999999, z: 144.199997}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
 --- !u!1 &1297454249 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: c0729fcf14fdf48e88acd52edb86da0a, type: 3}
@@ -6942,7 +7413,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d38461676b1c34cb6b46b60024485adc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f3eb9441e3bab432f86c955acd2cb81b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -7482,7 +7953,8 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 7.59559107
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11458714, guid: 8bd3d9029a0d64b0fad6c9909d027000, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 8bd3d9029a0d64b0fad6c9909d027000, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1409158021 stripped
@@ -7680,6 +8152,10 @@ Prefab:
       propertyPath: m_Name
       value: tallrock2 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 179830, guid: 00f30ffdecd28424e99e39f7438d0934, type: 2}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00f30ffdecd28424e99e39f7438d0934, type: 2}
   m_IsPrefabParent: 0
@@ -7737,6 +8213,10 @@ Prefab:
     - target: {fileID: 100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
       propertyPath: m_Name
       value: flatrock (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
+      propertyPath: m_TagString
+      value: stone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 55b553bdce0784b26bf614b0bab635ac, type: 3}
@@ -7924,6 +8404,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 418e797fcaa6f4e97b34433fc5152b5a, type: 2}
+    - target: {fileID: 157598, guid: d07b1313cf53c46d599f20c4048069dc, type: 2}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d07b1313cf53c46d599f20c4048069dc, type: 2}
   m_IsPrefabParent: 0
@@ -8048,6 +8532,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 418e797fcaa6f4e97b34433fc5152b5a, type: 2}
+    - target: {fileID: 126380, guid: e63b4514117f74c3d83e02c9da945509, type: 2}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e63b4514117f74c3d83e02c9da945509, type: 2}
   m_IsPrefabParent: 0
@@ -8320,6 +8808,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bef6740dc221c41bea9bee643eed504f, type: 2}
+    - target: {fileID: 100000, guid: c0729fcf14fdf48e88acd52edb86da0a, type: 3}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0729fcf14fdf48e88acd52edb86da0a, type: 3}
   m_IsPrefabParent: 0
@@ -8401,6 +8893,10 @@ Prefab:
     - target: {fileID: 400000, guid: c0729fcf14fdf48e88acd52edb86da0a, type: 3}
       propertyPath: m_LocalScale.z
       value: .0943560675
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c0729fcf14fdf48e88acd52edb86da0a, type: 3}
+      propertyPath: m_TagString
+      value: stone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0729fcf14fdf48e88acd52edb86da0a, type: 3}
@@ -8507,6 +9003,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .174235046
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c0729fcf14fdf48e88acd52edb86da0a, type: 3}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0729fcf14fdf48e88acd52edb86da0a, type: 3}
   m_IsPrefabParent: 0
@@ -8540,9 +9040,10 @@ GameObject:
   - 4: {fileID: 1558106603}
   - 33: {fileID: 1558106605}
   - 23: {fileID: 1558106604}
+  - 64: {fileID: 1558106606}
   m_Layer: 0
   m_Name: snowpof_1 (2)
-  m_TagString: Untagged
+  m_TagString: snow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8591,6 +9092,18 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1558106602}
+  m_Mesh: {fileID: 4300002, guid: b85cace0c551a4c3fb2177bddcf54f2e, type: 3}
+--- !u!64 &1558106606
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1558106602}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300002, guid: b85cace0c551a4c3fb2177bddcf54f2e, type: 3}
 --- !u!1001 &1559485267
 Prefab:
@@ -8646,6 +9159,10 @@ Prefab:
     - target: {fileID: 481092, guid: 00f30ffdecd28424e99e39f7438d0934, type: 2}
       propertyPath: m_LocalScale.z
       value: .230317533
+      objectReference: {fileID: 0}
+    - target: {fileID: 179830, guid: 00f30ffdecd28424e99e39f7438d0934, type: 2}
+      propertyPath: m_TagString
+      value: stone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00f30ffdecd28424e99e39f7438d0934, type: 2}
@@ -9230,6 +9747,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 115662c85397445acb4236f073257d2c, type: 2}
+    - target: {fileID: 171934, guid: 9493e070586804fae9b91510f7155e08, type: 2}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9493e070586804fae9b91510f7155e08, type: 2}
   m_IsPrefabParent: 0
@@ -9433,6 +9954,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 418e797fcaa6f4e97b34433fc5152b5a, type: 2}
+    - target: {fileID: 157598, guid: d07b1313cf53c46d599f20c4048069dc, type: 2}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d07b1313cf53c46d599f20c4048069dc, type: 2}
   m_IsPrefabParent: 0
@@ -9875,6 +10400,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .165626749
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c0729fcf14fdf48e88acd52edb86da0a, type: 3}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0729fcf14fdf48e88acd52edb86da0a, type: 3}
   m_IsPrefabParent: 0
@@ -9956,6 +10485,79 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c11a265909dc54004bf87b79ae8b9d95, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1753757741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1753757745}
+  - 33: {fileID: 1753757744}
+  - 65: {fileID: 1753757743}
+  - 23: {fileID: 1753757742}
+  m_Layer: 0
+  m_Name: Cube (2)
+  m_TagString: snow
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &1753757742
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1753757741}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!65 &1753757743
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1753757741}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1753757744
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1753757741}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1753757745
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1753757741}
+  m_LocalRotation: {x: 0, y: -.189437956, z: 0, w: .981892705}
+  m_LocalPosition: {x: 309.5, y: -37.7000008, z: -155.600006}
+  m_LocalScale: {x: 72.5400009, y: .219999999, z: 144.199997}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
 --- !u!4 &1762324580 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 062a1c14a5d3c4b13890a53bc1235802, type: 3}
@@ -10521,6 +11123,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 418e797fcaa6f4e97b34433fc5152b5a, type: 2}
+    - target: {fileID: 100000, guid: b0c72566577da46a6889f9fe8621d2ed, type: 3}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0c72566577da46a6889f9fe8621d2ed, type: 3}
   m_IsPrefabParent: 0
@@ -10631,6 +11237,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bef6740dc221c41bea9bee643eed504f, type: 2}
+    - target: {fileID: 179830, guid: 00f30ffdecd28424e99e39f7438d0934, type: 2}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00f30ffdecd28424e99e39f7438d0934, type: 2}
   m_IsPrefabParent: 0
@@ -10745,6 +11355,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 115662c85397445acb4236f073257d2c, type: 2}
+    - target: {fileID: 100000, guid: b0c72566577da46a6889f9fe8621d2ed, type: 3}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0c72566577da46a6889f9fe8621d2ed, type: 3}
   m_IsPrefabParent: 0
@@ -11026,6 +11640,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 418e797fcaa6f4e97b34433fc5152b5a, type: 2}
+    - target: {fileID: 199210, guid: 471e9e6d46bf345b79b42383a4dba2e5, type: 2}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 471e9e6d46bf345b79b42383a4dba2e5, type: 2}
   m_IsPrefabParent: 0
@@ -11510,6 +12128,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 418e797fcaa6f4e97b34433fc5152b5a, type: 2}
+    - target: {fileID: 126380, guid: e63b4514117f74c3d83e02c9da945509, type: 2}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e63b4514117f74c3d83e02c9da945509, type: 2}
   m_IsPrefabParent: 0
@@ -11567,6 +12189,10 @@ Prefab:
     - target: {fileID: 460638, guid: d07b1313cf53c46d599f20c4048069dc, type: 2}
       propertyPath: m_LocalScale.z
       value: .149153411
+      objectReference: {fileID: 0}
+    - target: {fileID: 157598, guid: d07b1313cf53c46d599f20c4048069dc, type: 2}
+      propertyPath: m_TagString
+      value: stone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d07b1313cf53c46d599f20c4048069dc, type: 2}
@@ -11769,6 +12395,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 115662c85397445acb4236f073257d2c, type: 2}
+    - target: {fileID: 100000, guid: b0c72566577da46a6889f9fe8621d2ed, type: 3}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0c72566577da46a6889f9fe8621d2ed, type: 3}
   m_IsPrefabParent: 0
@@ -11966,6 +12596,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 115662c85397445acb4236f073257d2c, type: 2}
+    - target: {fileID: 100000, guid: 7364f9197352d4efdb61f8f49a49a582, type: 3}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7364f9197352d4efdb61f8f49a49a582, type: 3}
   m_IsPrefabParent: 0

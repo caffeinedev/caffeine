@@ -20,6 +20,7 @@ public class DialogueSystem : MonoBehaviour {
 	public List<TextAsset> library = new List<TextAsset>();
 
 	public AudioClip[] blips;
+	public AudioClip[] spaces;
 	public AudioClip excited, surprised, worried, shocked;
 	public float textSpeed = 0.03f;
 
@@ -150,15 +151,23 @@ public class DialogueSystem : MonoBehaviour {
 				switch (text[i].ToString()) {  //compiled dialogue into switch case for better per-letter event control
 				case " ":
 					mainText.text += text [i];
-
+					yield return new WaitForSeconds (textSpeed * 1.5f);
+					aud.clip = spaces [Random.Range (0, spaces.Length)];
+					aud.pitch = (Random.Range (0.9f, 1.1f));
+					aud.volume = (Random.Range (0.8f, 1f));
+					aud.Play ();
 					break;
 				case ".": case "!": case "?": case ",": case "~":
 					mainText.text += text [i];
 					yield return new WaitForSeconds (9f * textSpeed);
+					aud.clip = blips [Random.Range (0, blips.Length)];
+					aud.pitch = (Random.Range (0.9f, 1.1f));
+					aud.volume = (Random.Range (0.8f, 1f));
+					aud.Play ();
 					break;
 				case "¡":
 					manager.aud.PlayOneShot(shocked);
-					aud.Play();
+					//aud.Play();
 					break;
 				case "_":
 					yield return new WaitForSeconds (1f);
@@ -167,7 +176,7 @@ public class DialogueSystem : MonoBehaviour {
 					mainText.text += text [i];
 					yield return new WaitForSeconds (textSpeed);
 					aud.clip = blips [Random.Range (0, blips.Length)];
-					aud.pitch = (Random.Range (0.95f, 1.05f));
+					aud.pitch = (Random.Range (0.9f, 1.1f));
 					aud.volume = (Random.Range (0.8f, 1f));
 					aud.Play ();
 					break;
