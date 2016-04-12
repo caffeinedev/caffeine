@@ -12,9 +12,11 @@ GameObject:
   - 23: {fileID: 2323442}
   - 95: {fileID: 9566032}
   - 114: {fileID: 11493898}
+  - 65: {fileID: 6501480}
+  - 64: {fileID: 6401124}
   m_Layer: 0
   m_Name: Basic Coffee
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,8 +27,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136122}
-  m_LocalRotation: {x: .213683218, y: .000263645023, z: -.00214153971, w: -.976900697}
-  m_LocalPosition: {x: 2.09891152, y: 17.8727684, z: -11.9236574}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.7215204, y: -.795293808, z: 108.835533}
   m_LocalScale: {x: .600000024, y: .600000024, z: .600000024}
   m_Children: []
   m_Father: {fileID: 0}
@@ -62,6 +64,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136122}
   m_Mesh: {fileID: 4300000, guid: bf696fc117cd64b098131c03cc194faf, type: 3}
+--- !u!64 &6401124
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136122}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 4300000, guid: bf696fc117cd64b098131c03cc194faf, type: 3}
+--- !u!65 &6501480
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136122}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 4.73999977, y: 4.03000021, z: 4.36999989}
+  m_Center: {x: -1.3881406e-09, y: 2.88000011, z: -1.56273995e-06}
 --- !u!95 &9566032
 Animator:
   serializedVersion: 3
@@ -137,6 +163,34 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: throwForce
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

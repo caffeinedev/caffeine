@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;       //Allows us to use Lists. 
+using UnityEngine.UI;
 	
 	public class GameManager : MonoBehaviour
 	{
@@ -16,6 +17,7 @@ using System.Collections.Generic;       //Allows us to use Lists.
 		}
 		
 		public GameObject[] spawnPoints;
+		public Text[] uiLabels;
 		GameObject steeper;
 		SteeperController control;
 		public int spawnPoint; //to be changed by loading zone scripts, default should be 0
@@ -37,6 +39,11 @@ using System.Collections.Generic;       //Allows us to use Lists.
 			DontDestroyOnLoad(gameObject);
 			anim = transform.FindChild("Game Manager (Canvas)").GetComponent<Animator> ();
 			aud = GetComponent<AudioSource> ();
+
+			//Setup Control Prompts
+	
+			uiLabels = transform.FindChild ("Game Manager (Canvas)").GetComponentsInChildren<Text> ();
+
 			//Call the InitGame function to initialize the first level 
 			InitGame();
 		}
@@ -77,6 +84,13 @@ using System.Collections.Generic;       //Allows us to use Lists.
 		public void LoadLevel (string levelToLoad) {
 			StartCoroutine (DelayLoadLevel (levelToLoad));
 		}
+
+	public void ResetUILabels () {
+		uiLabels [0].text = "Jump";
+		uiLabels [1].text = "";
+		uiLabels [2].text = "";
+		uiLabels [3].text = "";
+	}
 
 		IEnumerator DelayLoadLevel (string levelToLoad) {
 			anim.Play ("Load");

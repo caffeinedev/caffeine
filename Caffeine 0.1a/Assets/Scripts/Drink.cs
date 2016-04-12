@@ -10,18 +10,6 @@ public class Drink : MonoBehaviour {
 
 	public GameObject coffeeBurst;
 
-	public void Throw (Vector3 dir) {
-		StartCoroutine ("ThrowDrink", dir);
-	}
-
-	public IEnumerator ThrowDrink (Vector3 dir) {
-		Rigidbody r = gameObject.AddComponent<Rigidbody>();
-		r.mass = 6;
-		gameObject.AddComponent<BoxCollider> ();
-		gameObject.transform.parent = null;
-		yield return new WaitForSeconds (0.01f);
-		r.AddForce (new Vector3(dir.x, 1, dir.z) * throwForce, ForceMode.Impulse);
-	}
 
 //	IEnumerator Burst () {
 //
@@ -48,11 +36,12 @@ public class Drink : MonoBehaviour {
 		if (col.gameObject.tag == "Water") {
 			KillDrink();
 			GameObject p = GameObject.Instantiate (waterSpawn) as GameObject;
-			RaycastHit hit;
-			if (Physics.Raycast(transform.position, Vector3.down, out hit))
-			{
-				p.transform.position = new Vector3 (hit.point.x, col.gameObject.transform.position.y, hit.point.z);
-			}
+				p.gameObject.transform.position = new Vector3(transform.position.x, col.gameObject.transform.position.y, transform.position.z);
+//			RaycastHit hit;
+//			if (Physics.Raycast(transform.position, Vector3.down, out hit))
+//			{
+//				p.transform.position = new Vector3 (hit.point.x, col.gameObject.transform.position.y, hit.point.z);
+//			}
 		}
 			break;
 	}
@@ -69,6 +58,10 @@ public class Drink : MonoBehaviour {
 			Quaternion hitangle = Quaternion.FromToRotation (Vector3.up, col.contacts[0].normal);
 			p.transform.rotation = hitangle;
 			KillDrink();
+		}
+		if (col.gameObject.tag != "Water") {
+			BoxCollider[] b  = GetComponents<BoxCollider>();
+			b[0].enabled = true;
 		}
 	}
 }

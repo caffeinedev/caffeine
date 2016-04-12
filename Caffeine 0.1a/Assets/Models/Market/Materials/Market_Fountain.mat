@@ -169,15 +169,15 @@ Material:
       data:
         first:
           name: _FresnelTint1
-        second: {r: .125540659, g: .192488953, b: .198529422, a: 1}
+        second: {r: .0218966119, g: .035534218, b: .0367646813, a: 1}
       data:
         first:
           name: _node_965
-        second: {r: 1, g: .903448224, b: .897058845, a: 1}
+        second: {r: .345588207, g: .312554032, b: .312554032, a: 1}
       data:
         first:
           name: _FresnelTint2
-        second: {r: .213235319, g: .0235185977, b: .0235185977, a: 1}
+        second: {r: .154411793, g: .0124891922, b: .0124891922, a: 1}
       data:
         first:
           name: _node_4625

@@ -37,6 +37,7 @@ public class DrinkCrafter : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+
 		if (sequenceComplete && cam.crafting) {
 			if (Input.GetButtonUp ("LT")) {
 				FinishDrink ();
@@ -49,16 +50,18 @@ public class DrinkCrafter : MonoBehaviour
 			FinishDrink();
 		}
 
+
+		/*
 		if (!cam.crafting && !canCraft && control.carryingDrink) {
 			if (Input.GetButtonDown ("Square") && control.grounded) { //change this later to a trigger
-				drinkAnchor.BroadcastMessage ("Throw", control.gameObject.transform.forward);
+				//drinkAnchor.BroadcastMessage ("Throw", control.gameObject.transform.forward);
 				canCraft = true;
 				sequenceComplete = false;
 				control.carryingDrink = false;
 				anim.Play ("Throw");
 				anim.SetBool("carrying", false);
 			}
-		}
+		} */
 
 		if (!control.carryingDrink && !sequenceComplete) {
 			if (Input.GetButtonDown ("LT") && !cam.crafting && control.grounded) {
@@ -163,7 +166,7 @@ public class DrinkCrafter : MonoBehaviour
 		}
 	}
 
-	void ResetCrafting ()
+	public void ResetCrafting ()
 	{
 		canCraft = true;
 		buttonsPushed = 0;
@@ -236,6 +239,7 @@ public class DrinkCrafter : MonoBehaviour
 		if (drinkSuccessful) {  //spawn the drink.
 			drinkSuccessful = false; //dont want to spawn multiple ever
 			control.carryingDrink = true;
+			GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().uiLabels[3].text = "Throw";
 			anim.SetTrigger ("pickup");
 			anim.SetBool ("carrying", true);
 			//	yield return new WaitForSeconds(0.2f);

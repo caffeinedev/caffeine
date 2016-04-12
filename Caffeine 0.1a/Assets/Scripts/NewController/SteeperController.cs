@@ -20,6 +20,9 @@ public class SteeperController : MonoBehaviour
 	public float rotateSpeed = 12.5f, airRotateSpeed = 3f;	// How fast to rotate
 	public float maxSpeed	= 200f;							// Maximum speed of movement in X/Z axis
 
+	// Carrying
+	public GameObject anchor;
+
 	// Jumping
 	[Header ("Jumping")]
 	public float jumpForce		= 70f;						// Jump force
@@ -46,7 +49,8 @@ public class SteeperController : MonoBehaviour
 	private ActorBody actorBody;
 	private Rigidbody rigidBody;
 	private Collider collider;
-
+	private Animator anim;
+	private GameManager control;
 	private float groundedTimer;
 	private float slope;
 	private Quaternion screenSpace;
@@ -79,7 +83,9 @@ public class SteeperController : MonoBehaviour
 		actorBody	= GetComponent<ActorBody> ();
 		rigidBody	= GetComponent<Rigidbody> ();
 		collider	= GetComponent<Collider> ();
+		anim 		= GetComponent<Animator> ();
 		cam			= Camera.main.transform;
+		control 	= GameObject.Find ("Game Manager").GetComponent<GameManager> ();
 	}
 
 	/**
@@ -95,6 +101,7 @@ public class SteeperController : MonoBehaviour
 			input.z = -1 * Input.GetAxisRaw ("Vertical");	// FIX THIS AXIS EVENTUALLY
 
 			JumpCalculations ();
+			ThrowCalculations ();
 
 			float inputMag = input.sqrMagnitude; // To keep from calculating magnitude multiple times
 			
@@ -187,11 +194,15 @@ public class SteeperController : MonoBehaviour
 			water = col.transform;
 			Swim();
 		}
+		if (col.gameObject.tag == "Pickup") 
+			control.uiLabels[3].text = "Pick Up";
 	}
 
 	void OnTriggerExit (Collider col) {
 		if (col.gameObject.tag == "Water")
 			inWater = false;
+		if (col.gameObject.tag == "Pickup") 
+			control.uiLabels[3].text = "";
 	}
 
 	void OnTriggerStay (Collider col) {
@@ -199,6 +210,12 @@ public class SteeperController : MonoBehaviour
 			inWater = true;
 		} else
 			inWater = false;
+
+		if (col.gameObject.tag == "Pickup") {
+			if(Input.GetButtonDown("Square") && carryingDrink == false) {
+				StartCoroutine(Pickup(col.gameObject));
+			}
+		}
 	}
 	
 	#endregion
@@ -238,6 +255,17 @@ public class SteeperController : MonoBehaviour
 			StartCoroutine (SwimTimeout (0.8f));
 			rigidBody.constraints = RigidbodyConstraints.FreezeRotation;
 			Jump (jumpForce - (jumpForce/3));
+		}
+	}
+
+	private void ThrowCalculations () {
+		if (carryingDrink) {
+			if(anchor.transform.childCount > 1) {
+				Destroy(anchor.transform.GetChild(1)); //if youre carrying more than one thing
+			}
+			if(Input.GetButtonDown("Square")) {
+				Throw(gameObject.transform.forward, 200f);
+			}
 		}
 	}
 
@@ -281,7 +309,7 @@ public class SteeperController : MonoBehaviour
 	public void Jump (float jumpVelocity)
 	{
 		if (!disableJump) {
-			GetComponent<Animator>().Play ("Jump");
+			anim.Play ("Jump");
 			rigidBody.AddRelativeForce (transform.up * jumpVelocity, ForceMode.Impulse);
 			BroadcastMessage ("OnJumpEvent");
 		}
@@ -295,7 +323,7 @@ public class SteeperController : MonoBehaviour
 	public void Swim () {
 		if (!swimming) {
 			swimming = true;
-			GetComponent<Animator> ().SetTrigger ("swim"); 
+			anim.SetTrigger ("swim"); 
 			MakeSwimTrails();
 			StartCoroutine (ControlTimeout (0.8f));
 			GameObject _splash = GameObject.Instantiate (splash) as GameObject;
@@ -355,6 +383,43 @@ public class SteeperController : MonoBehaviour
 			trail2.material = waterTrail;
 			trail2.time = 0.4f;
 		}
+
+
+	IEnumerator Pickup (GameObject item) {
+		if (item.GetComponent<Rigidbody> ())
+			Destroy (item.GetComponent<Rigidbody> ());
+		canMove = false;
+		control.uiLabels [3].text = "Throw";
+		carryingDrink = true;
+		anim.SetTrigger ("pickup");
+		anim.SetBool ("carrying", true);
+		yield return new WaitForSeconds (0.4f);
+		item.transform.position = anchor.transform.position;
+		item.transform.rotation = anchor.transform.rotation;
+		item.transform.parent = anchor.transform;
+		canMove = true;
+}
+
+	public void Throw (Vector3 dir, float throwForce) {
+		StartCoroutine (ThrowObj(dir, throwForce));
+	}
+	
+	public IEnumerator ThrowObj (Vector3 dir, float throwForce) {
+		control.ResetUILabels ();
+		GameObject.Find ("Crafting Canvas").GetComponent<DrinkCrafter> ().ResetCrafting ();
+		anim.Play ("Throw");
+		anim.SetBool("carrying", false);
+		Rigidbody r = anchor.transform.GetChild(0).gameObject.AddComponent<Rigidbody>();
+		r.mass = 6;
+		if (anchor.transform.GetChild (0).GetComponent<Drink>() != null) {
+			anchor.transform.GetChild (0).GetComponent<BoxCollider> ().enabled = false;
+		}
+		//anchor.transform.GetChild(0).gameObject.AddComponent<BoxCollider> ();
+		anchor.transform.GetChild(0).gameObject.transform.parent = null;
+		yield return new WaitForSeconds (0.01f);
+		r.AddForce (new Vector3(dir.x, 1, dir.z) * throwForce, ForceMode.Impulse);
+		carryingDrink = false;
+	}
 
 /*
 

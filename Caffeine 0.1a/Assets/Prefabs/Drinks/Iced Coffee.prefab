@@ -12,9 +12,11 @@ GameObject:
   - 23: {fileID: 2342774}
   - 95: {fileID: 9594178}
   - 114: {fileID: 11493364}
+  - 65: {fileID: 6578526}
+  - 64: {fileID: 6495744}
   m_Layer: 0
   m_Name: Iced Coffee
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155422}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 285.829987, y: -37.6652451, z: -89.8399963}
+  m_LocalPosition: {x: 57.7397766, y: -.372198343, z: 353.729553}
   m_LocalScale: {x: .0159734022, y: .0159734022, z: .0159734022}
   m_Children: []
   m_Father: {fileID: 0}
@@ -62,6 +64,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155422}
   m_Mesh: {fileID: 4300000, guid: edb1de6cb6ed94558b64fd3c8b25bf8c, type: 3}
+--- !u!64 &6495744
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155422}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 4300000, guid: edb1de6cb6ed94558b64fd3c8b25bf8c, type: 3}
+--- !u!65 &6578526
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155422}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 227.5, y: 270.1586, z: 218.699997}
+  m_Center: {x: 0, y: 135.0793, z: 0}
 --- !u!95 &9594178
 Animator:
   serializedVersion: 3
@@ -121,6 +147,22 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: throwForce
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

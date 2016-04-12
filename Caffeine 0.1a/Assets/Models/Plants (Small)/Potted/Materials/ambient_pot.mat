@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: ambient_pot
-  m_Shader: {fileID: 4800000, guid: 1ed82d5eab60548ef91f32e2d0bd242c, type: 3}
+  m_Shader: {fileID: 4800000, guid: abf02a129f0fd4ee8b8ebc6cf35b2364, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: 2000
@@ -34,13 +34,6 @@ Material:
           name: _DetailNormalMap
         second:
           m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _node_2681
-        second:
-          m_Texture: {fileID: 2800000, guid: 1101e1cd9b6b3468888a07306a6db59e, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -85,6 +78,20 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_2681
+        second:
+          m_Texture: {fileID: 2800000, guid: 1101e1cd9b6b3468888a07306a6db59e, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_20
+        second:
+          m_Texture: {fileID: 2800000, guid: 1101e1cd9b6b3468888a07306a6db59e, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -98,10 +105,6 @@ Material:
         first:
           name: _Cutoff
         second: .5
-      data:
-        first:
-          name: _node_8129
-        second: 5.4000001
       data:
         first:
           name: _Parallax
@@ -138,6 +141,10 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _node_8129
+        second: 5.4000001
     m_Colors:
       data:
         first:
@@ -149,13 +156,17 @@ Material:
         second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
-          name: _node_1904
-        second: {r: .819744766, g: .873204291, b: .977941155, a: 1}
-      data:
-        first:
           name: _Tint
         second: {r: .492647052, g: .492647052, b: .492647052, a: 1}
       data:
         first:
+          name: _node_1904
+        second: {r: .819744766, g: .873204291, b: .977941155, a: 1}
+      data:
+        first:
           name: _GlossColor
         second: {r: .161764681, g: .0499567389, b: .0846557394, a: 1}
+      data:
+        first:
+          name: _node_17
+        second: {r: .92190671, g: .897058845, b: 1, a: 1}

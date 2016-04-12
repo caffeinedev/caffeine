@@ -3394,7 +3394,7 @@ GameObject:
   - 82: {fileID: 8254700}
   m_Layer: 0
   m_Name: Game Manager 1
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7555,6 +7555,7 @@ MonoBehaviour:
   rotateSpeed: 12
   airRotateSpeed: 3
   maxSpeed: 400
+  anchor: {fileID: 0}
   jumpForce: 40
   jumpLeniency: .0500000007
   groundCheckDistance: 1
@@ -7565,6 +7566,13 @@ MonoBehaviour:
   canMove: 1
   disableJump: 0
   carryingDrink: 0
+  swimming: 0
+  water: {fileID: 0}
+  swimOffset: .200000003
+  waterTrail: {fileID: 0}
+  splash: {fileID: 0}
+  waterParticles: {fileID: 0}
+  trailoffset: {x: 0, y: 0, z: 0}
 --- !u!114 &11450122
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7592,6 +7600,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aud: {fileID: 8217504}
   spawnPoints: []
+  uiLabels: []
   spawnPoint: 0
 --- !u!114 &11453112
 MonoBehaviour:
@@ -8035,6 +8044,7 @@ MonoBehaviour:
   basicCoffee: {fileID: 136122, guid: fc3c621682512416aa2fa2844760b140, type: 2}
   icedCoffee: {fileID: 155422, guid: 223ad489fff65440e91d8ecdd0cbe9cf, type: 2}
   espresso: {fileID: 141820, guid: d88bc76ce7fd7470b9857a9c2455a251, type: 2}
+  plainMilk: {fileID: 0}
   drinkAnchor: {fileID: 459410}
   background: {fileID: 9582452}
   content: {fileID: 9577816}
@@ -12791,7 +12801,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: GameController
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 194196}
