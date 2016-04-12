@@ -123,6 +123,7 @@ GameObject:
   - 65: {fileID: 6516432}
   - 114: {fileID: 11449240}
   - 82: {fileID: 8212170}
+  - 114: {fileID: 11458714}
   m_Layer: 0
   m_Name: Steam Blossom
   m_TagString: Untagged
@@ -2218,25 +2219,25 @@ AudioSource:
   Loop: 0
   Mute: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - time: .00200000009
       value: 1
       inSlope: 0
-      outSlope: 0
+      outSlope: -1.00200403
       tangentMode: 0
     - time: 1
-      value: 0
-      inSlope: 0
+      value: .441921443
+      inSlope: -1.00200403
       outSlope: 0
       tangentMode: 0
     m_PreInfinity: 2
@@ -2245,7 +2246,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2319,6 +2320,22 @@ MonoBehaviour:
   steam: {fileID: 19807610}
   launchForce: 2000
   pof: {fileID: 8300000, guid: 1998d7805213243d7b8f707243754054, type: 3}
+--- !u!114 &11458714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd9c39a393c747d3b2d0994bfd497e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  randomSample:
+  - {fileID: 8300000, guid: fa7ac852277f8409b8a1a2307db5701c, type: 3}
+  - {fileID: 8300000, guid: f31f9e46055ed474db13dfd0b709cc34, type: 3}
+  - {fileID: 8300000, guid: ac94cc408e7fc422ca9afe9f926d796b, type: 3}
 --- !u!137 &13747144
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -3626,6 +3643,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: randomSample.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_Volume
       value: .832000017
       objectReference: {fileID: 0}
@@ -3633,6 +3654,46 @@ Prefab:
       propertyPath: pof
       value: 
       objectReference: {fileID: 8300000, guid: 1998d7805213243d7b8f707243754054, type: 3}
+    - target: {fileID: 0}
+      propertyPath: randomSample.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: fa7ac852277f8409b8a1a2307db5701c, type: 3}
+    - target: {fileID: 0}
+      propertyPath: randomSample.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: f31f9e46055ed474db13dfd0b709cc34, type: 3}
+    - target: {fileID: 0}
+      propertyPath: randomSample.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: ac94cc408e7fc422ca9afe9f926d796b, type: 3}
+    - target: {fileID: 0}
+      propertyPath: DopplerLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: rolloffMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].time
+      value: .00200000009
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].outSlope
+      value: -1.00200403
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
+      value: .441921443
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inSlope
+      value: -1.00200403
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 110670}

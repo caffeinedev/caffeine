@@ -12,8 +12,12 @@ GameObject:
   - 23: {fileID: 2342774}
   - 95: {fileID: 9594178}
   - 114: {fileID: 11493364}
+<<<<<<< HEAD
   - 65: {fileID: 6578526}
   - 64: {fileID: 6495744}
+=======
+  - 82: {fileID: 8210084}
+>>>>>>> origin/main
   m_Layer: 0
   m_Name: Iced Coffee
   m_TagString: Pickup
@@ -64,12 +68,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155422}
   m_Mesh: {fileID: 4300000, guid: edb1de6cb6ed94558b64fd3c8b25bf8c, type: 3}
+<<<<<<< HEAD
 --- !u!64 &6495744
 MeshCollider:
+=======
+--- !u!82 &8210084
+AudioSource:
+>>>>>>> origin/main
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155422}
+<<<<<<< HEAD
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -88,6 +98,71 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 227.5, y: 270.1586, z: 218.699997}
   m_Center: {x: 0, y: 135.0793, z: 0}
+=======
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a44742cbe9da94ffebaf7bf7464090e0, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 0
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: .00200000009
+      value: 1
+      inSlope: 0
+      outSlope: -1.00200403
+      tangentMode: 0
+    - time: 1
+      value: .571615815
+      inSlope: -1.00200403
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+>>>>>>> origin/main
 --- !u!95 &9594178
 Animator:
   serializedVersion: 3
@@ -149,6 +224,7 @@ Prefab:
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 0}
+<<<<<<< HEAD
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
@@ -162,6 +238,37 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Convex
+=======
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a44742cbe9da94ffebaf7bf7464090e0, type: 3}
+    - target: {fileID: 0}
+      propertyPath: DopplerLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: rolloffMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].time
+      value: .00200000009
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].outSlope
+      value: -1.00200403
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
+      value: .571615815
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inSlope
+      value: -1.00200403
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+>>>>>>> origin/main
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
