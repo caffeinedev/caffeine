@@ -22,6 +22,7 @@ TagManager:
   - hardwood
   - carpet
   - tile
+  - LoadingZone
   layers:
   - Default
   - TransparentFX

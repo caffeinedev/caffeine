@@ -82,7 +82,7 @@ Material:
         first:
           name: _node_1342
         second:
-          m_Texture: {fileID: 2800000, guid: 23ae31268fd59423f9578178e79d9f8e, type: 3}
+          m_Texture: {fileID: 2800000, guid: ea2523b56540f4d00a00a225fa13c892, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -177,7 +177,7 @@ Material:
       data:
         first:
           name: _FresnelTint2
-        second: {r: .492647052, g: .191987455, b: .191987455, a: 1}
+        second: {r: .10418468, g: .285143465, b: .301470578, a: 1}
       data:
         first:
           name: _node_4625

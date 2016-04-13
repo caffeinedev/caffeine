@@ -22,6 +22,7 @@ public class SteeperController : MonoBehaviour
 
 	// Carrying
 	public GameObject anchor;
+	public float throwStrength = 3000;
 
 	// Jumping
 	[Header ("Jumping")]
@@ -199,8 +200,10 @@ public class SteeperController : MonoBehaviour
 	}
 
 	void OnTriggerExit (Collider col) {
-		if (col.gameObject.tag == "Water")
+		if (col.gameObject.tag == "Water") {
 			inWater = false;
+			swimming = false;
+		}
 		if (col.gameObject.tag == "Pickup") 
 			control.uiLabels[3].text = "";
 	}
@@ -212,6 +215,7 @@ public class SteeperController : MonoBehaviour
 			inWater = false;
 
 		if (col.gameObject.tag == "Pickup") {
+			control.uiLabels[3].text = "Pick Up";
 			if(Input.GetButtonDown("Square") && carryingDrink == false) {
 				StartCoroutine(Pickup(col.gameObject));
 			}
@@ -260,11 +264,12 @@ public class SteeperController : MonoBehaviour
 
 	private void ThrowCalculations () {
 		if (carryingDrink) {
+			control.uiLabels[3].text = "Throw";
 			if(anchor.transform.childCount > 1) {
 				Destroy(anchor.transform.GetChild(1)); //if youre carrying more than one thing
 			}
 			if(Input.GetButtonDown("Square")) {
-				Throw(gameObject.transform.forward, 200f);
+				Throw(gameObject.transform.forward, throwStrength);
 			}
 		}
 	}
@@ -410,7 +415,7 @@ public class SteeperController : MonoBehaviour
 		anim.Play ("Throw");
 		anim.SetBool("carrying", false);
 		Rigidbody r = anchor.transform.GetChild(0).gameObject.AddComponent<Rigidbody>();
-		r.mass = 6;
+		r.mass = 60;
 		if (anchor.transform.GetChild (0).GetComponent<Drink>() != null) {
 			anchor.transform.GetChild (0).GetComponent<BoxCollider> ().enabled = false;
 		}

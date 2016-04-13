@@ -121,7 +121,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -203,16 +203,16 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181388}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd9c39a393c747d3b2d0994bfd497e6, type: 3}
+  m_Script: {fileID: 11500000, guid: 292014bab963e472898b67ebc0f47a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 0}
   randomSample:
-  - {fileID: 8300000, guid: c21ede7353393460ba7d609fee35cbf4, type: 3}
-  - {fileID: 8300000, guid: c88f34cca47574b5cb22686008b1a465, type: 3}
-  - {fileID: 8300000, guid: b75f7632b87004788a6332c50f5acde9, type: 3}
+  - {fileID: 8300000, guid: ea32e3f62dcd14400a9eca15c841703c, type: 3}
+  - {fileID: 8300000, guid: c52797cb3b4d348e995ba33383dbd1cc, type: 3}
+  - {fileID: 8300000, guid: 27b6e306eb4114dba92d6c5231b7a426, type: 3}
 --- !u!114 &11492610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1348,15 +1348,15 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: randomSample.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: c21ede7353393460ba7d609fee35cbf4, type: 3}
+      objectReference: {fileID: 8300000, guid: ea32e3f62dcd14400a9eca15c841703c, type: 3}
     - target: {fileID: 0}
       propertyPath: randomSample.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: c88f34cca47574b5cb22686008b1a465, type: 3}
+      objectReference: {fileID: 8300000, guid: c52797cb3b4d348e995ba33383dbd1cc, type: 3}
     - target: {fileID: 0}
       propertyPath: randomSample.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: b75f7632b87004788a6332c50f5acde9, type: 3}
+      objectReference: {fileID: 8300000, guid: 27b6e306eb4114dba92d6c5231b7a426, type: 3}
     - target: {fileID: 0}
       propertyPath: DopplerLevel
       value: 0
@@ -1387,7 +1387,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_audioClip
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

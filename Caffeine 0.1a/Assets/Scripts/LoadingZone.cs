@@ -67,6 +67,10 @@ public class LoadingZone : MonoBehaviour {
 
 
 	void OnTriggerStay (Collider col) {
+		if (col.gameObject.tag == "MainCamera") {
+			gameObject.GetComponent<MeshRenderer> ().enabled = false;
+		}
+
 		if (col.gameObject.tag == "Player") {
 			switch(triggerType) {
 			case TriggerType.LoadSceneAuto:
@@ -98,6 +102,9 @@ public class LoadingZone : MonoBehaviour {
 	}
 
 	void OnTriggerExit (Collider col) {
+		if (col.gameObject.tag == "MainCamera" && gameObject.tag == "LoadingZone") {
+			gameObject.GetComponent<MeshRenderer> ().enabled = true;
+		}
 		if (col.gameObject.tag == "Player") {
 			steeperControl.disableJump = false;
 			switch(triggerType) {

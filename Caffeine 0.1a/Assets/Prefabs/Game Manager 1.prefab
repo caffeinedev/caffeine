@@ -1780,6 +1780,7 @@ GameObject:
   - 82: {fileID: 8273634}
   - 114: {fileID: 11407850}
   - 114: {fileID: 11440710}
+  - 114: {fileID: 11424062}
   m_Layer: 0
   m_Name: STEEPER
   m_TagString: Player
@@ -4697,8 +4698,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.019744873, z: 371.803467}
-  m_LocalScale: {x: .938645959, y: .938645959, z: .938645959}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22474382}
   - {fileID: 22416150}
@@ -6616,16 +6617,16 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dba954586907d4b0e8a90677319331bf, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e9c267b5c7f8f47fa859bcf3d212d33f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: .595000029
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 498.869995
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -6967,7 +6968,15 @@ MonoBehaviour:
   - {fileID: 4900000, guid: a623f2007e29e40ffa58e17447df8b7a, type: 3}
   - {fileID: 4900000, guid: d484cf55c996541c28e503e2fc5dbbda, type: 3}
   blips:
-  - {fileID: 8300000, guid: 1fc3762782d3d48909ff76817b4642ae, type: 3}
+  - {fileID: 8300000, guid: a72b83027dbaf4fce85ba1d38cf7f6a3, type: 3}
+  - {fileID: 8300000, guid: 85af9ce61a2bc406eb477f0f6d5b59e6, type: 3}
+  - {fileID: 8300000, guid: 35927723097084583a1951c85792b53c, type: 3}
+  spaces:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   excited: {fileID: 0}
   surprised: {fileID: 8300000, guid: 0126e54fbf41740cf9213c5b027a31c4, type: 3}
   worried: {fileID: 0}
@@ -7193,6 +7202,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1.03999996
   m_Text: This is nothing but a test.
+--- !u!114 &11424062
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151978}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 292014bab963e472898b67ebc0f47a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  randomSample: []
 --- !u!114 &11425738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7302,48 +7324,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 151978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cec14fece167b482fa3cdd80cfa18e0c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c4637de3ac75412ca16752420a00972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  surface: 
-  fsEnvironment:
-  - {fileID: 8300000, guid: 05c39ee1aa43947549e8eceb93dbb103, type: 3}
-  - {fileID: 8300000, guid: bcda46ab49a974a6abecb25fbc41fa55, type: 3}
-  - {fileID: 8300000, guid: c40122c52d6014eaba4a13f6ca73ecf2, type: 3}
-  - {fileID: 8300000, guid: b3a35b947b6934d689c262ff39572039, type: 3}
-  fswetDirt: []
-  fsfrozenDirt:
-  - {fileID: 8300000, guid: 05c39ee1aa43947549e8eceb93dbb103, type: 3}
-  - {fileID: 8300000, guid: bcda46ab49a974a6abecb25fbc41fa55, type: 3}
-  - {fileID: 8300000, guid: c40122c52d6014eaba4a13f6ca73ecf2, type: 3}
-  - {fileID: 8300000, guid: b3a35b947b6934d689c262ff39572039, type: 3}
-  fsgrass:
-  - {fileID: 8300000, guid: ba00acf9179dd47fbbd018d773153829, type: 3}
-  - {fileID: 8300000, guid: 99fa3329553ef47189fa8f1ac4ec7da9, type: 3}
-  - {fileID: 8300000, guid: 5e870b398bdc54d63910e805f584578f, type: 3}
-  - {fileID: 8300000, guid: 9798458decb1945b1ab795993e108b38, type: 3}
-  fssnow: []
-  fsstone:
-  - {fileID: 8300000, guid: 8aad9601712a34118b4b0d57fe749122, type: 3}
-  - {fileID: 8300000, guid: c7753cba81d884406b004a5a16eae4c4, type: 3}
-  - {fileID: 8300000, guid: 103a47babe98a465e9fdeb2daf1434f3, type: 3}
-  - {fileID: 8300000, guid: e67e49f98103745b3ab1c70d5a19572b, type: 3}
-  ldEnvironment:
-  - {fileID: 8300000, guid: e67e49f98103745b3ab1c70d5a19572b, type: 3}
-  ldwetDirt: []
-  ldfrozenDirt: []
-  ldgrass: []
-  ldsnow: []
-  ldstone: []
-  jump:
-  - {fileID: 8300000, guid: 2a7857d1b5f704025853941c56ff860f, type: 3}
-  - {fileID: 8300000, guid: 8f0f0344621374ce0a42e5b03ff2823b, type: 3}
-  - {fileID: 8300000, guid: 7e241b303343a4e32893d9a926acd510, type: 3}
-  - {fileID: 8300000, guid: e5aa9d0ccaa8b45e0af2dee07f17ab5c, type: 3}
-  swim: []
-  pickup: []
-  throws: []
-  idle: []
+  footstepMasterVolume: .60799998
+  EnvironmentVolume: .386999995
+  wetDirtVolume: .60799998
+  dryDirtVolume: .589999974
+  grassVolume: .593999982
+  snowVolume: .300999999
+  stoneVolume: .598999977
+  shallowWaterVolume: 1
+  woodVolume: .584999979
+  carpetVolume: 1
+  hardwoodVolume: .575999975
+  iceVolume: .589999974
+  tileVolume: .593999982
+  jumpVolume: .593999982
+  swimVolume: .589999974
+  pickupVolume: .593999982
+  throwVolume: .593999982
+  idleVolume: .593999982
 --- !u!114 &11441528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7436,7 +7437,7 @@ MonoBehaviour:
   yOffsetCooldownTime: 1.5
   minDistanceFromTarget: 10
   lockRotation: 0
-  autoRotationSpeed: .800000012
+  autoRotationSpeed: .600000024
   followSpeed: 4
   rotateDamping: 50
   avoidObstructionTags:
@@ -7444,6 +7445,7 @@ MonoBehaviour:
   - Structure
   avoidCollisionTags:
   - Environment
+  - Structure
   collisionCheckDistance: 1
   inputRotationSpeed: 25
   playerInputCooldownTime: 4
@@ -7475,11 +7477,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualizeFocus: 0
-  focalLength: 33.2400017
+  focalLength: 72.6999969
   focalSize: 2
-  aperture: 27.6200008
+  aperture: 26.4400005
   focalTransform: {fileID: 400474}
-  maxBlurSize: 2
+  maxBlurSize: 2.9000001
   highResolution: 0
   blurType: 0
   blurSampleCount: 2
@@ -7555,11 +7557,11 @@ MonoBehaviour:
   rotateSpeed: 12
   airRotateSpeed: 3
   maxSpeed: 400
-  anchor: {fileID: 0}
+  anchor: {fileID: 121420}
   jumpForce: 40
   jumpLeniency: .0500000007
-  groundCheckDistance: 1
-  slopeLimit: 80
+  groundCheckDistance: 2
+  slopeLimit: 40
   slideAmount: 15
   grounded: 1
   onSlope: 0
@@ -7568,11 +7570,11 @@ MonoBehaviour:
   carryingDrink: 0
   swimming: 0
   water: {fileID: 0}
-  swimOffset: .200000003
-  waterTrail: {fileID: 0}
-  splash: {fileID: 0}
-  waterParticles: {fileID: 0}
-  trailoffset: {x: 0, y: 0, z: 0}
+  swimOffset: 3.26999998
+  waterTrail: {fileID: 2100000, guid: 27be1e49e79264ea0a97491bfc481e2a, type: 2}
+  splash: {fileID: 135362, guid: 666d9ca050cbc42e5bfc28f6898b8d7f, type: 2}
+  waterParticles: {fileID: 119730, guid: 127bd23ca8c7f4c17bb0baca7c99cf1c, type: 2}
+  trailoffset: {x: 2.28999996, y: 2.4000001, z: 2.21000004}
 --- !u!114 &11450122
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7599,6 +7601,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aud: {fileID: 8217504}
+  open: {fileID: 8300000, guid: fc77b43c022bc4fe18ee206fa3a59aee, type: 3}
+  completed: {fileID: 8300000, guid: 316d04d1be8de4827bdeb3d8075a9292, type: 3}
   spawnPoints: []
   uiLabels: []
   spawnPoint: 0
@@ -8044,16 +8048,16 @@ MonoBehaviour:
   basicCoffee: {fileID: 136122, guid: fc3c621682512416aa2fa2844760b140, type: 2}
   icedCoffee: {fileID: 155422, guid: 223ad489fff65440e91d8ecdd0cbe9cf, type: 2}
   espresso: {fileID: 141820, guid: d88bc76ce7fd7470b9857a9c2455a251, type: 2}
-  plainMilk: {fileID: 0}
+  plainMilk: {fileID: 177492, guid: d2ab8a67fe229481593c4416b0914b79, type: 2}
   drinkAnchor: {fileID: 459410}
   background: {fileID: 9582452}
   content: {fileID: 9577816}
   anim: {fileID: 0}
-  blip_a: {fileID: 8300000, guid: f2d54e1095fa84c7580ef96efaefd49e, type: 3}
-  blip_b: {fileID: 8300000, guid: b9be50c35d39547a1ba2ade53e89e411, type: 3}
-  blip_x: {fileID: 8300000, guid: ebafc71462cd842738747388fd82f56a, type: 3}
-  blip_y: {fileID: 8300000, guid: 042cfdfd0a6fc40cc9b9b59eef0f6218, type: 3}
-  success: {fileID: 8300000, guid: 67b8aa7e7efac46899f104fe9cf882b6, type: 3}
+  blip_a: {fileID: 8300000, guid: eb84d9ada18984088b02066416769a9e, type: 3}
+  blip_b: {fileID: 8300000, guid: 3d167c8e266b7424fb06ea66a091ae8f, type: 3}
+  blip_x: {fileID: 8300000, guid: 79ad1fb8af45b4051b140ff49b7455c3, type: 3}
+  blip_y: {fileID: 8300000, guid: ae008f7920cb94fd08a6b63f7d520e81, type: 3}
+  success: {fileID: 8300000, guid: b7ba80315daee4d78b7280b356b28365, type: 3}
 --- !u!114 &11497508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12792,8 +12796,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -5.96046448e-08}
-  m_SizeDelta: {x: 4, y: 4}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
 Prefab:

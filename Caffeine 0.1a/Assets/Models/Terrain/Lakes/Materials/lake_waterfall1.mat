@@ -168,10 +168,6 @@ Material:
         second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
-          name: _ShadowColor
-        second: {r: .742647111, g: .925456405, b: 1, a: 1}
-      data:
-        first:
           name: _FresnelTint1
         second: {r: 0, g: .370943218, b: .404411793, a: 1}
       data:
@@ -182,3 +178,7 @@ Material:
         first:
           name: _FresnelTint2
         second: {r: .196078449, g: .325490206, b: .447058856, a: 1}
+      data:
+        first:
+          name: _ShadowColor
+        second: {r: .742647111, g: .925456405, b: 1, a: 1}

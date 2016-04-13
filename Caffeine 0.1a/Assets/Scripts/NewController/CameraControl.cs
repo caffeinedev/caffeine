@@ -162,6 +162,9 @@ public class CameraControl : MonoBehaviour
 		//TODO: Do something to keep the player from crafting through a wall
 	}
 
+
+
+
 	#endregion
 	#region Positioning
 
