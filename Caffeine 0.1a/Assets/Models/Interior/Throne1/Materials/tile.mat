@@ -38,13 +38,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _node_2681
-        second:
-          m_Texture: {fileID: 2800000, guid: f5e24f06373a3466d83dfe331980168e, type: 3}
-          m_Scale: {x: 3, y: 3}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _ParallaxMap
         second:
           m_Texture: {fileID: 0}
@@ -87,17 +80,38 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _node_2681
+        second:
+          m_Texture: {fileID: 2800000, guid: f5e24f06373a3466d83dfe331980168e, type: 3}
+          m_Scale: {x: 3, y: 3}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
           name: _normalmap
         second:
-          m_Texture: {fileID: 2800000, guid: 497da62ef69ee4092a2685282ca2fcf6, type: 3}
+          m_Texture: {fileID: 2800000, guid: fb235e67fc6c240d991837474018c7ac, type: 3}
           m_Scale: {x: 3, y: 3}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _texture
         second:
-          m_Texture: {fileID: 2800000, guid: f5e24f06373a3466d83dfe331980168e, type: 3}
+          m_Texture: {fileID: 2800000, guid: 0dd1200e65f77418fb79bade88d7c8a1, type: 3}
           m_Scale: {x: 3, y: 3}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_1342
+        second:
+          m_Texture: {fileID: 2800000, guid: 739e1f76ad2834c0d8a4691eb31c2d14, type: 3}
+          m_Scale: {x: -.980000019, y: .550000012}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_4166
+        second:
+          m_Texture: {fileID: 2800000, guid: 739e1f76ad2834c0d8a4691eb31c2d14, type: 3}
+          m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -113,20 +127,6 @@ Material:
           m_Texture: {fileID: 2800000, guid: 497da62ef69ee4092a2685282ca2fcf6, type: 3}
           m_Scale: {x: 3, y: 3}
           m_Offset: {x: 0, y: .349999994}
-      data:
-        first:
-          name: _node_1342
-        second:
-          m_Texture: {fileID: 2800000, guid: 739e1f76ad2834c0d8a4691eb31c2d14, type: 3}
-          m_Scale: {x: -.980000019, y: .550000012}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _node_4166
-        second:
-          m_Texture: {fileID: 2800000, guid: 739e1f76ad2834c0d8a4691eb31c2d14, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _node_337
@@ -190,11 +190,7 @@ Material:
       data:
         first:
           name: _fresnelintensity
-        second: 5.5999999
-      data:
-        first:
-          name: _node_6712
-        second: 8.23999977
+        second: 2.5
       data:
         first:
           name: _Fresnel2Intensity
@@ -211,6 +207,10 @@ Material:
         first:
           name: _pan2
         second: .07692305
+      data:
+        first:
+          name: _node_6712
+        second: 8.23999977
     m_Colors:
       data:
         first:
@@ -222,32 +222,20 @@ Material:
         second: {r: 0, g: .551470578, b: .414553791, a: 1}
       data:
         first:
+          name: _Tint
+        second: {r: .522058845, g: .270030439, b: 0, a: 1}
+      data:
+        first:
           name: _node_1904
         second: {r: 1, g: .0220588446, b: .204157218, a: 1}
       data:
         first:
-          name: _Tint
-        second: {r: .529411793, g: .529411793, b: .529411793, a: 1}
-      data:
-        first:
           name: _GlossColor
-        second: {r: .0955882072, g: .0613082983, b: 0, a: 1}
+        second: {r: .125, g: .0853448287, b: 0, a: 1}
       data:
         first:
           name: _shadowcolor
         second: {r: .845943272, g: .639705896, b: 1, a: 1}
-      data:
-        first:
-          name: _node_9523
-        second: {r: .235294104, g: .0813148692, b: .0813148692, a: 1}
-      data:
-        first:
-          name: _node_6265
-        second: {r: .301470578, g: .91328603, b: 1, a: 1}
-      data:
-        first:
-          name: _node_9860
-        second: {r: .282758713, g: 0, b: 1, a: 1}
       data:
         first:
           name: _FresnelTint1
@@ -260,6 +248,18 @@ Material:
         first:
           name: _FresnelTint2
         second: {r: .33866781, g: .643347979, b: .79411763, a: 1}
+      data:
+        first:
+          name: _node_9523
+        second: {r: .235294104, g: .0813148692, b: .0813148692, a: 1}
+      data:
+        first:
+          name: _node_6265
+        second: {r: .301470578, g: .91328603, b: 1, a: 1}
+      data:
+        first:
+          name: _node_9860
+        second: {r: .282758713, g: 0, b: 1, a: 1}
       data:
         first:
           name: _NormalColor

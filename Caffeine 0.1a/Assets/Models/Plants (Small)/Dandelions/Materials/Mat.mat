@@ -7,10 +7,10 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Mat
-  m_Shader: {fileID: 4800000, guid: 1ed82d5eab60548ef91f32e2d0bd242c, type: 3}
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -78,13 +78,6 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _node_2681
-        second:
-          m_Texture: {fileID: 2800000, guid: b76bc09caf25c48cea4a372c5af8e4a5, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -134,10 +127,6 @@ Material:
         first:
           name: _Metallic
         second: 0
-      data:
-        first:
-          name: _node_8129
-        second: 1.79230797
     m_Colors:
       data:
         first:
@@ -147,15 +136,3 @@ Material:
         first:
           name: _Color
         second: {r: 0, g: 0, b: 0, a: 1}
-      data:
-        first:
-          name: _Tint
-        second: {r: .266111612, g: .485144973, b: .786764741, a: 1}
-      data:
-        first:
-          name: _node_1904
-        second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _GlossColor
-        second: {r: .514807224, g: .235294104, b: 1, a: 1}

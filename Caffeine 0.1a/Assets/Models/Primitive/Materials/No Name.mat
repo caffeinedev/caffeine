@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: No Name
-  m_Shader: {fileID: 4800000, guid: 72ea02c51d4124045949aa07e35f3316, type: 3}
+  m_Shader: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: 3000
@@ -32,13 +32,6 @@ Material:
       data:
         first:
           name: _DetailNormalMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _node_2681
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -87,10 +80,10 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _node_3602
+          name: _node_2681
         second:
           m_Texture: {fileID: 0}
-          m_Scale: {x: -.25, y: .100000001}
+          m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -98,6 +91,13 @@ Material:
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_3602
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: -.25, y: .100000001}
           m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
@@ -112,10 +112,6 @@ Material:
         first:
           name: _Cutoff
         second: .5
-      data:
-        first:
-          name: _node_8129
-        second: 3.48461604
       data:
         first:
           name: _Parallax
@@ -154,8 +150,8 @@ Material:
         second: 0
       data:
         first:
-          name: _InvFade
-        second: 2.38000011
+          name: _node_8129
+        second: 3.48461604
       data:
         first:
           name: _normalscalingfactor
@@ -164,6 +160,10 @@ Material:
         first:
           name: _fresnelintensity
         second: .100000001
+      data:
+        first:
+          name: _InvFade
+        second: .0299999993
     m_Colors:
       data:
         first:
@@ -175,21 +175,21 @@ Material:
         second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
-          name: _node_1904
-        second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
           name: _Tint
         second: {r: .102941155, g: .0446582958, b: .0446582958, a: 1}
+      data:
+        first:
+          name: _node_1904
+        second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
           name: _GlossColor
         second: {r: 1, g: .235294104, b: .472616494, a: 1}
       data:
         first:
-          name: _TintColor
-        second: {r: .316176474, g: .150456414, b: 0, a: 1}
-      data:
-        first:
           name: _shadowcolor
         second: {r: .743674278, g: .890552998, b: .963235319, a: 1}
+      data:
+        first:
+          name: _TintColor
+        second: {r: .0804737359, g: .0304930862, b: .345588207, a: 1}

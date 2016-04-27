@@ -123,7 +123,6 @@ GameObject:
   - 65: {fileID: 6516432}
   - 114: {fileID: 11449240}
   - 82: {fileID: 8212170}
-  - 114: {fileID: 11458714}
   m_Layer: 0
   m_Name: Steam Blossom
   m_TagString: Untagged
@@ -2320,22 +2319,6 @@ MonoBehaviour:
   steam: {fileID: 19807610}
   launchForce: 2000
   pof: {fileID: 8300000, guid: 1998d7805213243d7b8f707243754054, type: 3}
---- !u!114 &11458714
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 110670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd9c39a393c747d3b2d0994bfd497e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  source: {fileID: 0}
-  randomSample:
-  - {fileID: 8300000, guid: fa7ac852277f8409b8a1a2307db5701c, type: 3}
-  - {fileID: 8300000, guid: f31f9e46055ed474db13dfd0b709cc34, type: 3}
-  - {fileID: 8300000, guid: ac94cc408e7fc422ca9afe9f926d796b, type: 3}
 --- !u!137 &13747144
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -150,7 +150,7 @@ Material:
       data:
         first:
           name: _Tint
-        second: {r: .477941185, g: .477941185, b: .477941185, a: 1}
+        second: {r: .53725493, g: .603921592, b: .647058845, a: 1}
       data:
         first:
           name: _node_1904

@@ -3,21 +3,62 @@ using System.Collections;
 
 public class FlowerSquisher : MonoBehaviour {
 	public AudioClip[] flowers;
-	public AudioSource source;
+	private bool activated;
+	private bool cansquish = true;
+	private Material newMaterial;
+	AudioSource source;
+	CaveCutscene scene;
+
+
 	void OnTriggerEnter (Collider col) {
-		if (col.gameObject.tag == "Player") {
-			GetComponent<Animator>().Play("SquishFlower");
-			source = GetComponent<AudioSource> ();
-			source.clip = flowers [Random.Range (0, flowers.Length)];
-			source.pitch = (Random.Range (1.1f, 1.5f));
-			source.volume = (Random.Range (0.2f, .5f));
-			source.Play();
+		if (cansquish) {
+			if (col.gameObject.tag == "Player") {
+				GetComponent<Animator> ().Play ("SquishFlower");
+				cansquish = false;
+
+				if (gameObject.tag == "coffeedrop") {
+					int beandrop = Mathf.FloorToInt (Random.Range (0, 100));
+					if (beandrop < 7) {
+						GameManager manager = GameObject.FindGameObjectWithTag ("GameController").GetComponent<GameManager> ();
+						manager.Pickup ("beans");
+					}
+				}
+
+				if (Application.loadedLevelName == "CaveToLakes" && activated) 
+					GetComponent<AudioSource> ().PlayOneShot (scene.flowersounds [Random.Range (0, flowers.Length - 1)]);
+
+				if (Application.loadedLevelName != "CaveToLakes" && activated) 
+					GetComponent<AudioSource> ().PlayOneShot (scene.flowersounds [Random.Range (0, flowers.Length - 1)]);
+
+				if (Application.loadedLevelName != "CaveToLakes" && !activated) {
+					AudioSource _aud = gameObject.AddComponent<AudioSource> ();
+					_aud.PlayOneShot (flowers [Random.Range (0, flowers.Length - 1)]);
+				}
+
+				if (Application.loadedLevelName == "CaveToLakes" && !activated) {
+					scene = GameObject.Find ("CAVE HANDLER").GetComponent<CaveCutscene> ();
+					gameObject.AddComponent<AudioSource> ();
+					GetComponent<AudioSource> ().PlayOneShot (scene.flowersounds [Random.Range (0, flowers.Length - 1)]);
+					if (GetComponent<MeshRenderer> ().material.name != "caveboop (Instance)") {
+						newMaterial = scene.flowerMaterial;
+						gameObject.GetComponent<MeshRenderer> ().material = newMaterial;
+						scene.flowersSquished += 1;
+					}
+					activated = true;
+					print (scene.flowersSquished);
+				}
+				Invoke ("Timeout", 2f);
+			}
 		}
 	}
 
 	void OnTriggerExit (Collider col) {
-		if (col.gameObject.tag == "Player") {
+		if (col.gameObject.tag == "Player" && gameObject.GetComponent<Pollen>() == null) {
 			GetComponent<Animator>().Play("ExpandFlower");
 		}
+	}
+
+	void Timeout () {
+		cansquish = true;
 	}
 }

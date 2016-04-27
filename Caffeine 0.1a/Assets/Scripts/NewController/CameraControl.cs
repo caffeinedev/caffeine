@@ -46,6 +46,9 @@ public class CameraControl : MonoBehaviour
 	private bool avoidingCollision;
 	private bool avoidingObstruction;
 	public bool crafting;
+	public bool focused;
+	public Transform focusPoint;
+	public bool locked;
 
 	#region Unity Functions
 
@@ -73,72 +76,75 @@ public class CameraControl : MonoBehaviour
 	 */
 	public void Update ()
 	{
-		if (!target || !followTarget) {
-			SetTargetToPlayer ();
-			if (!target)
-				return;
-		}
+			if (!target || !followTarget) {
+				SetTargetToPlayer ();
+				if (!target)
+					return;
+			}
 
-		if (!crafting) {
-			float xAxis = Input.GetAxis ("RightStickH");
-			float yAxis = Input.GetAxis ("RightStickV");
+			if (!crafting) {
+				float xAxis = Input.GetAxis ("RightStickH");
+				float yAxis = Input.GetAxis ("RightStickV");
 
-			// Handle player view control
-			if (xAxis != 0f || yAxis != 0f) {
-				lastPlayerInputTime = Time.time;
+				// Handle player view control
+				if (xAxis != 0f || yAxis != 0f) {
+					lastPlayerInputTime = Time.time;
 
-				if (!playerHasControl)
-					Debug.Log ("Player has control of camera as of " + lastPlayerInputTime);
+					if (!playerHasControl)
+						Debug.Log ("Player has control of camera as of " + lastPlayerInputTime);
 
-				if (yAxis != 0f)
+					if (yAxis != 0f)
+						yOffsetCooldownTimer = 0f;
+
+					positionOffset.y += (yAxis * inputRotationSpeed * Time.deltaTime);
+					followTarget.RotateAround (target.position, Vector3.up, xAxis * inputRotationSpeed * Time.deltaTime);
+
+					playerHasControl = true;	// Give control to the player
+				} else if (playerHasControl && Time.time > lastPlayerInputTime + playerInputCooldownTime) {
+					playerHasControl = false;	// Give control to the Camera AI
+					Debug.Log ("AI has control of camera as of " + Time.time);
+				}
+
+				// Reset Y position offset after the cooldown time and constrain position
+				if (positionOffset.y != defaultPositionOffset.y) {
+					yOffsetCooldownTimer += Time.deltaTime;
+
+					// Constrain Y position offset
+					if (positionOffset.y < minYOffset)
+						positionOffset.y = minYOffset;
+					else if (positionOffset.y > maxYOffset)
+						positionOffset.y = maxYOffset;
+
+					if (yOffsetCooldownTimer > yOffsetCooldownTime)
+						positionOffset.y = Mathf.Lerp (positionOffset.y, defaultPositionOffset.y, Time.deltaTime);
+				}
+
+				if (Mathf.Abs (positionOffset.y - defaultPositionOffset.y) < 1f) {
 					yOffsetCooldownTimer = 0f;
+					positionOffset.y = defaultPositionOffset.y;
+				}
 
-				positionOffset.y += (yAxis * inputRotationSpeed * Time.deltaTime);
-				followTarget.RotateAround (target.position, Vector3.up, xAxis * inputRotationSpeed * Time.deltaTime);
+				// DEV CAMERA RESET ----------------------------------------
+				if (resetCameraNow || Input.GetButton("RT")) {
+					Reset ();
+					resetCameraNow = false;
+				}
+				// ---------------------------------------------------------
 
-				playerHasControl = true;	// Give control to the player
-			} else if (playerHasControl && Time.time > lastPlayerInputTime + playerInputCooldownTime) {
-				playerHasControl = false;	// Give control to the Camera AI
-				Debug.Log ("AI has control of camera as of " + Time.time);
+
+			if (!locked)
+				SmoothFollow ();
+				SmoothLookAt ();
+			} else {
+				if (!backpack)
+					backpack = GameObject.Find ("BackPack Focus");
+
+				if (transform.position != backpack.transform.position)
+					transform.position = Vector3.Lerp (transform.position, backpack.transform.position, followSpeed * Time.deltaTime);
+
+				transform.rotation = Quaternion.Slerp (transform.rotation, backpack.transform.rotation, rotateDamping * Time.deltaTime);
 			}
 
-			// Reset Y position offset after the cooldown time and constrain position
-			if (positionOffset.y != defaultPositionOffset.y) {
-				yOffsetCooldownTimer += Time.deltaTime;
-
-				// Constrain Y position offset
-				if (positionOffset.y < minYOffset)
-					positionOffset.y = minYOffset;
-				else if (positionOffset.y > maxYOffset)
-					positionOffset.y = maxYOffset;
-
-				if (yOffsetCooldownTimer > yOffsetCooldownTime)
-					positionOffset.y = Mathf.Lerp (positionOffset.y, defaultPositionOffset.y, Time.deltaTime);
-			}
-
-			if (Mathf.Abs (positionOffset.y - defaultPositionOffset.y) < 1f) {
-				yOffsetCooldownTimer = 0f;
-				positionOffset.y = defaultPositionOffset.y;
-			}
-
-			// DEV CAMERA RESET ----------------------------------------
-			if (resetCameraNow) {
-				Reset ();
-				resetCameraNow = false;
-			}
-			// ---------------------------------------------------------
-
-			SmoothFollow ();
-			SmoothLookAt ();
-		} else {
-			if (!backpack)
-				backpack = GameObject.Find ("BackPack Focus");
-
-			if (transform.position != backpack.transform.position)
-				transform.position = Vector3.Lerp (transform.position, backpack.transform.position, followSpeed * Time.deltaTime);
-
-			transform.rotation = Quaternion.Slerp (transform.rotation, backpack.transform.rotation, rotateDamping * Time.deltaTime);
-		}
 	}
 
 	/**
@@ -173,8 +179,15 @@ public class CameraControl : MonoBehaviour
 	 */
 	public void SmoothLookAt ()
 	{
-		Quaternion rotation = Quaternion.LookRotation ((target.position + lookOffset) - transform.position);
-		transform.rotation = Quaternion.Slerp (transform.rotation, rotation, rotateDamping * Time.deltaTime);
+		if (!focused) {
+			Quaternion rotation = Quaternion.LookRotation ((target.position + lookOffset) - transform.position);
+			transform.rotation = Quaternion.Slerp (transform.rotation, rotation, rotateDamping * Time.deltaTime);
+		} else if (focused) {
+			//transform.LookAt(focusPoint);
+			Quaternion rotation = Quaternion.LookRotation ((focusPoint.position + lookOffset) - transform.position);
+			transform.rotation = Quaternion.Slerp (transform.rotation, rotation, 0.3f * Time.deltaTime);
+			LockCamera();
+		}
 	}
 
 	/**
@@ -213,9 +226,9 @@ public class CameraControl : MonoBehaviour
 
 			// Avoid registering bumps in the ground as collisions
 			if (hit.point.y > target.position.y && hit.distance < -defaultPositionOffset.z + 3f) {
-				if (hit.transform.tag == "Environment") {
+				if (hit.transform.tag == "Environment" || hit.transform.tag == "Structure" || hit.transform.tag == "stone") {
 					avoidingCollision = true;
-
+					GetComponent<SphereCollider>().enabled = false;
 					positionOffset.z = -hit.distance + 10f;
 
 					// Constrain distance to target
@@ -231,7 +244,8 @@ public class CameraControl : MonoBehaviour
 				}
 			}
 		} else {
-			positionOffset.z = defaultPositionOffset.z;
+			positionOffset = defaultPositionOffset;
+			GetComponent<SphereCollider>().enabled = true;
 			avoidingCollision = false;
 		}
 	}
@@ -280,11 +294,18 @@ public class CameraControl : MonoBehaviour
 	/**
 	 * Reset camera positioning
 	 */
-	public void Reset ()
-	{
+	public void Reset () {
 		positionOffset = defaultPositionOffset;
 		lookOffset = defaultLookOffset;
 		followTarget.rotation = target.rotation;
+	}
+
+	public void LockCamera () {
+		locked = true;
+	}
+
+	public void UnlockCamera () {
+		locked = false;
 	}
 
 	/**

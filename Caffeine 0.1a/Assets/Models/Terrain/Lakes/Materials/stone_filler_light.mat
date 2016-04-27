@@ -80,16 +80,16 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _node_20
+          name: _node_2681
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: 3eec252e04d2941c7900fdc30ad9fb24, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _node_2681
+          name: _node_20
         second:
-          m_Texture: {fileID: 2800000, guid: 3eec252e04d2941c7900fdc30ad9fb24, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -157,11 +157,7 @@ Material:
       data:
         first:
           name: _Tint
-        second: {r: .43921569, g: .447058827, b: .4627451, a: 1}
-      data:
-        first:
-          name: _node_17
-        second: {r: .430404305, g: .312337786, b: .801470578, a: 1}
+        second: {r: .537629783, g: .606305897, b: .647058845, a: 1}
       data:
         first:
           name: _node_1904
@@ -170,3 +166,7 @@ Material:
         first:
           name: _GlossColor
         second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _node_17
+        second: {r: .430404305, g: .312337786, b: .801470578, a: 1}

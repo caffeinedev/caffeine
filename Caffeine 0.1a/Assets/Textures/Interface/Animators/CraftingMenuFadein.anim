@@ -114,14 +114,14 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: .0833333358
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: 0
+        inSlope: .333333373
+        outSlope: .333333373
         tangentMode: 10
       - time: .383333325
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: .100000001
+        inSlope: .333333373
+        outSlope: .333333373
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -133,14 +133,14 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: .0833333358
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: 0
+        inSlope: .333333373
+        outSlope: .333333373
         tangentMode: 10
       - time: .383333325
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: .100000001
+        inSlope: .333333373
+        outSlope: .333333373
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -152,14 +152,14 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: .0833333358
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: 0
+        inSlope: .466666698
+        outSlope: .466666698
         tangentMode: 10
       - time: .383333325
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: .140000001
+        inSlope: .466666698
+        outSlope: .466666698
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -191,13 +191,13 @@ AnimationClip:
       m_Curve:
       - time: .150000006
         value: .117647059
-        inSlope: 0
-        outSlope: 0
+        inSlope: -.105882354
+        outSlope: -.105882354
         tangentMode: 10
       - time: .316666663
-        value: .117647059
-        inSlope: 0
-        outSlope: 0
+        value: .100000001
+        inSlope: -.105882354
+        outSlope: -.105882354
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -210,13 +210,13 @@ AnimationClip:
       m_Curve:
       - time: .150000006
         value: .168627456
-        inSlope: 0
-        outSlope: 0
+        inSlope: -.411764741
+        outSlope: -.411764741
         tangentMode: 10
       - time: .316666663
-        value: .168627456
-        inSlope: 0
-        outSlope: 0
+        value: .100000001
+        inSlope: -.411764741
+        outSlope: -.411764741
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -229,13 +229,13 @@ AnimationClip:
       m_Curve:
       - time: .150000006
         value: .227450982
-        inSlope: 0
-        outSlope: 0
+        inSlope: -.524705946
+        outSlope: -.524705946
         tangentMode: 10
       - time: .316666663
-        value: .227450982
-        inSlope: 0
-        outSlope: 0
+        value: .140000001
+        inSlope: -.524705946
+        outSlope: -.524705946
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -419,13 +419,13 @@ AnimationClip:
       m_Curve:
       - time: .233333334
         value: 1
-        inSlope: 0
-        outSlope: 0
+        inSlope: -6
+        outSlope: -6
         tangentMode: 10
       - time: .383333325
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: .100000001
+        inSlope: -6
+        outSlope: -6
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -438,13 +438,13 @@ AnimationClip:
       m_Curve:
       - time: .233333334
         value: 1
-        inSlope: 0
-        outSlope: 0
+        inSlope: -6
+        outSlope: -6
         tangentMode: 10
       - time: .383333325
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: .100000001
+        inSlope: -6
+        outSlope: -6
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -457,13 +457,13 @@ AnimationClip:
       m_Curve:
       - time: .233333334
         value: 1
-        inSlope: 0
-        outSlope: 0
+        inSlope: -5.73333359
+        outSlope: -5.73333359
         tangentMode: 10
       - time: .383333325
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: .140000001
+        inSlope: -5.73333359
+        outSlope: -5.73333359
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -476,13 +476,13 @@ AnimationClip:
       m_Curve:
       - time: .233333334
         value: 0
-        inSlope: 6.66666698
-        outSlope: 6.66666698
+        inSlope: 4.66666698
+        outSlope: 4.66666698
         tangentMode: 10
       - time: .383333325
-        value: 1
-        inSlope: 6.66666698
-        outSlope: 6.66666698
+        value: .699999988
+        inSlope: 4.66666698
+        outSlope: 4.66666698
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -506,145 +506,145 @@ AnimationClip:
       isPPtrCurve: 0
     - path: 0
       attribute: 304273561
-      script: {fileID: 0}
+      script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+      classID: 114
+      customType: 0
+      isPPtrCurve: 0
+    - path: 162863828
+      attribute: 2526845255
+      script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+      classID: 114
+      customType: 0
+      isPPtrCurve: 0
+    - path: 162863828
+      attribute: 4215373228
+      script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+      classID: 114
+      customType: 0
+      isPPtrCurve: 0
+    - path: 162863828
+      attribute: 2334886179
+      script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
       classID: 114
       customType: 0
       isPPtrCurve: 0
     - path: 162863828
       attribute: 304273561
-      script: {fileID: 0}
+      script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+      classID: 114
+      customType: 0
+      isPPtrCurve: 0
+    - path: 1417254046
+      attribute: 2526845255
+      script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+      classID: 114
+      customType: 0
+      isPPtrCurve: 0
+    - path: 1417254046
+      attribute: 4215373228
+      script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+      classID: 114
+      customType: 0
+      isPPtrCurve: 0
+    - path: 1417254046
+      attribute: 2334886179
+      script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
       classID: 114
       customType: 0
       isPPtrCurve: 0
     - path: 1417254046
       attribute: 304273561
-      script: {fileID: 0}
+      script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
       classID: 114
       customType: 0
       isPPtrCurve: 0
     - path: 2861167641
       attribute: 304273561
-      script: {fileID: 0}
+      script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
       classID: 114
       customType: 0
       isPPtrCurve: 0
     - path: 3942078319
       attribute: 304273561
-      script: {fileID: 0}
+      script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+      classID: 114
+      customType: 0
+      isPPtrCurve: 0
+    - path: 28732662
+      attribute: 2526845255
+      script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+      classID: 114
+      customType: 0
+      isPPtrCurve: 0
+    - path: 28732662
+      attribute: 4215373228
+      script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+      classID: 114
+      customType: 0
+      isPPtrCurve: 0
+    - path: 28732662
+      attribute: 2334886179
+      script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
       classID: 114
       customType: 0
       isPPtrCurve: 0
     - path: 28732662
       attribute: 304273561
-      script: {fileID: 0}
+      script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
       classID: 114
       customType: 0
       isPPtrCurve: 0
     - path: 0
       attribute: 2526845255
-      script: {fileID: 0}
+      script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
       classID: 114
       customType: 0
       isPPtrCurve: 0
     - path: 0
       attribute: 4215373228
-      script: {fileID: 0}
+      script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
       classID: 114
       customType: 0
       isPPtrCurve: 0
     - path: 0
       attribute: 2334886179
-      script: {fileID: 0}
-      classID: 114
-      customType: 0
-      isPPtrCurve: 0
-    - path: 162863828
-      attribute: 2526845255
-      script: {fileID: 0}
-      classID: 114
-      customType: 0
-      isPPtrCurve: 0
-    - path: 162863828
-      attribute: 4215373228
-      script: {fileID: 0}
-      classID: 114
-      customType: 0
-      isPPtrCurve: 0
-    - path: 162863828
-      attribute: 2334886179
-      script: {fileID: 0}
-      classID: 114
-      customType: 0
-      isPPtrCurve: 0
-    - path: 1417254046
-      attribute: 2526845255
-      script: {fileID: 0}
-      classID: 114
-      customType: 0
-      isPPtrCurve: 0
-    - path: 1417254046
-      attribute: 4215373228
-      script: {fileID: 0}
-      classID: 114
-      customType: 0
-      isPPtrCurve: 0
-    - path: 1417254046
-      attribute: 2334886179
-      script: {fileID: 0}
+      script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
       classID: 114
       customType: 0
       isPPtrCurve: 0
     - path: 2861167641
       attribute: 2526845255
-      script: {fileID: 0}
+      script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
       classID: 114
       customType: 0
       isPPtrCurve: 0
     - path: 2861167641
       attribute: 4215373228
-      script: {fileID: 0}
+      script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
       classID: 114
       customType: 0
       isPPtrCurve: 0
     - path: 2861167641
       attribute: 2334886179
-      script: {fileID: 0}
+      script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
       classID: 114
       customType: 0
       isPPtrCurve: 0
     - path: 3942078319
       attribute: 2526845255
-      script: {fileID: 0}
+      script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
       classID: 114
       customType: 0
       isPPtrCurve: 0
     - path: 3942078319
       attribute: 4215373228
-      script: {fileID: 0}
+      script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
       classID: 114
       customType: 0
       isPPtrCurve: 0
     - path: 3942078319
       attribute: 2334886179
-      script: {fileID: 0}
-      classID: 114
-      customType: 0
-      isPPtrCurve: 0
-    - path: 28732662
-      attribute: 2526845255
-      script: {fileID: 0}
-      classID: 114
-      customType: 0
-      isPPtrCurve: 0
-    - path: 28732662
-      attribute: 4215373228
-      script: {fileID: 0}
-      classID: 114
-      customType: 0
-      isPPtrCurve: 0
-    - path: 28732662
-      attribute: 2334886179
-      script: {fileID: 0}
+      script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
       classID: 114
       customType: 0
       isPPtrCurve: 0
@@ -766,14 +766,14 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: .0833333358
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: 0
+        inSlope: .333333373
+        outSlope: .333333373
         tangentMode: 10
       - time: .383333325
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: .100000001
+        inSlope: .333333373
+        outSlope: .333333373
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -785,14 +785,14 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: .0833333358
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: 0
+        inSlope: .333333373
+        outSlope: .333333373
         tangentMode: 10
       - time: .383333325
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: .100000001
+        inSlope: .333333373
+        outSlope: .333333373
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -804,14 +804,14 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: .0833333358
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: 0
+        inSlope: .466666698
+        outSlope: .466666698
         tangentMode: 10
       - time: .383333325
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: .140000001
+        inSlope: .466666698
+        outSlope: .466666698
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -843,13 +843,13 @@ AnimationClip:
       m_Curve:
       - time: .150000006
         value: .117647059
-        inSlope: 0
-        outSlope: 0
+        inSlope: -.105882354
+        outSlope: -.105882354
         tangentMode: 10
       - time: .316666663
-        value: .117647059
-        inSlope: 0
-        outSlope: 0
+        value: .100000001
+        inSlope: -.105882354
+        outSlope: -.105882354
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -862,13 +862,13 @@ AnimationClip:
       m_Curve:
       - time: .150000006
         value: .168627456
-        inSlope: 0
-        outSlope: 0
+        inSlope: -.411764741
+        outSlope: -.411764741
         tangentMode: 10
       - time: .316666663
-        value: .168627456
-        inSlope: 0
-        outSlope: 0
+        value: .100000001
+        inSlope: -.411764741
+        outSlope: -.411764741
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -881,13 +881,13 @@ AnimationClip:
       m_Curve:
       - time: .150000006
         value: .227450982
-        inSlope: 0
-        outSlope: 0
+        inSlope: -.524705946
+        outSlope: -.524705946
         tangentMode: 10
       - time: .316666663
-        value: .227450982
-        inSlope: 0
-        outSlope: 0
+        value: .140000001
+        inSlope: -.524705946
+        outSlope: -.524705946
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -1071,13 +1071,13 @@ AnimationClip:
       m_Curve:
       - time: .233333334
         value: 1
-        inSlope: 0
-        outSlope: 0
+        inSlope: -6
+        outSlope: -6
         tangentMode: 10
       - time: .383333325
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: .100000001
+        inSlope: -6
+        outSlope: -6
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -1090,13 +1090,13 @@ AnimationClip:
       m_Curve:
       - time: .233333334
         value: 1
-        inSlope: 0
-        outSlope: 0
+        inSlope: -6
+        outSlope: -6
         tangentMode: 10
       - time: .383333325
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: .100000001
+        inSlope: -6
+        outSlope: -6
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -1109,13 +1109,13 @@ AnimationClip:
       m_Curve:
       - time: .233333334
         value: 1
-        inSlope: 0
-        outSlope: 0
+        inSlope: -5.73333359
+        outSlope: -5.73333359
         tangentMode: 10
       - time: .383333325
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: .140000001
+        inSlope: -5.73333359
+        outSlope: -5.73333359
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -1128,13 +1128,13 @@ AnimationClip:
       m_Curve:
       - time: .233333334
         value: 0
-        inSlope: 6.66666698
-        outSlope: 6.66666698
+        inSlope: 4.66666698
+        outSlope: 4.66666698
         tangentMode: 10
       - time: .383333325
-        value: 1
-        inSlope: 6.66666698
-        outSlope: 6.66666698
+        value: .699999988
+        inSlope: 4.66666698
+        outSlope: 4.66666698
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2

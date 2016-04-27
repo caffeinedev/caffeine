@@ -154,7 +154,7 @@ Material:
       data:
         first:
           name: _Tint
-        second: {r: .83088237, g: .609678924, b: .37267518, a: 1}
+        second: {r: .838235259, g: .534991324, b: .302011222, a: 1}
       data:
         first:
           name: _GlossColor

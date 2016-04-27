@@ -51,7 +51,7 @@ public class SteeperController : MonoBehaviour
 	private Rigidbody rigidBody;
 	private Collider collider;
 	private Animator anim;
-	private GameManager control;
+	public GameManager control;
 	private float groundedTimer;
 	private float slope;
 	private Quaternion screenSpace;
@@ -265,11 +265,15 @@ public class SteeperController : MonoBehaviour
 	private void ThrowCalculations () {
 		if (carryingDrink) {
 			control.uiLabels[3].text = "Throw";
+			control.uiLabels[2].text = "Drop";
 			if(anchor.transform.childCount > 1) {
 				Destroy(anchor.transform.GetChild(1)); //if youre carrying more than one thing
 			}
 			if(Input.GetButtonDown("Square")) {
 				Throw(gameObject.transform.forward, throwStrength);
+			}
+			if(Input.GetButtonDown("Triangle")) {
+				Throw(gameObject.transform.forward, 400);
 			}
 		}
 	}

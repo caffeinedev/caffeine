@@ -158,4 +158,4 @@ Material:
       data:
         first:
           name: _GlossColor
-        second: {r: .514807224, g: .235294104, b: 1, a: 1}
+        second: {r: 0, g: 0, b: 0, a: 1}

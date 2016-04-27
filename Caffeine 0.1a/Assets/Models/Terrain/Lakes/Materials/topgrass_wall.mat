@@ -190,7 +190,7 @@ Material:
       data:
         first:
           name: _Tint
-        second: {r: .442798465, g: .448013395, b: .463235319, a: 1}
+        second: {r: .53725493, g: .603921592, b: .647058845, a: 1}
       data:
         first:
           name: _node_1904
@@ -205,13 +205,13 @@ Material:
         second: {r: .743674278, g: .890552998, b: .963235319, a: 1}
       data:
         first:
-          name: _ShadowColor
-        second: {r: .491998285, g: .725540042, b: .95588237, a: 1}
-      data:
-        first:
           name: _node_8066
         second: {r: .0823260769, g: .0955882072, b: .0449826829, a: 1}
       data:
         first:
           name: _node_2107
         second: {r: .391719311, g: .823529422, b: .2543253, a: 1}
+      data:
+        first:
+          name: _ShadowColor
+        second: {r: .491998285, g: .725540042, b: .95588237, a: 1}

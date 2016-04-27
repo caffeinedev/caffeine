@@ -226,16 +226,16 @@ Material:
         second: {r: .743674278, g: .890552998, b: .963235319, a: 1}
       data:
         first:
-          name: _ShadowColor
-        second: {r: .523086071, g: .666856647, b: .948529422, a: 1}
-      data:
-        first:
           name: _node_8066
         second: {r: .970588207, g: .314013839, b: .327598035, a: 1}
       data:
         first:
           name: _node_2107
         second: {r: .620588243, g: 1, b: .360294104, a: 1}
+      data:
+        first:
+          name: _ShadowColor
+        second: {r: .639705896, g: .836004078, b: 1, a: 1}
       data:
         first:
           name: _node_9523

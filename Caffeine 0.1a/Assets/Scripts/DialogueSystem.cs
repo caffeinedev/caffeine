@@ -22,6 +22,8 @@ public class DialogueSystem : MonoBehaviour {
 	public AudioClip[] blips;
 	public AudioClip[] spaces;
 	public AudioClip excited, surprised, worried, shocked;
+	public AudioClip advanceText, activate;
+	public AudioClip dialogueFinished;
 	public float textSpeed = 0.03f;
 
 	bool isTyping = false;
@@ -120,7 +122,7 @@ public class DialogueSystem : MonoBehaviour {
 		nameText.text = "";
 	}
 
-	IEnumerator TypeText(string name, string[] textArray, moods moodnum){
+	public IEnumerator TypeText(string name, string[] textArray, moods moodnum){
 		
 		InitConversation (name, moodnum);
 		if (name == "")
@@ -131,7 +133,8 @@ public class DialogueSystem : MonoBehaviour {
 		foreach (string text in textArray) {
 			mainText.text = "";
 			nameBg.color = mood [(int)moodnum];
-			indicatorBg.color = mood [(int)moodnum];
+			//indicatorBg.color = mood [(int)moodnum];
+			indicatorBg.enabled = false;
 			//string text = textArray[s];
 		
 			for (int i=0; i<text.Length; i++) {
@@ -152,21 +155,25 @@ public class DialogueSystem : MonoBehaviour {
 				case " ":
 					mainText.text += text [i];
 					yield return new WaitForSeconds (textSpeed * 1.5f);
-					aud.clip = spaces [Random.Range (0, spaces.Length)];
-					aud.pitch = (Random.Range (0.9f, 1.1f));
-					aud.volume = (Random.Range (0.8f, 1f));
-					aud.Play ();
+					//aud.clip = spaces [Random.Range (0, spaces.Length)];
+					//aud.pitch = (Random.Range (0.9f, 1.1f));
+					//aud.volume = (Random.Range (0.8f, 1f));
+					//aud.Play ();
 					break;
 				case ".": case "!": case "?": case ",": case "~":
 					mainText.text += text [i];
 					yield return new WaitForSeconds (9f * textSpeed);
-					aud.clip = blips [Random.Range (0, blips.Length)];
-					aud.pitch = (Random.Range (0.9f, 1.1f));
-					aud.volume = (Random.Range (0.8f, 1f));
-					aud.Play ();
+					//aud.clip = blips [Random.Range (0, blips.Length)];
+					//aud.pitch = (Random.Range (0.5f, 0.7f));
+					//aud.volume = (Random.Range (0.8f, 1f));
+					//aud.Play ();
 					break;
 				case "¡":
 					manager.aud.PlayOneShot(shocked);
+					//aud.Play();
+					break;
+				case "`":
+					manager.aud.PlayOneShot(activate);
 					//aud.Play();
 					break;
 				case "_":
@@ -176,19 +183,22 @@ public class DialogueSystem : MonoBehaviour {
 					mainText.text += text [i];
 					yield return new WaitForSeconds (textSpeed);
 					aud.clip = blips [Random.Range (0, blips.Length)];
-					aud.pitch = (Random.Range (0.9f, 1.1f));
+					aud.pitch = (Random.Range (1.3f, 2f));
 					aud.volume = (Random.Range (0.8f, 1f));
 					aud.Play ();
 					break;
 				}
 
-
-
 			}
+
+			indicatorBg.enabled = true;
+
 			while (!Input.GetButtonUp("Jump")) 		
 				yield return null;
 		}
 		isTyping = false;
+		aud.pitch = 1;
+		aud.PlayOneShot (dialogueFinished);
 		EndConversation ();
 	}
 

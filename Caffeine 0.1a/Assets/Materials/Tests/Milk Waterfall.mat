@@ -173,8 +173,8 @@ Material:
       data:
         first:
           name: _node_965
-        second: {r: .867647052, g: .644355536, b: .851697743, a: 1}
+        second: {r: .933823526, g: .769031107, b: .840630531, a: 1}
       data:
         first:
           name: _FresnelTint2
-        second: {r: .867647052, g: .269269794, b: 0, a: 1}
+        second: {r: .91911763, g: .415746957, b: .189230114, a: 1}

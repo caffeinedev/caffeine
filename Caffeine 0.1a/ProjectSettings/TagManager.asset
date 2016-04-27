@@ -23,6 +23,7 @@ TagManager:
   - carpet
   - tile
   - LoadingZone
+  - coffeedrop
   layers:
   - Default
   - TransparentFX
@@ -34,7 +35,7 @@ TagManager:
   - 
   - Chatty
   - Load
-  - 
+  - Special
   - 
   - 
   - 
